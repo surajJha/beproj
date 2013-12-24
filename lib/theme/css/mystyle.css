@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24 Dec, 2013, 3:43:42 PM
+    Author     : suraj
+*/
+h1{
+    font-size: 120px;
+    color: #FCF7F7;
+    height: 200px;
+    font:  sans-serif ;
+}
+
+body{
+    background-color: #1F1F1F;
+}
+.company{
+    color: #FCF7F7;
+}
