@@ -83,10 +83,23 @@ body{
     border-color: #000;
   }
   .form-signin-heading {
-    color: #D14;
+    color:#ffffff;
     text-align: center;
     text-shadow: 0 2px 2px rgba(0,0.5,0,0.5);
     font-family: sans-serif;
     font-size: 150px;
+    
+       
+        position: relative;  
+        font-size: 160px;  
+        margin-top: 0;  
+        font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;  
+        text-shadow: 2px 3px 3px #292929;  
+        letter-spacing: -7px;  
+        -webkit-text-stroke: 1px white;  
+      
+      
+      
+      
     
   }
