@@ -46,7 +46,7 @@ body{padding-top:20px;}
 <div class="container">
 
   <form class="form-signin" method="post" action = "../controller/login.php">
-    <h1 class="form-signin-heading text-muted"><b> Comperio</b>   </h1>
+    <h1 class="form-signin-heading text-muted"><b>HexaGraph</b>   </h1>
     <input type="text" class="form-control" placeholder="Username" name="username" required="" autofocus="">
     <hr>
     <input type="password" class="form-control" placeholder="Password" name="password" required=""><hr>
