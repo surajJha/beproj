@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../model/database.php");
 
 echo "woo";
@@ -8,17 +9,27 @@ $password = $_POST["password"];
 
 //$hash_password=null;
 
-$query="SELECT * FROM user WHERE username = '".$username."' and password='".$password."'";
+$query="SELECT * FROM user ";
 $result=mysqli_query($connection, $query);
-
-if(is_null($result))
-{
-    //echo "Login not successful";
-    
-    //redirect to homepage with error
-}
- else {
-    //redirect to new page 
-}
- 
+$row = mysqli_fetch_assoc($result);
+//var_dump($row);
 ?>
+
+ <?php  
+ 
+ 
+ $_SESSION["username"] = "SURAJ KUMAR JHA";
+ $_SESSION["userid"] = $row["user_id"];
+ $_SESSION["start_time"] = time();
+         
+         ?>  
+<pre>
+   <?php print_r($row);
+   echo $row["user_id"];
+   print_r($_SESSION);
+   ?> 
+
+</pre>
+
+ 
+<a href="../view/contact.php">CMON CLICK ME</a>

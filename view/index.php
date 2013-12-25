@@ -48,8 +48,8 @@ body{padding-top:20px;}
   <form class="form-signin" method="post" action = "../controller/login.php">
     <h1 class="form-signin-heading text-muted"><b> Comperio</b>   </h1>
     <input type="text" class="form-control" placeholder="Username" name="username" required="" autofocus="">
-
-    <input type="password" class="form-control" placeholder="Password" name="password" required="">
+    <hr>
+    <input type="password" class="form-control" placeholder="Password" name="password" required=""><hr>
     <button class="btn btn-lg btn-primary btn-block" type="submit">
       Sign In
     </button>
