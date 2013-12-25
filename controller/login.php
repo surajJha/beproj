@@ -1,14 +1,24 @@
 <?php
 require_once("../model/database.php");
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-//$username = $_POST["username"];
-//$password = $_POST["password"];
+echo "woo";
 
-//$query = " "
-print_r($_POST);
+$username = $_POST["username"];
+$password = $_POST["password"];
 
+//$hash_password=null;
+
+$query="SELECT * FROM user WHERE username = '".$username."' and password='".$password."'";
+$result=mysqli_query($connection, $query);
+
+if(is_null($result))
+{
+    //echo "Login not successful";
+    
+    //redirect to homepage with error
+}
+ else {
+    //redirect to new page 
+}
+ 
+?>
