@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Comperio</title>
+    <title> HexaGraph   </title>
 
     <!-- Bootstrap core CSS -->
     <link href="../lib/theme/css/bootstrap.css" rel="stylesheet">
@@ -21,10 +21,10 @@
    <!-- PAGE TITLE GOES HERE ************************************ -->
    <div class="container">
     <div class="row clearfix">
-      <div class="col-md-12 column">
+      <div class="col-md-10 column">
         <h1 class="text-center">
           <EM><b><i>
-        Comperio   
+        HexaGraph   
         </i></b></EM> 
         </h1>
       </div>
