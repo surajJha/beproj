@@ -5,11 +5,11 @@ require_once("../model/database.php");
 require_once ("functions.php");
 
 //username and password from login form 
-$username = $_POST["username"];
+$user_id = $_POST["username"];
 $password = $_POST["password"];
 
 //extract existing hash from database
-$query = "SELECT * FROM user WHERE user_id='{$username}'";
+$query = "SELECT * FROM user WHERE user_id='{$user_id}'";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 $existing_hash = $row["password"];
@@ -17,20 +17,26 @@ $existing_hash = $row["password"];
 //checking if password matches existing hash and redirect accordingly
 if (password_check($password, $existing_hash))
 {
-    //tors -> teacher or student
-    //$tors=$row["tors"];
-    
     //login successful
-    if($username === "admin")
+   
+    // saving session data for further use
+    $_SESSION['user_id'] = $user_id;
+    
+    //$type -> teacher or student
+    $type=$row["type"];
+    
+    if($user_id === "admin")
     {
         //header("Location:http://../adminpage.php");
     }
-    else if (1)
+    else if ($type === "1")
     {
+        
         //header("Location: teacher");
     }
-    else 
+    else if($type==="0")
         {
+        
         //header("Location: student");
     }
 } 
@@ -40,4 +46,5 @@ else
 
     header("Location:http://localhost/beproj/view/index.php");
 }
+//echo "WELCOME {$_SESSION['user_id']}";
 ?>
