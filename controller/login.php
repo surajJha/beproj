@@ -13,6 +13,7 @@ $query="SELECT * FROM user ";
 $result=mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 //var_dump($row);
+
 ?>
 
 $hash = password_encrypt($password);
