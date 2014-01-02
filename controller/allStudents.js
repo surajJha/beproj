@@ -9,7 +9,7 @@ $(document).ready(function(){
     $('#overview').click(function(){
       
  $.ajax({
-      url: "../controller/allStudents.php",
+      url: "../model/allStudents.php",
       type: "POST",     //must be capital letters
       data:"{}",        // send request data to php file
   datatype: 'json',
