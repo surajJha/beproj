@@ -32,7 +32,7 @@ if (password_check($password, $existing_hash))
     else if ($type === "1")
     {
         
-        //header("Location: teacher");
+        header("Location:http://localhost/beproj/view/teacherview.php");
     }
     else if($type==="0")
         {
