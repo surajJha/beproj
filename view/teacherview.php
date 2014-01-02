@@ -17,6 +17,9 @@
         <link href="../lib/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="../lib/theme/css/mystyle.css" rel="stylesheet"> -->
         <link href="../lib/theme/css/sidebar.css" rel="stylesheet">
+         <link href="../lib/theme/css/allStudents.css" rel="stylesheet">
+       
+         
     </head>
 
     <body >
@@ -66,21 +69,27 @@
                 <div class="col-sm-9 col-sm-offset-3 main">
                     <h1 class="page-header">EXTRATED STUDENT DATA</h1>
                     <div id ="result">
+                        <table id ="mytable" class="table table-striped table-bordered table-condensed">
+                            
+                        </table>
                         
+                      
                     </div>
 
                   
                  </div>
 
         <!-- ********************************************************************-->
-        <?php include('footer.php'); ?>
+       <!-- <?php //include('footer.php'); ?>  -->
 
         <!-- JavaScript -->
         <script src="../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../lib/theme/js/bootstrap.js"></script>
         <script src="../lib/theme/js/modern-business.js"></script>
         <script src="../lib/theme/docs-assets/js/holder.js"></script>
-        <script src="allStudents.js"></script>
+      
+     
+       
 
     </body>
 </html>
