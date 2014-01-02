@@ -14,6 +14,7 @@ while ($row =  mysqli_fetch_assoc($result)){
     //print result
     $returned_data[] = $row;
 }
- $final_result = json_encode($returned_data);
-// echo $final_result;
+ echo json_encode($returned_data);
+//echo " suraj kumar";
+ 
  
