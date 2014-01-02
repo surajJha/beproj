@@ -5,7 +5,7 @@ header('Content-Type: application/json');
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-require_once("../model/database.php");
+require_once("database.php");
  $query = "SELECT * FROM user limit 20";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
