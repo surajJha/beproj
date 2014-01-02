@@ -17,8 +17,8 @@
         <link href="../lib/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="../lib/theme/css/mystyle.css" rel="stylesheet"> -->
         <link href="../lib/theme/css/sidebar.css" rel="stylesheet">
-         <link href="../lib/theme/css/allStudents.css" rel="stylesheet">
        
+     
          
     </head>
 
@@ -67,7 +67,7 @@
                 
                 
                 <div class="col-sm-9 col-sm-offset-3 main">
-                    <h1 class="page-header">EXTRATED STUDENT DATA</h1>
+                    <h1 class="page-header"><strong>EXTRATED STUDENT DATA</strong></h1>
                     <div id ="result">
                         <table id ="mytable" class="table table-striped table-bordered table-condensed">
                             
@@ -87,6 +87,8 @@
         <script src="../lib/theme/js/bootstrap.js"></script>
         <script src="../lib/theme/js/modern-business.js"></script>
         <script src="../lib/theme/docs-assets/js/holder.js"></script>
+        <script src="../model/allStudents.js"></script>
+        
       
      
        
