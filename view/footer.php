@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<div class="navbar navbar-default navbar-fixed-bottom">
+<div class="navbar navbar-default">
     <div class="container">
         <p class="navbar-text">This is the footer.</p>
         <ul class="nav navbar-nav navbar-right">
