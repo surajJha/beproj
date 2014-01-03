@@ -8,6 +8,8 @@
     <body>
         
         <?php session_start(); ?>
+        
+        <!-- ***************** QUESTION FORM ELEMENTS CODE GOES HERE, this DIV to be sent viaa AJAX*****************************************************************-->
         <div class="container" id="view_question_form">
 
             <form role="form" action="../model/display_questions.php" method="post" class="form-horizontal" >
@@ -53,19 +55,98 @@
                     </div>
                 </div> 
             </form>
+              <!--*******************************************************************-->
        
+              
+              
+              
          <!-- ******* GRID ROW FOR ADD QUESTION BUTTON GROUP**********-->
          <div class="row" >
              <div class="col-lg-offset-2" style="padding-top: 20px">
                  <h3>Add a new question in the question bank</h3>
-                 
-                 <a href="../bootstrap/remote.html" role="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">MCQ</a>
-                  <a href="../bootstrap/remote.html" role="button" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#myModal">Subjective</a>
-                   <a href="../bootstrap/remote.html" role="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal">Numeric</a>
-                    <a href="../bootstrap/remote.html" role="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">True/False</a>
-                   </div>
-                  </div>       
-          </div>       
+                 <!-- anchor buttons to activate specific modals *********** -->
+                 <a href="#mcqModal" role="button" class="btn btn-lg btn-primary" data-toggle="modal">MCQ</a>
+                 <a href="#subjectiveModal" role="button" class="btn btn-lg btn-warning" data-toggle="modal" >Subjective</a>
+                 <a href="#numericModal" role="button" class="btn btn-lg btn-danger" data-toggle="modal">Numeric</a>
+                 <a href="#tfModal" role="button" class="btn btn-lg btn-success" data-toggle="modal">True/False</a>
+             </div>
+         </div>   
+           
+        <!-- ************** ALL MODAL CODE GOES HERE to be sent with AJAX to new PAGE***************************************-->
+       
+         <!-- ******* MCQ MODAL********-->
+        <div class="modal fade" id="mcqModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4> Add an MCQ type question.</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                        
+                </div>
+            </div>
+            
+        </div>
+        <!--*****************************-->
+        
+        <!-- ******* SUBJECTIVE MODAL********-->
+        <div class="modal fade" id="subjectiveModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4> Add a Subjective type question.</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                        
+                </div>
+            </div>
+            
+        </div>
+        <!--*****************************-->
+        
+        <!-- ******* NUMERIC MODAL********-->
+        <div class="modal fade" id="numericModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4> Add a Numeric type question.</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                        
+                </div>
+            </div>
+            
+        </div>
+        <!--*****************************-->
+        
+        <!-- *******true false MODAL********-->
+        <div class="modal fade" id="tfModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4> Add an TRUE/FALSE type question.</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                        
+                </div>
+            </div>
+            
+        </div>
+        <!--*****************************-->
+          
+        </div>   <!--*********END OF DIV TO BE SENT VIA AJAX*****************************************************-->
+        
+        
+        
+     
 
         <script src="../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../lib/theme/js/bootstrap.js"></script>
