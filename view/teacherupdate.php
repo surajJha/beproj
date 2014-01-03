@@ -8,9 +8,9 @@
     <body>
         
         <?php session_start(); ?>
-        <div class="container">
+        <div class="container" id="view_question_form">
 
-            <form role="form" action="../model/display_questions.php" method="post" class="form-horizontal" id="view_question_form">
+            <form role="form" action="../model/display_questions.php" method="post" class="form-horizontal" >
                 <div class="row">
 
                     <div class="col-lg-2">
@@ -51,9 +51,22 @@
                     <div class="col-lg-2" style="padding-top: 27px">
                         <button id="go" type="submit" class="btn btn-primary">Go!</button>
                     </div>
-                </div>
+                </div> 
             </form>
-        </div>
+       
+         <!-- ******* GRID ROW FOR ADD QUESTION BUTTON GROUP**********-->
+         <div class="row" >
+             <div class="col-lg-offset-2" style="padding-top: 20px">
+                 <h3>Add a new question in the question bank</h3>
+                 
+                         <button type="button" class="btn btn-danger btn-lg s">MCQ</button> 
+                         <button type="button" class="btn btn-primary btn-lg">Subjective</button> 
+                         <button type="button" class="btn  btn-warning btn-lg">Numeric</button> 
+                         <button type="button" class="btn btn-success btn-lg">True/False</button> 
+                    
+                   </div>
+                  </div>       
+          </div>       
 
         <script src="../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../lib/theme/js/bootstrap.js"></script>
