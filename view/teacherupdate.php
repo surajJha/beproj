@@ -78,13 +78,80 @@
         <div class="modal fade" id="mcqModal" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <form class="form-horizontal">
                     <div class="modal-header">
                         <h4> Add an MCQ type question.</h4>
                     </div>
                     <div class="modal-body">
+                        <div class="form-group">
+                            <label for="class_mcqModal" class="col-lg-4 control-label"> Class:</label>
+                            <div class="col-lg-6">
+                                 <select  id="class_mcqModal" name="class_mcqModal" class="form-control">
+                                         <option>One</option>
+                                        <option>Two</option>
+                                        <option>Three</option>
+                                  </select>
+                            </div>
+                            
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="subject_mcqModal" class="col-lg-4 control-label"> Subject:</label>
+                            <div class="col-lg-6">
+                                 <select  id="subject_mcqModal" name="subject_mcqModal" class="form-control">
+                                         <option>One</option>
+                                        <option>Two</option>
+                                        <option>Three</option>
+                                  </select>
+                            </div>
+                            
+                        </div>
+                        
+                           <div class="form-group">
+                            <label for="topic_mcqModal" class="col-lg-4 control-label"> Topic:</label>
+                            <div class="col-lg-6">
+                                 <select  id="topic_mcqModal" name="topic_mcqModal" class="form-control">
+                                         <option>One</option>
+                                        <option>Two</option>
+                                        <option>Three</option>
+                                  </select>
+                            </div>
+                            
+                        </div>
+                        
+                           <div class="form-group">
+                            <label for="type_mcqModal" class="col-lg-4 control-label"> Type:</label>
+                            <div class="col-lg-6">
+                                 <select  id="type_mcqModal" name="type_mcqModal" class="form-control">
+                                         <option>One</option>
+                                        <option>Two</option>
+                                        <option>Three</option>
+                                  </select>
+                            </div>
+                            
+                        </div>
+                        
+                           <div class="form-group">
+                            <label for="level_mcqModal" class="col-lg-4 control-label"> Level:</label>
+                            <div class="col-lg-6">
+                                 <select  id="level_mcqModal" name="level_mcqModal" class="form-control">
+                                         <option>One</option>
+                                        <option>Two</option>
+                                        <option>Three</option>
+                                  </select>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                            
                         
                     </div>
                         
+                        
+                        
+                        
+                   </form>     
                 </div>
             </div>
             
