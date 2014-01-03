@@ -13,7 +13,10 @@ $(document).ready(function()
                 data: values,
                 success: function(data){
                     
-                    $("#forgot_login").html(data);
+                    
+                },
+                error:function(){
+                    
                 }
             });
         });
