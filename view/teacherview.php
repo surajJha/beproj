@@ -17,6 +17,7 @@
 
         <?php include('header.php'); ?>
 
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2 sidebar">
@@ -52,10 +53,37 @@
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
 
-                <div class="col-sm-9 col-sm-offset-3 main">
-                    <h1 class="page-header"><strong>EXTRATED STUDENT DATA</strong></h1>
+                <div class="col-sm-9 col-sm-offset-3 main" id="bigdiv">
+                    <h1 class="page-header"><strong>EXTRACTED STUDENT DATA</strong></h1>
+                    
+                    <?php
+                    session_start();
+                    require_once("../model/database.php");
+
+
+
+                    //saving all teacher attributes 
+                    // !!** add current year clause to query 
+                    $query = "SELECT t1.standard, t1.subject_name, q.topic_name, q.level, q.type
+                                FROM teaches_class_subject AS t1, question AS q
+                                WHERE t1.user_id = '{$_SESSION['user_id']}'
+                                AND t1.subject_name = q.subject_name
+                                AND t1.standard = q.standard";
+                    $result = mysqli_query($connection, $query);
+                    $_SESSION['teaches'] = array();
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+                        array_push($_SESSION['teaches'], $row);
+                    }
+                    //  print_r($_SESSION['teaches']);
+                   
+                    ?>
+
+
+
                     <!--to load the form through ajax -->
                     <div id ="myForm">
+                        
                     </div>
                     <!--to load the contents through ajax -->
                     <div id ="myContent">
@@ -64,7 +92,7 @@
 
                 <!-- ********************************************************************-->
 
-                <?php //include('footer.php'); ?>
+                <?php //include('footer.php');     ?>
 
                 <!-- JavaScript -->
                 <script src="../lib/theme/js/jquery-1.10.2.js"></script>
@@ -72,6 +100,7 @@
                 <script src="../lib/theme/js/modern-business.js"></script>
                 <script src="../lib/theme/docs-assets/js/holder.js"></script>
                 <script src="../controller/allStudents.js"></script>
+
                 <script src="../controller/teacherupdate.js"></script>
                 </body>
                 </html>
