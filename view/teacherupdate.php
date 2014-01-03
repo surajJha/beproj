@@ -59,11 +59,10 @@
              <div class="col-lg-offset-2" style="padding-top: 20px">
                  <h3>Add a new question in the question bank</h3>
                  
-                         <button type="button" class="btn btn-danger btn-lg s">MCQ</button> 
-                         <button type="button" class="btn btn-primary btn-lg">Subjective</button> 
-                         <button type="button" class="btn  btn-warning btn-lg">Numeric</button> 
-                         <button type="button" class="btn btn-success btn-lg">True/False</button> 
-                    
+                 <a href="../bootstrap/remote.html" role="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">MCQ</a>
+                  <a href="../bootstrap/remote.html" role="button" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#myModal">Subjective</a>
+                   <a href="../bootstrap/remote.html" role="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal">Numeric</a>
+                    <a href="../bootstrap/remote.html" role="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">True/False</a>
                    </div>
                   </div>       
           </div>       
