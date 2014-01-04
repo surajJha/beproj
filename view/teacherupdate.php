@@ -17,7 +17,7 @@
 
                     <div class="col-lg-2">
                         <label class="control-label" for="class2">Class</label>
-                        <select  id="class2" name="class2" class="form-control">
+                        <select  id="class2" name="class2" onchange="myFunction()" class="form-control">
                             <!-- dynamically display options through AJAX -->
                         </select>
                     </div>
@@ -328,14 +328,13 @@
                     </div>
                 </div>
 
+                <script src="../controller/subject.js"></script>
             </div>
             <!--*****************************-->
 
+
+
         </div>   <!--*********END OF DIV TO BE SENT VIA AJAX*****************************************************-->
-
-
-
-
 
 
         <script src="../lib/theme/js/jquery-1.10.2.js"></script>
@@ -343,9 +342,8 @@
         <script src="../lib/theme/js/modern-business.js"></script>
         <script src="../lib/theme/docs-assets/js/holder.js"></script>
 
-
-
-
+        
+        
     </body>
 
 </html>
