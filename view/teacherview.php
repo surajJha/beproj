@@ -55,7 +55,7 @@
 
                 <div class="col-sm-9 col-sm-offset-3 main" id="bigdiv">
                     <h1 class="page-header"><strong>QUESTION BANK</strong></h1>
-                    
+
                     <?php
                     session_start();
                     require_once("../model/database.php");
@@ -76,14 +76,13 @@
                         array_push($_SESSION['teaches'], $row);
                     }
                     //  print_r($_SESSION['teaches']);
-                   
                     ?>
 
 
 
                     <!--to load the form through ajax -->
                     <div id ="myForm">
-                        
+
                     </div>
                     <!--to load the contents through ajax -->
                     <div id ="myContent">
@@ -92,7 +91,7 @@
 
                 <!-- ********************************************************************-->
 
-                <?php //include('footer.php');     ?>
+                <!-- include footer -->
 
                 <!-- JavaScript -->
                 <script src="../lib/theme/js/jquery-1.10.2.js"></script>
