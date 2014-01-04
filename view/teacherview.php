@@ -54,7 +54,7 @@
 
 
                 <div class="col-sm-9 col-sm-offset-3 main" id="bigdiv">
-                    <h1 class="page-header"><strong>EXTRACTED STUDENT DATA</strong></h1>
+                    <h1 class="page-header"><strong>QUESTION BANK</strong></h1>
                     
                     <?php
                     session_start();
