@@ -2,25 +2,21 @@
 $(document).ready(function()
 {
     $("#question_bank").click(function() {
-
+        //on click will load form with dropdowns
         $("#myForm").load("../view/teacherupdate.php #view_question_form",function(){
-            
-            $.getJSON("../model/teacher_update_options.php",{
-                id: $(this).val(), 
+            // and will populate class select
+            $.getJSON("../model/options/class.php",{
+                standard: $(this).val(), 
                 ajax: 'true'
-            }, function(j){ 
-                var tr;
+            }, function(j){
+                var options = '';
                 for (var i = 0; i < j.length; i++) {
-                    tr += '<option value="'+j[i]+'">'+j[i]+'</option>';
+                    options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
                 }
-                $("select#class2").html(tr);
-            });
-            
+                $("select#class2").html(options);
+            })  
         });
-        
     });
-
+    
 });
-
-
-
+ 

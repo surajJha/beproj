@@ -94,6 +94,7 @@
                 <!-- include footer -->
 
                 <!-- JavaScript -->
+                                
                 <script src="../lib/theme/js/jquery-1.10.2.js"></script>
                 <script src="../lib/theme/js/bootstrap.js"></script>
                 <script src="../lib/theme/js/modern-business.js"></script>
