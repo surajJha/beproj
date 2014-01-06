@@ -53,10 +53,7 @@
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
 
-                <div class="col-sm-9 col-sm-offset-3 main" id="bigdiv">
-                    <h1 class="page-header"><strong>QUESTION BANK</strong></h1>
-
-                    
+                <div class="col-sm-9 col-sm-offset-3 main" id="bigdiv">             
 
                     <!--to load the form through ajax -->
                     <div id ="myForm">
@@ -64,6 +61,7 @@
                     </div>
                     <!--to load the contents through ajax -->
                     <div id ="myContent">
+                        
                     </div>
                 </div>
 
