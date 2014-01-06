@@ -12,7 +12,7 @@
 
         <!-- ***************** QUESTION FORM ELEMENTS CODE GOES HERE, this DIV to be sent viaa AJAX*****************************************************************-->
         <div class="container" id="view_question_form">
-
+            <h4>Select the parameters to view Question Bank!</h4>
             <form role="form" action="../model/display_questions.php" method="post" class="form-horizontal" >
                 <div class="row">
 
@@ -60,8 +60,8 @@
 
             <!-- ******* GRID ROW FOR ADD QUESTION BUTTON GROUP**********-->
             <div class="row" >
-                <div class="col-lg-offset-2" style="padding-top: 20px">
-                    <h3>Add a new question in the question bank</h3>
+                <div  style="padding-top: 20px">
+                    <h4>Add a new question to the Question Bank</h4>
                     <!-- anchor buttons to activate specific modals *********** -->
                     <a href="#mcqModal" role="button" class="btn btn-lg btn-primary" data-toggle="modal">MCQ</a>
                     <a href="#subjectiveModal" role="button" class="btn btn-lg btn-warning" data-toggle="modal" >Subjective</a>
