@@ -63,7 +63,7 @@
                 <div class="col-lg-offset-2" style="padding-top: 20px">
                     <h3>Add a new question in the question bank</h3>
                     <!-- anchor buttons to activate specific modals *********** -->
-                    <a href="#mcqModal" role="button" class="btn btn-lg btn-primary" data-toggle="modal">MCQ</a>
+                    <a href="#mcqModal" role="button" class="btn btn-lg btn-primary" data-toggle="modal"">MCQ</a>
                     <a href="#subjectiveModal" role="button" class="btn btn-lg btn-warning" data-toggle="modal" >Subjective</a>
                     <a href="#numericModal" role="button" class="btn btn-lg btn-danger" data-toggle="modal">Numeric</a>
                     <a href="#tfModal" role="button" class="btn btn-lg btn-success" data-toggle="modal">True/False</a>
