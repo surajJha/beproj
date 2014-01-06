@@ -17,8 +17,8 @@
                 <div class="row">
 
                     <div class="col-lg-2">
-                        <label class="control-label" for="class2">Class</label>
-                        <select  id="class2" name="class2" class="form-control">
+                        <label class="control-label" for="standard">Standard</label>
+                        <select  id="standard" name="standard" class="form-control">
                             <!-- dynamically display options through AJAX -->
                         </select>
                     </div>

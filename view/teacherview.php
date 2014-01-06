@@ -56,29 +56,7 @@
                 <div class="col-sm-9 col-sm-offset-3 main" id="bigdiv">
                     <h1 class="page-header"><strong>QUESTION BANK</strong></h1>
 
-                    <?php
-                    session_start();
-                    require_once("../model/database.php");
-
-
-
-                    //saving all teacher attributes 
-                    // !!** add current year clause to query 
-                    $query = "SELECT t1.standard, t1.subject_name, q.topic_name, q.level, q.type
-                                FROM teaches_class_subject AS t1, question AS q
-                                WHERE t1.user_id = '{$_SESSION['user_id']}'
-                                AND t1.subject_name = q.subject_name
-                                AND t1.standard = q.standard";
-                    $result = mysqli_query($connection, $query);
-                    $_SESSION['teaches'] = array();
-                    while ($row = mysqli_fetch_assoc($result)) {
-
-                        array_push($_SESSION['teaches'], $row);
-                    }
-                    //  print_r($_SESSION['teaches']);
-                    ?>
-
-
+                    
 
                     <!--to load the form through ajax -->
                     <div id ="myForm">
@@ -99,6 +77,10 @@
                 <script src="../lib/theme/js/bootstrap.js"></script>
                 <script src="../lib/theme/js/modern-business.js"></script>
                 <script src="../lib/theme/docs-assets/js/holder.js"></script>
+
+                <script src="../controller/allStudents.js"></script>
+              <!-- <script src="../controller/mcqModal.js"></script>  -->
+
                 <script src="../controller/teacherupdate.js"></script>
                 
                 </body>
