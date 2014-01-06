@@ -3,7 +3,7 @@ $(document).ready(function()
 {
     $("#question_bank").click(function() {
         var model_type = '';
-        $("#myForm").load("../view/teacherupdate.php #view_question_form", function() {
+        $("#myForm").load("../view/teacherupdate.php #view_add_question", function() {
 
             //**********FUNCTION FOR SUBMITTING MCQ MODAL*************
             $("button#submit_mcqModal").click(function(e) {
@@ -289,7 +289,40 @@ $(document).ready(function()
                     }
                 });         
             });
-        //*********************************************************************************************
+            //*********************************************************************************
+            
+            //************FUNCTION TO SUBMIT QUERY AND EXTRACT QUESTIONS FROM DATABASE*********
+            
+            
+            $("#go_button").click(function() {
+                var values=$("#view_questions").serialize();
+
+                $.ajax({
+                    type:'POST',
+                    url:'../model/display_questions.php',
+                    data:values,
+                    cache:false,
+                    success:function(data) {
+                        
+                        var t="<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
+                            t+="<thead><tr> <th>Question Id</th> <th>Type</th> <th>Level</th> <th>Description</th> <th>Update/Delete</th> </tr></thead>";
+                        for (var i = 0; i < data.length; i++) {
+                            t+="<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td>idhar ek button aayega</td>";
+                        }
+                        t+="</table></div>";
+                        $("#myContent").html(t);
+                    },
+                    error:function(){
+                        var e="<p style=\"color:blue\">Sorry! There are no questions matching your request!</p>";
+                    }
+                    
+                });
+                
+                return false;
+            
+            });
+
+            //*********************************************************************************************
             
         });
     });

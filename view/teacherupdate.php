@@ -3,7 +3,7 @@
     <head>
         <link href="../lib/theme/css/bootstrap.css" rel="stylesheet">   
         <link href="../lib/theme/css/bootstrap-responsive.min.css" rel="stylesheet">  
-       
+
     </head>   
 
     <body>
@@ -11,9 +11,9 @@
         <?php session_start(); ?>
 
         <!-- ***************** QUESTION FORM ELEMENTS CODE GOES HERE, this DIV to be sent viaa AJAX*****************************************************************-->
-        <div class="container" id="view_question_form">
+        <div class="container" id="view_add_question">
             <h4>Select the parameters to view Question Bank!</h4>
-            <form role="form" action="../model/display_questions.php" method="post" class="form-horizontal" >
+            <form role="form" id="view_questions" action="../model/display_questions.php" method="post" class="form-horizontal" >
                 <div class="row">
 
                     <div class="col-lg-2">
@@ -52,12 +52,12 @@
                     </div>
 
                     <div class="col-lg-2" style="padding-top: 27px">
-                        <button id="go" type="submit" class="btn btn-primary">Go!</button>
+                        <button id="go_button" type="submit" class="btn btn-primary">Go!</button>
                     </div>
                 </div> 
             </form>
             <!--****************************************************************************************************-->
-
+            <hr/>
             <!-- ******* GRID ROW FOR ADD QUESTION BUTTON GROUP**********-->
             <div class="row" >
                 <div  style="padding-top: 20px">
@@ -76,13 +76,13 @@
             <div class="modal fade  " id="mcqModal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                           
+
                         <div class="modal-header">
                             <h4> Add an MCQ type question.</h4>
                         </div>
                         <form class="form-horizontal"  type="post" id="mcqModalForm" >
                             <div class="modal-body"> 
-                              
+
 
                                 <div class="form-group">
                                     <label for="standard" class="col-lg-4 control-label"> Standard:</label>
@@ -189,25 +189,25 @@
 
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
 
-           
-            
+
+
 
             <!-- ******* SUBJECTIVE MODAL*******************************************************-->
             <div class="modal fade  " id="subjectiveModal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                           
+
                         <div class="modal-header">
                             <h4> Add a Subjective type question.</h4>
                         </div>
                         <form class="form-horizontal"  type="post" id="subjectiveModalForm" >
                             <div class="modal-body"> 
-                              
+
 
                                 <div class="form-group">
                                     <label for="standard" class="col-lg-4 control-label"> Standard:</label>
@@ -272,14 +272,14 @@
                                     </div>
                                 </div>
 
-                              <div class="form-group">
+                                <div class="form-group">
                                     <label for="keyword_subjectModal" class="col-lg-4 control-label"> Keywords:</label>
                                     <div class="col-lg-6">
                                         <textarea class="form-control" rows="6" cols="10" id="keyword_mcqModal" name="keyword_mcqModal"></textarea>
                                     </div>
                                 </div>
 
-                             
+
                                 <div class="modal-footer">
                                     <button class="btn btn-primary" type="submit"  id="submit_subjectiveModal" >SUBMIT</button>
                                     <a class="btn btn-danger" data-dismiss="modal">CLOSE</a>
@@ -287,27 +287,27 @@
 
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
 
-           
-            
+
+
             <!--*****************************-->
 
 
             <!-- ******* NUMERIC MODAL**********************************************************-->
-             <div class="modal fade  " id="numericModal" role="dialog">
+            <div class="modal fade  " id="numericModal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                           
+
                         <div class="modal-header">
                             <h4> Add a Numeric type question.</h4>
                         </div>
                         <form class="form-horizontal"  type="post" id="numericModalForm" >
                             <div class="modal-body"> 
-                              
+
 
                                 <div class="form-group">
                                     <label for="standard" class="col-lg-4 control-label"> Standard:</label>
@@ -372,7 +372,7 @@
                                     </div>
                                 </div>
 
-                               
+
                                 <div class="form-group">
                                     <label for="answer_numericModal" class="col-lg-4 control-label"> Answer:</label>
                                     <div class="col-lg-6">
@@ -387,25 +387,25 @@
 
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
 
-           
+
             <!--**********************************************************************************-->
 
             <!-- *******true false MODAL****************************************************************-->
-             <div class="modal fade  " id="tfModal" role="dialog">
+            <div class="modal fade  " id="tfModal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                           
+
                         <div class="modal-header">
                             <h4> Add a True/False type question.</h4>
                         </div>
                         <form class="form-horizontal"  type="post" id="tfModalForm" >
                             <div class="modal-body"> 
-                              
+
 
                                 <div class="form-group">
                                     <label for="standard" class="col-lg-4 control-label"> Standard:</label>
@@ -461,24 +461,24 @@
                                         </select>
                                     </div>
                                 </div>
-                                
-                                 <!-- text area -->
+
+                                <!-- text area -->
                                 <div class="form-group">
                                     <label for="question_tfModal" class="col-lg-4 control-label"> Question:</label>
                                     <div class="col-lg-6">
                                         <textarea class="form-control" rows="6" cols="10" id="question_tfModal" name="question_tfModal"></textarea>
                                     </div>
                                 </div>
-                                
+
                                 <!--******* ANSWER***********-->
 
-                                  <div class="form-group">
+                                <div class="form-group">
                                     <label for="level" class="col-lg-4 control-label"> Answer:</label>
                                     <div class="col-lg-6">
                                         <select  id="level" name="level" class="form-control">
                                             <option>True</option>
                                             <option>False</option>
-                                           
+
                                         </select>
                                     </div>
                                 </div>
@@ -490,7 +490,7 @@
 
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
@@ -510,8 +510,8 @@
 
 
 
-        
-        
+
+
     </body>
 
 </html>
