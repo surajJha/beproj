@@ -138,8 +138,6 @@ $(document).ready(function()
                     }
                 });
             });
-
-
             //*************************************************************
             //*******CODE FOR UPDATING FORM SELECT OPTIONS******ALL FUNCTIONS**************
                       
@@ -148,7 +146,7 @@ $(document).ready(function()
             $.ajax(
             {
                 type: 'GET',
-                url: '../model/options.php',
+                url: '../model/question_options.php',
                 data:{
                     field: f
                 },
@@ -177,7 +175,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/options.php',
+                    url: '../model/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val()
@@ -206,7 +204,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/options.php',
+                    url: '../model/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -236,7 +234,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/options.php',
+                    url: '../model/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -268,7 +266,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/options.php',
+                    url: '../model/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -293,13 +291,8 @@ $(document).ready(function()
             });
         //*********************************************************************************************
             
-
         });
-        
-        
-
     });
-
 });
 
 
