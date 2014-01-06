@@ -5,7 +5,8 @@ session_start();
 require_once("../model/database.php");
 require_once ("functions.php");
 
-
+print_r($_POST);
+print_r($_GET);
 //username and password from login form 
 $user_id = $_POST["username"];
 $password = $_POST["password"];
@@ -21,9 +22,15 @@ if (password_check($password, $existing_hash)) {
     //login successful
     // saving session data for further use
     $_SESSION['user_id'] = $user_id;
+    $sql = "SELECT fname from USER where user_id = '{$_SESSION["user_id"]}'";
+    $res = mysqli_query($connection, $result);
+    $temp = mysqli_fetch_assoc($res);
+    $_SESSION['fname'] = $temp['fname'];
+    
 
     //$type -> teacher or student
     $type = $row["type"];
+    echo $type;
 
     if ($user_id === "admin") {
         echo "Admin !";

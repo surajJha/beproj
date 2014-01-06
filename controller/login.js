@@ -12,7 +12,7 @@ $(document).ready(function()
                 type: "POST",
                 data: values,
                 success: function(data){
-                    
+                    alert(data);
                     
                 },
                 error:function(){

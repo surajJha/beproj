@@ -61,7 +61,7 @@
                     </div>
                     <!--to load the contents through ajax -->
                     <div id ="myContent">
-                        
+                       
                     </div>
                 </div>
 
