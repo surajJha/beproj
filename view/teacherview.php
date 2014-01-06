@@ -100,7 +100,7 @@
                 <script src="../lib/theme/js/modern-business.js"></script>
                 <script src="../lib/theme/docs-assets/js/holder.js"></script>
                 <script src="../controller/allStudents.js"></script>
-
+              <!-- <script src="../controller/mcqModal.js"></script>  -->
                 <script src="../controller/teacherupdate.js"></script>
                 </body>
                 </html>
