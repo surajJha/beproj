@@ -3,6 +3,7 @@
     <head>
         <link href="../lib/theme/css/bootstrap.css" rel="stylesheet">   
         <link href="../lib/theme/css/bootstrap-responsive.min.css" rel="stylesheet">  
+       
     </head>   
 
     <body>
@@ -17,7 +18,7 @@
 
                     <div class="col-lg-2">
                         <label class="control-label" for="class2">Class</label>
-                        <select  id="class2" name="class2" onchange="myFunction()" class="form-control">
+                        <select  id="class2" name="class2" class="form-control">
                             <!-- dynamically display options through AJAX -->
                         </select>
                     </div>
@@ -57,9 +58,6 @@
             </form>
             <!--*******************************************************************-->
 
-
-
-
             <!-- ******* GRID ROW FOR ADD QUESTION BUTTON GROUP**********-->
             <div class="row" >
                 <div class="col-lg-offset-2" style="padding-top: 20px">
@@ -75,15 +73,17 @@
             <!-- ************** ALL MODAL CODE GOES HERE to be sent with AJAX to new PAGE***************************************-->
 
             <!-- ******* MCQ MODAL********-->
-            <div class="modal fade " id="mcqModal" role="dialog">
+            <div class="modal fade  " id="mcqModal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
-
+                           
                         <div class="modal-header">
                             <h4> Add an MCQ type question.</h4>
                         </div>
-                        <div class="modal-body"> 
-                            <form class="form-horizontal" action="" type="post" >
+                        <form class="form-horizontal"  type="post" id="mcqModalForm" >
+                            <div class="modal-body"> 
+                              
+
                                 <div class="form-group">
                                     <label for="class_mcqModal" class="col-lg-4 control-label"> Class:</label>
                                     <div class="col-lg-6">
@@ -93,7 +93,6 @@
                                             <option>Three</option>
                                         </select>
                                     </div>
-
                                 </div>
 
                                 <div class="form-group">
@@ -105,7 +104,6 @@
                                             <option>Three</option>
                                         </select>
                                     </div>
-
                                 </div>
 
                                 <div class="form-group">
@@ -117,7 +115,6 @@
                                             <option>Three</option>
                                         </select>
                                     </div>
-
                                 </div>
 
                                 <div class="form-group">
@@ -129,7 +126,6 @@
                                             <option>Three</option>
                                         </select>
                                     </div>
-
                                 </div>
 
                                 <div class="form-group">
@@ -142,6 +138,7 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 <!-- text area -->
                                 <div class="form-group">
                                     <label for="question_mcqModal" class="col-lg-4 control-label"> Question:</label>
@@ -156,6 +153,7 @@
                                         <input class="text" id="option1_mcqModal" name="option1_mcqModal" class="form-control" placeholder="Option 1">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="option2_mcqModal" class="col-lg-4 control-label"> Option 2:</label>
                                     <div class="col-lg-6">
@@ -185,24 +183,19 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button class="btn btn-primary"   id="submit_mcqModal">SUBMIT</button>
+                                    <button class="btn btn-primary" type="submit"  id="submit_mcqModal" >SUBMIT</button>
                                     <a class="btn btn-danger" data-dismiss="modal">CLOSE</a>
-
                                 </div>
 
-
-                            </form>  
-                        </div>
-
-
-
-
-
+                            </div>
+                        </form>
+                        
                     </div>
                 </div>
-
             </div>
-            <!--*****************************-->
+
+            <!-- **********AJAX METHOD FOR MCQ FORM**********-->
+            
 
             <!-- ******* SUBJECTIVE MODAL********-->
             <div class="modal fade" id="mcqModal" role="dialog">
@@ -328,19 +321,22 @@
                     </div>
                 </div>
 
-                <script src="../controller/subject.js"></script>
             </div>
             <!--*****************************-->
 
-
-
         </div>   <!--*********END OF DIV TO BE SENT VIA AJAX*****************************************************-->
+
+
+
 
 
         <script src="../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../lib/theme/js/bootstrap.js"></script>
         <script src="../lib/theme/js/modern-business.js"></script>
         <script src="../lib/theme/docs-assets/js/holder.js"></script>
+
+
+
 
         
         
