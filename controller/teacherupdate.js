@@ -138,8 +138,6 @@ $(document).ready(function()
                     }
                 });
             });
-
-
             //*************************************************************
                       
             // will populate class select
@@ -147,7 +145,7 @@ $(document).ready(function()
             $.ajax(
             {
                 type: 'GET',
-                url: '../model/options.php',
+                url: '../model/question_options.php',
                 data:{
                     field: f
                 },
@@ -176,7 +174,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/options.php',
+                    url: '../model/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val()
@@ -205,7 +203,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/options.php',
+                    url: '../model/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -235,7 +233,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/options.php',
+                    url: '../model/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -267,7 +265,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/options.php',
+                    url: '../model/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -292,13 +290,8 @@ $(document).ready(function()
             });
         //********************************************************
             
-
         });
-        
-        
-
     });
-
 });
 
 
