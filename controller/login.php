@@ -42,7 +42,7 @@ if (password_check($password, $existing_hash)) {
         header("Location:http://localhost/beproj/view/admin/adminview.php");
     } else if ($type === "1") {
 
-          header("Location:http://localhost/beproj/view/teacher/teacherview.php");
+          header("Location:http://localhost/beproj/view/teacher/teacher_overview.php");
         
     } else if ($type === "0") {
         header("Location:http://localhost/beproj/view/student/studentview.php");

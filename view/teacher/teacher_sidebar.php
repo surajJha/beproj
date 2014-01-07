@@ -2,12 +2,12 @@
                 <div class="col-lg-2 sidebar">
                     <!-- Overview  -->
                     <ul class="nav nav-sidebar">
-                        <li class="active" ><a id="overview" href="#">Overview</a></li>
+                        <li class="active" ><a id="overview" href="teacher_overview.php">Overview</a></li>
                     </ul>
 
                     <!-- Functionality to manage question bank  -->
                     <ul class="nav nav-sidebar">
-                        <li><a href="teacherview.php" id="question_bank">View Question Bank</a></li>
+                        <li><a href="view_question_bank.php" id="question_bank">View Question Bank</a></li>
                         <li><a href="#">Add a Question</a></li>
                     </ul>
 
