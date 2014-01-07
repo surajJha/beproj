@@ -157,7 +157,7 @@ $(document).ready(function()
                         options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
                     }
                     
-                    $("#standard").html(options);
+                    $("select#standard").html(options);
                         
                 },
                 error: function()
@@ -169,7 +169,7 @@ $(document).ready(function()
             
             
             //will populate select field when standard changes
-            $("#standard").change(function(){
+            $("select#standard").change(function(){
                 
                 f='subject';
                 $.ajax(
@@ -186,7 +186,7 @@ $(document).ready(function()
                         for (var i = 0; i < j.length; i++) {
                             options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
                         }
-                        $("#subject").html(options);
+                        $("select#subject").html(options);
                         
                     },
                     error: function()

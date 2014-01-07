@@ -5,7 +5,6 @@ session_start();
 require_once("../model/database.php");
 require_once ("functions.php");
 
-
 //username and password from login form 
 $user_id = $_POST["username"];
 $password = $_POST["password"];
@@ -21,6 +20,7 @@ if (password_check($password, $existing_hash)) {
     //login successful
     // saving session data for further use
     $_SESSION['user_id'] = $user_id;
+    
 
     //$type -> teacher or student
     $type = $row["type"];
@@ -30,7 +30,7 @@ if (password_check($password, $existing_hash)) {
         //header("Location:http://../adminpage.php");
     } else if ($type === "1") {
 
-          header("Location:http://localhost/beproj/view/teacherview.php");
+        header("Location:http://localhost/beproj/view/teacherview.php");
         
     } else if ($type === "0") {
         echo "student !";
