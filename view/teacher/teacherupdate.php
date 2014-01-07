@@ -13,7 +13,7 @@
         <!-- ***************** QUESTION FORM ELEMENTS CODE GOES HERE, this DIV to be sent viaa AJAX*****************************************************************-->
         <div class="container" id="view_add_question">
             <h4>Select the parameters to view Question Bank!</h4>
-            <form role="form" id="view_questions" action="../../model/teacher/display_questions.php" method="post" class="form-horizontal" >
+            <form role="form" id="view_questions" method="post" class="form-horizontal" >
                 <div class="row">
 
                     <div class="col-lg-2">
