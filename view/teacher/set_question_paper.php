@@ -10,7 +10,9 @@
 
         <!-- Bootstrap core CSS -->
         <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
-        <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">    
+        <link href="../../lib/theme/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">  
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
         <link href="../../lib/theme/css/datepicker.css" rel="stylesheet">  
 
 
@@ -78,7 +80,7 @@
                                         </div>  
 
                                         <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <label for="rt_standard" class="control-label"> Standard:</label>
+                                            <label for="rt_standard" class="control-label"> Test Duration:</label>
 
                                             <input type="text" class="form-control input-md" placeholder="test duration in minutes">
 
@@ -87,12 +89,20 @@
                                     </div>
 
                                     <div class="row">
-                                        <input type="text" value="02/16/12" data-date-format="mm/dd/yy" id="datepicker" readonly="readonly" >
-                                         <span class="add-on"><i class="icon-th"></i></span>
-                                        <script>
-                                            $('#datepicker').datepicker();
-                                        </script>
-                                    </div>    
+                                        <div class="form-group col-lg-5" style="padding-left: 80px">
+                                            <label for="rt_standard" class="control-label"> Test Date:</label>
+
+                                            <div class="input-group" data-datepicker="true">
+                                                <input name="date" id="datepicker" type="text" class="form-control" placeholder="Click to select test date" />
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                            </div>
+                                        </div> 
+                                         <div class="form-group col-lg-5" style="padding-left: 80px">
+                                            <button id="rt_submit" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">
+                                              Submit
+                                            </button>
+                                        </div>    
+                                    </div>
 
                                 </form>
 
@@ -166,6 +176,10 @@
     <script src="../../lib/theme/docs-assets/js/holder.js"></script>
     <script src="../../lib/theme/js/bootstrap-datepicker.js"></script>
     <script src="../../lib/theme/js/datepicker.less"></script>
+    <script src="../../controller/teacher/create_random_test.js"></script>
+    <script>
+        $('#datepicker').datepicker();
+    </script>
 
     <!--- link specific js - ajax -->
 </body>

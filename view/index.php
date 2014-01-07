@@ -38,16 +38,14 @@
 
 
         <!-- ************LOGIN FORM *******************  -->
-        <style type="text/css">
-            body{padding-top:20px;}
-        </style>
+        
         <div id="fullscreen_bg" class="fullscreen_bg" >
 
         <div class="container">
 
             <form id="login_form" class="form-signin" method="post" action = "../controller/login.php" >
                 <h1 class="form-signin-heading text-muted"><b>HexaGraph</b>   </h1>
-                <input type="text" class="form-control" placeholder="Username" name="username" id="username" required="" autofocus="">
+                <input type="text" class="form-control" placeholder="User ID" name="username" id="username" required="" autofocus="">
 
                 <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="">
                 <button id="login_sub" class="btn btn-lg btn-primary btn-block" type="submit">
@@ -63,7 +61,7 @@
 
 
 
-        <?php include("footer.php"); ?>
+        <?php// include("footer.php"); ?>
 
 
         <!-- JavaScript -->
