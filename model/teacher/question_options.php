@@ -21,7 +21,7 @@ if ($field === "standard") {
 //extract which standards teacher teaches from database
 // !!** add current year clause to query 
 function populateStandard() {
-    require_once("database.php");
+    require_once("../database.php");
 
     $x = array();
 
@@ -47,7 +47,7 @@ function populateStandard() {
 //extract which subjects teacher teaches corresponding to standard selected from database
 // !!** add current year clause to query 
 function populateSubject() {
-    require_once("database.php");
+    require_once("../database.php");
 
     $x = array();
 
@@ -75,7 +75,7 @@ function populateSubject() {
 //extract which topics belong to standard, subject selected from database
 // !!** add current year clause to query 
 function populateTopic() {
-    require_once("database.php");
+    require_once("../database.php");
 
     $x = array();
 
@@ -104,7 +104,7 @@ function populateTopic() {
 //extract which types of questions belong to standard, subject, topic selected from database
 // !!** add current year clause to query 
 function populateType() {
-    require_once("database.php");
+    require_once("../database.php");
 
     $x = array();
 
@@ -139,7 +139,7 @@ function populateType() {
 //extract which levels of questions belong to standard, subject, topic, type selected from database
 // !!** add current year clause to query 
 function populateLevel() {
-    require_once("database.php");
+    require_once("../database.php");
 
     $x = array();
 

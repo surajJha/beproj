@@ -3,7 +3,7 @@
 session_start();
 
 require_once("../model/database.php");
-require_once ("functions.php");
+require_once ("encryption.php");
 
 //username and password from login form 
 $user_id = $_POST["username"];
@@ -21,24 +21,28 @@ if (password_check($password, $existing_hash)) {
     // saving session data for further use
     $_SESSION['user_id'] = $user_id;
     
+    $sql = "SELECT fname from USER where user_id = '{$_SESSION["user_id"]}'";
+    $res = mysqli_query($connection, $sql);
+    $temp = mysqli_fetch_assoc($res);
+    $_SESSION['fname'] = $temp['fname'];
+
 
     //$type -> teacher or student
     $type = $row["type"];
+    echo $type;
 
     if ($user_id === "admin") {
-        echo "Admin !";
-        //header("Location:http://../adminpage.php");
+        header("Location:http://localhost/beproj/view/admin/adminview.php");
     } else if ($type === "1") {
 
-        header("Location:http://localhost/beproj/view/teacherview.php");
+          header("Location:http://localhost/beproj/view/teacher/teacherview.php");
         
     } else if ($type === "0") {
-        echo "student !";
-        //header("Location: student");
+        header("Location:http://localhost/beproj/view/student/studentview.php");
     }
 } 
 else {
     
     echo "Incorrect username or password!<br/><a href=#>Forgot ?</a><br/>";
 }
-?>
+

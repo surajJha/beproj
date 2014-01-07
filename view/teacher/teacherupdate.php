@@ -1,8 +1,8 @@
 <html>
 
     <head>
-        <link href="../lib/theme/css/bootstrap.css" rel="stylesheet">   
-        <link href="../lib/theme/css/bootstrap-responsive.min.css" rel="stylesheet">  
+        <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">   
+        <link href="../../lib/theme/css/bootstrap-responsive.min.css" rel="stylesheet">  
 
     </head>   
 
@@ -13,7 +13,7 @@
         <!-- ***************** QUESTION FORM ELEMENTS CODE GOES HERE, this DIV to be sent viaa AJAX*****************************************************************-->
         <div class="container" id="view_add_question">
             <h4>Select the parameters to view Question Bank!</h4>
-            <form role="form" id="view_questions" action="../model/display_questions.php" method="post" class="form-horizontal" >
+            <form role="form" id="view_questions" action="../../model/teacher/display_questions.php" method="post" class="form-horizontal" >
                 <div class="row">
 
                     <div class="col-lg-2">
@@ -63,7 +63,7 @@
                 <div  style="padding-top: 20px">
                     <h4>Add a new question to the Question Bank</h4>
                     <!-- anchor buttons to activate specific modals *********** -->
-                    <a id="" href="#mcqModal" role="button" class="btn btn-lg btn-primary" data-toggle="modal"">MCQ</a>
+                    <a href="#mcqModal" role="button" class="btn btn-lg btn-primary" data-toggle="modal">MCQ</a>
                     <a href="#subjectiveModal" role="button" class="btn btn-lg btn-warning" data-toggle="modal" >Subjective</a>
                     <a href="#numericModal" role="button" class="btn btn-lg btn-danger" data-toggle="modal">Numeric</a>
                     <a href="#tfModal" role="button" class="btn btn-lg btn-success" data-toggle="modal">True/False</a>
@@ -88,6 +88,9 @@
                                     <label for="standard" class="col-lg-4 control-label"> Standard:</label>
                                     <div class="col-lg-6">
                                         <select  id="standard" name="standard" class="form-control">
+                                            <option>One</option>
+                                            <option>Two</option>
+                                            <option>Three</option>
                                         </select>
                                     </div>
                                 </div>
@@ -96,6 +99,9 @@
                                     <label for="subject" class="col-lg-4 control-label"> Subject:</label>
                                     <div class="col-lg-6">
                                         <select  id="subject" name="subject" class="form-control">
+                                            <option>One</option>
+                                            <option>Two</option>
+                                            <option>Three</option>
                                         </select>
                                     </div>
                                 </div>
@@ -103,8 +109,10 @@
                                 <div class="form-group">
                                     <label for="topic" class="col-lg-4 control-label"> Topic:</label>
                                     <div class="col-lg-6">
-                                        <select  id="topic" name="topic" class="form-control">
-                                            
+                                        <select  id="topic_mcqModal" name="topic" class="form-control">
+                                            <option>One</option>
+                                            <option>Two</option>
+                                            <option>Three</option>
                                         </select>
                                     </div>
                                 </div>
@@ -112,8 +120,10 @@
                                 <div class="form-group">
                                     <label for="type" class="col-lg-4 control-label"> Type:</label>
                                     <div class="col-lg-6">
-                                        <select  id="type" name="type" class="form-control">
-                                            
+                                        <select  id="type_mcqModal" name="type" class="form-control">
+                                            <option>One</option>
+                                            <option>Two</option>
+                                            <option>Three</option>
                                         </select>
                                     </div>
                                 </div>
@@ -122,16 +132,18 @@
                                     <label for="level" class="col-lg-4 control-label"> Level:</label>
                                     <div class="col-lg-6">
                                         <select  id="level" name="level" class="form-control">
-                                            
+                                            <option>One</option>
+                                            <option>Two</option>
+                                            <option>Three</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <!-- text area -->
                                 <div class="form-group">
-                                    <label for="question" class="col-lg-4 control-label"> Question:</label>
+                                    <label for="question_mcqModal" class="col-lg-4 control-label"> Question:</label>
                                     <div class="col-lg-6">
-                                        <textarea class="form-control" rows="6" cols="10" id="question" name="question"></textarea>
+                                        <textarea class="form-control" rows="6" cols="10" id="question_mcqModal" name="question_mcqModal"></textarea>
                                     </div>
                                 </div>
 
@@ -490,15 +502,10 @@
 
 
 
-        <script src="../lib/theme/js/jquery-1.10.2.js"></script>
-        <script src="../lib/theme/js/bootstrap.js"></script>
-        <script src="../lib/theme/js/modern-business.js"></script>
-        <script src="../lib/theme/docs-assets/js/holder.js"></script>
-
-
-
-
-
+        <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+        <script src="../../lib/theme/js/bootstrap.js"></script>
+        <script src="../../lib/theme/js/modern-business.js"></script>
+        <script src="../../lib/theme/docs-assets/js/holder.js"></script>
 
     </body>
 

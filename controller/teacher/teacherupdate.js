@@ -3,7 +3,7 @@ $(document).ready(function()
 {
     $("#question_bank").click(function() {
         var model_type = '';
-        $("#myForm").load("../view/teacherupdate.php #view_add_question", function() {
+        $("#myForm").load("../../view/teacher/teacherupdate.php #view_add_question", function() {
 
             //**********FUNCTION FOR SUBMITTING MCQ MODAL*************
             $("button#submit_mcqModal").click(function(e) {
@@ -15,7 +15,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'POST',
-                    url: '../model/addQuestion.php',
+                    url: '../../model/teacher/addQuestion.php',
                     cache: false,    
                     data: values+"&model_type="+model_type,
                     //your form datas to post          
@@ -48,7 +48,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'POST',
-                    url: '../model/addQuestion.php',
+                    url: '../../model/teacher/addQuestion.php',
                     cache: false,
                     data: values+"&model_type="+model_type, //your form datas to post          
                     success: function(response)
@@ -84,7 +84,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'POST',
-                    url: '../model/addQuestion.php',
+                    url: '../../model/teacher/addQuestion.php',
                     cache: false,
                     data: values+"&model_type="+model_type,//your form datas to post          
                     success: function(response)
@@ -120,7 +120,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'POST',
-                    url: '../model/addQuestion.php',
+                    url: '../../model/teacher/addQuestion.php',
                     cache: false,
                     data: values+"&model_type="+model_type, //your form datas to post          
                     success: function(response)
@@ -146,7 +146,7 @@ $(document).ready(function()
             $.ajax(
             {
                 type: 'GET',
-                url: '../model/question_options.php',
+                url: '../../model/teacher/question_options.php',
                 data:{
                     field: f
                 },
@@ -157,7 +157,7 @@ $(document).ready(function()
                         options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
                     }
                     
-                    $("select#standard").html(options);
+                    $("#standard").html(options);
                         
                 },
                 error: function()
@@ -169,13 +169,13 @@ $(document).ready(function()
             
             
             //will populate select field when standard changes
-            $("select#standard").change(function(){
+            $("#standard").change(function(){
                 
                 f='subject';
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/question_options.php',
+                    url: '../../model/teacher/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val()
@@ -186,7 +186,7 @@ $(document).ready(function()
                         for (var i = 0; i < j.length; i++) {
                             options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
                         }
-                        $("select#subject").html(options);
+                        $("#subject").html(options);
                         
                     },
                     error: function()
@@ -204,7 +204,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/question_options.php',
+                    url: '../../model/teacher/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -234,7 +234,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/question_options.php',
+                    url: '../../model/teacher/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -266,7 +266,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/question_options.php',
+                    url: '../../model/teacher/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -299,7 +299,7 @@ $(document).ready(function()
 
                 $.ajax({
                     type:'POST',
-                    url:'../model/display_questions.php',
+                    url:'../../model/teacher/display_questions.php',
                     data:values,
                     cache:false,
                     success:function(data) {
