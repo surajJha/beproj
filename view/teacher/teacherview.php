@@ -9,13 +9,13 @@
         <title> HexaGraph   </title>
 
         <!-- Bootstrap core CSS -->
-        <link href="../lib/theme/css/bootstrap.css" rel="stylesheet">
-        <link href="../lib/theme/css/sidebar.css" rel="stylesheet">         
+        <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
+        <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
     </head>
 
     <body>
 
-        <?php include('header.php'); ?>
+        <?php include('../header.php'); ?>
         
 
 
@@ -72,15 +72,13 @@
 
                 <!-- JavaScript -->
                                 
-                <script src="../lib/theme/js/jquery-1.10.2.js"></script>
-                <script src="../lib/theme/js/bootstrap.js"></script>
-                <script src="../lib/theme/js/modern-business.js"></script>
-                <script src="../lib/theme/docs-assets/js/holder.js"></script>
+                <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+                <script src="../../lib/theme/js/bootstrap.js"></script>
+                <script src="../../lib/theme/js/modern-business.js"></script>
+                <script src="../../lib/theme/docs-assets/js/holder.js"></script>
 
-                <script src="../controller/allStudents.js"></script>
-              <!-- <script src="../controller/mcqModal.js"></script>  -->
-
-                <script src="../controller/teacherupdate.js"></script>
+                
+              <script src="../../controller/teacher/teacherupdate.js"></script>
                 
                 </body>
                 </html>

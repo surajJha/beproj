@@ -3,7 +3,7 @@
 session_start();
 
 require_once("../model/database.php");
-require_once ("functions.php");
+require_once ("encryption.php");
 
 
 //username and password from login form 
@@ -33,15 +33,13 @@ if (password_check($password, $existing_hash)) {
     echo $type;
 
     if ($user_id === "admin") {
-        echo "Admin !";
-        header("Location:http://localhost/beproj/view/teacherview.php");
+        header("Location:http://localhost/beproj/view/admin/adminview.php");
     } else if ($type === "1") {
 
-          header("Location:http://localhost/beproj/view/teacherview.php");
+          header("Location:http://localhost/beproj/view/teacher/teacherview.php");
         
     } else if ($type === "0") {
-        echo "student !";
-        //header("Location: student");
+        header("Location:http://localhost/beproj/view/student/studentview.php");
     }
 } 
 else {

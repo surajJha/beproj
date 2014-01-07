@@ -3,7 +3,7 @@ $(document).ready(function()
 {
     $("#question_bank").click(function() {
         var model_type = '';
-        $("#myForm").load("../view/teacherupdate.php #view_add_question", function() {
+        $("#myForm").load("../../view/teacher/teacherupdate.php #view_add_question", function() {
 
             //**********FUNCTION FOR SUBMITTING MCQ MODAL*************
             $("button#submit_mcqModal").click(function(e) {
@@ -15,7 +15,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'POST',
-                    url: '../model/addQuestion.php',
+                    url: '../../model/teacher/addQuestion.php',
                     cache: false,    
                     data: values+"&model_type="+model_type,
                     //your form datas to post          
@@ -48,7 +48,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'POST',
-                    url: '../model/addQuestion.php',
+                    url: '../../model/teacher/addQuestion.php',
                     cache: false,
                     data: values+"&model_type="+model_type, //your form datas to post          
                     success: function(response)
@@ -84,7 +84,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'POST',
-                    url: '../model/addQuestion.php',
+                    url: '../../model/teacher/addQuestion.php',
                     cache: false,
                     data: values+"&model_type="+model_type,//your form datas to post          
                     success: function(response)
@@ -120,7 +120,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'POST',
-                    url: '../model/addQuestion.php',
+                    url: '../../model/teacher/addQuestion.php',
                     cache: false,
                     data: values+"&model_type="+model_type, //your form datas to post          
                     success: function(response)
@@ -146,7 +146,7 @@ $(document).ready(function()
             $.ajax(
             {
                 type: 'GET',
-                url: '../model/question_options.php',
+                url: '../../model/teacher/question_options.php',
                 data:{
                     field: f
                 },
@@ -175,7 +175,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/question_options.php',
+                    url: '../../model/teacher/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val()
@@ -204,7 +204,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/question_options.php',
+                    url: '../../model/teacher/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -234,7 +234,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/question_options.php',
+                    url: '../../model/teacher/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -266,7 +266,7 @@ $(document).ready(function()
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../model/question_options.php',
+                    url: '../../model/teacher/question_options.php',
                     data: {
                         field:f,
                         standard:$("#standard").val(),
@@ -299,7 +299,7 @@ $(document).ready(function()
 
                 $.ajax({
                     type:'POST',
-                    url:'../model/display_questions.php',
+                    url:'../../model/teacher/display_questions.php',
                     data:values,
                     cache:false,
                     success:function(data) {
