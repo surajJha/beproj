@@ -62,9 +62,9 @@
                                         </div>   
 
                                         <div class="form-group col-lg-5" style="padding-left: 80px" >
-                                            <label for="rt_standard" class="control-label"> Division:</label>
+                                            <label for="rt_division" class="control-label"> Division:</label>
 
-                                            <select id="rt_standard" name="rt_standard" class="form-control">
+                                            <select id="rt_division" name="rt_division" class="form-control">
 
                                             </select>
 
@@ -73,16 +73,16 @@
                                     <!-- NEXT ROW-->
                                     <div class="row">
                                         <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <label for="rt_standard" class="control-label"> No. Of Questions:</label>
+                                            <label for="rt_question" class="control-label"> No. Of Questions:</label>
 
-                                            <input type="text" class="form-control input-md" placeholder="Enter the total number of questions">
+                                            <input type="text" id="rt_question" name="rt_question" class="form-control input-md" placeholder="Enter the total number of questions">
 
                                         </div>  
 
                                         <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <label for="rt_standard" class="control-label"> Test Duration:</label>
+                                            <label for="rt_duration" class="control-label"> Test Duration:</label>
 
-                                            <input type="text" class="form-control input-md" placeholder="test duration in minutes">
+                                            <input type="text" id="rt_duration" name="rt_duration" class="form-control input-md" placeholder="test duration in minutes">
 
                                         </div>  
 
@@ -90,10 +90,10 @@
 
                                     <div class="row">
                                         <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <label for="rt_standard" class="control-label"> Test Date:</label>
+                                            <label for="rt_datepicker" class="control-label"> Test Date:</label>
 
                                             <div class="input-group" data-datepicker="true">
-                                                <input name="date" id="datepicker" type="text" class="form-control" placeholder="Click to select test date" />
+                                                <input name="date" id="rt_datepicker" name="rt_datepicker" type="text" class="form-control" placeholder="Click to select test date" />
                                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                             </div>
                                         </div> 
@@ -120,9 +120,63 @@
                             <!--*************************************************************************-->
 
                             <!--**********CUSTOM TEST TAB CONTENT****************************-->   
-                            <div class="tab-pane" id="tab2">
+                            <div class="tab-pane" id="tab2"><br><br>
 
-                                <p>I'm in Section 2.</p>
+                             <form class="form-horizontal"  type="post" id="rt" >
+                                    <div class="row">
+                                        <div class="form-group col-lg-5" style="padding-left: 80px" >
+                                            <label for="_standard" class="control-label"> Standard:</label>
+
+                                            <select id="ct_standard" name="ct_standard" class="form-control">
+
+                                            </select>
+
+                                        </div>   
+
+                                        <div class="form-group col-lg-5" style="padding-left: 80px" >
+                                            <label for="ct_division" class="control-label"> Division:</label>
+
+                                            <select id="ct_division" name="ct_division" class="form-control">
+
+                                            </select>
+
+                                        </div>  
+                                    </div>
+                                    <!-- NEXT ROW-->
+                                    <div class="row">
+                                        <div class="form-group col-lg-5" style="padding-left: 80px">
+                                            <label for="ct_question" class="control-label"> No. Of Questions:</label>
+
+                                            <input type="text" id="ct_question" name="ct_question" class="form-control input-md" placeholder="Enter the total number of questions">
+
+                                        </div>  
+
+                                        <div class="form-group col-lg-5" style="padding-left: 80px">
+                                            <label for="ct_duration" class="control-label"> Test Duration:</label>
+
+                                            <input type="text" id="ct_duration" name="ct_duration" class="form-control input-md" placeholder="test duration in minutes">
+
+                                        </div>  
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-5" style="padding-left: 80px">
+                                            <label for="ct_datepicker" class="control-label"> Test Date:</label>
+
+                                            <div class="input-group" data-datepicker="true">
+                                                <input name="date" id="ct_datepicker" name="ct_datepicker" type="text" class="form-control" placeholder="Click to select test date" />
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                            </div>
+                                        </div> 
+                                         <div class="form-group col-lg-5" style="padding-left: 80px">
+                                            <button id="ct_submit" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">
+                                              Submit
+                                            </button>
+                                        </div>    
+                                    </div>
+
+                                </form>
 
 
 
@@ -178,7 +232,8 @@
     <script src="../../lib/theme/js/datepicker.less"></script>
     <script src="../../controller/teacher/create_random_test.js"></script>
     <script>
-        $('#datepicker').datepicker();
+        $('#rt_datepicker').datepicker();
+        $('#ct_datepicker').datepicker();
     </script>
 
     <!--- link specific js - ajax -->
