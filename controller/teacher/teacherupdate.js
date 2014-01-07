@@ -138,7 +138,8 @@ $(document).ready(function()
                     }
                 });
             });
-            //*************************************************************
+            //*************************************************************//
+            
             //*******CODE FOR UPDATING FORM SELECT OPTIONS******ALL FUNCTIONS**************
                       
             // will populate class select
@@ -146,7 +147,7 @@ $(document).ready(function()
             $.ajax(
             {
                 type: 'GET',
-                url: '../../model/teacher/question_options.php',
+                url: '../../model/teacher/view_question_options.php',
                 data:{
                     field: f
                 },
@@ -157,8 +158,12 @@ $(document).ready(function()
                         options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
                     }
                     
-                    $("#standard").html(options);
-                        
+                    $("#vq_standard").html(options);
+                    //WILL POPULATE ALL STANDARD FIELDS OF ALL MODALS
+                    $("#mcq_standard").html(options);
+                    $("#sub_standard").html(options);
+                    $("#num_standard").html(options);
+                    $("#tf_standard").html(options);
                 },
                 error: function()
                 {
@@ -168,17 +173,17 @@ $(document).ready(function()
             //********************************************************
             
             
-            //will populate select field when standard changes
-            $("#standard").change(function(){
+            //will populate subject field when standard changes
+            $("#vq_standard").change(function(){
                 
                 f='subject';
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../../model/teacher/question_options.php',
+                    url: '../../model/teacher/view_question_options.php',
                     data: {
                         field:f,
-                        standard:$("#standard").val()
+                        standard:$("#vq_standard").val()
                     },
                     success: function(j)
                     {
@@ -186,7 +191,7 @@ $(document).ready(function()
                         for (var i = 0; i < j.length; i++) {
                             options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
                         }
-                        $("#subject").html(options);
+                        $("#vq_subject").html(options);
                         
                     },
                     error: function()
@@ -198,17 +203,17 @@ $(document).ready(function()
             //********************************************************
             
             //will populate topic field when subject changes
-            $("#subject").change(function(){
+            $("#vq_subject").change(function(){
                 
                 f='topic';
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../../model/teacher/question_options.php',
+                    url: '../../model/teacher/view_question_options.php',
                     data: {
                         field:f,
-                        standard:$("#standard").val(),
-                        subject:$("#subject").val()
+                        standard:$("#vq_standard").val(),
+                        subject:$("#vq_subject").val()
                     },
                     success: function(j)
                     {
@@ -216,7 +221,7 @@ $(document).ready(function()
                         for (var i = 0; i < j.length; i++) {
                             options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
                         }
-                        $("#topic").html(options);
+                        $("#vq_topic").html(options);
                         
                     },
                     error: function()
@@ -228,18 +233,18 @@ $(document).ready(function()
             //********************************************************
             
             //will populate type field when topic changes
-            $("#topic").change(function(){
+            $("#vq_topic").change(function(){
                 
                 f='type';
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../../model/teacher/question_options.php',
+                    url: '../../model/teacher/view_question_options.php',
                     data: {
                         field:f,
-                        standard:$("#standard").val(),
-                        subject:$("#subject").val(),
-                        topic:$("#topic").val()
+                        standard:$("#vq_standard").val(),
+                        subject:$("#vq_subject").val(),
+                        topic:$("#vq_topic").val()
                         
                     },
                     success: function(j)
@@ -248,7 +253,7 @@ $(document).ready(function()
                         for (var i = 0; i < j.length; i++) {
                             options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
                         }
-                        $("#type").html(options);
+                        $("#vq_type").html(options);
                         
                     },
                     error: function()
@@ -260,19 +265,19 @@ $(document).ready(function()
             //********************************************************
             
             //will populate level field when type changes
-            $("#type").change(function(){
+            $("#vq_type").change(function(){
                 
                 f='level';
                 $.ajax(
                 {
                     type: 'GET',
-                    url: '../../model/teacher/question_options.php',
+                    url: '../../model/teacher/view_question_options.php',
                     data: {
                         field:f,
-                        standard:$("#standard").val(),
-                        subject:$("#subject").val(),
-                        topic:$("#topic").val(),
-                        type:$("#type").val()
+                        standard:$("#vq_standard").val(),
+                        subject:$("#vq_subject").val(),
+                        topic:$("#vq_topic").val(),
+                        type:$("#vq_type").val()
                     },
                     success: function(j)
                     {
@@ -280,7 +285,7 @@ $(document).ready(function()
                         for (var i = 0; i < j.length; i++) {
                             options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
                         }
-                        $("#level").html(options);
+                        $("#vq_level").html(options);
                         
                     },
                     error: function()
@@ -294,7 +299,7 @@ $(document).ready(function()
             //************FUNCTION TO SUBMIT QUERY AND EXTRACT QUESTIONS FROM DATABASE*********
             
             
-            $("#go_button").click(function() {
+            $("#vq_go_button").click(function() {
                 var values=$("#view_questions").serialize();
 
                 $.ajax({
@@ -305,7 +310,7 @@ $(document).ready(function()
                     success:function(data) {
                         
                         var t="<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
-                            t+="<thead><tr> <th>Question Id</th> <th>Type</th> <th>Level</th> <th>Description</th> <th>Update/Delete</th> </tr></thead>";
+                        t+="<thead><tr> <th>Question Id</th> <th>Type</th> <th>Level</th> <th>Description</th> <th>Update/Delete</th> </tr></thead>";
                         for (var i = 0; i < data.length; i++) {
                             t+="<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td>idhar ek button aayega</td>";
                         }
@@ -322,8 +327,298 @@ $(document).ready(function()
             
             });
 
-            //*********************************************************************************************
+        //*********************************************************************************************
+        
+        //***********MCQ MODAL OPTIONS*****************************************
+        //will populate subject field when standard changes
+            $("#mcq_standard").change(function(){
+                
+                f='subject';
+                $.ajax(
+                {
+                    type: 'GET',
+                    url: '../../model/teacher/add_question_options.php',
+                    data: {
+                        field:f,
+                        standard:$("#mcq_standard").val()
+                    },
+                    success: function(j)
+                    {
+                        var options = '<option>Select subject</option>';
+                        for (var i = 0; i < j.length; i++) {
+                            options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
+                        }
+                        $("#mcq_subject").html(options);
+                        
+                    },
+                    error: function()
+                    {
+                        alert("Failure");                
+                    }
+                });         
+            });
+            //********************************************************
             
+            //will populate topic field when subject changes
+            $("#mcq_subject").change(function(){
+                
+                f='topic';
+                $.ajax(
+                {
+                    type: 'GET',
+                    url: '../../model/teacher/add_question_options.php',
+                    data: {
+                        field:f,
+                        standard:$("#mcq_standard").val(),
+                        subject:$("#mcq_subject").val()
+                    },
+                    success: function(j)
+                    {
+                        var options = '<option>Select topic</option>';
+                        for (var i = 0; i < j.length; i++) {
+                            options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
+                        }
+                        $("#mcq_topic").html(options);
+                        
+                    },
+                    error: function()
+                    {
+                        alert("Failure");                
+                    }
+                });         
+            });
+            
+            $("#mcq_topic").change(function(){
+                
+                
+                        var options = '<option>Select level</option>';
+                        for (var i = 1; i <6; i++) {
+                            options += '<option value="' + i+ '">' + i + '</option>';
+                        }
+                        $("#mcq_level").html(options);
+                        
+                });         
+            
+        //***********END OF MCQ MODAL OPTIONS *****************************************
+          
+        //***********SUBJECTIVE MODAL OPTIONS*****************************************
+        //will populate subject field when standard changes
+            $("#sub_standard").change(function(){
+                
+                f='subject';
+                $.ajax(
+                {
+                    type: 'GET',
+                    url: '../../model/teacher/add_question_options.php',
+                    data: {
+                        field:f,
+                        standard:$("#sub_standard").val()
+                    },
+                    success: function(j)
+                    {
+                        var options = '<option>Select subject</option>';
+                        for (var i = 0; i < j.length; i++) {
+                            options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
+                        }
+                        $("#sub_subject").html(options);
+                        
+                    },
+                    error: function()
+                    {
+                        alert("Failure");                
+                    }
+                });         
+            });
+            //********************************************************
+            
+            //will populate topic field when subject changes
+            $("#sub_subject").change(function(){
+                
+                f='topic';
+                $.ajax(
+                {
+                    type: 'GET',
+                    url: '../../model/teacher/add_question_options.php',
+                    data: {
+                        field:f,
+                        standard:$("#sub_standard").val(),
+                        subject:$("#sub_subject").val()
+                    },
+                    success: function(j)
+                    {
+                        var options = '<option>Select topic</option>';
+                        for (var i = 0; i < j.length; i++) {
+                            options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
+                        }
+                        $("#sub_topic").html(options);
+                        
+                    },
+                    error: function()
+                    {
+                        alert("Failure");                
+                    }
+                });         
+            });
+            
+            $("#sub_topic").change(function(){
+                
+                
+                        var options = '<option>Select level</option>';
+                        for (var i = 1; i <6; i++) {
+                            options += '<option value="' + i+ '">' + i + '</option>';
+                        }
+                        $("#sub_level").html(options);
+                        
+                });         
+            
+        //***********END OF SUBJECTIVE MODAL OPTIONS *****************************************
+          
+        //***********NUMERIC MODAL OPTIONS*****************************************
+        //will populate subject field when standard changes
+            $("#num_standard").change(function(){
+                
+                f='subject';
+                $.ajax(
+                {
+                    type: 'GET',
+                    url: '../../model/teacher/add_question_options.php',
+                    data: {
+                        field:f,
+                        standard:$("#num_standard").val()
+                    },
+                    success: function(j)
+                    {
+                        var options = '<option>Select subject</option>';
+                        for (var i = 0; i < j.length; i++) {
+                            options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
+                        }
+                        $("#num_subject").html(options);
+                        
+                    },
+                    error: function()
+                    {
+                        alert("Failure");                
+                    }
+                });         
+            });
+            //********************************************************
+            
+            //will populate topic field when subject changes
+            $("#num_subject").change(function(){
+                
+                f='topic';
+                $.ajax(
+                {
+                    type: 'GET',
+                    url: '../../model/teacher/add_question_options.php',
+                    data: {
+                        field:f,
+                        standard:$("#num_standard").val(),
+                        subject:$("#num_subject").val()
+                    },
+                    success: function(j)
+                    {
+                        var options = '<option>Select topic</option>';
+                        for (var i = 0; i < j.length; i++) {
+                            options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
+                        }
+                        $("#num_topic").html(options);
+                        
+                    },
+                    error: function()
+                    {
+                        alert("Failure");                
+                    }
+                });         
+            });
+            
+            $("#num_topic").change(function(){
+                
+                
+                        var options = '<option>Select level</option>';
+                        for (var i = 1; i <6; i++) {
+                            options += '<option value="' + i+ '">' + i + '</option>';
+                        }
+                        $("#num_level").html(options);
+                        
+                });         
+            
+        //***********END OF NUMERIC MODAL OPTIONS *****************************************
+          
+          
+          //***********TRUE OR FALSE MODAL OPTIONS*****************************************
+        //will populate subject field when standard changes
+            $("#tf_standard").change(function(){
+                
+                f='subject';
+                $.ajax(
+                {
+                    type: 'GET',
+                    url: '../../model/teacher/add_question_options.php',
+                    data: {
+                        field:f,
+                        standard:$("#tf_standard").val()
+                    },
+                    success: function(j)
+                    {
+                        var options = '<option>Select subject</option>';
+                        for (var i = 0; i < j.length; i++) {
+                            options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
+                        }
+                        $("#tf_subject").html(options);
+                        
+                    },
+                    error: function()
+                    {
+                        alert("Failure");                
+                    }
+                });         
+            });
+            //********************************************************
+            
+            //will populate topic field when subject changes
+            $("#tf_subject").change(function(){
+                
+                f='topic';
+                $.ajax(
+                {
+                    type: 'GET',
+                    url: '../../model/teacher/add_question_options.php',
+                    data: {
+                        field:f,
+                        standard:$("#tf_standard").val(),
+                        subject:$("#tf_subject").val()
+                    },
+                    success: function(j)
+                    {
+                        var options = '<option>Select topic</option>';
+                        for (var i = 0; i < j.length; i++) {
+                            options += '<option value="' + j[i]+ '">' + j[i] + '</option>';
+                        }
+                        $("#tf_topic").html(options);
+                        
+                    },
+                    error: function()
+                    {
+                        alert("Failure");                
+                    }
+                });         
+            });
+            
+            $("#tf_topic").change(function(){
+                
+                
+                        var options = '<option>Select level</option>';
+                        for (var i = 1; i <6; i++) {
+                            options += '<option value="' + i+ '">' + i + '</option>';
+                        }
+                        $("#tf_level").html(options);
+                        
+                });         
+            
+        //***********END OF TRUE OR FALSE MODAL OPTIONS *****************************************
+          
+          
         });
     });
 });
