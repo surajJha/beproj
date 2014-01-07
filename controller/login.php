@@ -22,16 +22,23 @@ if (password_check($password, $existing_hash)) {
     // saving session data for further use
     $_SESSION['user_id'] = $user_id;
     
-    $sql = "SELECT fname from USER where user_id = '{$_SESSION["user_id"]}'";
+    $sql = "SELECT * from USER where user_id = '{$_SESSION["user_id"]}'";
     $res = mysqli_query($connection, $sql);
     $temp = mysqli_fetch_assoc($res);
+    
+    // setting session variables for further use
     $_SESSION['fname'] = $temp['fname'];
+    $_SESSION['lname'] = $temp['lname'];
+    $_SESSION['email'] = $temp['email'];
+    $_SESSION['phone'] = $temp['phone'];
+     $_SESSION['type'] = $temp['type'];
+    
 
 
     //$type -> teacher or student
     $type = $row["type"];
     echo $type;
-
+// set type - 2 for admin , 0 for teacher, 1 for student
     if ($user_id === "admin") {
         header("Location:http://localhost/beproj/view/admin/adminview.php");
     } else if ($type === "1") {

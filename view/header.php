@@ -5,7 +5,18 @@
                    <?php 
                    session_start();
                    $name = $_SESSION['fname'];
-                   
+                   $type = $_SESSION['type'];
+                   $url = '';
+                   if($type === "0"){
+                       $url = "student_edit_profile.php";
+                   }
+                   else if($type === "1"){
+                      $url = "teacher_edit_profile.php"; 
+                   }
+                    else if($type === "2"){
+                      $url = "admin_edit_profile.php"; 
+                   }
+                 
                    
                    ?>
                 <div class="collapse navbar-collapse">
@@ -17,7 +28,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $name ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Edit profile</a></li>
+                                <li><a href="<?php echo $url?>">Edit profile</a></li>
                                 <li><a href="../controller/logout.php">Logout</a></li>
                            
                             </ul>
