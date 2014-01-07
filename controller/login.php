@@ -5,7 +5,6 @@ session_start();
 require_once("../model/database.php");
 require_once ("encryption.php");
 
-
 //username and password from login form 
 $user_id = $_POST["username"];
 $password = $_POST["password"];
