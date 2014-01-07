@@ -14,8 +14,8 @@
                     <!-- Functionality to set question paper  -->
                     <ul class="nav nav-sidebar">
                         <li><a href="#">View Quiz</a></li>
-                        <li><a href="#">Set Quiz from Question Bank</a></li>
-                        <li><a href="#">Set Custom Quiz</a></li>
+                        <li><a href="set_question_paper.php">Set Question Paper</a></li>
+                      <!--  <li><a href="#">Set Custom Quiz</a></li> -->
                     </ul>
 
                     <!-- Functionality to view results  -->
