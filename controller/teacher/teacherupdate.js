@@ -107,7 +107,7 @@ $(document).ready(function()
 
 
 
-    //*****************FUNCTION FOR SUBMITTING SUBJECTIVE MODAL*******
+    //*****************FUNCTION FOR SUBMITTING TRUE FALLSE MODAL*******
 
     $("button#submit_tfModal").click(function(e) {
         e.preventDefault();
