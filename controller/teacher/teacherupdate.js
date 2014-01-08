@@ -190,6 +190,10 @@ $(document).ready(function()
                 }
                 $("#vq_subject").html(options);
                 $('#vq_standard option:contains("Select")').attr('disabled','disabled');
+                
+                $("#vq_topic").empty();
+                $("#vq_type").empty();
+                $("#vq_level").empty();
             },
             error: function()
             {
@@ -220,6 +224,9 @@ $(document).ready(function()
                 }
                 $("#vq_topic").html(options);
                 $('#vq_subject option:contains("Select")').attr('disabled','disabled');
+                
+                $("#vq_type").empty();
+                $("#vq_level").empty();
 
 
             },
@@ -254,6 +261,8 @@ $(document).ready(function()
                 }
                 $("#vq_type").html(options);
                 $('#vq_topic option:contains("Select")').attr('disabled','disabled');
+                
+                $("#vq_level").empty();
 
                 
 
@@ -361,7 +370,8 @@ $(document).ready(function()
                 }
                 $("#mcq_subject").html(options);
                 $('#mcq_standard option:contains("Select")').attr('disabled','disabled');
-
+                
+                $("#mcq_topic").empty();
             },
             error: function()
             {
@@ -392,7 +402,7 @@ $(document).ready(function()
                 }
                 $("#mcq_topic").html(options);
                 $('#mcq_subject option:contains("Select")').attr('disabled','disabled');
-
+                
             },
             error: function()
             {
@@ -411,6 +421,11 @@ $(document).ready(function()
         $("#mcq_level").html(options);
         $('#mcq_topic option:contains("Select")').attr('disabled','disabled');
 
+    });
+    
+    $("#mcq_level").change(function()
+    {
+        $('#mcq_level option:contains("Select")').attr('disabled','disabled');
     });
     
 
@@ -488,6 +503,12 @@ $(document).ready(function()
         $('#sub_topic option:contains("Select")').attr('disabled','disabled');
 
     });
+    
+    $("#sub_level").change(function()
+    {
+        $('#sub_level option:contains("Select")').attr('disabled','disabled');
+    });
+    
 
     //***********END OF SUBJECTIVE MODAL OPTIONS *****************************************
 
@@ -564,6 +585,12 @@ $(document).ready(function()
 
     });
 
+    $("#num_level").change(function()
+    {
+        $('#num_level option:contains("Select")').attr('disabled','disabled');
+    });
+    
+
     //***********END OF NUMERIC MODAL OPTIONS *****************************************
 
 
@@ -639,6 +666,12 @@ $(document).ready(function()
         $('#tf_topic option:contains("Select")').attr('disabled','disabled');
 
     });
+    
+    $("#tf_level").change(function()
+    {
+        $('#tf_level option:contains("Select")').attr('disabled','disabled');
+    });
+    
 
 //***********END OF TRUE OR FALSE MODAL OPTIONS *****************************************
 
