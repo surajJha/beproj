@@ -8,6 +8,4 @@ TODO LIST!
 
 - find a project management tool !
 
--select options mein --> disable default value after select ? (khushboo)
-
 - edit form (suraj)

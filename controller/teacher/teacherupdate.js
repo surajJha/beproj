@@ -150,7 +150,7 @@ $(document).ready(function()
         },
         success: function(j)
         {
-            var options = '<option value="def">Select standard</option>';
+            var options = '<option>Select standard</option>';
             for (var i = 0; i < j.length; i++) {
                 options += '<option value="' + j[i] + '">' + j[i] + '</option>';
             }
@@ -184,12 +184,12 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def"> Select subject</option>';
+                var options = '<option> Select subject</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#vq_subject").html(options);
-
+                $('#vq_standard option:contains("Select")').attr('disabled','disabled');
             },
             error: function()
             {
@@ -214,11 +214,13 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select topic</option><option value="*">All topics</option>';
+                var options = '<option>Select topic</option><option value="*">All topics</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#vq_topic").html(options);
+                $('#vq_subject option:contains("Select")').attr('disabled','disabled');
+
 
             },
             error: function()
@@ -246,11 +248,14 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select type</option><option value="*">All types</option>';
+                var options = '<option>Select type</option><option value="*">All types</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#vq_type").html(options);
+                $('#vq_topic option:contains("Select")').attr('disabled','disabled');
+
+                
 
             },
             error: function()
@@ -278,11 +283,13 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select level</option><option value="*">All levels</option>';
+                var options = '<option>Select level</option><option value="*">All levels</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#vq_level").html(options);
+                $('#vq_type option:contains("Select")').attr('disabled','disabled');
+
 
             },
             error: function()
@@ -290,6 +297,11 @@ $(document).ready(function()
                 alert("Failure");
             }
         });
+    });
+    
+    $("#vq_level").change(function()
+    {
+        $('#vq_level option:contains("Select")').attr('disabled','disabled');
     });
     //*********************************************************************************
 
@@ -306,21 +318,15 @@ $(document).ready(function()
             cache: false,
             success: function(data) {
                
-                if(!data)
-                {
-                    var e = "<p style=\"color:blue\">Sorry! There are no questions matching your request!</p>";
+                
+                var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
+                t += "<thead><tr> <th>Question Id</th> <th>Type</th> <th>Level</th> <th>Description</th> <th>Update/Delete</th> </tr></thead>";
+                for (var i = 0; i < data.length; i++) {
+                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td>idhar ek button aayega</td>";
                 }
-                else
-                {
-
-                    var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
-                    t += "<thead><tr> <th>Question Id</th> <th>Type</th> <th>Level</th> <th>Description</th> <th>Update/Delete</th> </tr></thead>";
-                    for (var i = 0; i < data.length; i++) {
-                        t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td>idhar ek button aayega</td>";
-                    }
-                    t += "</table></div>";
-                    $("#myContent").html(t);
-                }
+                t += "</table></div>";
+                $("#myContent").html(t);
+                
             },
             error: function() {
                 var e = "<p style=\"color:blue\">Sorry! There are no questions matching your request!</p>";
@@ -349,11 +355,12 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select subject</option>';
+                var options = '<option>Select subject</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#mcq_subject").html(options);
+                $('#mcq_standard option:contains("Select")').attr('disabled','disabled');
 
             },
             error: function()
@@ -379,11 +386,12 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select topic</option>';
+                var options = '<option>Select topic</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#mcq_topic").html(options);
+                $('#mcq_subject option:contains("Select")').attr('disabled','disabled');
 
             },
             error: function()
@@ -396,13 +404,15 @@ $(document).ready(function()
     $("#mcq_topic").change(function() {
 
 
-        var options = '<option value="def">Select level</option>';
+        var options = '<option>Select level</option>';
         for (var i = 1; i < 6; i++) {
             options += '<option value="' + i + '">' + i + '</option>';
         }
         $("#mcq_level").html(options);
+        $('#mcq_topic option:contains("Select")').attr('disabled','disabled');
 
     });
+    
 
     //***********END OF MCQ MODAL OPTIONS *****************************************
 
@@ -421,11 +431,12 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select subject</option>';
+                var options = '<option>Select subject</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#sub_subject").html(options);
+                $('#sub_standard option:contains("Select")').attr('disabled','disabled');
 
             },
             error: function()
@@ -451,11 +462,12 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select topic</option>';
+                var options = '<option>Select topic</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#sub_topic").html(options);
+                $('#sub_subject option:contains("Select")').attr('disabled','disabled');
 
             },
             error: function()
@@ -468,11 +480,12 @@ $(document).ready(function()
     $("#sub_topic").change(function() {
 
 
-        var options = '<option value="def">Select level</option>';
+        var options = '<option>Select level</option>';
         for (var i = 1; i < 6; i++) {
             options += '<option value="' + i + '">' + i + '</option>';
         }
         $("#sub_level").html(options);
+        $('#sub_topic option:contains("Select")').attr('disabled','disabled');
 
     });
 
@@ -493,11 +506,12 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select subject</option>';
+                var options = '<option>Select subject</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#num_subject").html(options);
+                $('#num_standard option:contains("Select")').attr('disabled','disabled');
 
             },
             error: function()
@@ -523,11 +537,12 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select topic</option>';
+                var options = '<option>Select topic</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#num_topic").html(options);
+                $('#num_subject option:contains("Select")').attr('disabled','disabled');
 
             },
             error: function()
@@ -540,11 +555,12 @@ $(document).ready(function()
     $("#num_topic").change(function() {
 
 
-        var options = '<option value="def">Select level</option>';
+        var options = '<option>Select level</option>';
         for (var i = 1; i < 6; i++) {
             options += '<option value="' + i + '">' + i + '</option>';
         }
         $("#num_level").html(options);
+        $('#num_topic option:contains("Select")').attr('disabled','disabled');
 
     });
 
@@ -566,11 +582,12 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select subject</option>';
+                var options = '<option>Select subject</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#tf_subject").html(options);
+                $('#tf_standard option:contains("Select")').attr('disabled','disabled');
 
             },
             error: function()
@@ -596,11 +613,12 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option value="def">Select topic</option>';
+                var options = '<option>Select topic</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
                 $("#tf_topic").html(options);
+                $('#tf_subject option:contains("Select")').attr('disabled','disabled');
 
             },
             error: function()
@@ -613,11 +631,12 @@ $(document).ready(function()
     $("#tf_topic").change(function() {
 
 
-        var options = '<option value="def">Select level</option>';
+        var options = '<option>Select level</option>';
         for (var i = 1; i < 6; i++) {
             options += '<option value="' + i + '">' + i + '</option>';
         }
         $("#tf_level").html(options);
+        $('#tf_topic option:contains("Select")').attr('disabled','disabled');
 
     });
 
