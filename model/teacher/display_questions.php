@@ -29,7 +29,7 @@ if ($result) {
         array_push($x, $row);
     }
 } else {
-    echo mysqli_error($connection);
+    $x[0]="0";
 }
 
 echo json_encode($x);

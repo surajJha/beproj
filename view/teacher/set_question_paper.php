@@ -34,187 +34,95 @@
 
 
                     <div class="page-header">
-                        <h3><b>Select type of test </b></h3>
+                        <h3><b>Set Question Paper</b></h3>
                     </div>
 
-                    <!--**************TABS ***************************************************-->
-                    <div class="tabbable">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1" data-toggle="tab">Random Test</a></li>
-                            <li><a href="#tab2" data-toggle="tab">Custom Test</a></li>
-                        </ul>
+                    <form class="form-horizontal"  type="post" id="rt" >
 
-                        <!--*************************************************************************-->
-                        <div class="tab-content">
-                            <!-- rt == random test, ct == custom test -->
-                            <!--**********RANDOM TEST TAB CONTENT****************************-->
-                            <div class="tab-pane active" id="tab1"><br><br>
+                        <div class="row">
 
-                                <form class="form-horizontal"  type="post" id="rt" >
-                                    <div class="row">
-                                        <div class="form-group col-lg-5" style="padding-left: 80px" >
-                                            <label for="rt_standard" class="control-label"> Standard:</label>
+                            <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                <label for="set_test_standard" class="control-label"> Standard:</label>
+                                <select id="set_test_standard" name="set_test_standard" class="form-control">
+                                </select>
+                            </div>   
 
-                                            <select id="rt_standard" name="rt_standard" class="form-control">
-
-                                            </select>
-
-                                        </div>   
-
-                                        <div class="form-group col-lg-5" style="padding-left: 80px" >
-                                            <label for="rt_division" class="control-label"> Division:</label>
-
-                                            <select id="rt_division" name="rt_division" class="form-control">
-
-                                            </select>
-
-                                        </div>  
-                                    </div>
-                                    <!-- NEXT ROW-->
-                                    <div class="row">
-                                        <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <label for="rt_question" class="control-label"> No. Of Questions:</label>
-
-                                            <input type="text" id="rt_question" name="rt_question" class="form-control input-md" placeholder="Enter the total number of questions">
-
-                                        </div>  
-
-                                        <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <label for="rt_duration" class="control-label"> Test Duration:</label>
-
-                                            <input type="text" id="rt_duration" name="rt_duration" class="form-control input-md" placeholder="test duration in minutes">
-
-                                        </div>  
-
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <label for="rt_datepicker" class="control-label"> Test Date:</label>
-
-                                            <div class="input-group" data-datepicker="true">
-                                                <input name="date" id="rt_datepicker" name="rt_datepicker" type="text" class="form-control" placeholder="Click to select test date" />
-                                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                            </div>
-                                        </div> 
-                                         <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <button id="rt_submit" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">
-                                              Submit
-                                            </button>
-                                        </div>    
-                                    </div>
-
-                                </form>
-
-
-
-
-
-
-
-
-
-
-
-                            </div>
-                            <!--*************************************************************************-->
-
-                            <!--**********CUSTOM TEST TAB CONTENT****************************-->   
-                            <div class="tab-pane" id="tab2"><br><br>
-
-                             <form class="form-horizontal"  type="post" id="rt" >
-                                    <div class="row">
-                                        <div class="form-group col-lg-5" style="padding-left: 80px" >
-                                            <label for="_standard" class="control-label"> Standard:</label>
-
-                                            <select id="ct_standard" name="ct_standard" class="form-control">
-
-                                            </select>
-
-                                        </div>   
-
-                                        <div class="form-group col-lg-5" style="padding-left: 80px" >
-                                            <label for="ct_division" class="control-label"> Division:</label>
-
-                                            <select id="ct_division" name="ct_division" class="form-control">
-
-                                            </select>
-
-                                        </div>  
-                                    </div>
-                                    <!-- NEXT ROW-->
-                                    <div class="row">
-                                        <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <label for="ct_question" class="control-label"> No. Of Questions:</label>
-
-                                            <input type="text" id="ct_question" name="ct_question" class="form-control input-md" placeholder="Enter the total number of questions">
-
-                                        </div>  
-
-                                        <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <label for="ct_duration" class="control-label"> Test Duration:</label>
-
-                                            <input type="text" id="ct_duration" name="ct_duration" class="form-control input-md" placeholder="test duration in minutes">
-
-                                        </div>  
-
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <label for="ct_datepicker" class="control-label"> Test Date:</label>
-
-                                            <div class="input-group" data-datepicker="true">
-                                                <input name="date" id="ct_datepicker" name="ct_datepicker" type="text" class="form-control" placeholder="Click to select test date" />
-                                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                            </div>
-                                        </div> 
-                                         <div class="form-group col-lg-5" style="padding-left: 80px">
-                                            <button id="ct_submit" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">
-                                              Submit
-                                            </button>
-                                        </div>    
-                                    </div>
-
-                                </form>
-
-
-
-
-
-
-
-
-
-
-
-                            </div>
-                            <!--*************************************************************************-->
+                            <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                <label for="set_test_division" class="control-label"> Division:</label>
+                                <select id="set_test_division" name="set_test_division" class="form-control">
+                                </select>
+                            </div>  
                         </div>
-                    </div>
+
+                        <!-- NEXT ROW-->
+                        <div class="row">
+                            <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                <label for="set_test_subject" class="control-label"> Subject:</label>
+                                <select id="set_test_subject" name="set_test_subject" class="form-control">
+                                </select>
+                            </div>   
+
+                            <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                <label for="set_test_topic" class="control-label"> Topic:</label>
+                                <select multiple id="set_test_topic" name="set_test_topic" class="form-control">
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-4" style="padding-left: 80px">
+                                <label for="set_test_no_question" class="control-label"> Number of Questions:</label>
+                                <input type="text" id="set_test_no_question" name="set_test_no_question" class="form-control input-md" placeholder="Enter total number of questions">
+                            </div>  
+
+                            <div class="form-group col-lg-4" style="padding-left: 80px">
+                                <label for="set_test_duration" class="control-label"> Test Duration:</label>
+                                <input type="text" id="set_test_duration" name="set_test_duration" class="form-control input-md" placeholder="Enter duration of test in minutes">
+                            </div>  
+                        </div>
+
+                        <!-- NEXT ROW-->
+                        <div class="row">
+                            <div class="form-group" style="padding-left: 80px" >
+                                <label for="set_test_random" class="control-label"> Choose type of test:</label>
+                                <br/>
+                                <div class="col-lg-4">
+                                    <input class="control-label" type="radio" id="set_test_random" name="set_test_random"  value="A">&nbsp; Randomly Generated Test &nbsp;
+                                </div>
 
 
+                                <div class="col-lg-4">
+                                    <input class="control-label" type="radio" id="set_test_random" name="set_test_random"  value="B">&nbsp; Custom Set Test &nbsp;
+                                </div>
+                            </div> 
+                        </div>
 
+                        <div class="row" >
+                            <div class="form-group col-lg-4" style="padding-left: 80px">
+                                <label for="set_test_datepicker" class="control-label"> Test Date:</label>
 
+                                <div class="input-group" data-datepicker="true">
+                                    <input name="date" id="set_test_datepicker" name="set_test_datepicker" type="text" class="form-control" placeholder="Click to select test date" />
+                                    <span class="input-group-addon"><i id="set_test_datepicker_glyphicon" class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+                            </div> 
+                        </div>
 
+                        <div class="row" >
+                            <div class="form-group col-lg-4" style="padding-left: 80px">
+                                <button id="set_test_submit" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">
+                                    Submit
+                                </button>
+                            </div>    
+                        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    </form>
                 </div>
-            </div>
+                <!--*************************************************************************-->
 
+            </div>
         </div>
+
 
     </div>
 
@@ -230,10 +138,10 @@
     <script src="../../lib/theme/docs-assets/js/holder.js"></script>
     <script src="../../lib/theme/js/bootstrap-datepicker.js"></script>
     <script src="../../lib/theme/js/datepicker.less"></script>
-    <script src="../../controller/teacher/create_random_test.js"></script>
+    <script src="../../controller/teacher/set_question_paper.js"></script>
     <script>
-        $('#rt_datepicker').datepicker();
-        $('#ct_datepicker').datepicker();
+        $('#set_test_datepicker').datepicker();
+        // $('#set_test_datepicker_glyphicon').datepicker();
     </script>
 
     <!--- link specific js - ajax -->
