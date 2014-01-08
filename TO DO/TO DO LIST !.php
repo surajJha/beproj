@@ -1,6 +1,6 @@
 TODO LIST!
 
- - add year clause in query --> academic year define ?
+- add year clause in query --> academic year define ?
 
 - css of teacherview.php --> teacherupdate.php
 
@@ -8,7 +8,6 @@ TODO LIST!
 
 - find a project management tool !
 
+-select options mein --> disable default value after select ? (khushboo)
 
-
-
-- edit form !!!
+- edit form (suraj)
