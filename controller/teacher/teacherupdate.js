@@ -325,9 +325,10 @@ $(document).ready(function()
                 var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
                 t += "<thead><tr> <th>Question Id</th> <th>Type</th> <th>Level</th> <th>Description</th> <th>Update/Delete</th> </tr></thead>";
                 for (var i = 0; i < data.length; i++) {
-                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td>idhar ek button aayega</td>";
+                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td><a href=# id=\" "+data[i].question_id+" \">Update/delete</a></td>";
                 }
                 t += "</table></div>";
+                alert(t);
                 $("#myContent").html(t);
                 
             },
