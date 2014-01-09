@@ -20,18 +20,18 @@ if (password_check($password, $existing_hash)) {
     //login successful
     // saving session data for further use
     $_SESSION['user_id'] = $user_id;
-    
+
     $sql = "SELECT * from USER where user_id = '{$_SESSION["user_id"]}'";
     $res = mysqli_query($connection, $sql);
     $temp = mysqli_fetch_assoc($res);
-    
+
     // setting session variables for further use
     $_SESSION['fname'] = $temp['fname'];
     $_SESSION['lname'] = $temp['lname'];
     $_SESSION['email'] = $temp['email'];
     $_SESSION['phone'] = $temp['phone'];
-     $_SESSION['type'] = $temp['type'];
-    
+    $_SESSION['type'] = $temp['type'];
+
 
 
     //$type -> teacher or student
@@ -39,17 +39,15 @@ if (password_check($password, $existing_hash)) {
     echo $type;
 // set type - 2 for admin , 0 for teacher, 1 for student
     if ($user_id === "admin") {
-        header("Location:http://localhost/beproj/view/admin/adminview.php");
+        //header("Location:http://localhost/beproj/view/admin/adminview.php");
     } else if ($type === "1") {
 
-          header("Location:http://localhost/beproj/view/teacher/teacher_overview.php");
-        
+        header("Location:http://localhost/beproj/view/teacher/teacher_overview.php");
     } else if ($type === "0") {
-        header("Location:http://localhost/beproj/view/student/studentview.php");
+        //header("Location:http://localhost/beproj/view/student/studentview.php");
     }
-} 
-else {
-    
+} else {
+
     echo "Incorrect username or password!<br/><a href=#>Forgot ?</a><br/>";
 }
 

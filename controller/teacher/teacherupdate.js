@@ -10,26 +10,26 @@ $(document).ready(function()
         model_type = "mcq";
 
         $.ajax(
-                {
-                    type: 'POST',
-                    url: '../../model/teacher/addQuestion.php',
-                    cache: false,
-                    data: values + "&model_type=" + model_type,
-                    //your form datas to post          
-                    success: function(response)
-                    {
-                        alert(response);
-                        //$(".modal-content.success_message").html("<div>SUCCESSFUL SUBMISSION</div>");
-                        $("#mcqModalForm")[0].reset();
+        {
+            type: 'POST',
+            url: '../../model/teacher/addQuestion.php',
+            cache: false,
+            data: values + "&model_type=" + model_type,
+            //your form datas to post          
+            success: function(response)
+            {
+                alert(response);
+                //$(".modal-content.success_message").html("<div>SUCCESSFUL SUBMISSION</div>");
+                $("#mcqModalForm")[0].reset();
 
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
+            },
+            error: function()
+            {
+                alert("Failure");
 
-                    }
-                });
+            }
+        });
     });
 
     //*************************************************************
@@ -43,25 +43,25 @@ $(document).ready(function()
         model_type = "subjective";
 
         $.ajax(
-                {
-                    type: 'POST',
-                    url: '../../model/teacher/addQuestion.php',
-                    cache: false,
-                    data: values + "&model_type=" + model_type, //your form datas to post          
-                    success: function(response)
-                    {
-                        alert(response);
-                        //$(".modal-content.success_message").html("<div>SUCCESSFUL SUBMISSION</div>");
-                        $("#subjectiveModalForm")[0].reset();
+        {
+            type: 'POST',
+            url: '../../model/teacher/addQuestion.php',
+            cache: false,
+            data: values + "&model_type=" + model_type, //your form datas to post          
+            success: function(response)
+            {
+                alert(response);
+                //$(".modal-content.success_message").html("<div>SUCCESSFUL SUBMISSION</div>");
+                $("#subjectiveModalForm")[0].reset();
 
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
+            },
+            error: function()
+            {
+                alert("Failure");
 
-                    }
-                });
+            }
+        });
     });
 
 
@@ -79,25 +79,25 @@ $(document).ready(function()
         model_type = "numeric";
 
         $.ajax(
-                {
-                    type: 'POST',
-                    url: '../../model/teacher/addQuestion.php',
-                    cache: false,
-                    data: values + "&model_type=" + model_type, //your form datas to post          
-                    success: function(response)
-                    {
-                        alert(response);
-                        //$(".modal-content.success_message").html("<div>SUCCESSFUL SUBMISSION</div>");
-                        $("#numericModalForm")[0].reset();
+        {
+            type: 'POST',
+            url: '../../model/teacher/addQuestion.php',
+            cache: false,
+            data: values + "&model_type=" + model_type, //your form datas to post          
+            success: function(response)
+            {
+                alert(response);
+                //$(".modal-content.success_message").html("<div>SUCCESSFUL SUBMISSION</div>");
+                $("#numericModalForm")[0].reset();
 
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
+            },
+            error: function()
+            {
+                alert("Failure");
 
-                    }
-                });
+            }
+        });
     });
 
 
@@ -115,25 +115,25 @@ $(document).ready(function()
         model_type = "numeric";
 
         $.ajax(
-                {
-                    type: 'POST',
-                    url: '../../model/teacher/addQuestion.php',
-                    cache: false,
-                    data: values + "&model_type=" + model_type, //your form datas to post          
-                    success: function(response)
-                    {
-                        alert(response);
-                        //$(".modal-content.success_message").html("<div>SUCCESSFUL SUBMISSION</div>");
-                        $("#tfModalForm")[0].reset();
+        {
+            type: 'POST',
+            url: '../../model/teacher/addQuestion.php',
+            cache: false,
+            data: values + "&model_type=" + model_type, //your form datas to post          
+            success: function(response)
+            {
+                alert(response);
+                //$(".modal-content.success_message").html("<div>SUCCESSFUL SUBMISSION</div>");
+                $("#tfModalForm")[0].reset();
 
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
+            },
+            error: function()
+            {
+                alert("Failure");
 
-                    }
-                });
+            }
+        });
     });
     //*************************************************************//
 
@@ -142,31 +142,31 @@ $(document).ready(function()
     // will populate class select
     var f = 'standard';
     $.ajax(
-            {
-                type: 'GET',
-                url: '../../model/teacher/view_question_options.php',
-                data: {
-                    field: f
-                },
-                success: function(j)
-                {
-                    var options = '<option>Select standard</option>';
-                    for (var i = 0; i < j.length; i++) {
-                        options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                    }
+    {
+        type: 'GET',
+        url: '../../model/teacher/view_question_options.php',
+        data: {
+            field: f
+        },
+        success: function(j)
+        {
+            var options = '<option>Select standard</option>';
+            for (var i = 0; i < j.length; i++) {
+                options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+            }
 
-                    $("#vq_standard").html(options);
-                    //WILL POPULATE ALL STANDARD FIELDS OF ALL MODALS
-                    $("#mcq_standard").html(options);
-                    $("#sub_standard").html(options);
-                    $("#num_standard").html(options);
-                    $("#tf_standard").html(options);
-                },
-                error: function()
-                {
-                    alert("Failure");
-                }
-            });
+            $("#vq_standard").html(options);
+            //WILL POPULATE ALL STANDARD FIELDS OF ALL MODALS
+            $("#mcq_standard").html(options);
+            $("#sub_standard").html(options);
+            $("#num_standard").html(options);
+            $("#tf_standard").html(options);
+        },
+        error: function()
+        {
+            alert("Failure");
+        }
+    });
     //********************************************************
 
 
@@ -175,27 +175,31 @@ $(document).ready(function()
 
         f = 'subject';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/view_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#vq_standard").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select subject</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#vq_subject").html(options);
-
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+        {
+            type: 'GET',
+            url: '../../model/teacher/view_question_options.php',
+            data: {
+                field: f,
+                standard: $("#vq_standard").val()
+            },
+            success: function(j)
+            {
+                var options = '<option> Select subject</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#vq_subject").html(options);
+                $('#vq_standard option:contains("Select")').attr('disabled','disabled');
+                
+                $("#vq_topic").empty();
+                $("#vq_type").empty();
+                $("#vq_level").empty();
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
     //********************************************************
 
@@ -204,28 +208,33 @@ $(document).ready(function()
 
         f = 'topic';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/view_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#vq_standard").val(),
-                        subject: $("#vq_subject").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select topic</option><option value="*">All topics</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#vq_topic").html(options);
+        {
+            type: 'GET',
+            url: '../../model/teacher/view_question_options.php',
+            data: {
+                field: f,
+                standard: $("#vq_standard").val(),
+                subject: $("#vq_subject").val()
+            },
+            success: function(j)
+            {
+                var options = '<option>Select topic</option><option value="*">All topics</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#vq_topic").html(options);
+                $('#vq_subject option:contains("Select")').attr('disabled','disabled');
+                
+                $("#vq_type").empty();
+                $("#vq_level").empty();
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
     //********************************************************
 
@@ -234,30 +243,35 @@ $(document).ready(function()
 
         f = 'type';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/view_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#vq_standard").val(),
-                        subject: $("#vq_subject").val(),
-                        topic: $("#vq_topic").val()
+        {
+            type: 'GET',
+            url: '../../model/teacher/view_question_options.php',
+            data: {
+                field: f,
+                standard: $("#vq_standard").val(),
+                subject: $("#vq_subject").val(),
+                topic: $("#vq_topic").val()
 
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select type</option><option value="*">All types</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#vq_type").html(options);
+            },
+            success: function(j)
+            {
+                var options = '<option>Select type</option><option value="*">All types</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#vq_type").html(options);
+                $('#vq_topic option:contains("Select")').attr('disabled','disabled');
+                
+                $("#vq_level").empty();
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+                
+
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
     //********************************************************
 
@@ -266,30 +280,37 @@ $(document).ready(function()
 
         f = 'level';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/view_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#vq_standard").val(),
-                        subject: $("#vq_subject").val(),
-                        topic: $("#vq_topic").val(),
-                        type: $("#vq_type").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select level</option><option value="*">All levels</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#vq_level").html(options);
+        {
+            type: 'GET',
+            url: '../../model/teacher/view_question_options.php',
+            data: {
+                field: f,
+                standard: $("#vq_standard").val(),
+                subject: $("#vq_subject").val(),
+                topic: $("#vq_topic").val(),
+                type: $("#vq_type").val()
+            },
+            success: function(j)
+            {
+                var options = '<option>Select level</option><option value="*">All levels</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#vq_level").html(options);
+                $('#vq_type option:contains("Select")').attr('disabled','disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
+    });
+    
+    $("#vq_level").change(function()
+    {
+        $('#vq_level option:contains("Select")').attr('disabled','disabled');
     });
     //*********************************************************************************
 
@@ -305,7 +326,8 @@ $(document).ready(function()
             data: values,
             cache: false,
             success: function(data) {
-
+               
+                
                 var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
                 t += "<thead><tr> <th>Question Id</th> <th>Type</th> <th>Level</th> <th>Description</th> <th>Update/Delete</th> </tr></thead>";
                 for (var i = 0; i < data.length; i++) {
@@ -313,6 +335,7 @@ $(document).ready(function()
                 }
                 t += "</table></div>";
                 $("#myContent").html(t);
+                
             },
             error: function() {
                 var e = "<p style=\"color:blue\">Sorry! There are no questions matching your request!</p>";
@@ -332,27 +355,29 @@ $(document).ready(function()
 
         f = 'subject';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/add_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#mcq_standard").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select subject</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#mcq_subject").html(options);
-
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+        {
+            type: 'GET',
+            url: '../../model/teacher/add_question_options.php',
+            data: {
+                field: f,
+                standard: $("#mcq_standard").val()
+            },
+            success: function(j)
+            {
+                var options = '<option>Select subject</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#mcq_subject").html(options);
+                $('#mcq_standard option:contains("Select")').attr('disabled','disabled');
+                
+                $("#mcq_topic").empty();
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
     //********************************************************
 
@@ -361,28 +386,29 @@ $(document).ready(function()
 
         f = 'topic';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/add_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#mcq_standard").val(),
-                        subject: $("#mcq_subject").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select topic</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#mcq_topic").html(options);
-
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+        {
+            type: 'GET',
+            url: '../../model/teacher/add_question_options.php',
+            data: {
+                field: f,
+                standard: $("#mcq_standard").val(),
+                subject: $("#mcq_subject").val()
+            },
+            success: function(j)
+            {
+                var options = '<option>Select topic</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#mcq_topic").html(options);
+                $('#mcq_subject option:contains("Select")').attr('disabled','disabled');
+                
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
 
     $("#mcq_topic").change(function() {
@@ -393,8 +419,15 @@ $(document).ready(function()
             options += '<option value="' + i + '">' + i + '</option>';
         }
         $("#mcq_level").html(options);
+        $('#mcq_topic option:contains("Select")').attr('disabled','disabled');
 
     });
+    
+    $("#mcq_level").change(function()
+    {
+        $('#mcq_level option:contains("Select")').attr('disabled','disabled');
+    });
+    
 
     //***********END OF MCQ MODAL OPTIONS *****************************************
 
@@ -404,27 +437,28 @@ $(document).ready(function()
 
         f = 'subject';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/add_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#sub_standard").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select subject</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#sub_subject").html(options);
+        {
+            type: 'GET',
+            url: '../../model/teacher/add_question_options.php',
+            data: {
+                field: f,
+                standard: $("#sub_standard").val()
+            },
+            success: function(j)
+            {
+                var options = '<option>Select subject</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#sub_subject").html(options);
+                $('#sub_standard option:contains("Select")').attr('disabled','disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
     //********************************************************
 
@@ -433,28 +467,29 @@ $(document).ready(function()
 
         f = 'topic';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/add_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#sub_standard").val(),
-                        subject: $("#sub_subject").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select topic</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#sub_topic").html(options);
+        {
+            type: 'GET',
+            url: '../../model/teacher/add_question_options.php',
+            data: {
+                field: f,
+                standard: $("#sub_standard").val(),
+                subject: $("#sub_subject").val()
+            },
+            success: function(j)
+            {
+                var options = '<option>Select topic</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#sub_topic").html(options);
+                $('#sub_subject option:contains("Select")').attr('disabled','disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
 
     $("#sub_topic").change(function() {
@@ -465,8 +500,15 @@ $(document).ready(function()
             options += '<option value="' + i + '">' + i + '</option>';
         }
         $("#sub_level").html(options);
+        $('#sub_topic option:contains("Select")').attr('disabled','disabled');
 
     });
+    
+    $("#sub_level").change(function()
+    {
+        $('#sub_level option:contains("Select")').attr('disabled','disabled');
+    });
+    
 
     //***********END OF SUBJECTIVE MODAL OPTIONS *****************************************
 
@@ -476,27 +518,28 @@ $(document).ready(function()
 
         f = 'subject';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/add_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#num_standard").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select subject</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#num_subject").html(options);
+        {
+            type: 'GET',
+            url: '../../model/teacher/add_question_options.php',
+            data: {
+                field: f,
+                standard: $("#num_standard").val()
+            },
+            success: function(j)
+            {
+                var options = '<option>Select subject</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#num_subject").html(options);
+                $('#num_standard option:contains("Select")').attr('disabled','disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
     //********************************************************
 
@@ -505,28 +548,29 @@ $(document).ready(function()
 
         f = 'topic';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/add_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#num_standard").val(),
-                        subject: $("#num_subject").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select topic</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#num_topic").html(options);
+        {
+            type: 'GET',
+            url: '../../model/teacher/add_question_options.php',
+            data: {
+                field: f,
+                standard: $("#num_standard").val(),
+                subject: $("#num_subject").val()
+            },
+            success: function(j)
+            {
+                var options = '<option>Select topic</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#num_topic").html(options);
+                $('#num_subject option:contains("Select")').attr('disabled','disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
 
     $("#num_topic").change(function() {
@@ -537,8 +581,15 @@ $(document).ready(function()
             options += '<option value="' + i + '">' + i + '</option>';
         }
         $("#num_level").html(options);
+        $('#num_topic option:contains("Select")').attr('disabled','disabled');
 
     });
+
+    $("#num_level").change(function()
+    {
+        $('#num_level option:contains("Select")').attr('disabled','disabled');
+    });
+    
 
     //***********END OF NUMERIC MODAL OPTIONS *****************************************
 
@@ -549,27 +600,28 @@ $(document).ready(function()
 
         f = 'subject';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/add_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#tf_standard").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select subject</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#tf_subject").html(options);
+        {
+            type: 'GET',
+            url: '../../model/teacher/add_question_options.php',
+            data: {
+                field: f,
+                standard: $("#tf_standard").val()
+            },
+            success: function(j)
+            {
+                var options = '<option>Select subject</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#tf_subject").html(options);
+                $('#tf_standard option:contains("Select")').attr('disabled','disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
     //********************************************************
 
@@ -578,28 +630,29 @@ $(document).ready(function()
 
         f = 'topic';
         $.ajax(
-                {
-                    type: 'GET',
-                    url: '../../model/teacher/add_question_options.php',
-                    data: {
-                        field: f,
-                        standard: $("#tf_standard").val(),
-                        subject: $("#tf_subject").val()
-                    },
-                    success: function(j)
-                    {
-                        var options = '<option>Select topic</option>';
-                        for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i] + '">' + j[i] + '</option>';
-                        }
-                        $("#tf_topic").html(options);
+        {
+            type: 'GET',
+            url: '../../model/teacher/add_question_options.php',
+            data: {
+                field: f,
+                standard: $("#tf_standard").val(),
+                subject: $("#tf_subject").val()
+            },
+            success: function(j)
+            {
+                var options = '<option>Select topic</option>';
+                for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                }
+                $("#tf_topic").html(options);
+                $('#tf_subject option:contains("Select")').attr('disabled','disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-                    }
-                });
+            },
+            error: function()
+            {
+                alert("Failure");
+            }
+        });
     });
 
     $("#tf_topic").change(function() {
@@ -610,10 +663,17 @@ $(document).ready(function()
             options += '<option value="' + i + '">' + i + '</option>';
         }
         $("#tf_level").html(options);
+        $('#tf_topic option:contains("Select")').attr('disabled','disabled');
 
     });
+    
+    $("#tf_level").change(function()
+    {
+        $('#tf_level option:contains("Select")').attr('disabled','disabled');
+    });
+    
 
-    //***********END OF TRUE OR FALSE MODAL OPTIONS *****************************************
+//***********END OF TRUE OR FALSE MODAL OPTIONS *****************************************
 
 
 });

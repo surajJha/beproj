@@ -38,38 +38,38 @@
 
 
         <!-- ************LOGIN FORM *******************  -->
-        
+
         <div id="fullscreen_bg" class="fullscreen_bg" >
 
-        <div class="container">
+            <div class="container">
 
-            <form id="login_form" class="form-signin" method="post" action = "../controller/login.php" >
-                <h1 class="form-signin-heading text-muted"><b>HexaGraph</b>   </h1>
-                <input type="text" class="form-control" placeholder="User ID" name="username" id="username" required="" autofocus="">
+                <form id="login_form" class="form-signin" method="post" action = "../controller/login.php" >
+                    <h1 class="form-signin-heading text-muted"><b>HexaGraph</b>   </h1>
+                    <input type="text" class="form-control" placeholder="User ID" name="username" id="username" required="" autofocus="">
 
-                <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="">
-                <button id="login_sub" class="btn btn-lg btn-primary btn-block" type="submit">
-                    Sign In
-                </button>
-            </form>
+                    <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="">
+                    <button id="login_sub" class="btn btn-lg btn-primary btn-block" type="submit">
+                        Sign In
+                    </button>
+                </form>
 
-            <div style="color:black" id="forgot_login"> </div>
-
-
-        </div>
-        <!-- ****************************************************** -->
+                <div style="color:black" id="forgot_login"> </div>
 
 
+            </div>
+            <!-- ****************************************************** -->
 
-        <?php// include("footer.php"); ?>
 
 
-        <!-- JavaScript -->
-        <script src="../lib/theme/js/jquery-1.10.2.js"></script>
-        <script src="../lib/theme/js/bootstrap.js"></script>
-        <script src="../lib/theme/js/modern-business.js"></script>
-       
-        
+            <?php // include("footer.php"); ?>
+
+
+            <!-- JavaScript -->
+            <script src="../lib/theme/js/jquery-1.10.2.js"></script>
+            <script src="../lib/theme/js/bootstrap.js"></script>
+            <script src="../lib/theme/js/modern-business.js"></script>
+
+
 
     </body>
 
