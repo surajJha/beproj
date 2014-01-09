@@ -227,8 +227,6 @@ $(document).ready(function()
                 
                 $("#vq_type").empty();
                 $("#vq_level").empty();
-
-
             },
             error: function()
             {
@@ -264,8 +262,6 @@ $(document).ready(function()
                 
                 $("#vq_level").empty();
 
-                
-
             },
             error: function()
             {
@@ -298,8 +294,6 @@ $(document).ready(function()
                 }
                 $("#vq_level").html(options);
                 $('#vq_type option:contains("Select")').attr('disabled','disabled');
-
-
             },
             error: function()
             {
