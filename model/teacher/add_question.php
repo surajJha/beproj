@@ -6,27 +6,18 @@
  *      AND THE QUERY WILL BE EXECUTED.
  */
 
-//print_r( $_POST)
-function isEmpty() {
-    foreach ($_POST as $val) {
-        if (empty($val)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-}
+print_r( $_POST);
 
 //******** CHECKING FOR THE TYPE OF QUESTION*************
 
-$question_type = $_POST["model_type"];
-if ($question_type === "mcq") {
+$type = $_POST["type"];
+if ($type === "mcq") {
     insertMCQ();
-} else if ($question_type === "subjective") {
+} else if ($type === "subjective") {
     insertSubjective();
-} else if ($question_type === "numeric") {
+} else if ($type === "numeric") {
     insertNumeric();
-} else if ($question_type === "tf") {
+} else if ($type === "tf") {
     insertTrueFalse();
 } else {
     echo 'SYSTEM DOES NOT SUPPORT THE SELECTED QUESTION TYPE';
@@ -36,19 +27,19 @@ if ($question_type === "mcq") {
 
 //MCQ QUESTION INSERTION
 function insertMCQ() {
-    $question_desc = $_POST["question_mcqModal"];
-    $level = $_POST["level"];
-    $topic = $_POST["topic"];
-    $subject = $_POST["subject"];
-    $standard = $_POST["standard"];
-    $type = $_POST["type"];
+    $question_desc = $_POST["mcq_question"];
+    $level = $_POST["mcq_level"];
+    $topic = $_POST["mcq_topic"];
+    $subject = $_POST["mcq_subject"];
+    $standard = $_POST["mcq_standard"];
+    $type = $_POST["mcq_type"];
 
 
-    $op1 = $_POST["option1_mcqModal"];
-    $op2 = $_POST["option2_mcqModal"];
-    $op3 = $_POST["option3_mcqModal"];
-    $op4 = $_POST["option4_mcqModal"];
-    $answer = $_POST["answer_mcqModal"];
+    $opa = $_POST["mcq_op_a"];
+    $opb = $_POST["mcq_op_a"];
+    $opc = $_POST["mcq_op_a"];
+    $opd = $_POST["mcq_op_a"];
+    $answer = $_POST["mcq_answer"];
     require_once 'database.php';
     $question_query = "INSERT into QUESTION (`question_id`, `question_desc`, `level`, `topic_name`, `subject_name`, `standard`, `type`) values(NULL,'{$question_desc}','{$level}','{$topic}','{$subject}','{$standard}','{$type}')";
    if( mysqli_query($connection, $question_query)){

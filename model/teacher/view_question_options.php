@@ -37,11 +37,10 @@ function populateStandard() {
                 array_push($x, $row['standard']);
             }
         }
+        echo json_encode($x);
     } else {
         echo mysqli_error($connection);
     }
-
-    echo json_encode($x);
 }
 
 //extract which subjects teacher teaches corresponding to standard selected from database
@@ -135,7 +134,6 @@ function populateType() {
     echo json_encode($x);
 }
 
-
 //extract which levels of questions belong to standard, subject, topic, type selected from database
 // !!** add current year clause to query 
 function populateLevel() {
@@ -153,7 +151,7 @@ function populateLevel() {
 
         $query.="AND q.topic_name='{$_GET['topic']} '";
     }
-    if(!$_GET['type'] === "*") {
+    if (!$_GET['type'] === "*") {
         $query.="AND q.type='{$_GET['type']} '";
     }
 
@@ -172,6 +170,5 @@ function populateLevel() {
 
     echo json_encode($x);
 }
-
 
 ?>

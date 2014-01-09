@@ -1,28 +1,25 @@
 // the following function is for loading the form from the teacherupdate view file
 $(document).ready(function()
 {
-    var model_type = '';
+    var type = '';
     //**********FUNCTION FOR SUBMITTING MCQ MODAL*************
     $("button#submit_mcqModal").click(function(e) {
         e.preventDefault();
         var values = $("#mcqModalForm").serialize();
         // alert(values);
-        model_type = "mcq";
+        type = "mcq";
 
         $.ajax(
         {
             type: 'POST',
-            url: '../../model/teacher/addQuestion.php',
+            url: '../../model/teacher/add_question.php',
             cache: false,
-            data: values + "&model_type=" + model_type,
+            data: values + "&type=" + type,
             //your form datas to post          
             success: function(response)
             {
                 alert(response);
-                //$(".modal-content.success_message").html("<div>SUCCESSFUL SUBMISSION</div>");
                 $("#mcqModalForm")[0].reset();
-
-
             },
             error: function()
             {
@@ -40,14 +37,14 @@ $(document).ready(function()
     $("button#submit_subjectiveModal").click(function(e) {
         e.preventDefault();
         var values = $("#subjectiveModalForm").serialize();
-        model_type = "subjective";
+        type = "subjective";
 
         $.ajax(
         {
             type: 'POST',
-            url: '../../model/teacher/addQuestion.php',
+            url: '../../model/teacher/add_question.php',
             cache: false,
-            data: values + "&model_type=" + model_type, //your form datas to post          
+            data: values + "&type=" + type, //your form datas to post          
             success: function(response)
             {
                 alert(response);
@@ -76,14 +73,14 @@ $(document).ready(function()
     $("button#submit_numericModal").click(function(e) {
         e.preventDefault();
         var values = $("#numericModalForm").serialize();
-        model_type = "numeric";
+        type = "numeric";
 
         $.ajax(
         {
             type: 'POST',
-            url: '../../model/teacher/addQuestion.php',
+            url: '../../model/teacher/add_question.php',
             cache: false,
-            data: values + "&model_type=" + model_type, //your form datas to post          
+            data: values + "&type=" + type, //your form datas to post          
             success: function(response)
             {
                 alert(response);
@@ -112,14 +109,14 @@ $(document).ready(function()
     $("button#submit_tfModal").click(function(e) {
         e.preventDefault();
         var values = $("#tfModalForm").serialize();
-        model_type = "numeric";
+        type = "tf";
 
         $.ajax(
         {
             type: 'POST',
-            url: '../../model/teacher/addQuestion.php',
+            url: '../../model/teacher/add_question.php',
             cache: false,
-            data: values + "&model_type=" + model_type, //your form datas to post          
+            data: values + "&type=" + type, //your form datas to post          
             success: function(response)
             {
                 alert(response);
@@ -320,15 +317,16 @@ $(document).ready(function()
             data: values,
             cache: false,
             success: function(data) {
-               
-                
+                               
                 var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
                 t += "<thead><tr> <th>Question Id</th> <th>Type</th> <th>Level</th> <th>Description</th> <th>Update/Delete</th> </tr></thead>";
                 for (var i = 0; i < data.length; i++) {
-                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td><a href=# class=\"ud\" id=\""+data[i].question_id+"\">Update/delete</a></td></tr>";
+                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td><a href=# class=\"ud btn btn-primary\" id=\""+data[i].question_id+"\">Update/delete</a></td></tr>";
                 }
                 t += "</table></div>";
-                $("#myContent").html(t);
+                
+                $("#myContent").append(t);
+                
                 
             },
             error: function() {
@@ -336,9 +334,7 @@ $(document).ready(function()
             }
 
         });
-
         return false;
-        
     });
     
     
