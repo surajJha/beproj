@@ -47,7 +47,7 @@
                                             <h4>  First Name :</h4>
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control input-lg" placeholder="Medium" required >
+                                            <input type="text" class="form-control input-lg" placeholder="Enter your first name" required >
 
                                         </td>
                                     </tr>
@@ -58,7 +58,7 @@
                                             <h4>   Last Name :  </h4>
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control input-lg" placeholder="Medium" required parsley-trigger="change">   
+                                            <input type="text" class="form-control input-lg" placeholder="Enter your last name" required parsley-trigger="change">   
                                         </td>
                                     </tr>
 
@@ -68,7 +68,7 @@
                                             <h4>   Email :</h4>
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control input-lg" placeholder="Medium" required parsley-type="email" required>   
+                                            <input type="text" class="form-control input-lg" placeholder="Enter a valid email id" required parsley-type="email" required>   
                                         </td>
                                     </tr>
 
@@ -78,7 +78,7 @@
                                             <h4>    Phone Number : </h4>
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control input-lg" placeholder="Medium" parsley-type="phone" required>   
+                                            <input type="text" class="form-control input-lg" placeholder="Enter a valid phone number" parsley-type="phone" required>   
                                         </td>
                                     </tr>
 
@@ -88,7 +88,7 @@
                                             <h4>   Enter New Password :</h4>
                                         </td>
                                         <td>
-                                            <input type="password" class="form-control input-lg" placeholder="Medium" id="pwd" required>   
+                                            <input type="password" class="form-control input-lg" placeholder="Enter new password" id="pwd" required>   
                                         </td>
                                     </tr>
 
@@ -98,7 +98,7 @@
                                             <h4>   Re-Enter New Password</h4>
                                         </td>
                                         <td>
-                                            <input type="password" class="form-control input-lg" placeholder="Medium" parsley-equalto="#pwd" required parsley-error-message="Passwords do not match">   
+                                            <input type="password" class="form-control input-lg" placeholder="Re-enter new password" parsley-equalto="#pwd" required parsley-error-message="Passwords do not match">   
                                         </td>
                                     </tr>
 
