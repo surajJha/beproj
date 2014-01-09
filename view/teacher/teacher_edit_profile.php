@@ -6,6 +6,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
+        <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+        <script src="../../lib/theme/js/bootstrap.js"></script>
+        <script type="text/javascript" src="../../lib/theme/js/parsley.min.js"></script>
+        <script type="text/javascript" src="../../lib/theme/js/parsley.js"></script>
         <title> HexaGraph   </title>
 
         <!-- Bootstrap core CSS -->
@@ -36,12 +40,75 @@
                             <div class="page-header">
                                 <h3>Edit basic information here</h3>
                             </div>
-                            
-                            <table class="">
-                                
-                            </table>
-                            
-                            
+                            <form parsley-validate >
+                                <table class="table-condensed" style="border: blue">
+
+                                    <tr ><td>
+                                            <h4>  First Name :</h4>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-lg" placeholder="Medium" required >
+
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr><td>
+                                            <h4>   Last Name :  </h4>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-lg" placeholder="Medium" required parsley-trigger="change">   
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr><td>
+                                            <h4>   Email :</h4>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-lg" placeholder="Medium" required parsley-type="email" required>   
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr><td>
+                                            <h4>    Phone Number : </h4>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-lg" placeholder="Medium" parsley-type="phone" required>   
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr><td>
+                                            <h4>   Enter New Password :</h4>
+                                        </td>
+                                        <td>
+                                            <input type="password" class="form-control input-lg" placeholder="Medium" id="pwd" required>   
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr><td style="padding-right: 50px">
+                                            <h4>   Re-Enter New Password</h4>
+                                        </td>
+                                        <td>
+                                            <input type="password" class="form-control input-lg" placeholder="Medium" parsley-equalto="#pwd" required parsley-error-message="Passwords do not match">   
+                                        </td>
+                                    </tr>
+
+
+
+
+                                </table><br><br>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary btn-lg" type="submit" id="edit_form_submit" style="padding-left: 60px;padding-right: 60px">Submit</button>
+
+                            </form>
 
                         </div>
                     </div>
@@ -80,8 +147,7 @@
 
                 <!-- JavaScript -->
 
-                <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
-                <script src="../../lib/theme/js/bootstrap.js"></script>
+
                 <script src="../../lib/theme/js/modern-business.js"></script>
                 <script src="../../lib/theme/docs-assets/js/holder.js"></script>
 
