@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="row">
 
-                <?php include('teacher_sidebar.php'); ?>
+                <?php include('admin_sidebar.php'); ?>
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
                 <!-- START OF USER SPECIFIC CODE******************************************-->
