@@ -8,4 +8,4 @@ TODO LIST!
 
 - find a project management tool !
 
-- edit form (suraj)
+- execute forgor password mail functionality - SURAJ
