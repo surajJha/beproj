@@ -9,3 +9,5 @@ TODO LIST!
 - find a project management tool !
 
 - execute forgot password mail functionality - SURAJ
+
+teacher edit profile mein password and re-password not matching , ie validation not working

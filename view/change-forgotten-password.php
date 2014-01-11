@@ -32,18 +32,24 @@
             </div>
             <div class="row">
                 <center> <div class="page-header">
-                        <h3>Forgot Your Password ?</h3>
-                        <h4>
-                            Please enter your email id and press submit to proceed
-                        </h4>
-                        <form parsley-validate method="post" id="password-form">
-                            <input class="input-lg"  type="email" name="myemail" id="myemail" required data-type="email" parsley-required="change" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="submit-buttton" type="submit">Submit</button>
-                        </form>
-                    </div><br>
-                    <div id="response" class="alert-success">
+                        <h3>Enter your User-id and new Password here</h3>
 
+                        <form parsley-validate method="post" id="change-password-form">
+                            User_id : <br><input class="input-lg" type="text" name="user_id" id="user_id" required placeholder="User ID" /><br>
+                            Password : <br><input class="input-lg"  type="password" name="mypassword" id="mypassword" placeholder="Enter new password" required data-type="password" parsley-required="change" /><br>
+                            Re-Enter new password -<br>
+                            <input class="input-lg"  type="password" name="re-password" id="re-password"  placeholder="Re-enter new password" required parsley-equalto="#mypassword" />
+                            <div id="err-message">
+
+                            </div>
+                            <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="change-password-buttton" type="submit">Submit</button>
+                        </form>
+                        <br>
+                        <div id="result">
+                            
+                        </div>
                     </div>
+
 
 
                 </center>  
@@ -65,11 +71,8 @@
         <script src="../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../lib/theme/js/bootstrap.js"></script>
         <script src="../lib/theme/js/modern-business.js"></script>
-    <script src="../controller/forgot-password-mail.js"></sccript>
+        <script src="../controller/change-forgotten-password.js"></script>
 
 
 
-</body>
-
-
-</html>
+       
