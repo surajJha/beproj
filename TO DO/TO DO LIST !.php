@@ -8,8 +8,10 @@ TODO LIST!
 
 - find a project management tool !
 
-- edit form (suraj)
+- edit form -- > password (suraj)
 
 - submit view question form ka validation - button enabled when all values selected only 
 
 - check session everytime before loading page --> load page only if valid . else redirect to login.php
+
+-forgot password part (suraj)
