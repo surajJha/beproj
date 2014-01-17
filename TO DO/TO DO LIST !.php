@@ -8,10 +8,6 @@ TODO LIST!
 
 - find a project management tool !
 
-- edit form -- > password (suraj)
+- execute forgot password mail functionality - SURAJ
 
-- submit view question form ka validation - button enabled when all values selected only 
-
-- check session everytime before loading page --> load page only if valid . else redirect to login.php
-
--forgot password part (suraj)
+teacher edit profile mein password and re-password not matching , ie validation not working

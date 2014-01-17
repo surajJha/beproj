@@ -37,14 +37,13 @@ if (password_check($password, $existing_hash)) {
     //$type -> teacher or student
     $type = $row["type"];
     echo $type;
-// set type - 2 for admin , 0 for teacher, 1 for student
-    if ($user_id === "admin") {
-        //header("Location:http://localhost/beproj/view/admin/adminview.php");
+// set type - 9 for admin , 1 for teacher, 0 for student
+    if ($type === "9") {
+        header("Location:http://localhost/beproj/view/admin/admin_overview.php");
     } else if ($type === "1") {
-
         header("Location:http://localhost/beproj/view/teacher/teacher_overview.php");
     } else if ($type === "0") {
-        //header("Location:http://localhost/beproj/view/student/studentview.php");
+        header("Location:http://localhost/beproj/view/student/student_overview.php");
     }
 } else {
 

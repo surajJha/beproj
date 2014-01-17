@@ -2,9 +2,8 @@ $(document).ready(function()
     {
 
         //*************************************** **************************************************
-        // will populate class select
+        // will populate standard select
         var f = 'standard';
-        var d='def';
         $.ajax(
         {
             type: 'GET',
@@ -14,7 +13,7 @@ $(document).ready(function()
             },
             success: function(j)
             {
-                var options = '<option id="set_test_standard_def">Select standard</option>';
+                var options = '<option>Select standard</option>';
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }

@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-
+        <script src="../../lib/theme/js/parsley.js"></script>
+   
         <title> HexaGraph   </title>
 
         <!-- Bootstrap core CSS -->
@@ -27,7 +28,7 @@
 
                 <div class="col-sm-9 col-sm-offset-2 main" id="bigdiv">             
 
-                    <!--to load the form through ajax -->
+
                     <div class="container" id="view_add_question">
                         <h4>Select the parameters to view Question Bank!</h4>
                         <form role="form" id="view_questions" method="post" class="form-horizontal" >
@@ -97,7 +98,7 @@
                                     <div class="modal-header">
                                         <h4 align="center">Add a Multiple Choice Question!</h4>
                                     </div>
-                                    <form class="form-horizontal"  type="post" id="mcqModalForm" >
+                                    <form parsley-validate class="form-horizontal"  type="post" id="mcqModalForm" >
                                         <div class="modal-body"> 
 
                                             <div class="form-group">
@@ -140,35 +141,35 @@
                                             <div class="form-group">
                                                 <label for="mcq_question" class="col-lg-4 control-label"> Question:</label>
                                                 <div class="col-lg-6">
-                                                    <textarea class="form-control" rows="6" cols="10" id="mcq_question" name="mcq_question"></textarea>
+                                                    <textarea class="form-control" rows="6" cols="10" id="mcq_question" name="mcq_question" required></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="mcq_op_a" class="col-lg-4 control-label">A:</label>
                                                 <div class="col-lg-6">
-                                                    <input class="text" id="mcq_op_a" name="mcq_op_a" class="form-control" placeholder="Option A">
+                                                    <input class="text" id="mcq_op_a" name="mcq_op_a" class="form-control" placeholder="Option A" required />
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="mcq_op_b" class="col-lg-4 control-label">B:</label>
                                                 <div class="col-lg-6">
-                                                    <input class="text" id="mcq_op_b" name="mcq_op_b" class="form-control" placeholder="Option B">
+                                                    <input class="text" id="mcq_op_b" name="mcq_op_b" class="form-control" placeholder="Option B" required />
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="mcq_op_c" class="col-lg-4 control-label">C:</label>
                                                 <div class="col-lg-6">
-                                                    <input class="text" id="mcq_op_c" name="mcq_op_c" class="form-control" placeholder="Option C">
+                                                    <input class="text" id="mcq_op_c" name="mcq_op_c" class="form-control" placeholder="Option C" required />
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="mcq_op_d" class="col-lg-4 control-label">D:</label>
                                                 <div class="col-lg-6">
-                                                    <input class="text" id="mcq_op_d" name="mcq_op_d" class="form-control" placeholder="Option D">
+                                                    <input class="text" id="mcq_op_d" name="mcq_op_d" class="form-control" placeholder="Option D" required />
                                                 </div>
                                             </div>
 
@@ -184,7 +185,7 @@
 
                                             <div class="modal-footer">
                                                 <button class="btn btn-primary" type="submit"  id="submit_mcqModal" >Submit</button>
-                                                <a class="btn btn-danger" data-dismiss="modal">Close</a>
+                                                <a class="btn btn-danger" id="mcq_close" data-dismiss="modal">Close</a>
                                             </div>
 
                                         </div>
@@ -205,7 +206,7 @@
                                     <div class="modal-header">
                                         <h4 align="center">Add a Subjective Question!</h4>
                                     </div>
-                                    <form class="form-horizontal"  type="post" id="subjectiveModalForm" >
+                                    <form parsley-validate class="form-horizontal"  type="post" id="subjectiveModalForm" >
                                         <div class="modal-body"> 
 
 
@@ -248,21 +249,21 @@
                                             <div class="form-group">
                                                 <label for="sub_question" class="col-lg-4 control-label"> Question:</label>
                                                 <div class="col-lg-6">
-                                                    <textarea class="form-control" rows="6" cols="10" id="sub_question" name="sub_question"></textarea>
+                                                    <textarea class="form-control" rows="6" cols="10" id="sub_question" name="sub_question" required></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="sub_keyword" class="col-lg-4 control-label"> Keywords:</label>
                                                 <div class="col-lg-6">
-                                                    <textarea class="form-control" rows="6" cols="10" id="sub_keyword" name="sub_keyword"></textarea>
+                                                    <textarea class="form-control" rows="6" cols="10" id="sub_keyword" name="sub_keyword" required></textarea>
                                                 </div>
                                             </div>
 
 
                                             <div class="modal-footer">
                                                 <button class="btn btn-primary" type="submit"  id="submit_subjectiveModal" >Submit</button>
-                                                <a class="btn btn-danger" data-dismiss="modal">Close</a>
+                                                <a class="btn btn-danger" id="subjective_close" data-dismiss="modal">Close</a>
                                             </div>
 
                                         </div>
@@ -285,7 +286,7 @@
                                     <div class="modal-header">
                                         <h4 align="center">Add a Numeric Question!</h4>
                                     </div>
-                                    <form class="form-horizontal"  type="post" id="numericModalForm" >
+                                    <form parsley-validate class="form-horizontal"  type="post" id="numericModalForm" >
                                         <div class="modal-body"> 
 
 
@@ -326,7 +327,7 @@
                                             <div class="form-group">
                                                 <label for="num_question" class="col-lg-4 control-label"> Question:</label>
                                                 <div class="col-lg-6">
-                                                    <textarea class="form-control" rows="6" cols="10" id="num_question" name="num_question"></textarea>
+                                                    <textarea class="form-control" rows="6" cols="10" id="num_question" name="num_question" required></textarea>
                                                 </div>
                                             </div>
 
@@ -334,13 +335,13 @@
                                             <div class="form-group">
                                                 <label for="num_answer" class="col-lg-4 control-label"> Answer:</label>
                                                 <div class="col-lg-6">
-                                                    <input class="text" id="num_answer" name="num_answer" class="form-control" placeholder="Answer"">
+                                                    <input class="text" id="num_answer" name="num_answer" class="form-control" placeholder="Answer" required>
                                                 </div>
                                             </div>
 
                                             <div class="modal-footer">
                                                 <button class="btn btn-primary" type="submit"  id="submit_numericModal" >Submit</button>
-                                                <a class="btn btn-danger" data-dismiss="modal">Close</a>
+                                                <a class="btn btn-danger" id="numeric_close"  data-dismiss="modal">Close</a>
                                             </div>
 
                                         </div>
@@ -361,7 +362,7 @@
                                     <div class="modal-header">
                                         <h4 align="center">Add a True or False Question!</h4>
                                     </div>
-                                    <form class="form-horizontal"  type="post" id="tfModalForm" >
+                                    <form parsley-validate class="form-horizontal"  type="post" id="tfModalForm" >
                                         <div class="modal-body"> 
 
 
@@ -401,7 +402,7 @@
                                             <div class="form-group">
                                                 <label for="tf_question" class="col-lg-4 control-label"> Question:</label>
                                                 <div class="col-lg-6">
-                                                    <textarea class="form-control" rows="6" cols="10" id="tf_question" name="tf_question"></textarea>
+                                                    <textarea class="form-control" rows="6" cols="10" id="tf_question" name="tf_question" required></textarea>
                                                 </div>
                                             </div>
 
@@ -417,7 +418,7 @@
 
                                             <div class="modal-footer">
                                                 <button class="btn btn-primary" type="submit"  id="submit_tfModal" >Submit</button>
-                                                <a class="btn btn-danger" data-dismiss="modal">Close</a>
+                                                <a class="btn btn-danger" id="tf_close" data-dismiss="modal">Close</a>
                                             </div>
 
                                         </div>
@@ -451,8 +452,23 @@
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+        <!-- DO NOT MOVE THIS SCRIPT BELOW TEACHERUPDATE.JS LINK. IT WILL NOT WORK -->
+    
+       <script>
+            var no = jQuery.noConflict(true);
+        $n(function(){
+               $("#mcqModalForm").parsley();
+            $("#subjectiveModalForm").parsley('validate');
+            $("#numericModalForm").parsley('validate');
+            $("#tfModalForm").parsley('validate');
+        });
+        
+         
 
-
+         //   jQuery.noConflict(true);
+        
+        
+        </script>
         <script src="../../controller/teacher/teacherupdate.js"></script>
 
     </body>

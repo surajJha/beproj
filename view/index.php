@@ -48,6 +48,11 @@
                     <input type="text" class="form-control" placeholder="User ID" name="username" id="username" required="" autofocus="">
 
                     <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="">
+                    
+                    <div style="padding-left: 40px">
+                        <a href="forgot_password.php"> <em> <strong><p style="color:#0000cc;">forgot your Username/Password?</p></strong></em></a>
+                    </div>
+                        
                     <button id="login_sub" class="btn btn-lg btn-primary btn-block" type="submit">
                         Sign In
                     </button>

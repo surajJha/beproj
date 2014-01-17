@@ -1,33 +1,46 @@
 <?php
+
 session_start();
 include '../controller/encryption.php';
+require_once 'database.php';
+
 $user_id = $_SESSION['user_id'];
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 $password = $_POST['password'];
 
-$hashed_password=password_encrypt($password);
 
-$query = "UPDATE USER set fname = '{$fname}' , 
+
+$hashed_password = password_encrypt($password);
+
+$query = "UPDATE user SET fname = '{$fname}' , 
                           lname = '{$lname}' ,
-                          email = '{$email}' ,
-                          phone = '{$phone}' ,
-                          password = '{$hashed_password}'
-                          where user_id = '{$user_id}'";
-  if(mysqli_query($connection, $query)){
-      
-      echo 'Your details have been updated successfully!';
-  }
-  else{
-      echo mysqli_error($connection);
-  }
+                          phone = '{$phone}' ";
+                          
+if ($email !== $_SESSION['email']) {
+    $query.=", email = '{$email}' ";
+}
+if (strlen($password)>0) {
+  $query.=", password = '{$hashed_password}' ";
+}
+
+$query.="WHERE user_id = '{$user_id}'";
+
+
+
+
+if (mysqli_query($connection, $query)) {
+    $_SESSION['fname'] = $fname;
+    $_SESSION['lname'] = $lname;
+    $_SESSION['email'] = $email;
+    $_SESSION['phone'] = $phone;
+
+    echo 'success';
+} else {
+    echo 'error';
+}
   
   
 
