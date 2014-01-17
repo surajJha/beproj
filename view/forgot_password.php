@@ -17,6 +17,7 @@
         <link href="../lib/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="../lib/theme/css/mystyle.css" rel="stylesheet">
     </head>
+
     <body style="background-color: wheat" >
 
         <!-- PAGE TITLE GOES HERE ************************************ -->
@@ -44,7 +45,9 @@
                     <div id="response" class="alert-success">
 
                     </div>
+                    <div id="response2" class="alert-warning">
 
+                    </div>
 
                 </center>  
 
@@ -65,11 +68,5 @@
         <script src="../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../lib/theme/js/bootstrap.js"></script>
         <script src="../lib/theme/js/modern-business.js"></script>
-    <script src="../controller/forgot-password-mail.js"></sccript>
+        <script src="../controller/forgot-password-mail.js"></script>
 
-
-
-</body>
-
-
-</html>

@@ -2,26 +2,21 @@
                 <div class="col-lg-2 sidebar">
                     <!-- Overview  -->
                     <ul class="nav nav-sidebar">
-                        <li class="active" ><a id="overview" href="teacher_overview.php">Overview</a></li>
+                        <li class="active" ><a id="overview" href="admin_overview.php">Overview</a></li>
                     </ul>
 
-                    <!-- Functionality to manage question bank  -->
                     <ul class="nav nav-sidebar">
-                        <li><a href="view_question_bank.php" id="question_bank">View Question Bank</a></li>
-                        <li><a href="#">Add a Question</a></li>
+                        <li><a href="manage_class.php">Manage class</a></li>
                     </ul>
 
-                    <!-- Functionality to set question paper  -->
                     <ul class="nav nav-sidebar">
-                        <li><a href="#">View Quiz</a></li>
-                        <li><a href="set_question_paper.php">Set Question Paper</a></li>
-                      <!--  <li><a href="#">Set Custom Quiz</a></li> -->
+                        <li><a href="manage_subject.php">Manage subject</a></li>
                     </ul>
-
-                    <!-- Functionality to view results  -->
                     <ul class="nav nav-sidebar">
-                        <li><a href="#">View Results</a></li>
-                        <!-- Add different types of results -->
+                        <li><a href="#">Manage users</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="add_user.php">Add new user</a></li>
                     </ul>
 
                     <!-- Any other additional functionality   -->

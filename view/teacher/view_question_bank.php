@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <script src="../../lib/theme/js/parsley.js"></script>
-
+   
         <title> HexaGraph   </title>
 
         <!-- Bootstrap core CSS -->
@@ -453,20 +453,21 @@
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
         <!-- DO NOT MOVE THIS SCRIPT BELOW TEACHERUPDATE.JS LINK. IT WILL NOT WORK -->
-        <script>
+    
+       <script>
+            var no = jQuery.noConflict(true);
+        $n(function(){
+               $("#mcqModalForm").parsley();
+            $("#subjectiveModalForm").parsley('validate');
+            $("#numericModalForm").parsley('validate');
+            $("#tfModalForm").parsley('validate');
+        });
+        
+         
 
-
-
-            $(document).ready(function() {
-                $("#mcqModalForm").parsley('validate');
-                $("#subjectiveModalForm").parsley('validate');
-                $("#numericModalForm").parsley('validate');
-                $("#tfModalForm").parsley('validate');
-
-
-
-            });
-
+         //   jQuery.noConflict(true);
+        
+        
         </script>
         <script src="../../controller/teacher/teacherupdate.js"></script>
 
