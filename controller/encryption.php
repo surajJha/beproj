@@ -1,5 +1,7 @@
 <?php
 
+//echo password_encrypt("admin");
+
 function password_encrypt($password) {
     //hashing algorithm - blowfish
     $hash_format = "$2y$10$";
