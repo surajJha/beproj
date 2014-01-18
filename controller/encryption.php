@@ -1,6 +1,6 @@
 <?php
 
-//echo password_encrypt("admin");
+//echo password_encrypt("0000");
 
 function password_encrypt($password) {
     //hashing algorithm - blowfish

@@ -70,8 +70,6 @@
                                                     <select id="ct_teacher" name="ct_teacher" class="form-control">
                                                     </select>
                                                 </div>   
-
-
                                             </div>
 
 
@@ -84,6 +82,14 @@
                                             </div>
 
                                         </form>
+                                        
+                                        <div class="alert-success" id="success_message_tab1">
+
+                                        </div>
+                                        <div class="alert-error" id="error_message_tab1">
+
+                                        </div>
+
 
                                     </div>
 
@@ -269,7 +275,7 @@
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-        
+
         <script src="../../controller/admin/manage_class.js"></script>
     </body>
 </html>

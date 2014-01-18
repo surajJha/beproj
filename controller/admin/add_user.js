@@ -34,15 +34,24 @@ $(document).ready(function()
         {
             var values=$("#add_user_form").serialize();
             
+             $("#success_message").empty();
+             $("#error_message").empty();    
+            
             $.ajax(
             {
                 type: 'POST',
                 url: '../../model/admin/add_user.php',
                 cache: false,
                 data: values,         
-                success: function(response)
+                success: function(data)
                 {
-                    alert(response);
+                    if(data=="The user has been added succesfully!")
+                    {
+                            $("#success_message").html(data);
+                    }else
+                    {
+                            $("#error_message").html(data);    
+                    }
                     $("#add_user_form")[0].reset();
                 },
                 error: function()

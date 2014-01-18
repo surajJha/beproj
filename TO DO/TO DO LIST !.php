@@ -10,4 +10,10 @@ TODO LIST!
 
 - execute forgot password mail functionality - SURAJ
 
-teacher edit profile mein password and re-password not matching , ie validation not working
+-teacher edit profile mein password and re-password not matching , ie validation not working
+
+- use mysqli_insert_id() for inserting question 
+
+- check for string conversion for '"etc in string -etc
+
+-mysqli_real_escape_string($connection, $string);

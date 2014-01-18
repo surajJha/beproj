@@ -79,7 +79,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-4" style="padding-left: 80px" >
                                         <label for="au_dob" class="control-label"> Date of Birth:</label>
-                                        <input type="text" id="au_dob" name="au_dob" class="form-control">
+                                        <input type="date" id="au_dob" name="au_dob" class="form-control">
                                         </input>
                                     </div>   
                                 </div>
@@ -124,12 +124,16 @@
                                 </div>
 
                             </form>
-
+                            
+                            <div class="alert-success" id="success_message">
+                                
+                            </div>
+                            <div class="alert-error" id="error_message">
+                                
+                            </div>
+                            
                         </div>
                     </div>
-
-
-
 
                 </div>
 
