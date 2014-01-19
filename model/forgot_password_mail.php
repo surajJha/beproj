@@ -9,23 +9,24 @@ include '../controller/encryption.php';
 $user_email = $_POST['email'];
 
 $query = "select * from user where email = '{$user_email}'";
+
 if ($result = mysqli_query($connection, $query)) {
 
     $row = mysqli_fetch_assoc($result);
     $user_id = $row['user_id'];
     $fname = $row['fname'];
     $lname = $row['lname'];
-    $email = $row['email'];
 
     $new_password = rand(1, 9999);
     $hashed_password = password_encrypt($new_password);
 
     $query2 = "update user set password='{$hashed_password}' where user_id='{$user_id}'";
     if ($result2 = mysqli_query($connection, $query2)) {
+       
         echo $new_password;
 
         // sending the mail to the user for changing password
-        $to = $email;
+        $to = $user_email;
         $subject = "Change Password - HEXAGRAPH";
 
         $message = " Hey <b>{$fname} {$lname},</b><br>"
@@ -53,7 +54,7 @@ if ($result = mysqli_query($connection, $query)) {
         $mail->Username = "hexagraph69@gmail.com";  // GMAIL username
         $mail->Password = "shaktiman";            // GMAIL password
 
-        $mail->From = "hexagraph69@gmail.com";
+        $mail->From = "skj48817@gmail.com";
         $mail->FromName = "Webmaster Hexagraph";
         $mail->Subject = $subject;
         $mail->AltBody = "This is the body when user views in plain text format"; //Text Body
@@ -66,7 +67,7 @@ if ($result = mysqli_query($connection, $query)) {
 //$mail->AddAttachment("/path/to/file.zip");             // attachment
 //$mail->AddAttachment("/path/to/image.jpg", "new.jpg"); // attachment
 
-        $mail->AddAddress($email, $fname);
+        $mail->AddAddress($user_email, $fname);
 
         $mail->IsHTML(true); // send as HTML
 
@@ -79,7 +80,10 @@ if ($result = mysqli_query($connection, $query)) {
     } else {
         mysqli_error($connection);
     }
-} else {
+} 
+
+
+else {
     echo "Invalid email-id!";
 }
 

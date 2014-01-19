@@ -8,12 +8,11 @@
 
         <title> HexaGraph   </title>
 
-        <!-- Bootsqprap core CSS -->
-        <link href="../../lib/theme/css/bootsqprap.css" rel="sqpylesheet">
-        <link href="../../lib/theme/css/bootsqprap.min.css" rel="sqpylesheet">
-        <link href="../../lib/theme/css/sidebar.css" rel="sqpylesheet">  
-        <link href="//netdna.bootsqprapcdn.com/bootsqprap/3.0.0/css/bootsqprap-glyphicons.css" rel="sqpylesheet">
-        <link href="../../lib/theme/css/datepicker.css" rel="sqpylesheet">  
+        <!-- Bootstrap core CSS -->
+        <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
+        <link href="../../lib/theme/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">  
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
 
     </head>
@@ -34,20 +33,19 @@
 
 
                     <div class="page-header">
-                        <h3><b>Set Quesqpion Paper</b></h3>
+                        <h3><b>Set Question Paper</b></h3>
                     </div>
 
-                    <form class="form-horizontal"  type="posqp" id="set_question_paper_form" >
+                    <form class="form-horizontal"  method="post" id="set_question_paper_form" >
 
                         <div class="row">
-
-                            <div class="form-group col-lg-4" sqpyle="padding-left: 80px" >
-                                <label for="sqp_sqpandard" class="control-label"> Standard:</label>
-                                <select id="sqp_sqpandard" name="sqp_sqpandard" class="form-control">
+                            <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                <label for="sqp_standard" class="control-label"> Standard:</label>
+                                <select id="sqp_standard" name="sqp_standard" class="form-control">
                                 </select>
                             </div>   
 
-                            <div class="form-group col-lg-4" sqpyle="padding-left: 80px" >
+                            <div class="form-group col-lg-4" style="padding-left: 80px" >
                                 <label for="sqp_division" class="control-label"> Division:</label>
                                 <select id="sqp_division" name="sqp_division" class="form-control">
                                 </select>
@@ -56,67 +54,65 @@
 
                         <!-- NEXT ROW-->
                         <div class="row">
-                            <div class="form-group col-lg-4" sqpyle="padding-left: 80px" >
+                            <div class="form-group col-lg-4" style="padding-left: 80px" >
                                 <label for="sqp_subject" class="control-label"> Subject:</label>
                                 <select id="sqp_subject" name="sqp_subject" class="form-control">
                                 </select>
                             </div>   
 
-                            <div class="form-group col-lg-4" sqpyle="padding-left: 80px" >
+                            <div class="form-group col-lg-4" style="padding-left: 80px" >
                                 <label for="sqp_topic" class="control-label"> Topic:</label>
-                                <select multiple id="sqp_topic" name="sqp_topic" class="form-control">
+                                <select multiple id="sqp_topic" name="sqp_topic[ ]" class="form-control">
                                 </select>
                             </div> 
                         </div>
 
                         <div class="row">
-                            <div class="form-group col-lg-4" sqpyle="padding-left: 80px">
-                                <label for="sqp_no_quesqpion" class="control-label"> Number of Quesqpions:</label>
-                                <input type="text" id="sqp_no_quesqpion" name="sqp_no_quesqpion" class="form-control input-md" placeholder="Enter total number of quesqpions">
+                            <div class="form-group col-lg-4" style="padding-left: 80px">
+                                <label for="sqp_no_question" class="control-label"> Number of Questions:</label>
+                                <input type="text" id="sqp_no_question" name="sqp_no_question" class="form-control input-md" placeholder="Enter total number of questions">
                             </div>  
 
-                            <div class="form-group col-lg-4" sqpyle="padding-left: 80px">
-                                <label for="sqp_duration" class="control-label"> Tesqp Duration:</label>
-                                <input type="text" id="sqp_duration" name="sqp_duration" class="form-control input-md" placeholder="Enter duration of tesqp in minutes">
+                            <div class="form-group col-lg-4" style="padding-left: 80px">
+                                <label for="sqp_duration" class="control-label"> Test Duration:</label>
+                                <input type="text" id="sqp_duration" name="sqp_duration" class="form-control input-md" placeholder="Enter duration of test in minutes">
                             </div>  
                         </div>
 
                         <!-- NEXT ROW-->
                         <div class="row">
-                            <div class="form-group" sqpyle="padding-left: 80px" >
-                                <label for="sqp_random" class="control-label"> Choose type of tesqp:</label>
-                                <br/>
-                                <div class="col-lg-4">
-                                    <input class="control-label" type="radio" id="sqp_random" name="sqp_random"  value="A">&nbsp; Randomly Generated Tesqp &nbsp;
-                                </div>
+                            <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                <label for="sqp_random" class="control-label"> Choose type of test:</label>
+                                <select type="text" id="sqp_random" name="sqp_random" class="form-control">
+                                    <option>Select Type</option>
+                                    <option value="0">Custom</option>
+                                    <option value="1">Random</option>
+                                </select>
+                            </div> 
 
-
-                                <div class="col-lg-4">
-                                    <input class="control-label" type="radio" id="sqp_random" name="sqp_random"  value="B">&nbsp; Cusqpom Set Tesqp &nbsp;
-                                </div>
+                            <div class="form-group col-lg-4" style="padding-left: 80px">
+                                <label for="sqp_date" class="control-label"> Test Date:</label>
+                                <input type="date" id="sqp_date" name="sqp_date" class="form-control" placeholder="YYYY-MM-DD" />
                             </div> 
                         </div>
 
                         <div class="row" >
-                            <div class="form-group col-lg-4" sqpyle="padding-left: 80px">
-                                <label for="sqp_datepicker" class="control-label"> Tesqp Date:</label>
-
-                                <div class="input-group" data-datepicker="true">
-                                    <input name="date" id="sqp_datepicker" name="sqp_datepicker" type="text" class="form-control" placeholder="Click to select tesqp date" />
-                                    <span class="input-group-addon"><i id="sqp_datepicker_glyphicon" class="glyphicon glyphicon-calendar"></i></span>
-                                </div>
-                            </div> 
-                        </div>
-
-                        <div class="row" >
-                            <div class="form-group col-lg-4" sqpyle="padding-left: 80px">
-                                <button id="sqp_submit" class="btn btn-lg btn-primary " type="submit" sqpyle="margin-top: 20px">
+                            <div class="form-group col-lg-4" style="padding-left: 80px">
+                                <button id="sqp_submit" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">
                                     Submit
                                 </button>
                             </div>    
                         </div>
 
                     </form>
+
+                    <div class="alert-success" id="success_message">
+
+                    </div>
+                    <div class="alert-error" id="error_message">
+
+                    </div>
+
                 </div>
                 <!--*************************************************************************-->
 
@@ -133,16 +129,12 @@
     <!-- JavaScript -->
 
     <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
-    <script src="../../lib/theme/js/bootsqprap.js"></script>
+    <script src="../../lib/theme/js/bootstrap.js"></script>
     <script src="../../lib/theme/js/modern-business.js"></script>
     <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-    <script src="../../lib/theme/js/bootsqprap-datepicker.js"></script>
+    <script src="../../lib/theme/js/bootstrap-datepicker.js"></script>
     <script src="../../lib/theme/js/datepicker.less"></script>
-    <script src="../../controller/teacher/set_quesqpion_paper.js"></script>
-    <script>
-        $('#sqp_datepicker').datepicker();
-        // $('#sqp_datepicker_glyphicon').datepicker();
-    </script>
+    <script src="../../controller/teacher/set_question_paper.js"></script>
 
     <!--- link specific js - ajax -->
 </body>
