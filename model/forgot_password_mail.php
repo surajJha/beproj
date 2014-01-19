@@ -6,28 +6,24 @@
 //then send an error message back to ajax.....
 require_once 'database.php';
 include '../controller/encryption.php';
+
 $user_email = $_POST['email'];
 
-$query = "select * from user where email = '{$user_email}'";
+$query = "select * from user where `email` = '{$user_email}'";
 $result = mysqli_query($connection, $query);
+$row = mysqli_fetch_assoc($result);
 
-if ($result) {
-
-    $row = mysqli_fetch_assoc($result);
-
-    print_r($row);
+if ($row !== NULL) {
 
     $user_id = $row['user_id'];
     $fname = $row['fname'];
     $lname = $row['lname'];
 
-    $new_password = rand(1, 9999);
+    $new_password = rand(1000, 9999);
     $hashed_password = password_encrypt($new_password);
 
     $query = "update user set password='{$hashed_password}' where user_id='{$user_id}'";
     if (mysqli_query($connection, $query)) {
-
-        echo $new_password;
 
         // sending the mail to the user for changing password
         $to = $user_email;
@@ -58,7 +54,7 @@ if ($result) {
         $mail->Username = "hexagraph69@gmail.com";  // GMAIL username
         $mail->Password = "shaktiman";            // GMAIL password
 
-        $mail->From = "skj48817@gmail.com";
+        $mail->From = "hexagraph69@gmail.com";
         $mail->FromName = "Webmaster Hexagraph";
         $mail->Subject = $subject;
         $mail->AltBody = "This is the body when user views in plain text format"; //Text Body
