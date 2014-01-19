@@ -26,7 +26,7 @@
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
 
-                <div class="col-sm-9 col-sm-offset-3 main" id="bigdiv">             
+                <div class="col-sm-9 col-sm-offset-2 main" id="bigdiv">             
 
 
                     <div class="container" id="view_add_question">

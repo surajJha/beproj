@@ -31,7 +31,7 @@
 
                             <div class="page-header"><h3><strong>Add new user</strong></h3></div>
 
-                            <form class="form-horizontal"  type="post" id="add_user_form" >
+                            <form class="form-horizontal"  method="post" id="add_user_form" >
                                 <div class="row">
                                     <div class="form-group col-lg-4" style="padding-left: 80px" >
                                         <label for="au_user_id" class="control-label"> User-id:</label>
@@ -79,7 +79,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-4" style="padding-left: 80px" >
                                         <label for="au_dob" class="control-label"> Date of Birth:</label>
-                                        <input type="text" id="au_dob" name="au_dob" class="form-control">
+                                        <input type="date" id="au_dob" name="au_dob" class="form-control">
                                         </input>
                                     </div>   
                                 </div>
@@ -87,9 +87,12 @@
                                 <div class="row">
                                     <div class="form-group col-lg-4" style="padding-left: 80px" >
                                         <label for="au_type" class="control-label"> Type:</label>
-                                        <input type="radio" id="au_type_student" name="au_type"  value="0">Student &nbsp;
-                                        <input type="radio" id="au_type_teacher" name="au_type"  value="1">Teacher &nbsp;
-                                        <input type="radio" name="au_type"  value="9">Admin &nbsp;
+                                        <select type="text" id="au_type" name="au_type" class="form-control">
+                                            <option>Select Type</option>
+                                            <option value="student">Student</option>
+                                            <option value="teacher">Teacher</option>
+                                            <option value="admin">Admin</option>
+                                        </select>
                                     </div>   
                                 </div>
                                 
@@ -121,12 +124,16 @@
                                 </div>
 
                             </form>
-
+                            
+                            <div class="alert-success" id="success_message">
+                                
+                            </div>
+                            <div class="alert-error" id="error_message">
+                                
+                            </div>
+                            
                         </div>
                     </div>
-
-
-
 
                 </div>
 
