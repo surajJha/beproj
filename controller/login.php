@@ -43,6 +43,19 @@ if (password_check($password, $existing_hash)) {
     } else if ($type === "1") {
         header("Location:http://localhost/beproj/view/teacher/teacher_overview.php");
     } else if ($type === "0") {
+        $acad_year = date("Y-m-d");
+
+        $query = "SELECT standard,division from student_belongs_to WHERE user_id = '{$_SESSION['user_id']}' and acad_start <= '{$acad_year}' and acad_end >= '{$acad_year}' ";
+
+        $result = mysqli_query($connection, $query);
+
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['standard'] = $row['standard'];
+            $_SESSION['division'] = $row['division'];
+        }
+
+
         header("Location:http://localhost/beproj/view/student/student_overview.php");
     }
 } else {

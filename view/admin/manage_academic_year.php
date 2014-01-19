@@ -26,47 +26,35 @@
 
 
                 <div class="col-sm-9 col-sm-offset-3 main" >             
+
                     <div class="container">
                         <div class="row">
 
-                            <div class="page-header"><h3><strong>Manage Subject</strong></h3></div>
+                            <div class="page-header"><h3><strong>Manage Academic Year</strong></h3></div>
 
-                            <form class="form-horizontal"  type="post" id="manage_subject_form" >
-
-                                <div class="row">
-                                    <div class="form-group col-lg-4" style="padding-left: 80px" >
-                                        <label for="ms_standard" class="control-label"> Standard:</label>
-                                        <select id="ms_standard" name="ms_standard" class="form-control">
-                                        </select>
-                                    </div>
-                                </div>
+                            <form class="form-horizontal"  method="post" id="acad_year_form" >
 
                                 <div class="row">
                                     <div class="form-group col-lg-4" style="padding-left: 80px" >
-                                        <label for="ms_subject" class="control-label"> Subject:</label>
-                                        <select id="ms_subject" name="ms_subject" class="form-control">
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group col-lg-4" style="padding-left: 80px" >                                        
-                                        <input type="text" id="ms_new_subject" name="ms_new_subject" class="form-control">
+                                        <label for="acad_start" class="control-label"> Start Date:</label>
+                                        <input type="date" id="acad_start" name="acad_start" class="form-control">
                                         </input>
                                     </div> 
                                 </div>
 
+
+
                                 <div class="row">
-                                    <div class="form-group col-lg-8" style="padding-left: 80px" >
-                                        <br/>Please enter the topics separated by a comma(,).<br/>
-                                        <label for="ms_topics" class="control-label">Topics:</label>
-                                        <textarea class="form-control" rows="10" cols="10" id="ms_topics" name="ms_topics"></textarea>
-                                    </div>
+                                    <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                        <label for="acad_end" class="control-label"> End Date:</label>
+                                        <input type="date" id="acad_end" name="acad_end" class="form-control">
+                                        </input>
+                                    </div> 
                                 </div>
 
                                 <div class="row" >
                                     <div class="form-group col-lg-4" style="padding-left: 80px">
-                                        <button id="submit_manage_subject" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">
+                                        <button id="submit_acad_year" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">
                                             Submit
                                         </button>
                                     </div>    
@@ -80,7 +68,6 @@
                             <div class="alert-error" id="error_message">
 
                             </div>
-
 
                         </div>
                     </div>
@@ -101,8 +88,7 @@
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-
-        <script src="../../controller/admin/manage_subject.js"></script>
-
+        
+        <script src="../../controller/admin/manage_academic_year.js"></script>
     </body>
 </html>

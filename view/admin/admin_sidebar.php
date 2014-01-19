@@ -4,6 +4,11 @@
                     <ul class="nav nav-sidebar">
                         <li class="active" ><a id="overview" href="admin_overview.php">Overview</a></li>
                     </ul>
+                    
+                    <ul class="nav nav-sidebar">
+                        <li><a href="manage_academic_year.php">Manage academic year</a></li>
+                    </ul>
+
 
                     <ul class="nav nav-sidebar">
                         <li><a href="manage_class.php">Manage class</a></li>

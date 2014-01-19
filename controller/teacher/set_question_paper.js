@@ -118,6 +118,43 @@ $(document).ready(function()
                 }
             });
         });
-    //********************************************************
+        //********************************************************
+    
+    
+        //**********set question paper - ajax -> model*************
+    
+        $("#submit_add_user").click(function()
+        {
+            var values=$("#set_question_paper_form").serialize();
+            
+            $("#success_message").empty();
+            $("#error_message").empty();    
+            
+            $.ajax(
+            {
+                type: 'POST',
+                url: '../../model/admin/add_user.php',
+                cache: false,
+                data: values,         
+                success: function(data)
+                {
+                    $("#set_question_paper_form")[0].reset();
+                    if(data=="The user has been added succesfully!")
+                    {
+                        $("#success_message").html(data);
+                    }else
+                    {
+                        $("#error_message").html(data);    
+                    }
+                },
+                error: function()
+                {
+                    alert("Failure");
+                }
+            });
+            return false;
+        });
+    
+    //**********************************************************
 
     });

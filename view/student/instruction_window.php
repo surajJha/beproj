@@ -21,10 +21,6 @@
     <body style="background-color:#cccccc" >
     
         <!-- PAGE TITLE GOES HERE ************************************ -->
-        <?php 
-            session_start();
-            $_SESSION['item_id']=$_GET['item_id'];
-        ?>
         <div class="container">
             <div class="row">
                 <center> 

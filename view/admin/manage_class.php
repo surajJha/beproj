@@ -70,8 +70,6 @@
                                                     <select id="ct_teacher" name="ct_teacher" class="form-control">
                                                     </select>
                                                 </div>   
-
-
                                             </div>
 
 
@@ -85,6 +83,14 @@
 
                                         </form>
 
+                                        <div class="alert-success" id="success_message_tab1">
+
+                                        </div>
+                                        <div class="alert-error" id="error_message_tab1">
+
+                                        </div>
+
+
                                     </div>
 
 
@@ -93,7 +99,7 @@
                                     <div class="tab-pane" id="tab2">
                                         <!-- ********ASSIGN SUBJECT TEACHER TAB Content HERE****************-->
                                         <br/>
-                                        <form class="form-horizontal"  type="post" id="assign_subject_teacher" >
+                                        <form class="form-horizontal"  method="post" id="assign_subject_teacher" >
 
                                             <div class="row">
 
@@ -135,12 +141,19 @@
 
                                         </form>
 
+                                        <div class="alert-success" id="success_message_tab2">
+
+                                        </div>
+                                        <div class="alert-error" id="error_message_tab2">
+
+                                        </div>
+
                                     </div>
 
                                     <div class="tab-pane" id="tab3">
                                         <!-- ********STUDENT TAB Content HERE****************-->
                                         <br/>
-                                        <form class="form-horizontal"  type="post" id="assign_students" >
+                                        <form class="form-horizontal"  method="post" id="assign_students" >
 
                                             <div class="row">
 
@@ -162,7 +175,7 @@
                                                 <div class="form-group col-lg-8" style="padding-left: 80px" >
                                                     <br/>Please enter the user-ids of students separated by a comma(,) or space or upload CSV file.<br/>
                                                     <label for="students" class="control-label">Add students:</label>
-                                                    <textarea class="form-control" rows="10" cols="10" id="students" name="students"> </textarea>
+                                                    <textarea class="form-control" rows="10" cols="10" id="students" name="students"></textarea>
                                                 </div>
                                             </div>
 
@@ -189,14 +202,19 @@
                                             </div>
 
                                         </form>
+                                        <div class="alert-success" id="success_message_tab3">
 
+                                        </div>
+                                        <div class="alert-error" id="error_message_tab3">
+
+                                        </div>
 
                                     </div>
 
                                     <div class="tab-pane" id="tab4">
                                         <!-- ********Class TAB Content HERE****************-->
                                         <br/>
-                                        <form class="form-horizontal"  type="post" id="add_class" >
+                                        <form class="form-horizontal"  method="post" id="add_class" >
 
                                             <div class="row">
 
@@ -224,6 +242,13 @@
                                             </div>
 
                                         </form>
+
+                                        <div class="alert-success" id="success_message_tab4">
+
+                                        </div>
+                                        <div class="alert-error" id="error_message_tab4">
+
+                                        </div>
 
                                     </div>
                                 </div>
@@ -269,7 +294,7 @@
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-        
+
         <script src="../../controller/admin/manage_class.js"></script>
     </body>
 </html>

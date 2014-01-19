@@ -20,7 +20,7 @@ $(document).ready(function()
         e.preventDefault();
         var values = $("#mcqModalForm").serialize();
         // alert(values);
-        model_type = "mcq";
+        type = "mcq";
 
         $.ajax(
                 {
@@ -53,7 +53,7 @@ $(document).ready(function()
     $("button#submit_subjectiveModal").click(function(e) {
         e.preventDefault();
         var values = $("#subjectiveModalForm").serialize();
-        model_type = "subjective";
+        type = "subjective";
 
         $.ajax(
                 {
@@ -89,7 +89,7 @@ $(document).ready(function()
     $("button#submit_numericModal").click(function(e) {
         e.preventDefault();
         var values = $("#numericModalForm").serialize();
-        model_type = "numeric";
+        type = "numeric";
 
         $.ajax(
                 {
@@ -125,7 +125,7 @@ $(document).ready(function()
     $("button#submit_tfModal").click(function(e) {
         e.preventDefault();
         var values = $("#tfModalForm").serialize();
-        model_type = "numeric";
+        type = "tf";
 
         $.ajax(
                 {
@@ -344,7 +344,7 @@ $(document).ready(function()
                 var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
                 t += "<thead><tr> <th>Question Id</th> <th>Type</th> <th>Level</th> <th>Description</th> <th>Update/Delete</th> </tr></thead>";
                 for (var i = 0; i < data.length; i++) {
-                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td>idhar ek button aayega</td>";
+                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td><a href=# class=\"ud btn btn-primary\" id=\""+data[i].question_id+"\">Update/delete</a></td></tr>";
                 }
                 t += "</table></div>";
                 $("#myContent").html(t);
@@ -355,11 +355,10 @@ $(document).ready(function()
             }
 
         });
-
         return false;
-
     });
-
+    
+    
     //*********************************************************************************************
 
     //***********MCQ MODAL OPTIONS*****************************************

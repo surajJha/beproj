@@ -1,7 +1,8 @@
 <?php
 
-function password_encrypt($password)
-{
+//echo password_encrypt("0000");
+
+function password_encrypt($password) {
     //hashing algorithm - blowfish
     $hash_format = "$2y$10$";
 
