@@ -1,6 +1,7 @@
 <?php
 
-function password_encrypt($password) {
+function password_encrypt($password)
+{
     //hashing algorithm - blowfish
     $hash_format = "$2y$10$";
 
@@ -14,7 +15,8 @@ function password_encrypt($password) {
     return $hashed_password;
 }
 
-function generate_salt($salt_length) {
+function generate_salt($salt_length)
+{
     $salt = mcrypt_create_iv($salt_length, MCRYPT_DEV_URANDOM);
     $salt = base64_encode($salt);
     $salt = str_replace('+', '.', $salt);
@@ -22,14 +24,17 @@ function generate_salt($salt_length) {
     return $salt;
 }
 
-function password_check($password, $existing_hash) {
+function password_check($password, $existing_hash)
+{
     $hash = crypt($password, $existing_hash);
 
-    if ($hash === $existing_hash) {
+    if ($hash === $existing_hash)
+    {
         return true;
-    } else {
+    }
+    else
+    {
         return false;
     }
 }
-
 ?>

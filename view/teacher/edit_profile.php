@@ -39,7 +39,7 @@
                             <div class="page-header">
                                 <h3>Edit basic information here</h3>
                             </div>
-                            <form parsley-validate id="edit_profile_form" >
+                            <form parsley-validate id="edit_profile_form"  >
                                 <table class="table-condensed" style="border: blue">
 
                                     <tr ><td>
@@ -64,7 +64,7 @@
                                             <h4>   Email :</h4>
                                         </td>
                                         <td>
-                                            <input type="text" name="email" id="email" class="form-control input-lg" value="<?php echo $_SESSION['email'] ?>" required parsley-type="email" required>   
+                                            <input type="email" name="email" id="email" class="form-control input-lg" value="<?php echo $_SESSION['email'] ?>"  parsley-trigger="blur" required>   
                                         </td>
                                     </tr>
 
@@ -117,21 +117,23 @@
                     </div>
 
                 </div>
+           
+        </div>
 
-                <!-- ********************************************************************-->
+        <!-- ********************************************************************-->
 
-                <!-- include footer -->
+        <!-- include footer -->
 
-                <!-- JavaScript -->
+        <!-- JavaScript -->
 
 
-                <script src="../../lib/theme/js/modern-business.js"></script>
-                <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+        <script src="../../lib/theme/js/modern-business.js"></script>
+        <script src="../../lib/theme/docs-assets/js/holder.js"></script>
 
-                <script src="../../controller/edit_profile.js"></script>
-                <script>
-                   
-                    
-                </script>
-                </body>
-                </html>
+        <script src="../../controller/edit_profile.js"></script>
+        <script>
+
+
+        </script>
+    </body>
+</html>
