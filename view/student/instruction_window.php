@@ -19,7 +19,10 @@
     </head>
 
     <body style="background-color:#cccccc" >
-    
+        <!-- setting test id in session variables -->
+    <?php session_start();  
+    $_SESSION['test_id'] = $_GET['test_id'];
+    ?>
         <!-- PAGE TITLE GOES HERE ************************************ -->
         <div class="container">
             <div class="row">
