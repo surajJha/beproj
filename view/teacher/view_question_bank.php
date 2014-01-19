@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <script src="../../lib/theme/js/parsley.js"></script>
+
    
         <title> HexaGraph   </title>
-
+        <script src="../../lib/theme/js/parsley.js"></script>
         <!-- Bootstrap core CSS -->
         <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
         <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
@@ -98,7 +98,7 @@
                                     <div class="modal-header">
                                         <h4 align="center">Add a Multiple Choice Question!</h4>
                                     </div>
-                                    <form parsley-validate class="form-horizontal"  type="post" id="mcqModalForm" >
+                                    <form  class="form-horizontal"  type="post" id="mcqModalForm" >
                                         <div class="modal-body"> 
 
                                             <div class="form-group">
@@ -148,7 +148,7 @@
                                             <div class="form-group">
                                                 <label for="mcq_op_a" class="col-lg-4 control-label">A:</label>
                                                 <div class="col-lg-6">
-                                                    <input class="text" id="mcq_op_a" name="mcq_op_a" class="form-control" placeholder="Option A" required />
+                                                    <input class="text" id="mcq_op_a" name="mcq_op_a" class="form-control" placeholder="Option A" required="required" min="1" />
                                                 </div>
                                             </div>
 
@@ -454,20 +454,13 @@
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
         <!-- DO NOT MOVE THIS SCRIPT BELOW TEACHERUPDATE.JS LINK. IT WILL NOT WORK -->
     
-       <script>
-            var no = jQuery.noConflict(true);
-        $n(function(){
-               $("#mcqModalForm").parsley();
-            $("#subjectiveModalForm").parsley('validate');
-            $("#numericModalForm").parsley('validate');
-            $("#tfModalForm").parsley('validate');
+        <script>
+        $(document).ready(function(){
+            $("#mcqModalForm").parsley('validate');
+    $("#subjectiveModalForm").parsley('validate');
+    $("#numericModalForm").parsley('validate');
+    $("#tfModalForm").parsley('validate');
         });
-        
-         
-
-         //   jQuery.noConflict(true);
-        
-        
         </script>
         <script src="../../controller/teacher/teacherupdate.js"></script>
 
