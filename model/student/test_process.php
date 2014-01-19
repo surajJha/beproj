@@ -10,7 +10,7 @@ $test = array();
 
 $query = "select * from test where test_id='{$id}' and test_code='{$code}'";
 if ($res = mysqli_query($connection, $query)) {
-    
+
     $row = mysqli_fetch_assoc($res);
     $test = $row;
     print_r($test);
@@ -18,12 +18,12 @@ if ($res = mysqli_query($connection, $query)) {
     // $result = mysqli_query($connection, $query);
     // $row = mysqli_fetch_assoc($result);
 
-    if ($test['random'] === '1') {
+    if ($test['random'] === '0') {
         // random test logic
         random_test();
     } else if ($test['random'] === '0') {
         // custom test logic
-        custom_test();
+        //  custom_test();
     }
 }
 // test condition has failed
@@ -33,27 +33,34 @@ else {
 
 // logic for various types of test
 function random_test() {
+
+    global $test;
+    //print_r($test);
     $query = "SELECT q.question_id, q.question_desc, q.type"
-            ."FROM question AS q"
-            ."WHERE q.standard= '{$test['standard']}' AND q.subject_name='{$test['subject_name']}'"
-            ."AND q.topic_name IN (SELECT t.topic_name FROM test_on_topic AS t WHERE t.test_id= '{$test['test_id']}')";
-            
-            
-            
+            . "FROM question AS q"
+            . "WHERE q.standard= '{$test['standard']}' AND q.subject_name='{$test['subject_name']}'"
+            . "AND q.topic_name IN (SELECT t.topic_name FROM test_on_topic AS t WHERE t.test_id= '{$test['test_id']}')";
+
+    //require_once '../database.php';
+    global $connection;
     if ($res = mysqli_query($connection, $query)) {
 
-        while($row = mysqli_fetch_assoc($res))
-            $questions=$row;
+        while ($row = mysqli_fetch_assoc($res)) {
+            $questions = $row;
+            print_r($questions);
+        }
+    } else {
+        echo "suraj khushboo shaurabh";
     }
 }
+
 /*
-function custom_test() {
-    $query = "";
-    if ($res = mysqli_query($connection, $query)) {
+  function custom_test() {
+  $query = "";
+  if ($res = mysqli_query($connection, $query)) {
 
-        $row = mysqli_fetch_assoc($res);
-    }
-}
+  $row = mysqli_fetch_assoc($res);
+  }
+  }
  * */
- 
 ?>
