@@ -7,7 +7,7 @@ $(document).ready(function()
         $.ajax(
         {
             type: 'GET',
-            url: '../../model/teacher/set_test_options.php',
+            url: '../../model/teacher/set_question_paper_options.php',
             data: {
                 field: f
             },
@@ -17,7 +17,7 @@ $(document).ready(function()
                 for (var i = 0; i < j.length; i++) {
                     options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                 }
-                $("#set_test_standard").html(options);
+                $("#sqp_standard").html(options);
             },
             error: function()
             {
@@ -27,16 +27,16 @@ $(document).ready(function()
         //********************************************************
     
         //will populate division field when standard changes
-        $("#set_test_standard").change(function() {
+        $("#sqp_standard").change(function() {
 
             f = 'division';
             $.ajax(
             {
                 type: 'GET',
-                url: '../../model/teacher/set_test_options.php',
+                url: '../../model/teacher/set_question_paper_options.php',
                 data: {
                     field: f,
-                    standard: $("#set_test_standard").val()
+                    standard: $("#sqp_standard").val()
                 },
                 success: function(j)
                 {
@@ -44,8 +44,8 @@ $(document).ready(function()
                     for (var i = 0; i < j.length; i++) {
                         options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                     }
-                    $("#set_test_division").html(options);
-                    $('#set_test_standard option:contains("Select")').attr('disabled','disabled');
+                    $("#sqp_division").html(options);
+                    $('#sqp_standard option:contains("Select")').attr('disabled','disabled');
                 },
                 error: function()
                 {
@@ -57,17 +57,17 @@ $(document).ready(function()
 
     
         //will populate subject field when standard changes
-        $("#set_test_division").change(function() {
+        $("#sqp_division").change(function() {
 
             f = 'subject';
             $.ajax(
             {
                 type: 'GET',
-                url: '../../model/teacher/set_test_options.php',
+                url: '../../model/teacher/set_question_paper_options.php',
                 data: {
                     field: f,
-                    standard: $("#set_test_standard").val(),
-                    division: $("#set_test_division").val()
+                    standard: $("#sqp_standard").val(),
+                    division: $("#sqp_division").val()
                 },
                 success: function(j)
                 {
@@ -75,8 +75,8 @@ $(document).ready(function()
                     for (var i = 0; i < j.length; i++) {
                         options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                     }
-                    $("#set_test_subject").html(options);
-                    $('#set_test_division option:contains("Select")').attr('disabled','disabled');
+                    $("#sqp_subject").html(options);
+                    $('#sqp_division option:contains("Select")').attr('disabled','disabled');
 
                 },
                 error: function()
@@ -88,18 +88,18 @@ $(document).ready(function()
         //********************************************************
 
         //will populate topic field when subject changes
-        $("#set_test_subject").change(function() {
+        $("#sqp_subject").change(function() {
 
             f = 'topic';
             $.ajax(
             {
                 type: 'GET',
-                url: '../../model/teacher/set_test_options.php',
+                url: '../../model/teacher/set_question_paper_options.php',
                 data: {
                     field: f,
-                    standard: $("#set_test_standard").val(),
-                    division: $("#set_test_division").val(),
-                    subject: $("#set_test_subject").val()
+                    standard: $("#sqp_standard").val(),
+                    division: $("#sqp_division").val(),
+                    subject: $("#sqp_subject").val()
                 },
                 success: function(j)
                 {
@@ -107,8 +107,8 @@ $(document).ready(function()
                     for (var i = 0; i < j.length; i++) {
                         options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                     }
-                    $("#set_test_topic").html(options);
-                    $('#set_test_subject option:contains("Select")').attr('disabled','disabled');
+                    $("#sqp_topic").html(options);
+                    $('#sqp_subject option:contains("Select")').attr('disabled','disabled');
 
 
                 },
@@ -123,7 +123,7 @@ $(document).ready(function()
     
         //**********set question paper - ajax -> model*************
     
-        $("#submit_add_user").click(function()
+        $("#sqp_submit").click(function()
         {
             var values=$("#set_question_paper_form").serialize();
             
@@ -133,7 +133,7 @@ $(document).ready(function()
             $.ajax(
             {
                 type: 'POST',
-                url: '../../model/admin/add_user.php',
+                url: '../../model/teacher/set_question_paper.php',
                 cache: false,
                 data: values,         
                 success: function(data)
