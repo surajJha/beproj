@@ -1,6 +1,7 @@
 $(document).ready(function()
     {
-
+        $("#set_question_paper_form")[0].reset();
+        
         //*************************************** **************************************************
         // will populate standard select
         var f = 'standard';
@@ -135,21 +136,21 @@ $(document).ready(function()
                 type: 'POST',
                 url: '../../model/teacher/set_question_paper.php',
                 cache: false,
-                data: values,         
-                success: function(data)
+                data: values,
+                success:function(data)
                 {
-                    $("#set_question_paper_form")[0].reset();
-                    if(data=="The user has been added succesfully!")
+                    if(data == "The test has been scheduled successfully!")
                     {
                         $("#success_message").html(data);
-                    }else
+                    }
+                    else
                     {
-                        $("#error_message").html(data);    
+                        window.location=data;
                     }
                 },
-                error: function()
+                error:function()
                 {
-                    alert("Failure");
+                    $("#error_message").html("Unsuccessful !");       
                 }
             });
             return false;

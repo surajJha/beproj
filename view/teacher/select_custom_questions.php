@@ -24,9 +24,18 @@
                 <?php include('teacher_sidebar.php'); ?>
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
+                <div class="col-sm-9 col-sm-offset-3 main" >             
+                    <div class="container">
+                        <div class="row">
 
-                <div class="col-sm-9 col-sm-offset-3 main" id="bigdiv">             
+                            <div class="page-header"><h3><strong>Select custom questions </strong></h3></div>
 
+                            <div class="row" id="display_questions">
+
+                            </div>
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -45,5 +54,7 @@
     <script src="../../lib/theme/js/bootstrap.js"></script>
     <script src="../../lib/theme/js/modern-business.js"></script>
     <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+    
+    <script src="../../controller/teacher/select_custom_questions.js"></script>
 </body>
 </html>

@@ -20,4 +20,16 @@ for($i=0;$i<sizeof($topic);$i++)
     $result=  mysqli_query($connection, $query);
 }
 
-echo "hjwgdy";
+if($_POST['sqp_random'] === "0"){
+    $test=[];
+    $test['subject']=$_POST['sqp_subject'];
+    $test['topics']=$topic;
+    $test['standard']=$_POST['sqp_standard'];
+    
+    $_SESSION['test']=$test;
+     echo "http://localhost/beproj/view/teacher/select_custom_questions.php";
+}
+else
+{
+     echo "The test has been scheduled successfully!";
+}
