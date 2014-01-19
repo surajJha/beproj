@@ -26,7 +26,7 @@ $(document).ready(function() {
                     $("#test_table").html(t);
                   
                     $(".test_button").click(function(){
-                       alert($(this).val()); 
+                
                              var id = $(this).val();
                        var url='http://localhost/beproj/view/student/instruction_window.php?test_id='+id;
                        window.open(url, '_blank', 'toolbar=0,location=0,menubar=0');

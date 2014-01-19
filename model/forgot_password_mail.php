@@ -6,26 +6,27 @@
 //then send an error message back to ajax.....
 require_once 'database.php';
 include '../controller/encryption.php';
+
 $user_email = $_POST['email'];
 
-$query = "select * from user where email = '{$user_email}'";
-if ($result = mysqli_query($connection, $query)) {
+$query = "select * from user where `email` = '{$user_email}'";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_assoc($result);
 
-    $row = mysqli_fetch_assoc($result);
+if ($row !== NULL) {
+
     $user_id = $row['user_id'];
     $fname = $row['fname'];
     $lname = $row['lname'];
-    $email = $row['email'];
 
-    $new_password = rand(1, 9999);
+    $new_password = rand(1000, 9999);
     $hashed_password = password_encrypt($new_password);
 
-    $query2 = "update user set password='{$hashed_password}' where user_id='{$user_id}'";
-    if ($result2 = mysqli_query($connection, $query2)) {
-        echo $new_password;
+    $query = "update user set password='{$hashed_password}' where user_id='{$user_id}'";
+    if (mysqli_query($connection, $query)) {
 
         // sending the mail to the user for changing password
-        $to = $email;
+        $to = $user_email;
         $subject = "Change Password - HEXAGRAPH";
 
         $message = " Hey <b>{$fname} {$lname},</b><br>"
@@ -66,7 +67,7 @@ if ($result = mysqli_query($connection, $query)) {
 //$mail->AddAttachment("/path/to/file.zip");             // attachment
 //$mail->AddAttachment("/path/to/image.jpg", "new.jpg"); // attachment
 
-        $mail->AddAddress($email, $fname);
+        $mail->AddAddress($user_email, $fname);
 
         $mail->IsHTML(true); // send as HTML
 

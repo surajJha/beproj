@@ -7,9 +7,9 @@
 $(document).ready(function() {
 
     $("#submit-buttton").click(function() {
+        
         var email = $("#myemail").val();
 
-        alert("submit");
         $.ajax(
                 {
                     type: 'POST',
@@ -19,19 +19,9 @@ $(document).ready(function() {
                     //your form datas to post          
                     success: function(response)
                     {
-                        alert(response);
-                            $("#response").html(response);
-                       
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
-
+                        $("#response").html(response);
                     }
-
                 });
-
-
         return false;
 
     });
