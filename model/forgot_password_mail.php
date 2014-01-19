@@ -9,10 +9,14 @@ include '../controller/encryption.php';
 $user_email = $_POST['email'];
 
 $query = "select * from user where email = '{$user_email}'";
+$result = mysqli_query($connection, $query);
 
-if ($result = mysqli_query($connection, $query)) {
+if ($result) {
 
     $row = mysqli_fetch_assoc($result);
+
+    print_r($row);
+
     $user_id = $row['user_id'];
     $fname = $row['fname'];
     $lname = $row['lname'];
@@ -20,9 +24,9 @@ if ($result = mysqli_query($connection, $query)) {
     $new_password = rand(1, 9999);
     $hashed_password = password_encrypt($new_password);
 
-    $query2 = "update user set password='{$hashed_password}' where user_id='{$user_id}'";
-    if ($result2 = mysqli_query($connection, $query2)) {
-       
+    $query = "update user set password='{$hashed_password}' where user_id='{$user_id}'";
+    if (mysqli_query($connection, $query)) {
+
         echo $new_password;
 
         // sending the mail to the user for changing password
@@ -80,10 +84,7 @@ if ($result = mysqli_query($connection, $query)) {
     } else {
         mysqli_error($connection);
     }
-} 
-
-
-else {
+} else {
     echo "Invalid email-id!";
 }
 
