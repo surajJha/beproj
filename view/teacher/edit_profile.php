@@ -8,7 +8,7 @@
 
         <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../../lib/theme/js/bootstrap.js"></script>
-        <script type="text/javascript" src="../../lib/theme/js/parsley.min.js"></script>
+        <script type="text/javascript" src="../../lib/theme/js/p"></script>
         <script type="text/javascript" src="../../lib/theme/js/parsley.js"></script>
         <title> HexaGraph   </title>
 
@@ -64,7 +64,7 @@
                                             <h4>   Email :</h4>
                                         </td>
                                         <td>
-                                            <input type="email" name="email" id="email" class="form-control input-lg" value="<?php echo $_SESSION['email'] ?>"  parsley-trigger="blur" required>   
+                                            <input type="email" name="email" id="email" class="form-control input-lg" value="<?php echo $_SESSION['email'] ?>" required parsley-type="email" required>   
                                         </td>
                                     </tr>
 
@@ -84,9 +84,12 @@
                                             <h4>   Enter New Password :</h4>
                                         </td>
                                         <td>
-                                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Enter new password">   
+                                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Enter new password"  required>   
                                         </td>
                                     </tr>
+                                    <div id =" password-message">
+                                        
+                                    </div>
 
 
 
@@ -117,7 +120,7 @@
                     </div>
 
                 </div>
-           
+            </div>
         </div>
 
         <!-- ********************************************************************-->
@@ -127,13 +130,10 @@
         <!-- JavaScript -->
 
 
-        <script src="../../lib/theme/js/modern-business.js"></script>
-        <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-
-        <script src="../../controller/edit_profile.js"></script>
-        <script>
-
-
-        </script>
-    </body>
-</html>
+                <script src="../../lib/theme/js/modern-business.js"></script>
+                <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+ 
+                <script src="../../controller/edit_profile.js"></script>
+              
+                </body>
+                </html>
