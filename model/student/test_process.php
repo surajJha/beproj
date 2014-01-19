@@ -5,7 +5,17 @@
     $id = $_SESSION['test_id'];
       $code = $_POST['test_code'];
    
-    $query= " SELECT test_code FROM test WHERE test_id='{$id}' AND test_code='{$code}'"; 
+   
+$query1 = "select * from test where test_id='{$id}' and test_code='{$code}'";
+
+      
+      
+      
+      
+      
+      
+      
+      
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_assoc($result);
     
