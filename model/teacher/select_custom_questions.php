@@ -12,7 +12,19 @@ $query = "SELECT q.question_id, q.type, q.question_desc
                     FROM question AS q
                     WHERE q.standard='{$_POST['standard']}'
                     AND q.subject_name='{$_POST['subject']}'  
-                    AND ";
+                    AND q.topic IN (";
+                                        
+                    for($i=0;$i<sizeof($_POST['topics']);$i++)
+                    {
+                        $query.=" '{$_POST['topics'][$i]}'";
+                        if($i <  (sizeof($_POST['topics'])-1))
+                        {
+                            $query.=",";
+                        }
+                    }
+                    $query.=" )";
+                    
+echo $query;
 
 $result = mysqli_query($connection, $query);
 

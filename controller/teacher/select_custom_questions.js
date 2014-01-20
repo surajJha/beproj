@@ -6,7 +6,7 @@ $(document).ready(function()
             data: values,         
             success: function(data)
             {
-                
+                alert(data);
             },
             error: function()
             {
