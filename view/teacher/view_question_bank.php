@@ -6,7 +6,6 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-   
         <title> HexaGraph   </title>
         <!-- Bootstrap core CSS -->
         <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
@@ -17,22 +16,18 @@
 
         <?php include('../header.php'); ?>
 
-
-
         <div class="container-fluid">
             <div class="row">
                 <?php include('teacher_sidebar.php'); ?>
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
-
-                <div class="col-sm-9 col-sm-offset-2 main" id="bigdiv">             
-
+                <div class="col-sm-9 col-sm-offset-2 main">             
 
                     <div class="container" id="view_add_question">
                         <h4>Select the parameters to view Question Bank!</h4>
                         <form  id="view_questions" method="post" class="form-horizontal" >
-                            <div class="row">
 
+                            <div class="row">
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_standard">Standard</label>
                                     <select  id="vq_standard" name="vq_standard" class="form-control">
@@ -73,9 +68,13 @@
                                 </div>
                             </div> 
                         </form>
+
                         <!--****************************************************************************************************-->
+
                         <hr/>
+
                         <!-- ******* GRID ROW FOR ADD QUESTION BUTTON GROUP**********-->
+
                         <div class="row" >
                             <div  style="padding-top: 20px">
                                 <h4>Add a new question to the Question Bank</h4>
@@ -86,6 +85,13 @@
                                 <a href="#tfModal" role="button" class="btn btn-lg btn-success" data-toggle="modal">True/False</a>
                             </div>
                         </div>   
+
+                        <div class="row">
+                            <div class="alert-success" id="success_message">
+                            </div>
+                            <div class="alert-warning" id="error_message">
+                            </div>
+                        </div>
 
                         <!-- ************** ALL MODAL CODE GOES HERE to be sent with AJAX to new PAGE***************************************-->
 
@@ -452,15 +458,7 @@
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
         <!-- DO NOT MOVE THIS SCRIPT BELOW TEACHERUPDATE.JS LINK. IT WILL NOT WORK -->
-    
-        <script>
-        /*$(document).ready(function(){
-            $("#mcqModalForm").parsley('validate');
-    $("#subjectiveModalForm").parsley('validate');
-    $("#numericModalForm").parsley('validate');
-    $("#tfModalForm").parsley('validate');
-        });*/
-        </script>
+
         <script src="../../controller/teacher/teacherupdate.js"></script>
 
     </body>
