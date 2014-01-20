@@ -33,7 +33,7 @@
                             <div class="row">
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_standard">Standard</label>
-                                    <select  id="vq_standard" name="vq_standard" class="form-control">
+                                    <select required id="vq_standard" name="vq_standard" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
