@@ -6,21 +6,31 @@ session_start();
 
 $field = $_GET['field'];
 
-if ($field === "standard") {
+if ($field === "standard")
+{
     populateStandard();
-} elseif ($field === "subject") {
+}
+elseif ($field === "subject")
+{
     populateSubject();
-} elseif ($field === "topic") {
+}
+elseif ($field === "topic")
+{
     populateTopic();
-} elseif ($field === "type") {
+}
+elseif ($field === "type")
+{
     populateType();
-} elseif ($field === "level") {
+}
+elseif ($field === "level")
+{
     populateLevel();
 }
 
 //extract which standards teacher teaches from database
 // !!** add current year clause to query 
-function populateStandard() {
+function populateStandard()
+{
     require_once("../database.php");
 
     $x = array();
@@ -30,22 +40,28 @@ function populateStandard() {
                                 WHERE t.user_id = '{$_SESSION['user_id']}'";
     $result = mysqli_query($connection, $query);
 
-    if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result))
+        {
 
-            if (!in_array($row['standard'], $x)) {
+            if (!in_array($row['standard'], $x))
+            {
                 array_push($x, $row['standard']);
             }
         }
         echo json_encode($x);
-    } else {
+    }
+    else
+    {
         echo mysqli_error($connection);
     }
 }
 
 //extract which subjects teacher teaches corresponding to standard selected from database
 // !!** add current year clause to query 
-function populateSubject() {
+function populateSubject()
+{
     require_once("../database.php");
 
     $x = array();
@@ -57,14 +73,19 @@ function populateSubject() {
 
     $result = mysqli_query($connection, $query);
 
-    if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result))
+        {
 
-            if (!in_array($row['subject_name'], $x)) {
+            if (!in_array($row['subject_name'], $x))
+            {
                 array_push($x, $row['subject_name']);
             }
         }
-    } else {
+    }
+    else
+    {
         echo mysqli_error($connection);
     }
 
@@ -73,7 +94,8 @@ function populateSubject() {
 
 //extract which topics belong to standard, subject selected from database
 // !!** add current year clause to query 
-function populateTopic() {
+function populateTopic()
+{
     require_once("../database.php");
 
     $x = array();
@@ -86,14 +108,19 @@ function populateTopic() {
 
     $result = mysqli_query($connection, $query);
 
-    if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result))
+        {
 
-            if (!in_array($row['topic_name'], $x)) {
+            if (!in_array($row['topic_name'], $x))
+            {
                 array_push($x, $row['topic_name']);
             }
         }
-    } else {
+    }
+    else
+    {
         echo mysqli_error($connection);
     }
 
@@ -102,7 +129,8 @@ function populateTopic() {
 
 //extract which types of questions belong to standard, subject, topic selected from database
 // !!** add current year clause to query 
-function populateType() {
+function populateType()
+{
     require_once("../database.php");
 
     $x = array();
@@ -113,21 +141,27 @@ function populateType() {
                     AND q.standard='{$_GET['standard']}'
                     AND q.subject_name='{$_GET['subject']}' ";
 
-    if (!$_GET['topic'] === "*") {
+    if (!$_GET['topic'] === "*")
+    {
 
         $query.="AND q.topic_name='{$_GET['topic']}'";
     }
 
     $result = mysqli_query($connection, $query);
 
-    if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result))
+        {
 
-            if (!in_array($row['type'], $x)) {
+            if (!in_array($row['type'], $x))
+            {
                 array_push($x, $row['type']);
             }
         }
-    } else {
+    }
+    else
+    {
         echo mysqli_error($connection);
     }
 
@@ -136,7 +170,8 @@ function populateType() {
 
 //extract which levels of questions belong to standard, subject, topic, type selected from database
 // !!** add current year clause to query 
-function populateLevel() {
+function populateLevel()
+{
     require_once("../database.php");
 
     $x = array();
@@ -147,24 +182,31 @@ function populateLevel() {
                     AND q.standard='{$_GET['standard']}'
                     AND q.subject_name='{$_GET['subject']}' ";
 
-    if (!$_GET['topic'] === "*") {
+    if (!$_GET['topic'] === "*")
+    {
 
         $query.="AND q.topic_name='{$_GET['topic']} '";
     }
-    if (!$_GET['type'] === "*") {
+    if (!$_GET['type'] === "*")
+    {
         $query.="AND q.type='{$_GET['type']} '";
     }
 
     $result = mysqli_query($connection, $query);
 
-    if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result))
+        {
 
-            if (!in_array($row['level'], $x)) {
+            if (!in_array($row['level'], $x))
+            {
                 array_push($x, $row['level']);
             }
         }
-    } else {
+    }
+    else
+    {
         echo mysqli_error($connection);
     }
 
