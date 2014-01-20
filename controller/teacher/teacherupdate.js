@@ -91,8 +91,6 @@ $(document).ready(function()
 
         e.preventDefault();
 
-        alert("tf");
-
         var values = $("#tfModalForm").serialize();
         q_type = "True-False";
 

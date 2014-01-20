@@ -15,3 +15,5 @@ TODO LIST!
 -mysqli_real_escape_string($connection, $string);
 
 - teacher-> view question bank ke modals mein -> success and error messages !
+
+-VALIDATIONS !!!
