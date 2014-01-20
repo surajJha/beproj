@@ -24,7 +24,7 @@ $query = "SELECT q.question_id, q.type, q.question_desc
                     }
                     $query.=" )";
                     
-echo $query;
+echo $query."<br/>";
 
 $result = mysqli_query($connection, $query);
 
