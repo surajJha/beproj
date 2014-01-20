@@ -8,7 +8,6 @@
 
    
         <title> HexaGraph   </title>
-        <script src="../../lib/theme/js/parsley.js"></script>
         <!-- Bootstrap core CSS -->
         <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
         <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
@@ -31,7 +30,7 @@
 
                     <div class="container" id="view_add_question">
                         <h4>Select the parameters to view Question Bank!</h4>
-                        <form role="form" id="view_questions" method="post" class="form-horizontal" >
+                        <form  id="view_questions" method="post" class="form-horizontal" >
                             <div class="row">
 
                                 <div class="col-lg-2">
@@ -98,7 +97,7 @@
                                     <div class="modal-header">
                                         <h4 align="center">Add a Multiple Choice Question!</h4>
                                     </div>
-                                    <form  class="form-horizontal"  type="post" id="mcqModalForm" >
+                                    <form  class="form-horizontal"  method="post" id="mcqModalForm" >
                                         <div class="modal-body"> 
 
                                             <div class="form-group">
@@ -206,7 +205,7 @@
                                     <div class="modal-header">
                                         <h4 align="center">Add a Subjective Question!</h4>
                                     </div>
-                                    <form parsley-validate class="form-horizontal"  type="post" id="subjectiveModalForm" >
+                                    <form class="form-horizontal"  type="post" id="subjectiveModalForm" >
                                         <div class="modal-body"> 
 
 
@@ -286,7 +285,7 @@
                                     <div class="modal-header">
                                         <h4 align="center">Add a Numeric Question!</h4>
                                     </div>
-                                    <form parsley-validate class="form-horizontal"  type="post" id="numericModalForm" >
+                                    <form class="form-horizontal"  type="post" id="numericModalForm" >
                                         <div class="modal-body"> 
 
 
@@ -362,7 +361,7 @@
                                     <div class="modal-header">
                                         <h4 align="center">Add a True or False Question!</h4>
                                     </div>
-                                    <form parsley-validate class="form-horizontal"  type="post" id="tfModalForm" >
+                                    <form class="form-horizontal" id="tfModalForm" >
                                         <div class="modal-body"> 
 
 
@@ -455,12 +454,12 @@
         <!-- DO NOT MOVE THIS SCRIPT BELOW TEACHERUPDATE.JS LINK. IT WILL NOT WORK -->
     
         <script>
-        $(document).ready(function(){
+        /*$(document).ready(function(){
             $("#mcqModalForm").parsley('validate');
     $("#subjectiveModalForm").parsley('validate');
     $("#numericModalForm").parsley('validate');
     $("#tfModalForm").parsley('validate');
-        });
+        });*/
         </script>
         <script src="../../controller/teacher/teacherupdate.js"></script>
 

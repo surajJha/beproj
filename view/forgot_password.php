@@ -7,7 +7,7 @@
         <meta name="author" content="">
 
         <title> HexaGraph   </title>
-        <script src="../lib/theme/js/parsley.js"></script>
+     
 
         <!-- Bootstrap core CSS -->
         <link href="../lib/theme/css/bootstrap.css" rel="stylesheet">
@@ -37,8 +37,8 @@
                         <h4>
                             Please enter your email id and press submit to proceed
                         </h4>
-                        <form parsley-validate method="post" id="password-form">
-                            <input class="input-lg"  type="email" name="myemail" id="myemail" required data-type="email" parsley-required="change" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <form method="post" id="password-form">
+                            <input class="input-lg"  type="email" name="myemail" id="myemail" required data-type="email" required />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="submit-buttton" type="submit">Submit</button>
                         </form>
                     </div><br>

@@ -9,7 +9,6 @@
         <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script type="text/javascript" src="../../lib/theme/js/p"></script>
-        <script type="text/javascript" src="../../lib/theme/js/parsley.js"></script>
         <title> HexaGraph   </title>
 
         <!-- Bootstrap core CSS -->
@@ -39,7 +38,7 @@
                             <div class="page-header">
                                 <h3>Edit basic information here</h3>
                             </div>
-                            <form parsley-validate id="edit_profile_form" >
+                            <form id="edit_profile_form"  >
                                 <table class="table-condensed" style="border: blue">
 
                                     <tr ><td>
@@ -54,7 +53,7 @@
                                             <h4>   Last Name :  </h4>
                                         </td>
                                         <td>
-                                            <input type="text" name="lname" id="lname" class="form-control input-lg" value="<?php echo $_SESSION['lname'] ?>" required parsley-trigger="change">   
+                                            <input type="text" name="lname" id="lname" class="form-control input-lg" value="<?php echo $_SESSION['lname'] ?>" required >   
                                         </td>
                                     </tr>
 
@@ -64,7 +63,7 @@
                                             <h4>   Email :</h4>
                                         </td>
                                         <td>
-                                            <input type="email" name="email" id="email" class="form-control input-lg" value="<?php echo $_SESSION['email'] ?>" required parsley-type="email" required>   
+                                            <input type="email" name="email" id="email" class="form-control input-lg" value="<?php echo $_SESSION['email'] ?>" required>   
                                         </td>
                                     </tr>
 
@@ -74,7 +73,7 @@
                                             <h4>    Phone Number : </h4>
                                         </td>
                                         <td>
-                                            <input type="text" name="phone" id="phone" class="form-control input-lg" value="<?php echo $_SESSION['phone'] ?>" parsley-type="phone" required>   
+                                            <input type="text" name="phone" id="phone" class="form-control input-lg" value="<?php echo $_SESSION['phone'] ?>"  required>   
                                         </td>
                                     </tr>
 
@@ -97,7 +96,7 @@
                                             <h4>   Re-Enter New Password</h4>
                                         </td>
                                         <td>
-                                            <input type="password" name="re-password" id="re-password" class="form-control input-lg" placeholder="Re-enter new password" required parsley-equalto="#password">   
+                                            <input type="password" name="re-password" id="re-password" class="form-control input-lg" placeholder="Re-enter new password" required >   
                                         </td>
                                     </tr>
 
@@ -123,11 +122,11 @@
             </div>
         </div>
 
-                <!-- ********************************************************************-->
+        <!-- ********************************************************************-->
 
-                <!-- include footer -->
+        <!-- include footer -->
 
-                <!-- JavaScript -->
+        <!-- JavaScript -->
 
 
                 <script src="../../lib/theme/js/modern-business.js"></script>

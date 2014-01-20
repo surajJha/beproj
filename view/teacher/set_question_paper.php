@@ -70,12 +70,12 @@
                         <div class="row">
                             <div class="form-group col-lg-4" style="padding-left: 80px">
                                 <label for="sqp_no_question" class="control-label"> Number of Questions:</label>
-                                <input type="text" id="sqp_no_question" name="sqp_no_question" class="form-control input-md" placeholder="Enter total number of questions">
+                                <input type="text" id="sqp_no_question" name="sqp_no_question" class="form-control input-md" placeholder="Enter total number of questions" required>
                             </div>  
 
                             <div class="form-group col-lg-4" style="padding-left: 80px">
                                 <label for="sqp_duration" class="control-label"> Test Duration:</label>
-                                <input type="text" id="sqp_duration" name="sqp_duration" class="form-control input-md" placeholder="Enter duration of test in minutes">
+                                <input type="text" id="sqp_duration" name="sqp_duration" class="form-control input-md" placeholder="Enter duration of test in minutes" required>
                             </div>  
                         </div>
 
@@ -83,7 +83,7 @@
                         <div class="row">
                             <div class="form-group col-lg-4" style="padding-left: 80px" >
                                 <label for="sqp_random" class="control-label"> Choose type of test:</label>
-                                <select type="text" id="sqp_random" name="sqp_random" class="form-control">
+                                <select id="sqp_random" name="sqp_random" class="form-control">
                                     <option>Select Type</option>
                                     <option value="0">Custom</option>
                                     <option value="1">Random</option>
@@ -92,7 +92,7 @@
 
                             <div class="form-group col-lg-4" style="padding-left: 80px">
                                 <label for="sqp_date" class="control-label"> Test Date:</label>
-                                <input type="date" id="sqp_date" name="sqp_date" class="form-control" placeholder="YYYY-MM-DD" />
+                                <input type="date" id="sqp_date" name="sqp_date" class="form-control" placeholder="YYYY-MM-DD"/>
                             </div> 
                         </div>
 
@@ -120,7 +120,6 @@
         </div>
 
 
-    </div>
 
     <!-- ********************************************************************-->
 
