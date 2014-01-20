@@ -6,11 +6,13 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-   
+
         <title> HexaGraph   </title>
         <!-- Bootstrap core CSS -->
         <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
         <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
+        <link rel="stylesheet" href="../../lib/theme/css/design.css" type="text/css" />
+        <script type="text/javascript" src="../../lib/theme/js/drop.js"></script>
     </head>
 
     <body>
@@ -78,13 +80,18 @@
                         <!-- ******* GRID ROW FOR ADD QUESTION BUTTON GROUP**********-->
                         <div class="row" >
                             <div  style="padding-top: 20px">
-                                <h4>Add a new question to the Question Bank</h4>
-                                <!-- anchor buttons to activate specific modals *********** -->
-                                <a href="#mcqModal" role="button" class="btn btn-lg btn-primary" data-toggle="modal">MCQ</a>
-                                <a href="#subjectiveModal" role="button" class="btn btn-lg btn-warning" data-toggle="modal" >Subjective</a>
-                                <a href="#numericModal" role="button" class="btn btn-lg btn-danger" data-toggle="modal">Numeric</a>
-                                <a href="#tfModal" role="button" class="btn btn-lg btn-success" data-toggle="modal">True/False</a>
-                            </div>
+
+                                <dl class="dropdown">
+                                    <dt id="one-ddheader" onmouseover="ddMenu('one', 1)" onmouseout="ddMenu('one', -1)">Add New Question</dt>
+                                    <dd id="one-ddcontent" onmouseover="cancelHide('one')" onmouseout="ddMenu('one', -1)">
+                                        <ul>
+                                            <li><a href="#mcqModal" class="separator" data-toggle="modal">MCQ</a></li>
+                                            <li><a href="#subjectiveModal" class="separator" data-toggle="modal">Subjective</a></li>
+                                            <li><a href="#numericModal" class="separator" data-toggle="modal">Numeric</a></li>
+                                            <li><a href="#tfModal" class="separator" data-toggle="modal">True False</a></li>
+                                           </ul>
+                                    </dd>
+                                </dl>
                         </div>   
 
                         <!-- ************** ALL MODAL CODE GOES HERE to be sent with AJAX to new PAGE***************************************-->
@@ -452,15 +459,7 @@
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
         <!-- DO NOT MOVE THIS SCRIPT BELOW TEACHERUPDATE.JS LINK. IT WILL NOT WORK -->
-    
-        <script>
-        /*$(document).ready(function(){
-            $("#mcqModalForm").parsley('validate');
-    $("#subjectiveModalForm").parsley('validate');
-    $("#numericModalForm").parsley('validate');
-    $("#tfModalForm").parsley('validate');
-        });*/
-        </script>
+
         <script src="../../controller/teacher/teacherupdate.js"></script>
 
     </body>
