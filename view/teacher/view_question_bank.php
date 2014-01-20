@@ -78,11 +78,11 @@
 
                         <!-- ******* GRID ROW FOR ADD QUESTION BUTTON GROUP**********-->
 
-                        <div class="row" >
+                        <div class="row col-lg-offset-4" >
                             <div  style="padding-top: 20px">
 
                                 <dl class="dropdown">
-                                    <dt id="one-ddheader" onmouseover="ddMenu('one', 1)" onmouseout="ddMenu('one', -1)">Add New Question</dt>
+                                    <dt id="one-ddheader" onmouseover="ddMenu('one', 1)" onmouseout="ddMenu('one', -1)">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add New Question</dt>
                                     <dd id="one-ddcontent" onmouseover="cancelHide('one')" onmouseout="ddMenu('one', -1)">
                                         <ul>
                                             <li><a href="#mcqModal" class="separator" data-toggle="modal">MCQ</a></li>
@@ -161,14 +161,14 @@
                                                 <div class="form-group">
                                                     <label for="mcq_op_a" class="col-lg-4 control-label">A:</label>
                                                     <div class="col-lg-6">
-                                                        <input class="text" id="mcq_op_a" name="mcq_op_a" class="form-control" placeholder="Option A" required="required" min="1" />
+                                                        <input type="text" id="mcq_op_a" name="mcq_op_a" class="form-control" placeholder="Option A" required />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="mcq_op_b" class="col-lg-4 control-label">B:</label>
                                                     <div class="col-lg-6">
-                                                        <input class="text" id="mcq_op_b" name="mcq_op_b" class="form-control" placeholder="Option B" required />
+                                                        <input type="text" id="mcq_op_b" name="mcq_op_b" class="form-control" placeholder="Option B" required />
                                                     </div>
                                                 </div>
 
@@ -219,7 +219,7 @@
                                         <div class="modal-header">
                                             <h4 align="center">Add a Subjective Question!</h4>
                                         </div>
-                                        <form class="form-horizontal"  type="post" id="subjectiveModalForm" >
+                                        <form class="form-horizontal"  method="post" id="subjectiveModalForm" >
                                             <div class="modal-body"> 
 
 
@@ -299,7 +299,7 @@
                                         <div class="modal-header">
                                             <h4 align="center">Add a Numeric Question!</h4>
                                         </div>
-                                        <form class="form-horizontal"  type="post" id="numericModalForm" >
+                                        <form class="form-horizontal"  method="post" id="numericModalForm" >
                                             <div class="modal-body"> 
 
 
@@ -348,7 +348,7 @@
                                                 <div class="form-group">
                                                     <label for="num_answer" class="col-lg-4 control-label"> Answer:</label>
                                                     <div class="col-lg-6">
-                                                        <input class="text" id="num_answer" name="num_answer" class="form-control" placeholder="Answer" required>
+                                                        <input type="text" id="num_answer" name="num_answer" class="form-control" placeholder="Answer" required>
                                                     </div>
                                                 </div>
 
@@ -471,3 +471,4 @@
 
     </body>
 </html>
+ 
