@@ -30,7 +30,7 @@
 
                     <div class="container" id="view_add_question">
                         <h4>Select the parameters to view Question Bank!</h4>
-                        <form role="form" id="view_questions" method="post" class="form-horizontal" >
+                        <form  id="view_questions" method="post" class="form-horizontal" >
                             <div class="row">
 
                                 <div class="col-lg-2">
@@ -97,7 +97,7 @@
                                     <div class="modal-header">
                                         <h4 align="center">Add a Multiple Choice Question!</h4>
                                     </div>
-                                    <form  class="form-horizontal"  type="post" id="mcqModalForm" >
+                                    <form  class="form-horizontal"  method="post" id="mcqModalForm" >
                                         <div class="modal-body"> 
 
                                             <div class="form-group">
