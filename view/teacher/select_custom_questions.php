@@ -30,7 +30,11 @@
 
                             <div class="page-header"><h3><strong>Select custom questions </strong></h3></div>
 
-                            <div class="row" id="display_questions">
+                            <div class="row col-sm-8" id="display_questions">
+
+                            </div>
+
+                            <div class="alert-warning" id="message">
 
                             </div>
 
@@ -54,7 +58,7 @@
     <script src="../../lib/theme/js/bootstrap.js"></script>
     <script src="../../lib/theme/js/modern-business.js"></script>
     <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-    
+
     <script src="../../controller/teacher/select_custom_questions.js"></script>
 </body>
 </html>

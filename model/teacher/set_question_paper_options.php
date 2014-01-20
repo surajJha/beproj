@@ -106,7 +106,7 @@ function populateTopic() {
     $x = array();
     $query = "SELECT t.topic_name
                     FROM topic AS t
-                    WHERE t.subject_name='{$_GET['subject']}'";
+                    WHERE t.subject_name='{$_GET['subject']}' AND t.standard='{$_GET['standard']}'";
 
 
     $result = mysqli_query($connection, $query);
