@@ -10,28 +10,34 @@ $code = $_POST['test_code'];
 $test = array();
 
 $query = "select * from test where test_id='{$id}' and test_code='{$code}'";
-if ($res = mysqli_query($connection, $query)) {
+if ($res = mysqli_query($connection, $query))
+{
 
     $test = mysqli_fetch_assoc($res);
 
     // $result = mysqli_query($connection, $query);
     // $row = mysqli_fetch_assoc($result);
 
-    if ($test['random'] === '0') {
+    if ($test['random'] === '0')
+    {
         // random test logic ->should actually be made 1 later 
         random_test();
-    } else if ($test['random'] === '5') {
+    }
+    else if ($test['random'] === '5')
+    {
         // custom test logic -> this is for custom should be made 0 later
         //  custom_test();
     }
 }
 // test condition has failed
-else {
+else
+{
     echo "Entered test code doesn't match with the database code. Please Try Again.";
 }
 
 // logic for various types of test
-function random_test() {
+function random_test()
+{
 
     global $test;
     global $connection;
@@ -44,15 +50,18 @@ function random_test() {
             . "AND q.topic_name IN (SELECT t.topic_name FROM test_on_topic AS t WHERE t.test_id= '{$test['test_id']}') "
             . "ORDER BY RAND() "
             . "LIMIT {$test['no_questions']}";
-        
 
-    if ($res = mysqli_query($connection, $query)) {
+
+    if ($res = mysqli_query($connection, $query))
+    {
 
         $i = 0;
-        while ($row = mysqli_fetch_assoc($res)) {
+        while ($row = mysqli_fetch_assoc($res))
+        {
             array_push($questions, $row);
 
-            if ($row['type'] === "MCQ") {
+            if ($row['type'] === "MCQ")
+            {
 
                 $query = "SELECT optionA, optionB, optionC, optionD FROM mcq WHERE question_id='{$row['question_id']}'";
 
@@ -75,12 +84,15 @@ function random_test() {
         echo "<pre>";
         print_r($_SESSION);
         echo "</pre>";
-    } else {
+    }
+    else
+    {
         echo "suraj khushboo shaurabh";
     }
 }
 
-function custom_test() {
+function custom_test()
+{
     global $test;
     global $connection;
 
@@ -91,13 +103,16 @@ function custom_test() {
             . "WHERE q.question_id=t.question_id "
             . "AND t.test_id='{$test['test_id']}'";
 
-    if ($res = mysqli_query($connection, $query)) {
+    if ($res = mysqli_query($connection, $query))
+    {
 
         $i = 0;
-        while ($row = mysqli_fetch_assoc($res)) {
+        while ($row = mysqli_fetch_assoc($res))
+        {
             array_push($questions, $row);
 
-            if ($row['type'] === "MCQ") {
+            if ($row['type'] === "MCQ")
+            {
 
                 $query = "SELECT optionA, optionB, optionC, optionD FROM mcq WHERE question_id='{$row['question_id']}'";
 
@@ -120,7 +135,9 @@ function custom_test() {
         echo "<pre>";
         print_r($_SESSION);
         echo "</pre>";
-    } else {
+    }
+    else
+    {
         echo "suraj khushboo shaurabh";
     }
 }

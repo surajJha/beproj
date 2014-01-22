@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include '../controller/encryption.php';
+include 'encryption.php';
 require_once 'database.php';
 
 $user_id = $_SESSION['user_id'];

@@ -5,7 +5,7 @@
 // the email id doesn't exist in the database ,
 //then send an error message back to ajax.....
 require_once 'database.php';
-include '../controller/encryption.php';
+include 'encryption.php';
 
 $user_email = $_POST['email'];
 
