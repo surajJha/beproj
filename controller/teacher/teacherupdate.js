@@ -304,12 +304,13 @@ $(document).ready(function()
             data: values,
             cache: false,
             success: function(data) {
-
+                
+                $("#myContent").empty();
 
                 var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
-                t += "<thead><tr> <th>Question Id</th> <th>Type</th> <th>Level</th> <th>Description</th> <th>Update/Delete</th> </tr></thead>";
+                t += "<thead><tr> <th>Question Id</th> <th>Type</th><th>Description</th> <th>Update/Delete</th> </tr></thead>";
                 for (var i = 0; i < data.length; i++) {
-                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td>" + data[i].level + "</td><td>" + data[i].question_desc + "</td><td><a href=# class=\"ud btn btn-primary\" id=\"" + data[i].question_id + "\">Update/delete</a></td></tr>";
+                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/><p><b>Level:</b> "+data[i].level+"</p> <p><b>A:</b> "+data[i].mcq['optionA'] +"&nbsp;&nbsp;&nbsp; <b>B:</b> "+data[i].mcq['optionB'] +"&nbsp;&nbsp;&nbsp; <b>C:</b> "+ data[i].mcq['optionC']+"&nbsp;&nbsp;&nbsp; <b>D:</b> "+data[i].mcq['optionD'] +"</p> <p><b>Answer:</b> " + data[i].answer +"</p></details></td><td><a href=# class=\"ud btn btn-primary\" id=\"" + data[i].question_id + "\">Update/delete</a></td></tr>";
                 }
                 t += "</table></div>";
                 $("#myContent").html(t);

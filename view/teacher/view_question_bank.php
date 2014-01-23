@@ -33,35 +33,35 @@
                             <div class="row">
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_standard">Standard</label>
-                                    <select required=""="" id="vq_standard" name="vq_standard" class="form-control">
+                                    <select required id="vq_standard" name="vq_standard" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_subject">Subject</label>
-                                    <select  required=""="" id="vq_subject" name="vq_subject" class="form-control">
+                                    <select  required id="vq_subject" name="vq_subject" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_topic">Topic</label>
-                                    <select required=""=""  id="vq_topic" name="vq_topic" class="form-control">
+                                    <select required  id="vq_topic" name="vq_topic" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_type">Type</label>
-                                    <select required=""="" id="vq_type" name="vq_type" class="form-control">
+                                    <select required id="vq_type" name="vq_type" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_level">Level</label>
-                                    <select required=""="" id="vq_level" name="vq_level" class="form-control">
+                                    <select required id="vq_level" name="vq_level" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
@@ -154,35 +154,35 @@
                                                 <div class="form-group">
                                                     <label for="mcq_question" class="col-lg-4 control-label"> Question:</label>
                                                     <div class="col-lg-6">
-                                                        <textarea class="form-control" rows="6" cols="10" id="mcq_question" name="mcq_question" required=""=""></textarea>
+                                                        <textarea class="form-control" rows="6" cols="10" id="mcq_question" name="mcq_question" required></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="mcq_op_a" class="col-lg-4 control-label">A:</label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" id="mcq_op_a" name="mcq_op_a" class="form-control" placeholder="Option A" required=""="" />
+                                                        <input type="text" id="mcq_op_a" name="mcq_op_a" class="form-control" placeholder="Option A" required />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="mcq_op_b" class="col-lg-4 control-label">B:</label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" id="mcq_op_b" name="mcq_op_b" class="form-control" placeholder="Option B" required="" />
+                                                        <input type="text" id="mcq_op_b" name="mcq_op_b" class="form-control" placeholder="Option B" required />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="mcq_op_c" class="col-lg-4 control-label">C:</label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" id="mcq_op_c" name="mcq_op_c" class="form-control" placeholder="Option C" required="" />
+                                                        <input type="text" id="mcq_op_c" name="mcq_op_c" class="form-control" placeholder="Option C" required />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="mcq_op_d" class="col-lg-4 control-label">D:</label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" id="mcq_op_d" name="mcq_op_d" class="form-control" placeholder="Option D" required="" />
+                                                        <input type="text" id="mcq_op_d" name="mcq_op_d" class="form-control" placeholder="Option D" required />
                                                     </div>
                                                 </div>
 
@@ -262,14 +262,14 @@
                                                 <div class="form-group">
                                                     <label for="sub_question" class="col-lg-4 control-label"> Question:</label>
                                                     <div class="col-lg-6">
-                                                        <textarea class="form-control" rows="6" cols="10" id="sub_question" name="sub_question" required=""=""></textarea>
+                                                        <textarea class="form-control" rows="6" cols="10" id="sub_question" name="sub_question" required></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="sub_keyword" class="col-lg-4 control-label"> Keywords:</label>
                                                     <div class="col-lg-6">
-                                                        <textarea class="form-control" rows="6" cols="10" id="sub_keyword" name="sub_keyword" required=""=""></textarea>
+                                                        <textarea class="form-control" rows="6" cols="10" id="sub_keyword" name="sub_keyword" required></textarea>
                                                     </div>
                                                 </div>
 
@@ -340,7 +340,7 @@
                                                 <div class="form-group">
                                                     <label for="num_question" class="col-lg-4 control-label"> Question:</label>
                                                     <div class="col-lg-6">
-                                                        <textarea class="form-control" rows="6" cols="10" id="num_question" name="num_question" required=""=""></textarea>
+                                                        <textarea class="form-control" rows="6" cols="10" id="num_question" name="num_question" required></textarea>
                                                     </div>
                                                 </div>
 
@@ -348,7 +348,7 @@
                                                 <div class="form-group">
                                                     <label for="num_answer" class="col-lg-4 control-label"> Answer:</label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" id="num_answer" name="num_answer" class="form-control" placeholder="Answer" required=""="">
+                                                        <input type="text" id="num_answer" name="num_answer" class="form-control" placeholder="Answer" required>
                                                     </div>
                                                 </div>
 
@@ -415,7 +415,7 @@
                                                 <div class="form-group">
                                                     <label for="tf_question" class="col-lg-4 control-label"> Question:</label>
                                                     <div class="col-lg-6">
-                                                        <textarea class="form-control" rows="6" cols="10" id="tf_question" name="tf_question" required=""=""></textarea>
+                                                        <textarea class="form-control" rows="6" cols="10" id="tf_question" name="tf_question" required></textarea>
                                                     </div>
                                                 </div>
 

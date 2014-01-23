@@ -1,11 +1,11 @@
 
 * {padding:0 ; margin:0}
 .mydrop {float:left ;alignment-adjust: central; alignment-baseline: central; padding-left:8px; padding-right:2px;}
-.mydrop dt {width:208px; border:1px solid #9ac1c9; padding:8px; padding-left:8px;  alignment-adjust:central ; font-weight:bold; cursor:pointer; }
+.mydrop dt {width:400px; border:1px solid #9ac1c9; padding:8px; padding-left:8px;  alignment-adjust:central ; font-weight:bold; cursor:pointer; }
  
-.mydrop dd {position:absolute; overflow:hidden; width:200px; display:none; background:#fff; z-index:200; opacity:0}
-.mydrop ul {width:204px; border:1px solid #9ac1c9; list-style:none; border-top:none}
+.mydrop dd {position:absolute; overflow:hidden; width:400px; display:none; background:#fff; z-index:400; opacity:0}
+.mydrop ul {width:400px; border:1px solid #9ac1c9; list-style:none; border-top:none}
 .mydrop li {display:inline}
-.mydrop a, .mydrop a:active, .mydrop a:visited {display:block; padding:5px; color:#333; text-decoration:none; background:#eaf0f2; width:194px}
+.mydrop a, .mydrop a:active, .mydrop a:visited {display:block; padding:5px; color:#333; text-decoration:none; background:#eaf0f2; width:400px}
 .mydrop a:hover {background:#d9e1e4; color:#000}
 .mydrop .separator {border-bottom:1px solid #b9d6dc}

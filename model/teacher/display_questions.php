@@ -26,10 +26,17 @@ $result = mysqli_query($connection, $query);
 
 if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
+
+        if ($row['type'] == "Mcq") {
+            $query = "SELECT * FROM MCQ WHERE question_id='{$row['question_id']}'";
+            $temp = mysqli_query($connection, $query);
+            $mcq = mysqli_fetch_assoc($temp);
+            $row['mcq'] = $mcq;
+        }
         array_push($x, $row);
     }
 } else {
-    $x[0]="0";
+    $x[0] = "0";
 }
 
 echo json_encode($x);

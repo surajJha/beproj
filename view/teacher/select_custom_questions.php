@@ -30,7 +30,7 @@
 
                             <div class="page-header"><h3><strong>Select custom questions </strong></h3></div>
 
-                            <div class="row col-sm-8" id="display_questions">
+                            <div class="row col-sm-9" id="display_questions">
 
                             </div>
 
