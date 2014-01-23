@@ -11,6 +11,7 @@ $query = "INSERT into TEST (`test_id`, `date`, `duration`, `no_questions`, `rand
 mysqli_query($connection, $query);
 
 $test_id=  mysqli_insert_id($connection);
+$_SESSION['test_id']=$test_id;
         
 $topic=$_POST['sqp_topic'];
 

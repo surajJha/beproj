@@ -27,90 +27,88 @@
             <div class="row">
                 <?php include('teacher_sidebar.php'); ?>
                 <!-- ***********END OF SIDEBAR PANEL************8-->
-
-
                 <div class="col-sm-9 col-sm-offset-3 main">  
-
 
                     <div class="page-header">
                         <h3><b>Set Question Paper</b></h3>
                     </div>
-
-                    <form class="form-horizontal"  method="post" id="set_question_paper_form" >
-
-                        <div class="row">
-                            <div class="form-group col-lg-4" style="padding-left: 80px" >
-                                <label for="sqp_standard" class="control-label"> Standard:</label>
-                                <select id="sqp_standard" name="sqp_standard" class="form-control">
-                                </select>
-                            </div>   
-
-                            <div class="form-group col-lg-4" style="padding-left: 80px" >
-                                <label for="sqp_division" class="control-label"> Division:</label>
-                                <select id="sqp_division" name="sqp_division" class="form-control">
-                                </select>
-                            </div>  
-                        </div>
-
-                        <!-- NEXT ROW-->
-                        <div class="row">
-                            <div class="form-group col-lg-4" style="padding-left: 80px" >
-                                <label for="sqp_subject" class="control-label"> Subject:</label>
-                                <select id="sqp_subject" name="sqp_subject" class="form-control">
-                                </select>
-                            </div>   
-
-                            <div class="form-group col-lg-4" style="padding-left: 80px" >
-                                <label for="sqp_topic" class="control-label"> Topic:</label>
-                                <select multiple id="sqp_topic" name="sqp_topic[ ]" class="form-control">
-                                </select>
-                            </div> 
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group col-lg-4" style="padding-left: 80px">
-                                <label for="sqp_no_question" class="control-label"> Number of Questions:</label>
-                                <input type="text" id="sqp_no_question" name="sqp_no_question" class="form-control input-md" placeholder="Enter total number of questions" required>
-                            </div>  
-
-                            <div class="form-group col-lg-4" style="padding-left: 80px">
-                                <label for="sqp_duration" class="control-label"> Test Duration:</label>
-                                <input type="text" id="sqp_duration" name="sqp_duration" class="form-control input-md" placeholder="Enter duration of test in minutes" required>
-                            </div>  
-                        </div>
-
-                        <!-- NEXT ROW-->
-                        <div class="row">
-                            <div class="form-group col-lg-4" style="padding-left: 80px" >
-                                <label for="sqp_random" class="control-label"> Choose type of test:</label>
-                                <select id="sqp_random" name="sqp_random" class="form-control">
-                                    <option>Select Type</option>
-                                    <option value="0">Custom</option>
-                                    <option value="1">Random</option>
-                                </select>
-                            </div> 
-
-                            <div class="form-group col-lg-4" style="padding-left: 80px">
-                                <label for="sqp_date" class="control-label"> Test Date:</label>
-                                <input type="date" id="sqp_date" name="sqp_date" class="form-control" placeholder="YYYY-MM-DD"/>
-                            </div> 
-                        </div>
-
-                        <div class="row" >
-                            <div class="form-group col-lg-4" style="padding-left: 80px">
-                                <button id="sqp_submit" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">
-                                    Submit
-                                </button>
-                            </div>    
-                        </div>
-
-                    </form>
 
                     <div class="alert-success" id="success_message">
 
                     </div>
                     <div class="alert-error" id="error_message">
 
+                    </div>
+                    <div id="bigdiv">
+                        <form class="form-horizontal"  method="post" id="set_question_paper_form" >
+
+                            <div class="row">
+                                <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                    <label for="sqp_standard" class="control-label"> Standard:</label>
+                                    <select id="sqp_standard" name="sqp_standard" class="form-control">
+                                    </select>
+                                </div>   
+
+                                <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                    <label for="sqp_division" class="control-label"> Division:</label>
+                                    <select id="sqp_division" name="sqp_division" class="form-control">
+                                    </select>
+                                </div>  
+                            </div>
+
+                            <!-- NEXT ROW-->
+                            <div class="row">
+                                <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                    <label for="sqp_subject" class="control-label"> Subject:</label>
+                                    <select id="sqp_subject" name="sqp_subject" class="form-control">
+                                    </select>
+                                </div>   
+
+                                <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                    <label for="sqp_topic" class="control-label"> Topic:</label>
+                                    <select multiple id="sqp_topic" name="sqp_topic[ ]" class="form-control">
+                                    </select>
+                                </div> 
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-lg-4" style="padding-left: 80px">
+                                    <label for="sqp_no_question" class="control-label"> Number of Questions:</label>
+                                    <input type="text" id="sqp_no_question" name="sqp_no_question" class="form-control input-md" placeholder="Enter total number of questions" required>
+                                </div>  
+
+                                <div class="form-group col-lg-4" style="padding-left: 80px">
+                                    <label for="sqp_duration" class="control-label"> Test Duration:</label>
+                                    <input type="text" id="sqp_duration" name="sqp_duration" class="form-control input-md" placeholder="Enter duration of test in minutes" required>
+                                </div>  
+                            </div>
+
+                            <!-- NEXT ROW-->
+                            <div class="row">
+                                <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                    <label for="sqp_random" class="control-label"> Choose type of test:</label>
+                                    <select id="sqp_random" name="sqp_random" class="form-control">
+                                        <option>Select Type</option>
+                                        <option value="0">Custom</option>
+                                        <option value="1">Random</option>
+                                    </select>
+                                </div> 
+
+                                <div class="form-group col-lg-4" style="padding-left: 80px">
+                                    <label for="sqp_date" class="control-label"> Test Date:</label>
+                                    <input type="date" id="sqp_date" name="sqp_date" class="form-control" placeholder="YYYY-MM-DD"/>
+                                </div> 
+                            </div>
+
+                            <div class="row" >
+                                <div class="form-group col-lg-4" style="padding-left: 80px">
+                                    <button id="sqp_submit" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">
+                                        Submit
+                                    </button>
+                                </div>    
+                            </div>
+
+                        </form>
                     </div>
 
                 </div>
@@ -121,20 +119,20 @@
 
 
 
-    <!-- ********************************************************************-->
+        <!-- ********************************************************************-->
 
-    <!-- include footer -->
+        <!-- include footer -->
 
-    <!-- JavaScript -->
+        <!-- JavaScript -->
 
-    <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
-    <script src="../../lib/theme/js/bootstrap.js"></script>
-    <script src="../../lib/theme/js/modern-business.js"></script>
-    <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-    <script src="../../lib/theme/js/bootstrap-datepicker.js"></script>
-    <script src="../../lib/theme/js/datepicker.less"></script>
-    <script src="../../controller/teacher/set_question_paper.js"></script>
+        <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+        <script src="../../lib/theme/js/bootstrap.js"></script>
+        <script src="../../lib/theme/js/modern-business.js"></script>
+        <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+        <script src="../../lib/theme/js/bootstrap-datepicker.js"></script>
+        <script src="../../lib/theme/js/datepicker.less"></script>
+        <script src="../../controller/teacher/set_question_paper.js"></script>
 
-    <!--- link specific js - ajax -->
-</body>
+        <!--- link specific js - ajax -->
+    </body>
 </html>
