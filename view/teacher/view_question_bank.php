@@ -94,12 +94,7 @@
                                 </dl>
                             </div>   
 
-                            <div class="row">
-                                <div class="alert-success" id="success_message">
-                                </div>
-                                <div class="alert-warning" id="error_message">
-                                </div>
-                            </div>
+
 
                             <!-- ************** ALL MODAL CODE GOES HERE to be sent with AJAX to new PAGE***************************************-->
 
@@ -111,6 +106,14 @@
                                         <div class="modal-header">
                                             <h4 align="center">Add a Multiple Choice Question!</h4>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="alert-success" id="mcq_success_message">
+                                            </div>
+                                            <div class="alert-warning" id="mcq_error_message">
+                                            </div>
+                                        </div>
+
                                         <form  class="form-horizontal"  method="post" id="mcqModalForm" >
                                             <div class="modal-body"> 
 
@@ -219,6 +222,14 @@
                                         <div class="modal-header">
                                             <h4 align="center">Add a Subjective Question!</h4>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="alert-success" id="sub_success_message">
+                                            </div>
+                                            <div class="alert-warning" id="sub_error_message">
+                                            </div>
+                                        </div>
+
                                         <form class="form-horizontal"  method="post" id="subjectiveModalForm" >
                                             <div class="modal-body"> 
 
@@ -299,6 +310,14 @@
                                         <div class="modal-header">
                                             <h4 align="center">Add a Numeric Question!</h4>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="alert-success" id="num_success_message">
+                                            </div>
+                                            <div class="alert-warning" id="num_error_message">
+                                            </div>
+                                        </div>
+
                                         <form class="form-horizontal"  method="post" id="numericModalForm" >
                                             <div class="modal-body"> 
 
@@ -375,6 +394,14 @@
                                         <div class="modal-header">
                                             <h4 align="center">Add a True or False Question!</h4>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="alert-success" id="tf_success_message">
+                                            </div>
+                                            <div class="alert-warning" id="tf_error_message">
+                                            </div>
+                                        </div>
+
                                         <form class="form-horizontal" id="tfModalForm" >
                                             <div class="modal-body"> 
 
@@ -471,4 +498,4 @@
 
     </body>
 </html>
- 
+
