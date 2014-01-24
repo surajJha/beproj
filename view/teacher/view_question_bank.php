@@ -82,7 +82,7 @@
                             <div  style="padding-top: 20px">
 
                                 <dl class="dropdown mydrop">
-                                    <dt id="one-ddheader" onmouseover="ddMenu('one', 1)" onmouseout="ddMenu('one', -1)">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add New Question</dt>
+                                    <dt id="one-ddheader" style="text-align: center ; font-weight: bold" onmouseover="ddMenu('one', 1)" onmouseout="ddMenu('one', -1)">Add New Question</dt>
                                     <dd id="one-ddcontent" onmouseover="cancelHide('one')" onmouseout="ddMenu('one', -1)">
                                         <ul>
                                             <li><a href="#mcqModal" class="separator" data-toggle="modal">MCQ</a></li>
