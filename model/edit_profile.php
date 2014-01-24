@@ -28,9 +28,6 @@ if (strlen($password)>0) {
 
 $query.="WHERE user_id = '{$user_id}'";
 
-
-
-
 if (mysqli_query($connection, $query)) {
     $_SESSION['fname'] = $fname;
     $_SESSION['lname'] = $lname;
