@@ -1,16 +1,16 @@
 
 /// THIS IS A JAVASCRIPT FILE BASICALLY 
 $(document).ready(function() {
-
     $.ajax(
             {
-                type: 'POST',
+                type: 'GET',
                 url: '../../model/teacher/view_tests.php',
                 cache: false,
                 // data: values,
                 //your form datas to post          
                 success: function(data)
                 {   
+                  
                     var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\">"
                     t += "<thead><tr> <th>Subject</th> <th>Date</th> <th>Duration</th> <th>Test Code</th> </tr></thead>";
                     for (var i = 0; i < data.length; i++) {
@@ -23,7 +23,7 @@ $(document).ready(function() {
                 },
                 error: function()
                 {
-                    alert("Suraj is a failure.");
+                    $("#test_table").html("There are no scheduled tests!");
                 }
             });
     return false;
