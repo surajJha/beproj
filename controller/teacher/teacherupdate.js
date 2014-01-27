@@ -4,6 +4,8 @@ $(document).ready(function()
     var q_type = '';
     //**********FUNCTION FOR SUBMITTING MCQ MODAL*************
     $("button#submit_mcqModal").click(function(e) {
+        e.preventDefault();
+        
         var values = $("#mcqModalForm").serialize();
         q_type = "Mcq";
 
@@ -15,12 +17,15 @@ $(document).ready(function()
                     data: values + "&q_type=" + q_type,
                     success: function(response)
                     {
-                        alert(response);
-                        //success message
+                        if (response == "success")
+                        {
+                            $("#mcqModalForm").trigger('reset');
+                            $("#mcq_success_message").html("The question has been added successfully!");
+                        }
                     },
                     error: function()
                     {
-                        alert("failed");
+                        $("#mcq_error_message").html("The question was not inserted. Please try again!");
                         //error message
                     }
                 });
@@ -32,6 +37,8 @@ $(document).ready(function()
 
     //*****************FUNCTION FOR SUBMITTING SUBJECTIVE MODAL*******
     $("button#submit_subjectiveModal").click(function(e) {
+        
+        e.preventDefault();
 
         var values = $("#subjectiveModalForm").serialize();
         q_type = "Subjective";
@@ -44,10 +51,15 @@ $(document).ready(function()
                     data: values + "&q_type=" + q_type,
                     success: function(response)
                     {
-                        //success message
+                        if (response == "success")
+                        {
+                            $("#subjectiveModalForm").trigger('reset');
+                            $("#sub_success_message").html("The question has been added successfully!");
+                        }
                     },
                     error: function()
                     {
+                        $("#sub_error_message").html("The question was not inserted. Please try again!");
                         //error message
                     }
                 });
@@ -61,6 +73,8 @@ $(document).ready(function()
 
     $("button#submit_numericModal").click(function(e) {
 
+        e.preventDefault();
+
         var values = $("#numericModalForm").serialize();
         q_type = "Numeric";
 
@@ -72,10 +86,15 @@ $(document).ready(function()
                     data: values + "&q_type=" + q_type,
                     success: function(response)
                     {
-                        //success message
+                        if (response == "success")
+                        {
+                            $("#numericModalForm").trigger('reset');
+                            $("#num_success_message").html("The question has been added successfully!");
+                        }
                     },
                     error: function()
                     {
+                        $("#num_error_message").html("The question was not inserted. Please try again!");
                         //error message
                     }
                 });
@@ -102,19 +121,23 @@ $(document).ready(function()
                     data: values + "&q_type=" + q_type,
                     success: function(response)
                     {
-                        alert(response);
-                        //success message
+                        if (response == "success")
+                        {
+                            $("#tfModalForm").trigger('reset');
+                            $("#tf_success_message").html("The question has been added successfully!");
+                        }
                     },
                     error: function()
                     {
-                        alert("failure");
+                        $("#tf_error_message").html("The question was not inserted. Please try again!");
+                        //error message
                     }
                 });
         return false;
     });
     //*************************************************************//
-    
-    
+
+
     //*******CODE FOR UPDATING FORM SELECT OPTIONS******ALL FUNCTIONS**************
 
     // will populate class select
@@ -304,13 +327,13 @@ $(document).ready(function()
             data: values,
             cache: false,
             success: function(data) {
-                
+
                 $("#myContent").empty();
 
                 var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
                 t += "<thead><tr> <th>Question Id</th> <th>Type</th><th>Description</th> <th>Update/Delete</th> </tr></thead>";
                 for (var i = 0; i < data.length; i++) {
-                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/><p><b>Level:</b> "+data[i].level+"</p> <p><b>A:</b> "+data[i].mcq['optionA'] +"&nbsp;&nbsp;&nbsp; <b>B:</b> "+data[i].mcq['optionB'] +"&nbsp;&nbsp;&nbsp; <b>C:</b> "+ data[i].mcq['optionC']+"&nbsp;&nbsp;&nbsp; <b>D:</b> "+data[i].mcq['optionD'] +"</p> <p><b>Answer:</b> " + data[i].answer +"</p></details></td><td><a href=# class=\"ud btn btn-primary\" id=\"" + data[i].question_id + "\">Update/delete</a></td></tr>";
+                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/><p><b>Level:</b> " + data[i].level + "</p> <p><b>A:</b> " + data[i].mcq['optionA'] + "&nbsp;&nbsp;&nbsp; <b>B:</b> " + data[i].mcq['optionB'] + "&nbsp;&nbsp;&nbsp; <b>C:</b> " + data[i].mcq['optionC'] + "&nbsp;&nbsp;&nbsp; <b>D:</b> " + data[i].mcq['optionD'] + "</p> <p><b>Answer:</b> " + data[i].answer + "</p></details></td><td><a href=# class=\"ud btn btn-primary\" id=\"" + data[i].question_id + "\">Update/delete</a></td></tr>";
                 }
                 t += "</table></div>";
                 $("#myContent").html(t);

@@ -5,7 +5,7 @@ $(document).ready(function() {
     $.ajax(
             {
                 type: 'POST',
-                url: '../../model/student/view_tests.php',
+                url: '../../model/teacher/view_tests.php',
                 cache: false,
                 // data: values,
                 //your form datas to post          
@@ -20,13 +20,6 @@ $(document).ready(function() {
                   
                     t += "</table></div>";
                     $("#test_table").html(t);
-                  
-                    $(".test_button").click(function(){
-                
-                             var id = $(this).val();
-                       var url='http://localhost/beproj/view/student/instruction_window.php?test_id='+id;
-                       window.open(url, '_blank', 'toolbar=0,location=0,menubar=0');
-                    });
                 },
                 error: function()
                 {

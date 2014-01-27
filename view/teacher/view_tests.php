@@ -18,14 +18,14 @@
         <?php include('../header.php'); ?>
 
 
-
         <div class="container-fluid">
             <div class="row">
-                <?php include('student_sidebar.php'); ?>
-                <!-- ***********END OF SIDEBAR PANEL************-->
+                <?php include('teacher_sidebar.php'); ?>
+                <!-- ***********END OF SIDEBAR PANEL************8-->
 
-                <!-- ********8**********PAGE SPECIFIC CODE HERE*******************************-->
+
                 <div class="col-sm-9 col-sm-offset-3 main" >             
+
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8">   <div class="page-header">
@@ -39,22 +39,24 @@
                         </div>
 
                     </div>
-
                 </div>
-
             </div>
 
-            <!-- ********************************************************************-->
+        </div>
 
-            <!-- include footer -->
+    </div>
 
-            <!-- JavaScript -->
+    <!-- ********************************************************************-->
 
-            <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
-            <script src="../../lib/theme/js/bootstrap.js"></script>
-            <script src="../../lib/theme/js/modern-business.js"></script>
-            <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+    <!-- include footer -->
 
-            <script src="../../controller/student/view_tests.js"></script>
-    </body>
+    <!-- JavaScript -->
+
+    <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+    <script src="../../lib/theme/js/bootstrap.js"></script>
+    <script src="../../lib/theme/js/modern-business.js"></script>
+    <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+
+    <script src="../../controller/teacher/view_tests.js"></script>
+</body>
 </html>
