@@ -37,101 +37,107 @@
                             <div class="page-header">
                                 <h3>Edit basic information here</h3>
                             </div>
-                            <form id="edit_profile_form" >
-                                <table class="table-condensed" style="border: blue">
 
-                                    <tr ><td>
-                                            <h4>  First Name :</h4>
-                                        </td>
-                                        <td>
-                                            <input type="text" name="fname" id="fname" class="form-control input-lg" value="<?php echo $_SESSION['fname'] ?>" required >
-                                        </td>
-                                    </tr>
-
-                                    <tr><td>
-                                            <h4>   Last Name :  </h4>
-                                        </td>
-                                        <td>
-                                            <input type="text" name="lname" id="lname" class="form-control input-lg" value="<?php echo $_SESSION['lname'] ?>" required >   
-                                        </td>
-                                    </tr>
-
-
-
-                                    <tr><td>
-                                            <h4>   Email :</h4>
-                                        </td>
-                                        <td>
-                                            <input type="text" name="email" id="email" class="form-control input-lg" value="<?php echo $_SESSION['email'] ?>" required>   
-                                        </td>
-                                    </tr>
-
-
-
-                                    <tr><td>
-                                            <h4>    Phone Number : </h4>
-                                        </td>
-                                        <td>
-                                            <input type="text" name="phone" id="phone" class="form-control input-lg" value="<?php echo $_SESSION['phone'] ?>" required>   
-                                        </td>
-                                    </tr>
-
-
-
-                                    <tr><td>
-                                            <h4>   Enter New Password :</h4>
-                                        </td>
-                                        <td>
-                                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Enter new password">   
-                                        </td>
-                                    </tr>
-
-
-
-                                    <tr id="re_enter_password"><td style="padding-right: 50px">
-                                            <h4>   Re-Enter New Password</h4>
-                                        </td>
-                                        <td>
-                                            <input type="password" name="re-password" id="re-password" class="form-control input-lg" placeholder="Re-enter new password" required >   
-                                        </td>
-                                    </tr>
-
-
-
-
-                                </table><br><br>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary btn-lg" type="submit" id="edit_profile_submit" style="padding-left: 60px;padding-right: 60px">Submit</button>
-
-                            </form>
-                            <br><br>
                             <div id="success_message" class="alert-success">
 
                             </div>
-                            <div id="error_message" class="alert-error">
+                            <div id="error_message" class="alert-warning">
 
                             </div>
 
+
+                            <form id="edit_profile_form"  >
+                                <table class="table-condensed" style="border: blue">
+
+                                    <tr ><td>
+                                            <label for="fname" class="control-label">First Name: </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="fname" id="fname" class="form-control input-md" value="<?php echo $_SESSION['fname'] ?>" required >
+                                        </td>
+                                    </tr>
+
+                                    <tr><td>
+                                            <label for="lname" class="control-label">Last Name :</label>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="lname" id="lname" class="form-control input-md" value="<?php echo $_SESSION['lname'] ?>" required >   
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr><td>
+                                            <label for="email" class="control-label">Email: </label>
+                                        </td>
+                                        <td>
+                                            <input type="email" name="email" id="email" class="form-control input-md" value="<?php echo $_SESSION['email'] ?>" required>   
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr><td>
+                                            <label for="phone" class="control-label">Phone Number: </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="phone" id="phone" class="form-control input-md" value="<?php echo $_SESSION['phone'] ?>"  required>   
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr><td>
+                                            <label for="password" class="control-label">Enter New Password: </label> 
+                                        </td>
+                                        <td>
+                                            <input type="password" name="password" id="password" class="form-control input-md" placeholder="Enter new password"  required>   
+                                        </td>
+                                    </tr>
+
+                                    <tr id="re_enter_password"><td>
+                                            <label for="re_password" class="control-label">Re-Enter New Password: </label> 
+                                        </td>
+                                        <td>
+                                            <input type="password" name="re_password" id="re_password" class="form-control input-md" placeholder="Re-enter password" required >   
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <button class="btn btn-primary btn-lg" type="submit" id="edit_profile_submit">Submit</button>
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                            </form>
                         </div>
                     </div>
-
                 </div>
-            </div>
-        </div>    
-
                 <!-- ********************************************************************-->
 
-                <!-- include footer -->
+            </div>
+        </div>
 
-                <!-- JavaScript -->
+        <!-- include footer -->
+
+        <!-- JavaScript -->
 
 
-                <script src="../../lib/theme/js/modern-business.js"></script>
-                <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+        <script src="../../lib/theme/js/modern-business.js"></script>
+        <script src="../../lib/theme/docs-assets/js/holder.js"></script>
 
-                <script src="../../controller/edit_profile.js"></script>
-                <script>
-                   
-                    
-                </script>
-                </body>
-                </html>
+        <script src="../../controller/edit_profile.js"></script>
+        <script>
+
+
+        </script>
+    </body>
+</html>

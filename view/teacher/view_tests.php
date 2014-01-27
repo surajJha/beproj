@@ -18,29 +18,27 @@
         <?php include('../header.php'); ?>
 
 
-
         <div class="container-fluid">
             <div class="row">
                 <?php include('teacher_sidebar.php'); ?>
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
-                <div class="col-sm-9 col-sm-offset-3 main" >             
+
+                <div class="col-sm-10 col-sm-offset-2 main" >             
+
                     <div class="container">
                         <div class="row">
+                            <div class="col-lg-8">   <div class="page-header">
+                                    <h3><strong>Upcoming Tests</strong></h3>
+                                    <div id="test_table">
 
-                            <div class="page-header"><h3><strong>Select custom questions </strong></h3></div>
+                                    </div>      
 
-                            <div class="row col-sm-9" id="display_questions">
-
+                                </div>
                             </div>
-
-                            <div class="alert-warning" id="message">
-
-                            </div>
-
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
 
@@ -59,6 +57,6 @@
     <script src="../../lib/theme/js/modern-business.js"></script>
     <script src="../../lib/theme/docs-assets/js/holder.js"></script>
 
-    <script src="../../controller/teacher/select_custom_questions.js"></script>
+    <script src="../../controller/teacher/view_tests.js"></script>
 </body>
 </html>
