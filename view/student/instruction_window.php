@@ -18,7 +18,13 @@
 
     </head>
 
-    <body style="background-color:#cccccc" >
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class =" container">
+                <a href="#" class =" navbar-brand">HexaGraph</a>
+            </div>
+        </div>
         <!-- setting test id in session variables -->
         <?php
         session_start();
@@ -26,23 +32,16 @@
         ?>
         <!-- PAGE TITLE GOES HERE ************************************ -->
         <div class="container">
+
             <div class="row">
-                <center> 
-                    <h1 class="page-header">
-                        <EM><b><i>
-                                    HexaGraph   
-                                </i></b></EM> 
-                    </h1>
-                </center>
-            </div>
-            <div class="row">
-                <center> <div>
+                <div class="col-lg-offset-1 col-lg-10"> 
+                    <center>
                         <h2>Instructions</h2>
-                        <center><br/>
+                    </center>
 
-                            <hr/>
+                    <hr/>
 
-                            <pre>
+                    <pre>
      1. Your exam will begin once the invigilator enters the code.
      2. Duration of the exam will be 30 minutes.
      3. Exam consists of 25 questions. The exam will end once all questions are attempted or when time ends.
@@ -51,23 +50,31 @@
      6. You are not allowed to leave the place while giving exam.
      7. Incase of any query/ problem, please contact the invigilator.
 
-----------------------------------------------------------------------------
-                                     ALL THE BEST
-----------------------------------------------------------------------------
+                <center>ALL THE BEST !</center>
            
-                            </pre>
-                        </center>
+                    </pre>
+
+                    <center>
                         <form  method="post" id="test_code_form">
                             <input type="hidden" value="<?php echo $_GET['test_id']; ?>">
 
-                            <input class="input-lg"  type="text" min =" 5" max = "5" name="test_code" id="test_code" required="required" placeholder="Enter Test Code" style="margin-left: 75px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="submit_test_code"  type="submit" >Start Test</button>
+                            <div  class="col-lg-offset-3 col-lg-3">
+                                <input class="form-control"  type="text" name="test_code" id="test_code" required="required" placeholder="Enter Test Code" />
+                            </div>
+
+                            <div  class="col-lg-offset-1 col-lg-2">
+                                <button class="btn btn-lg btn-primary" id="submit_test_code"  type="submit" >Start Test</button>
+                            </div>
+                            
+                            
                         </form>
-                    </div><br>
-
-
-                </center>  
-
+                    </center>
+                    <div class="row">
+                        <div class="alert-warning" id="error_message">
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
