@@ -1,7 +1,30 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+$(document).ready(function() {
+
+    $("#submit_test_code").click(function()
+    {
+        var values = $("#test_code_form").serialize();
+        $.ajax(
+                {
+                    type: 'POST',
+                    url: '../../model/student/instruction_window.php',
+                    cache: false,
+                    data: values,
+                    success: function(data)
+                    {
+                        if(data=="url")
+                        {
+                            window.location="http://localhost/beproj/view/student/test_window.php";
+                        }
+                    },
+                    error: function()
+                    {
+                        alert("Incorrect test code!");
+                    }
+                });
+        return false;
+    });
+    return false;
+
+});
 
 
