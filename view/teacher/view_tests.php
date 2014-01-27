@@ -24,7 +24,7 @@
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
 
-                <div class="col-sm-9 col-sm-offset-3 main" >             
+                <div class="col-sm-10 col-sm-offset-2 main" >             
 
                     <div class="container">
                         <div class="row">

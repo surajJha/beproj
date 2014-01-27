@@ -12,10 +12,10 @@ $(document).ready(function() {
                 success: function(data)
                 {   
                     var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\">"
-                    t += "<thead><tr> <th>Subject</th> <th>Date</th> <th>Duration</th> </tr></thead>";
+                    t += "<thead><tr> <th>Subject</th> <th>Date</th> <th>Duration</th> <th>Test Code</th> </tr></thead>";
                     for (var i = 0; i < data.length; i++) {
                         
-                        t += "<tr> <td>" + data[i].subject_name + "</td><td>" + data[i].date + "</td><td>" + data[i].duration+" <td><button class=\"test_button btn btn-primary\" value=\""+data[i].test_id+"\">Give Test</button></td>";
+                        t += "<tr> <td>" + data[i].subject_name + "</td><td>" + data[i].date + "</td><td>" + data[i].duration+" <td> "+data[i].test_code+"</td></tr>";
                     }
                   
                     t += "</table></div>";
