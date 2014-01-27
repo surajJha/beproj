@@ -58,7 +58,7 @@ function random_test()
         {
             array_push($questions, $row);
 
-            if ($row['type'] === "MCQ")
+            if ($row['type'] === "Mcq")
             {
 
                 $query = "SELECT optionA, optionB, optionC, optionD FROM mcq WHERE question_id='{$row['question_id']}'";
@@ -107,7 +107,7 @@ function custom_test()
         {
             array_push($questions, $row);
 
-            if ($row['type'] === "MCQ")
+            if ($row['type'] === "Mcq")
             {
 
                 $query = "SELECT optionA, optionB, optionC, optionD FROM mcq WHERE question_id='{$row['question_id']}'";

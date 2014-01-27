@@ -15,6 +15,10 @@ $(document).ready(function() {
                         {
                             window.location="http://localhost/beproj/view/student/test_window.php";
                         }
+                        else
+                        {
+                            alert(data);
+                        }
                     },
                     error: function()
                     {
@@ -26,5 +30,3 @@ $(document).ready(function() {
     return false;
 
 });
-
-

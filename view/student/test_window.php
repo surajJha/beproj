@@ -31,34 +31,35 @@
             </div>
             <div class="row">
                 <div class="col-lg-offset-1 col-lg-10">
-                    <div class="row">
 
-                        <?php
-                        session_start();
-                        ?>
+                    <form method="post" id="test_questions">
+                        <div class="row">
 
-                        <div class="col-md-8">
                             <?php
-                            echo "<b>Test id : </b>" . $_SESSION['test']['test_id'] . "<br/>";
-                            echo "<b>Number of questions : </b>" . $_SESSION['test']['no_questions'] . "<br/>";
+                            session_start();
                             ?>
+
+                            <div class="col-md-8">
+                                <?php
+                                echo "<b>Test id : </b>" . $_SESSION['test']['test_id'] . "<br/>";
+                                echo "<b>Number of questions : </b>" . $_SESSION['test']['no_questions'] . "<br/>";
+                                ?>
+                            </div>
+
+                            <div class="col-md-4">
+                                <?php
+                                echo "<b>Subject : </b>" . $_SESSION['test']['subject_name'] . "<br/>";
+                                echo "<b>Date : </b>" . $_SESSION['test']['date'];
+                                ?>
+                            </div>
                         </div>
 
-                        <div class="col-md-4">
-                            <?php
-                            echo "<b>Subject : </b>" . $_SESSION['test']['subject_name'] . "<br/>";
-                            echo "<b>Date : </b>" . $_SESSION['test']['date'];
-                            ?>
+                        <div class="row">
+                            <hr>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <hr>
-                    </div>
 
 
-                    <div class="row">
-                        <form method="post" id="test_questions">
+                        <div class="row">
                             <div style="width:1000px;height:400px;overflow:auto;padding:5px;">
 
                                 <?php
@@ -66,6 +67,7 @@
 
                                 for ($i = 0; $i < $test['no_questions']; $i++) {
                                     echo "<pre>";
+                                    //echo "<hr>";
                                     displayQuestion($test['questions'][$i]['type'], $i);
                                     //echo "<hr>";
                                     echo "</pre>";
@@ -73,15 +75,15 @@
                                 ?>
 
                             </div>
-                        </form>
-
-                    </div>
-
-                    <div class="row" style="padding: 5%">
-                        <div class="col-lg-offset-5">
-                            <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="submit_test"  type="submit" >Submit Test</button>
                         </div>
-                    </div>
+
+                        <div class="row" style="padding: 5%">
+                            <div class="col-lg-offset-5">
+                                <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="submit_test"  type="submit" >Submit Test</button>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
 
@@ -97,7 +99,7 @@
             echo "<b>Answer : </b><br>";
 
             //change to Mcq
-            if ($type == "MCQ") {
+            if ($type == "Mcq") {
                 displayMcq($i);
             } elseif ($type == "Subjective") {
                 displaySubjective($i);
@@ -112,15 +114,15 @@
 
             echo "<div class=\" col-lg-4 col-lg-offset-1 \">";
 
-            echo "<input  type = \"radio\" name = \"{$i}\" value = \"A\">{$_SESSION['test']['questions'][$i]['optionA']} <br>";
-            echo "<input type = \"radio\" name = \"{$i}\" value = \"B\">{$_SESSION['test']['questions'][$i]['optionB']}";
+            echo "<input  type = \"radio\" name = \"{$i}\" value = \"A\"> {$_SESSION['test']['questions'][$i]['optionA']} <br>";
+            echo "<input type = \"radio\" name = \"{$i}\" value = \"B\"> {$_SESSION['test']['questions'][$i]['optionB']}";
 
             echo "</div>";
 
             echo "<div class=\" col-lg-4 col-lg-offset-1 \">";
 
-            echo "<input  type = \"radio\" name = \"{$i}\" value = \"C\">{$_SESSION['test']['questions'][$i]['optionC']} <br>";
-            echo "<input  type = \"radio\" name = \"{$i}\" value = \"D\">{$_SESSION['test']['questions'][$i]['optionD']}";
+            echo "<input  type = \"radio\" name = \"{$i}\" value = \"C\"> {$_SESSION['test']['questions'][$i]['optionC']} <br>";
+            echo "<input  type = \"radio\" name = \"{$i}\" value = \"D\"> {$_SESSION['test']['questions'][$i]['optionD']}";
 
             echo "</div>";
             echo "</div>";
@@ -158,6 +160,8 @@
         <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
+        
+        <script src="../../controller/student/test_window.js"></script>
 
     </body>
 </html>
