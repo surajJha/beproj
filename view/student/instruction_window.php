@@ -56,7 +56,7 @@
            
                             </pre>
                         </center>
-                        <form  method="post" id="password-form" action="../../model/student/test_process.php">
+                        <form  method="post" id="password-form">
                             <input type="hidden" value="<?php echo $_GET['test_id'];?>">
                             
                             <input class="input-lg"  type="text" min =" 5" max = "5" name="test_code" id="test_code" required="required" placeholder="Enter Test Code" style="margin-left: 75px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
