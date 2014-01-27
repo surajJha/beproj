@@ -10,14 +10,12 @@ $code = $_POST['test_code'];
 $test = array();
 
 $query = "select * from test where test_id='{$id}' and test_code='{$code}'";
-if ($res = mysqli_query($connection, $query))
+
+$result=mysqli_query($connection, $query);
+$test = mysqli_fetch_assoc($result);
+
+if ($test != NULL) 
 {
-
-    $test = mysqli_fetch_assoc($res);
-
-    // $result = mysqli_query($connection, $query);
-    // $row = mysqli_fetch_assoc($result);
-
     if ($test['random'] === '0')
     {
         // random test logic ->should actually be made 1 later 
@@ -81,9 +79,7 @@ function random_test()
 
         $_SESSION['test'] = $test;
 
-        echo "<pre>";
-        print_r($_SESSION);
-        echo "</pre>";
+       echo "url";
     }
     else
     {
@@ -132,9 +128,7 @@ function custom_test()
 
         $_SESSION['test'] = $test;
 
-        echo "<pre>";
-        print_r($_SESSION);
-        echo "</pre>";
+        echo "url";
     }
     else
     {
