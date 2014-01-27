@@ -162,10 +162,6 @@ $(document).ready(function()
                     $("#sub_standard").html(options);
                     $("#num_standard").html(options);
                     $("#tf_standard").html(options);
-                },
-                error: function()
-                {
-                    alert("Failure");
                 }
             });
     //********************************************************
@@ -195,10 +191,6 @@ $(document).ready(function()
                         $("#vq_topic").empty();
                         $("#vq_type").empty();
                         $("#vq_level").empty();
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -230,10 +222,6 @@ $(document).ready(function()
                         $("#vq_level").empty();
 
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -267,10 +255,6 @@ $(document).ready(function()
 
 
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -301,10 +285,6 @@ $(document).ready(function()
                         $('#vq_type option:contains("Select")').attr('disabled', 'disabled');
 
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -373,10 +353,6 @@ $(document).ready(function()
                         $('#mcq_standard option:contains("Select")').attr('disabled', 'disabled');
 
                         $("#mcq_topic").empty();
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -404,10 +380,6 @@ $(document).ready(function()
                         $("#mcq_topic").html(options);
                         $('#mcq_subject option:contains("Select")').attr('disabled', 'disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -454,10 +426,6 @@ $(document).ready(function()
                         $("#sub_subject").html(options);
                         $('#sub_standard option:contains("Select")').attr('disabled', 'disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -485,10 +453,6 @@ $(document).ready(function()
                         $("#sub_topic").html(options);
                         $('#sub_subject option:contains("Select")').attr('disabled', 'disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -566,10 +530,6 @@ $(document).ready(function()
                         $("#num_topic").html(options);
                         $('#num_subject option:contains("Select")').attr('disabled', 'disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -617,10 +577,6 @@ $(document).ready(function()
                         $("#tf_subject").html(options);
                         $('#tf_standard option:contains("Select")').attr('disabled', 'disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -648,10 +604,6 @@ $(document).ready(function()
                         $("#tf_topic").html(options);
                         $('#tf_subject option:contains("Select")').attr('disabled', 'disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });

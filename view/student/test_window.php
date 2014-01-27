@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-
+        <script src="../../lib/theme/js/countdown/countdown.js"></script>
         <title> HexaGraph   </title>
 
 
@@ -26,6 +26,7 @@
         </div>
 
         <div class="container">  
+
             <div class="row">
                 <br>
             </div>
@@ -39,18 +40,52 @@
                             session_start();
                             ?>
 
-                            <div class="col-md-8">
+                            <div class="col-md-10">
                                 <?php
                                 echo "<b>Test id : </b>" . $_SESSION['test']['test_id'] . "<br/>";
                                 echo "<b>Number of questions : </b>" . $_SESSION['test']['no_questions'] . "<br/>";
                                 ?>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <?php
                                 echo "<b>Subject : </b>" . $_SESSION['test']['subject_name'] . "<br/>";
                                 echo "<b>Date : </b>" . $_SESSION['test']['date'];
                                 ?>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-offset-5">
+                                <script>
+                                    var myCD2 = new Countdown({
+                                        // Using "number of seconds"
+                                        time: <?php $t=$_SESSION['test']['duration']; $t*=60; echo $t?>, // Total number of seconds to count down.
+
+                                        width: 200, // Defaults to 200 x 30 pixels, you can specify a custom size here
+                                        height: 50, //
+                                        inline: true,
+                                        rangeHi: "hour", // The highest unit of time to display
+                                        rangeLo: "second", // The lowest unit of time to display
+                                        numbers: {
+                                            
+                                            font: "Arial",
+                                            color: "#FFFFFF",
+                                            bkgd: "#365D8B",
+                                            rounded: 0.15, // percentage of size 
+                                            shadow: {
+                                                x: 0, // x offset (in pixels)
+                                                y: 3, // y offset (in pixels)
+                                                s: 4, // spread
+                                                c: "#000000", // color
+                                                a: 0.4	 // alpha	// <- no comma on last item!
+                                            }
+                                        } // <- no comma on last item!
+
+                                    });
+
+
+                                </script>
                             </div>
                         </div>
 
@@ -60,7 +95,7 @@
 
 
                         <div class="row">
-                            <div style="width:1000px;height:400px;overflow:auto;padding:5px;">
+                            <div style="width:1000px;height:350px;overflow:auto;padding:5px;">
 
                                 <?php
                                 $test = $_SESSION['test'];
@@ -160,7 +195,7 @@
         <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
-        
+
         <script src="../../controller/student/test_window.js"></script>
 
     </body>
