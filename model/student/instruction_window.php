@@ -17,15 +17,15 @@ $test = mysqli_fetch_assoc($result);
 
 if ($test != NULL) 
 {
-    if ($test['random'] === '0')
+    if ($test['random'] === '1')
     {
         // random test logic ->should actually be made 1 later 
         random_test();
     }
-    else if ($test['random'] === '5')
+    else if ($test['random'] === '0')
     {
         // custom test logic -> this is for custom should be made 0 later
-        //  custom_test();
+         custom_test();
     }
 }
 // test condition has failed
