@@ -3,6 +3,7 @@
 session_start();
 require '../database.php';
 
+
 $id = $_SESSION['test_id'];
 $code = $_POST['test_code'];
 
@@ -32,6 +33,8 @@ else
 {
     echo "Entered test code doesn't match with the database code. Please Try Again.";
 }
+
+print_r($_SESSION);
 
 // logic for various types of test
 function random_test()
