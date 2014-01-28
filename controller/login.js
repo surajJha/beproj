@@ -2,6 +2,9 @@ $(document).ready(function()
     {
         $("#login_sub").click(function()
         {
+            //$("#forgot").empty();
+            $("#forgot").html("");
+            
             var values=$("#login_form").serialize();
     
             $.ajax({
@@ -12,8 +15,7 @@ $(document).ready(function()
                 success: function(response)
                 {
                     if(response == "e")
-                    {
-                            
+                    {  
                         $("#forgot").html("Incorrect username or password!<br/><a href=\"forgot_password.php\">Forgot ?</a><br/>");
                     }
                     else

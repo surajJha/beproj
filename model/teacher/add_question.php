@@ -10,27 +10,19 @@
 
 $type = $_POST["q_type"];
 
-if ($type === "MCQ")
-{
+if ($type === "Mcq") {
     insertMCQ();
-}
-else if ($type === "SUBJECTIVE")
-{
+} else if ($type === "Subjective") {
     insertSubjective();
-}
-else if ($type === "NUMERIC")
-{
+} else if ($type === "Numeric") {
     insertNumeric();
-}
-else if ($type === "TF")
-{
+} else if ($type === "True-False") {
     insertTF();
 }
 
 //**************INSERTION FUNCTIONS****************************
 //MCQ QUESTION INSERTION
-function insertMCQ()
-{
+function insertMCQ() {
     $question_desc = $_POST["mcq_question"];
     $level = $_POST["mcq_level"];
     $topic = $_POST["mcq_topic"];
@@ -49,22 +41,19 @@ function insertMCQ()
     $query = "INSERT into QUESTION (`question_id`, `question_desc`,`answer`, `level`, `topic_name`, `subject_name`, `standard`, `type`)
                         values(NULL,'{$question_desc}','{$answer}','{$level}','{$topic}','{$subject}','{$standard}','{$type}')";
 
-    if (mysqli_query($connection, $query))
-    {
+    if (mysqli_query($connection, $query)) {
 
         $id = mysqli_insert_id($connection);
         $query = "INSERT into MCQ (`optionA`, `optionB`, `optionC`, `optionD`, `answer`, `question_id`) 
         values('{$opa}','{$opb}','{$opc}','{$opd}','{$answer}','{$id}')";
-        if (mysqli_query($connection, $query))
-        {
+        if (mysqli_query($connection, $query)) {
             echo "success";
         }
     }
 }
 
 //SUBJECTIVE QUESTION INSERTION
-function insertSubjective()
-{
+function insertSubjective() {
 
     $question_desc = $_POST["sub_question"];
     $level = $_POST["sub_level"];
@@ -79,22 +68,19 @@ function insertSubjective()
     $query = "INSERT into QUESTION (`question_id`, `question_desc`,`answer`, `level`, `topic_name`, `subject_name`, `standard`, `type`)
                         values(NULL,'{$question_desc}','{$answer}','{$level}','{$topic}','{$subject}','{$standard}','{$type}')";
 
-    if (mysqli_query($connection, $query))
-    {
+    if (mysqli_query($connection, $query)) {
 
         $id = mysqli_insert_id($connection);
         $query = "INSERT into SUBJECTIVE (`keyword`, `question_id`) 
         values('{$answer}','{$id}')";
-        if (mysqli_query($connection, $query))
-        {
+        if (mysqli_query($connection, $query)) {
             echo "success";
         }
     }
 }
 
 //NUMERIC QUESTION INSERTION
-function insertNumeric()
-{
+function insertNumeric() {
     $question_desc = $_POST["num_question"];
     $level = $_POST["num_level"];
     $topic = $_POST["num_topic"];
@@ -108,22 +94,19 @@ function insertNumeric()
     $query = "INSERT into QUESTION (`question_id`, `question_desc`,`answer`, `level`, `topic_name`, `subject_name`, `standard`, `type`)
                         values(NULL,'{$question_desc}','{$answer}','{$level}','{$topic}','{$subject}','{$standard}','{$type}')";
 
-    if (mysqli_query($connection, $query))
-    {
+    if (mysqli_query($connection, $query)) {
 
         $id = mysqli_insert_id($connection);
 
         $query = "INSERT INTO `numeric`(`answer`, `question_id`) VALUES ('{$answer}','{$id}')";
-        if (mysqli_query($connection, $query))
-        {
+        if (mysqli_query($connection, $query)) {
             echo "success";
         }
     }
 }
 
 //TRUE OR FALSE QUESTION INSERTION
-function insertTF()
-{
+function insertTF() {
 
     $question_desc = $_POST["tf_question"];
     $level = $_POST["tf_level"];
@@ -137,15 +120,16 @@ function insertTF()
 
     $query = "INSERT into QUESTION (`question_id`, `question_desc`,`answer`, `level`, `topic_name`, `subject_name`, `standard`, `type`)
                         values(NULL,'{$question_desc}','{$answer}','{$level}','{$topic}','{$subject}','{$standard}','{$type}')";
-    if (mysqli_query($connection, $query))
-    {
+    if (mysqli_query($connection, $query)) {
 
         $id = mysqli_insert_id($connection);
         $query = "INSERT INTO `true_false`(`answer`, `question_id`) VALUES ('{$answer}','{$id}')";
-        if (mysqli_query($connection, $query))
-        {
+        if (mysqli_query($connection, $query)) {
             echo "success";
+        } else {
+            echo mysqli_error($connection);
         }
+    } else {
+        echo mysqli_error($connection);
     }
 }
-

@@ -24,7 +24,7 @@
                 <?php include('teacher_sidebar.php'); ?>
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
-                <div class="col-sm-9 col-sm-offset-2 main">             
+                <div class="col-sm-10 col-sm-offset-2 main">             
 
                     <div class="container" id="view_add_question">
                         <h4>Select the parameters to view Question Bank!</h4>
@@ -33,35 +33,35 @@
                             <div class="row">
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_standard">Standard</label>
-                                    <select  id="vq_standard" name="vq_standard" class="form-control">
+                                    <select required id="vq_standard" name="vq_standard" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_subject">Subject</label>
-                                    <select  id="vq_subject" name="vq_subject" class="form-control">
+                                    <select  required id="vq_subject" name="vq_subject" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_topic">Topic</label>
-                                    <select  id="vq_topic" name="vq_topic" class="form-control">
+                                    <select required  id="vq_topic" name="vq_topic" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_type">Type</label>
-                                    <select  id="vq_type" name="vq_type" class="form-control">
+                                    <select required id="vq_type" name="vq_type" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <label class="control-label" for="vq_level">Level</label>
-                                    <select  id="vq_level" name="vq_level" class="form-control">
+                                    <select required id="vq_level" name="vq_level" class="form-control">
                                         <!-- dynamically display options through AJAX -->
                                     </select>
                                 </div>
@@ -82,7 +82,7 @@
                             <div  style="padding-top: 20px">
 
                                 <dl class="dropdown mydrop">
-                                    <dt id="one-ddheader" onmouseover="ddMenu('one', 1)" onmouseout="ddMenu('one', -1)">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add New Question</dt>
+                                    <dt id="one-ddheader" style="text-align: center ; font-weight: bold" onmouseover="ddMenu('one', 1)" onmouseout="ddMenu('one', -1)">Add New Question</dt>
                                     <dd id="one-ddcontent" onmouseover="cancelHide('one')" onmouseout="ddMenu('one', -1)">
                                         <ul>
                                             <li><a href="#mcqModal" class="separator" data-toggle="modal">Multiple Choice Question</a></li>
@@ -94,12 +94,7 @@
                                 </dl>
                             </div>   
 
-                            <div class="row">
-                                <div class="alert-success" id="success_message">
-                                </div>
-                                <div class="alert-warning" id="error_message">
-                                </div>
-                            </div>
+
 
                             <!-- ************** ALL MODAL CODE GOES HERE to be sent with AJAX to new PAGE***************************************-->
 
@@ -111,6 +106,14 @@
                                         <div class="modal-header">
                                             <h4 align="center">Add a Multiple Choice Question!</h4>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="alert-success" id="mcq_success_message">
+                                            </div>
+                                            <div class="alert-warning" id="mcq_error_message">
+                                            </div>
+                                        </div>
+
                                         <form  class="form-horizontal"  method="post" id="mcqModalForm" >
                                             <div class="modal-body"> 
 
@@ -175,14 +178,14 @@
                                                 <div class="form-group">
                                                     <label for="mcq_op_c" class="col-lg-4 control-label">C:</label>
                                                     <div class="col-lg-6">
-                                                        <input class="text" id="mcq_op_c" name="mcq_op_c" class="form-control" placeholder="Option C" required />
+                                                        <input type="text" id="mcq_op_c" name="mcq_op_c" class="form-control" placeholder="Option C" required />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="mcq_op_d" class="col-lg-4 control-label">D:</label>
                                                     <div class="col-lg-6">
-                                                        <input class="text" id="mcq_op_d" name="mcq_op_d" class="form-control" placeholder="Option D" required />
+                                                        <input type="text" id="mcq_op_d" name="mcq_op_d" class="form-control" placeholder="Option D" required />
                                                     </div>
                                                 </div>
 
@@ -219,6 +222,14 @@
                                         <div class="modal-header">
                                             <h4 align="center">Add a Subjective Question!</h4>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="alert-success" id="sub_success_message">
+                                            </div>
+                                            <div class="alert-warning" id="sub_error_message">
+                                            </div>
+                                        </div>
+
                                         <form class="form-horizontal"  method="post" id="subjectiveModalForm" >
                                             <div class="modal-body"> 
 
@@ -299,6 +310,14 @@
                                         <div class="modal-header">
                                             <h4 align="center">Add a Numeric Question!</h4>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="alert-success" id="num_success_message">
+                                            </div>
+                                            <div class="alert-warning" id="num_error_message">
+                                            </div>
+                                        </div>
+
                                         <form class="form-horizontal"  method="post" id="numericModalForm" >
                                             <div class="modal-body"> 
 
@@ -375,6 +394,14 @@
                                         <div class="modal-header">
                                             <h4 align="center">Add a True or False Question!</h4>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="alert-success" id="tf_success_message">
+                                            </div>
+                                            <div class="alert-warning" id="tf_error_message">
+                                            </div>
+                                        </div>
+
                                         <form class="form-horizontal" id="tfModalForm" >
                                             <div class="modal-body"> 
 
@@ -446,7 +473,7 @@
 
                         </div>
                         <!--to load the contents through ajax -->
-                        <div id ="myContent">
+                        <div class="col-lg-10" id ="myContent">
 
                         </div>
                     </div>
@@ -471,4 +498,4 @@
 
     </body>
 </html>
- 
+

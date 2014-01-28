@@ -20,9 +20,10 @@
 
     <body style="background-color:#cccccc" >
         <!-- setting test id in session variables -->
-    <?php session_start();  
-    $_SESSION['test_id'] = $_GET['test_id'];
-    ?>
+        <?php
+        session_start();
+        $_SESSION['test_id'] = $_GET['test_id'];
+        ?>
         <!-- PAGE TITLE GOES HERE ************************************ -->
         <div class="container">
             <div class="row">
@@ -38,7 +39,7 @@
                 <center> <div>
                         <h2>Instructions</h2>
                         <center><br/>
-                           
+
                             <hr/>
 
                             <pre>
@@ -56,11 +57,11 @@
            
                             </pre>
                         </center>
-                        <form  method="post" id="password-form" action="../../model/student/test_process.php">
-                            <input type="hidden" value="<?php echo $_GET['test_id'];?>">
-                            
+                        <form  method="post" id="test_code_form">
+                            <input type="hidden" value="<?php echo $_GET['test_id']; ?>">
+
                             <input class="input-lg"  type="text" min =" 5" max = "5" name="test_code" id="test_code" required="required" placeholder="Enter Test Code" style="margin-left: 75px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="submit-buttton"  type="submit" >Start Test</button>
+                            <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="submit_test_code"  type="submit" >Start Test</button>
                         </form>
                     </div><br>
 
@@ -73,17 +74,12 @@
         <!-- **************************************************** -->
 
 
-
-
-
-
-
-
-
         <!-- JavaScript -->
         <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
-        
 
+        <script src="../../controller/student/instruction_window.js"></script>
 
+    </body>
+</html>
