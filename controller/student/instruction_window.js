@@ -17,7 +17,7 @@ $(document).ready(function() {
                         }
                         else
                         {
-                            alert(data);
+                            $("#error_message").html(data);
                         }
                     },
                     error: function()

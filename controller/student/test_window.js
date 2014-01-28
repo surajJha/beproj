@@ -11,11 +11,7 @@ $(document).ready(function() {
                     data: values,
                     success: function(data)
                     {
-                       alert("Test complete!");
-                    },
-                    error: function()
-                    {
-                        alert("Incorrect test code!");
+                       window.location="http://localhost/beproj/view/student/test_result.php";
                     }
                 });
         return false;
