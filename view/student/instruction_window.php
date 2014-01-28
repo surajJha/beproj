@@ -35,13 +35,15 @@
 
             <div class="row">
                 <div class="col-lg-offset-1 col-lg-10"> 
-                    <center>
-                        <h2>Instructions</h2>
-                    </center>
+                    <div class="row">
+                        <center>
+                            <h2>Instructions</h2>
+                        </center>
+                    </div>
 
                     <hr/>
-
-                    <pre>
+                    <div class="row">
+                        <pre>
      1. Your exam will begin once the invigilator enters the code.
      2. Duration of the exam will be 30 minutes.
      3. Exam consists of 25 questions. The exam will end once all questions are attempted or when time ends.
@@ -52,26 +54,30 @@
 
                 <center>ALL THE BEST !</center>
            
-                    </pre>
+                        </pre>
+                    </div>
 
-                    <center>
-                        <form  method="post" id="test_code_form">
-                            <input type="hidden" value="<?php echo $_GET['test_id']; ?>">
+                    <div class="row">
+                        <center>
+                            <form  method="post" id="test_code_form">
+                                <input type="hidden" value="<?php echo $_GET['test_id']; ?>">
 
-                            <div  class="col-lg-offset-3 col-lg-3">
-                                <input class="form-control"  type="text" name="test_code" id="test_code" required="required" placeholder="Enter Test Code" />
-                            </div>
+                                <div  class="col-lg-offset-3 col-lg-3">
+                                    <input class="form-control"  type="text" name="test_code" id="test_code" required="required" placeholder="Enter Test Code" />
+                                </div>
 
-                            <div  class="col-lg-offset-1 col-lg-2">
-                                <button class="btn btn-lg btn-primary" id="submit_test_code"  type="submit" >Start Test</button>
-                            </div>
-                            
-                            
-                        </form>
-                    </center>
+                                <div  class="col-lg-offset-1 col-lg-2">
+                                    <button class="btn btn-lg btn-primary" id="submit_test_code"  type="submit" >Start Test</button>
+                                </div>
+
+
+                            </form>
+                        </center>
+                    </div>
+
                     <div class="row">
                         <div class="alert-warning" id="error_message">
-                            
+
                         </div>
                     </div>
                 </div>

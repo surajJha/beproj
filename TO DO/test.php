@@ -4,10 +4,10 @@
 
 - css of instruction window 
 
-- how to store response ?
-
-- after submitting the test -> display the result 
-
 - how to maintain test in session
 
-- if student has already given the test .. then it should not be displayed in view test 
+- check date 
+
+- store start time and end time
+
+- check for scroll working in test and result window 
