@@ -30,83 +30,87 @@
 
         <!-- PAGE TITLE GOES HERE ************************************ -->
         <div class="container">
-            <div class="row">
-                <div class="col-lg-offset-1 col-lg-10"> 
+            <div style="width:1200px;height:800px;overflow:auto;padding:5px;">
 
-                    <div style="padding: 5%">
+                <div class="row">
+                    <div class="col-lg-offset-1 col-lg-10"> 
 
-                        <div class="row">
-                            <center>
-                                <h3>Test Result</h3>
-                            </center>
-                        </div>
+                        <div style="padding: 5%">
 
-                        <hr/>
-
-                        <div class="row">
-                            <div class="col-lg-offset-1 col-lg-4">
-                                <b>Test id : </b> <?php echo $_SESSION['test_id'] . "<br/>"; ?>
-                                <b>Subject : </b> <?php echo $_SESSION['test']['subject_name'] . "<br/>"; ?>
-                                <b>Class : </b> <?php echo $_SESSION['test']['standard'] . " - " . $_SESSION['test']['division'] . "<br/>"; ?>
-                            </div> 
-
-                            <div class="col-lg-offset-1 col-lg-4">
-                                <b>Date : </b> <?php echo $_SESSION['test']['date'] . "<br/>"; ?>
-                                <b>Duration : </b> <?php echo $_SESSION['test']['duration'] . " minutes" . "<br/>"; ?>
-                            </div>
-                        </div>
-
-
-
-                        <div class="row" style="color: green">
-                            <div class="col-lg-offset-1 col-lg-4">
-                                <b>
-                                    Marks Obtained : <?php echo $_SESSION['test']['m']; ?> 
-                                </b>
+                            <div class="row">
+                                <center>
+                                    <h3>Test Result</h3>
+                                </center>
                             </div>
 
-                            <div class="col-lg-offset-1 col-lg-4">
-                                <b>
-                                    Total Marks : <?php echo $_SESSION['test']['no_questions']; ?>
-                                </b>
+                            <hr/>
+
+                            <div class="row">
+                                <div class="col-lg-offset-1 col-lg-4">
+                                    <b>Test id : </b> <?php echo $_SESSION['test_id'] . "<br/>"; ?>
+                                    <b>Subject : </b> <?php echo $_SESSION['test']['subject_name'] . "<br/>"; ?>
+                                    <b>Class : </b> <?php echo $_SESSION['test']['standard'] . " - " . $_SESSION['test']['division'] . "<br/>"; ?>
+                                </div> 
+
+                                <div class="col-lg-offset-1 col-lg-4">
+                                    <b>Date : </b> <?php echo $_SESSION['test']['date'] . "<br/>"; ?>
+                                    <b>Duration : </b> <?php echo $_SESSION['test']['duration'] . " minutes" . "<br/>"; ?>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row" style="color: green">
+                                <div class="col-lg-offset-1 col-lg-4">
+                                    <b>
+                                        Marks Obtained : <?php echo $_SESSION['test']['m']; ?> 
+                                    </b>
+                                </div>
+
+                                <div class="col-lg-offset-1 col-lg-4">
+                                    <b>
+                                        Total Marks : <?php echo $_SESSION['test']['no_questions']; ?>
+                                    </b>
+                                </div>
+                            </div>
+
+                            <hr/>
+
+                            <div class="row">
+                                <div style="width:1000px;height:350px;overflow:auto;padding:5px;">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+
+                                            <thead>
+                                                <tr> 
+                                                    <th>Question No.</th> <th>Description</th> <th>Your Answer</th> <th>Correct Answer</th> 
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <?php
+                                                for ($i = 0; $i < sizeof($_SESSION['test']['questions']); $i++)
+                                                {
+                                                    $r = "<tr>";
+                                                    $r.="<td>" . ($i + 1) . "</td>";
+                                                    $r.="<td>" . $_SESSION['test']['questions'][$i]['question_desc'] . "</td>";
+                                                    $r.="<td>" . $_SESSION['test']['questions'][$i]['response'] . "</td>";
+                                                    $r.="<td>" . $_SESSION['test']['questions'][$i]['answer'] . "</td>";
+                                                    $r.="</tr>";
+                                                    echo $r;
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <hr/>
                             </div>
                         </div>
+                    </div>  
 
-                        <hr/>
-
-                        <div class="row">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-
-                                    <thead>
-                                        <tr> 
-                                            <th>Question No.</th> <th>Description</th> <th>Your Answer</th> <th>Correct Answer</th> 
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <?php
-                                        for ($i = 0; $i < sizeof($_SESSION['test']['questions']); $i++)
-                                        {
-                                            $r = "<tr>";
-                                            $r.="<td>" . ($i + 1) . "</td>";
-                                            $r.="<td>" . $_SESSION['test']['questions'][$i]['question_desc'] . "</td>";
-                                            $r.="<td>" . $_SESSION['test']['questions'][$i]['response'] . "</td>";
-                                            $r.="<td>" . $_SESSION['test']['questions'][$i]['answer'] . "</td>";
-                                            $r.="</tr>";
-                                            echo $r;
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <hr/>
-
-                    </div>
-                </div>  
-
+                </div>
             </div>
         </div>
 
