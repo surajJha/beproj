@@ -43,7 +43,7 @@ function random_test()
 
     $questions = [];
 
-    $query = "SELECT q.question_id, q.question_desc, q.type "
+    $query = "SELECT q.question_id, q.question_desc, q.type, q.topic_name "
             . "FROM question AS q "
             . "WHERE q.standard= '{$test['standard']}' AND q.subject_name='{$test['subject_name']}' "
             . "AND q.topic_name IN (SELECT t.topic_name FROM test_on_topic AS t WHERE t.test_id= '{$test['test_id']}') "
@@ -68,6 +68,7 @@ function random_test()
 
                 $temp_row = mysqli_fetch_assoc($temp_res);
 
+                $questions[$i]['topic_name']=$row['topic_name'];
                 $questions[$i]['optionA'] = $temp_row['optionA'];
                 $questions[$i]['optionB'] = $temp_row['optionB'];
                 $questions[$i]['optionC'] = $temp_row['optionC'];
@@ -82,10 +83,6 @@ function random_test()
 
        echo "url";
     }
-    else
-    {
-        echo "suraj khushboo shaurabh";
-    }
 }
 
 function custom_test()
@@ -95,7 +92,7 @@ function custom_test()
 
     $questions = [];
 
-    $query = "SELECT q.question_id, q.question_desc, q.type "
+    $query = "SELECT q.question_id, q.question_desc, q.type, q.topic_name "
             . "FROM question AS q , test_has_question as t "
             . "WHERE q.question_id=t.question_id "
             . "AND t.test_id='{$test['test_id']}'";
@@ -117,6 +114,7 @@ function custom_test()
 
                 $temp_row = mysqli_fetch_assoc($temp_res);
 
+                $questions[$i]['topic_name']=$row['topic_name'];
                 $questions[$i]['optionA'] = $temp_row['optionA'];
                 $questions[$i]['optionB'] = $temp_row['optionB'];
                 $questions[$i]['optionC'] = $temp_row['optionC'];
@@ -130,10 +128,6 @@ function custom_test()
         $_SESSION['test'] = $test;
 
         echo "url";
-    }
-    else
-    {
-        echo "suraj khushboo shaurabh";
     }
 }
 

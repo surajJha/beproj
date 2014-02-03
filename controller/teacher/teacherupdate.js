@@ -5,10 +5,8 @@ $(document).ready(function()
     //**********FUNCTION FOR SUBMITTING MCQ MODAL*************
     $("button#submit_mcqModal").click(function(e) {
         e.preventDefault();
-        
         var values = $("#mcqModalForm").serialize();
         q_type = "Mcq";
-
         $.ajax(
                 {
                     type: 'POST',
@@ -31,18 +29,15 @@ $(document).ready(function()
                 });
         return false;
     });
-
     //*************************************************************
 
 
     //*****************FUNCTION FOR SUBMITTING SUBJECTIVE MODAL*******
     $("button#submit_subjectiveModal").click(function(e) {
-        
-        e.preventDefault();
 
+        e.preventDefault();
         var values = $("#subjectiveModalForm").serialize();
         q_type = "Subjective";
-
         $.ajax(
                 {
                     type: 'POST',
@@ -74,10 +69,8 @@ $(document).ready(function()
     $("button#submit_numericModal").click(function(e) {
 
         e.preventDefault();
-
         var values = $("#numericModalForm").serialize();
         q_type = "Numeric";
-
         $.ajax(
                 {
                     type: 'POST',
@@ -109,10 +102,8 @@ $(document).ready(function()
     $("button#submit_tfModal").click(function(e) {
 
         e.preventDefault();
-
         var values = $("#tfModalForm").serialize();
         q_type = "True-False";
-
         $.ajax(
                 {
                     type: 'POST',
@@ -187,7 +178,6 @@ $(document).ready(function()
                         }
                         $("#vq_subject").html(options);
                         $('#vq_standard option:contains("Select")').attr('disabled', 'disabled');
-
                         $("#vq_topic").empty();
                         $("#vq_type").empty();
                         $("#vq_level").empty();
@@ -217,11 +207,8 @@ $(document).ready(function()
                         }
                         $("#vq_topic").html(options);
                         $('#vq_subject option:contains("Select")').attr('disabled', 'disabled');
-
                         $("#vq_type").empty();
                         $("#vq_level").empty();
-
-
                     }
                 });
     });
@@ -250,11 +237,7 @@ $(document).ready(function()
                         }
                         $("#vq_type").html(options);
                         $('#vq_topic option:contains("Select")').attr('disabled', 'disabled');
-
                         $("#vq_level").empty();
-
-
-
                     }
                 });
     });
@@ -283,12 +266,9 @@ $(document).ready(function()
                         }
                         $("#vq_level").html(options);
                         $('#vq_type option:contains("Select")').attr('disabled', 'disabled');
-
-
                     }
                 });
     });
-
     $("#vq_level").change(function()
     {
         $('#vq_level option:contains("Select")').attr('disabled', 'disabled');
@@ -300,7 +280,6 @@ $(document).ready(function()
 
     $("#vq_go_button").click(function() {
         var values = $("#view_questions").serialize();
-
         $.ajax({
             type: 'POST',
             url: '../../model/teacher/display_questions.php',
@@ -309,15 +288,20 @@ $(document).ready(function()
             success: function(data) {
 
                 $("#myContent").empty();
-
+                
                 var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
                 t += "<thead><tr> <th>Question Id</th> <th>Type</th><th>Description</th> <th>Update/Delete</th> </tr></thead>";
-                for (var i = 0; i < data.length; i++) {
-                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/><p><b>Level:</b> " + data[i].level + "</p> <p><b>A:</b> " + data[i].mcq['optionA'] + "&nbsp;&nbsp;&nbsp; <b>B:</b> " + data[i].mcq['optionB'] + "&nbsp;&nbsp;&nbsp; <b>C:</b> " + data[i].mcq['optionC'] + "&nbsp;&nbsp;&nbsp; <b>D:</b> " + data[i].mcq['optionD'] + "</p> <p><b>Answer:</b> " + data[i].answer + "</p></details></td><td><a href=# class=\"ud btn btn-primary\" id=\"" + data[i].question_id + "\">Update/delete</a></td></tr>";
+                
+                for (var i = 0;i<data.length; i++) {
+                    t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/><p><b>Level:</b> " + data[i].level + "</p> ";
+                    if (data[i].type == "Mcq")
+                    {
+                        t += "<p><b> A: </b> " + data[i].mcq['optionA'] + "&nbsp;&nbsp;&nbsp; <b>B:</b> " + data[i].mcq['optionB'] + " &nbsp; &nbsp; &nbsp; <b> C: </b> " + data[i].mcq['optionC'] + "&nbsp;&nbsp;&nbsp; <b>D:</b> " + data[i].mcq['optionD'] + " </p>";
+                    }
+                    t += "<p><b>Answer:</b> " + data[i].answer + "</p></details></td><td><a href=# class=\"ud btn btn-primary\" id=\"" + data[i].question_id + "\">Update/delete</a></td></tr>";
                 }
                 t += "</table></div>";
                 $("#myContent").html(t);
-
             },
             error: function() {
                 var e = "<p style=\"color:blue\">Sorry! There are no questions matching your request!</p>";
@@ -326,8 +310,6 @@ $(document).ready(function()
         });
         return false;
     });
-
-
     //*********************************************************************************************
 
     //***********MCQ MODAL OPTIONS*****************************************
@@ -351,7 +333,6 @@ $(document).ready(function()
                         }
                         $("#mcq_subject").html(options);
                         $('#mcq_standard option:contains("Select")').attr('disabled', 'disabled');
-
                         $("#mcq_topic").empty();
                     }
                 });
@@ -379,11 +360,9 @@ $(document).ready(function()
                         }
                         $("#mcq_topic").html(options);
                         $('#mcq_subject option:contains("Select")').attr('disabled', 'disabled');
-
                     }
                 });
     });
-
     $("#mcq_topic").change(function() {
 
 
@@ -393,15 +372,11 @@ $(document).ready(function()
         }
         $("#mcq_level").html(options);
         $('#mcq_topic option:contains("Select")').attr('disabled', 'disabled');
-
     });
-
     $("#mcq_level").change(function()
     {
         $('#mcq_level option:contains("Select")').attr('disabled', 'disabled');
     });
-
-
     //***********END OF MCQ MODAL OPTIONS *****************************************
 
     //***********SUBJECTIVE MODAL OPTIONS*****************************************
@@ -425,7 +400,6 @@ $(document).ready(function()
                         }
                         $("#sub_subject").html(options);
                         $('#sub_standard option:contains("Select")').attr('disabled', 'disabled');
-
                     }
                 });
     });
@@ -452,11 +426,9 @@ $(document).ready(function()
                         }
                         $("#sub_topic").html(options);
                         $('#sub_subject option:contains("Select")').attr('disabled', 'disabled');
-
                     }
                 });
     });
-
     $("#sub_topic").change(function() {
 
 
@@ -466,15 +438,11 @@ $(document).ready(function()
         }
         $("#sub_level").html(options);
         $('#sub_topic option:contains("Select")').attr('disabled', 'disabled');
-
     });
-
     $("#sub_level").change(function()
     {
         $('#sub_level option:contains("Select")').attr('disabled', 'disabled');
     });
-
-
     //***********END OF SUBJECTIVE MODAL OPTIONS *****************************************
 
     //***********NUMERIC MODAL OPTIONS*****************************************
@@ -498,7 +466,6 @@ $(document).ready(function()
                         }
                         $("#num_subject").html(options);
                         $('#num_standard option:contains("Select")').attr('disabled', 'disabled');
-
                     },
                     error: function()
                     {
@@ -529,11 +496,9 @@ $(document).ready(function()
                         }
                         $("#num_topic").html(options);
                         $('#num_subject option:contains("Select")').attr('disabled', 'disabled');
-
                     }
                 });
     });
-
     $("#num_topic").change(function() {
 
 
@@ -543,15 +508,11 @@ $(document).ready(function()
         }
         $("#num_level").html(options);
         $('#num_topic option:contains("Select")').attr('disabled', 'disabled');
-
     });
-
     $("#num_level").change(function()
     {
         $('#num_level option:contains("Select")').attr('disabled', 'disabled');
     });
-
-
     //***********END OF NUMERIC MODAL OPTIONS *****************************************
 
 
@@ -576,7 +537,6 @@ $(document).ready(function()
                         }
                         $("#tf_subject").html(options);
                         $('#tf_standard option:contains("Select")').attr('disabled', 'disabled');
-
                     }
                 });
     });
@@ -603,11 +563,9 @@ $(document).ready(function()
                         }
                         $("#tf_topic").html(options);
                         $('#tf_subject option:contains("Select")').attr('disabled', 'disabled');
-
                     }
                 });
     });
-
     $("#tf_topic").change(function() {
 
 
@@ -617,15 +575,11 @@ $(document).ready(function()
         }
         $("#tf_level").html(options);
         $('#tf_topic option:contains("Select")').attr('disabled', 'disabled');
-
     });
-
     $("#tf_level").change(function()
     {
         $('#tf_level option:contains("Select")').attr('disabled', 'disabled');
     });
-
-
 //***********END OF TRUE OR FALSE MODAL OPTIONS *****************************************
 
 
