@@ -11,3 +11,5 @@
 - store start time and end time
 
 - check for scroll working in test and result window 
+
+- change code for random and custom test !
