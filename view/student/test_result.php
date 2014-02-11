@@ -20,7 +20,11 @@
 
     <body>
 
-        <?php session_start(); ?>
+        <?php session_start(); 
+            echo "<pre>";
+            print_r($_SESSION);
+            echo "</pre>";
+        ?>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class =" container">
