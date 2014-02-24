@@ -1,9 +1,5 @@
 - on timer complete -> submit test 
 
-- css of test_window
-
-- css of instruction window 
-
 - how to maintain test in session
 
 - check date 
