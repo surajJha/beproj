@@ -14,6 +14,4 @@ TODO LIST!
 - fir test interface change hoga teacher ka
 
 
-
-
-
+- session hai toh directly redirect inside
