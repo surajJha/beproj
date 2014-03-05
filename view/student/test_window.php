@@ -43,7 +43,7 @@
                             <div class="col-md-10">
                                 <?php
                                 echo "<b>Test id : </b>" . $_SESSION['test']['test_id'] . "<br/>";
-                                echo "<b>Number of questions : </b>" . $_SESSION['test']['no_questions'] . "<br/>";
+                                echo "<b>Number of questions : </b>" . sizeof($_SESSION['test']['questions']) . "<br/>";
                                 ?>
                             </div>
 
@@ -100,7 +100,7 @@
                                 <?php
                                 $test = $_SESSION['test'];
 
-                                for ($i = 0; $i < $test['no_questions']; $i++) {
+                                for ($i = 0; $i < sizeof($test['questions']); $i++) {
                                     echo "<pre>";
                                     //echo "<hr>";
                                     displayQuestion($test['questions'][$i]['type'], $i);

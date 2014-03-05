@@ -28,15 +28,11 @@
                     <div class="container">
                         <div class="row">
 
-                            <div class="page-header"><h3><strong>Select custom questions </strong></h3></div>
+                            <div><h3><strong>Select custom questions </strong></h3></div>
 
-                            <div class="row col-sm-9" id="display_questions">
+                            <div class="row col-sm-9" id="display_questions"></div>
 
-                            </div>
-
-                            <div class="alert-warning" id="message">
-
-                            </div>
+                            <div class="alert-warning" id="message"></div>
 
                         </div>
                     </div>
