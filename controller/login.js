@@ -9,7 +9,7 @@ $(document).ready(function()
     
             $.ajax({
                 type: 'POST',
-                url: '../model/login.php',
+                url: 'model/login.php',
                 cache: false,
                 data: values,
                 success: function(response)

@@ -9,14 +9,14 @@
         <title> HexaGraph   </title>
 
         <!-- Bootstrap core CSS -->
-        <link href="../lib/theme/css/bootstrap.css" rel="stylesheet">
+        <link href="lib/theme/css/bootstrap.css" rel="stylesheet">
 
         <!-- Add custom CSS here -->
-        <link href="../lib/theme/css/modern-business.css" rel="stylesheet">
-        <link href="../lib/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <link href="../lib/theme/css/mystyle.css" rel="stylesheet"> 
+        <link href="lib/theme/css/modern-business.css" rel="stylesheet">
+        <link href="lib/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="lib/theme/css/mystyle.css" rel="stylesheet"> 
     </head>
-    <body >
+    <body>
 
         <!-- ************LOGIN FORM *******************  -->
 
@@ -44,14 +44,14 @@
                 </form>
 
             </div>
-            <!-- ****************************************************** -->
+        </div>
+        <!-- ****************************************************** -->
 
-            <!-- JavaScript -->
-            <script src="../lib/theme/js/jquery-1.10.2.js"></script>
-            <script src="../lib/theme/js/bootstrap.js"></script>
-            <script src="../lib/theme/js/modern-business.js"></script>
-
-            <script src="../controller/login.js"></script>
+        <!-- JavaScript -->
+        <script src="lib/theme/js/jquery-1.10.2.js"></script>
+        <script src="lib/theme/js/bootstrap.js"></script>
+        <script src="lib/theme/js/modern-business.js"></script>
+        <script src="controller/login.js"></script>
     </body>
 
 
