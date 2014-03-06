@@ -56,7 +56,7 @@
                                 </div>  
                             </div>
 
-                            <!-- NEXT ROW-->
+                            <!-- 2nd ROW-->
                             <div class="row">
                                 <div class="form-group col-lg-4" style="padding-left: 80px" >
                                     <label for="sqp_subject" class="control-label"> Subject:</label>
@@ -71,6 +71,7 @@
                                 </div> 
                             </div>
 
+                            <!-- 3rd ROW-->
                             <div class="row">
                                 <div class="form-group col-lg-4" style="padding-left: 80px">
                                     <label for="sqp_no_question" class="control-label"> Number of Questions:</label>
@@ -83,23 +84,24 @@
                                 </div>  
                             </div>
 
-                            <!-- NEXT ROW-->
+                            <!-- 4th ROW-->
                             <div class="row">
                                 <div class="form-group col-lg-4" style="padding-left: 80px" >
                                     <label for="sqp_random" class="control-label"> Choose type of test:</label>
                                     <select id="sqp_random" name="sqp_random" class="form-control">
-                                        <option>Select Type</option>
+                                        <option value="">Select Type</option>
                                         <option value="0">Custom</option>
                                         <option value="1">Random</option>
                                     </select>
                                 </div> 
 
-                                <div class="form-group col-lg-4" style="padding-left: 80px">
+                                <div  class="form-group col-lg-4" style="padding-left: 80px">
                                     <label for="sqp_date" class="control-label"> Test Date:</label>
-                                    <input type="date" id="sqp_date" name="sqp_date" class="form-control" placeholder="YYYY-MM-DD"/>
+                                    <input type="date" id="sqp_date" name="sqp_date" class="form-control" placeholder= "YYYY-MM-DD"/>
                                 </div> 
                             </div>
 
+                            <!--Submit-->
                             <div class="row" >
                                 <div class="form-group col-lg-4" style="padding-left: 80px">
                                     <button id="sqp_submit" class="btn btn-lg btn-primary " type="submit" style="margin-top: 20px">

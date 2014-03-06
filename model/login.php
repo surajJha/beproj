@@ -38,11 +38,11 @@ if (password_check($password, $existing_hash))
     // set type - 9 for admin , 1 for teacher, 0 for student
     if ($type === "9")
     {
-        echo "http://localhost/beproj/view/admin/admin_overview.php";
+        echo "https://localhost/beproj/view/admin/admin_overview.php";
     }
     else if ($type === "1")
     {
-        echo "http://localhost/beproj/view/teacher/teacher_overview.php";
+        echo "https://localhost/beproj/view/teacher/teacher_overview.php";
     }
     else if ($type === "0")
     {
