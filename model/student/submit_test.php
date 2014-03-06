@@ -56,6 +56,8 @@ if (mysqli_query($connection, $query))
     }
 
     echo "success";
+    
+    print_r($_SESSION);
 } else
 {
     echo mysqli_error($connection);
