@@ -24,24 +24,45 @@
                 <?php include('student_sidebar.php'); ?>
                 <!-- ***********END OF SIDEBAR PANEL************-->
 
-
                 <div class="col-sm-9 col-sm-offset-3 main" >             
-                    <div class="row">
-                        
-                        
+                    <div class="container">
+
+
+                        <div class="page-header"><h3><strong>Report List </strong></h3></div>
+
+                        <div class="row"  id="acd_year">
+
+                            <div class="col-lg-1">
+                                <label>Year</label></div>
+                            <div class="col-lg-10 col-lg-offset-1" id="test_name">
+                                
+                                
+                                    <label>Test Name</label>
+                                    <div class="col-lg-1">
+                                       <div class="col-lg-1">
+                                        <label>Test</label></div>
+                                             </br>
+                                        <label>1sttest</label>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
+            </div>
+ 
 
-                <!-- ********************************************************************-->
+    
 
-                <!-- include footer -->
+    <!-- ********************************************************************-->
 
-                <!-- JavaScript -->
+    <!-- include footer -->
 
-                <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
-                <script src="../../lib/theme/js/bootstrap.js"></script>
-                <script src="../../lib/theme/js/modern-business.js"></script>
-                <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-                </body>
-                </html>
+    <!-- JavaScript -->
+
+    <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+    <script src="../../lib/theme/js/bootstrap.js"></script>
+    <script src="../../lib/theme/js/modern-business.js"></script>
+    <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+</body>
+</html>

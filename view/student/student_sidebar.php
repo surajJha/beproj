@@ -10,6 +10,9 @@
                         
                         <li><a href="view_tests.php">View Tests</a></li>
                     </ul>
+                <ul class="nav nav-sidebar">
+                     <li><a href="student_report.php">Report</a></li>
+                </ul>
 
                     <!-- Functionality to set question paper 
                          <ul class="nav nav-sidebar">
