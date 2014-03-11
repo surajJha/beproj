@@ -8,4 +8,4 @@
 session_start();
 session_unset();
 //var_dump($_SESSION);
-header("Location:http://localhost/beproj/view/index.php");
+header("Location:http://localhost/beproj");
