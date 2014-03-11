@@ -24,19 +24,24 @@
             <div class="row">
                 <?php include('student_sidebar.php'); ?>
                 <!-- ***********END OF SIDEBAR PANEL************-->
-                <div class="col-sm-9 col-sm-offset-3 main" >             
-                    <input type="button" id="mychart" value="chart" />
-                      <div id="chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
+                <div class="col-lg-offset-4 col-lg-8">
+                    <ul><li><button id="test" class="btn" value="18" >test1</button></ul>    
+                    <div class="row"></div> 
+                    <div class="col-lg-offeset-2 col-lg-6"  id="chart1" >
+                    </div>
+                    <div class="col-lg-offeset-8 col-lg-4"  id="chart2" >
+                    </div>
                 </div>
 
             </div>
-
         </div>
+
+
         <script src="chart.js"></script>
         <script src="../../lib/theme/js/highcharts.js"></script>
         <script src="../../lib/theme/js/exporting.js"></script>
+        <script src="../../controller/student/student_charts.js"></script>
 
-      
     </body>
 </html>
