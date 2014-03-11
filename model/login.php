@@ -39,16 +39,24 @@ if (password_check($password, $existing_hash))
     if ($type === "9")
     {
         echo "http://localhost/beproj/view/admin/admin_overview.php";
-    }
-    else if ($type === "1")
+    } else if ($type === "1")
     {
         echo "http://localhost/beproj/view/teacher/teacher_overview.php";
-    }
-    else if ($type === "0")
+    } else if ($type === "0")
     {
         $acad_year = date("Y-m-d");
 
-        $query = "SELECT standard,division from student_belongs_to WHERE user_id = '{$_SESSION['user_id']}' and acad_start <= '{$acad_year}' and acad_end >= '{$acad_year}' ";
+        $query = "SELECT  `acad_year` FROM  `academic_year` WHERE  `acad_start` <=  '{$acad_year}' AND  `acad_end` >=  '{$acad_year}'";
+        $result=  mysqli_query($connection, $query);
+        if($result)
+        {
+            $row=  mysqli_fetch_assoc($result);
+            $_SESSION['acad_year'] =$row['acad_year'];
+            
+        }
+                
+
+        $query = "SELECT standard,division from student_belongs_to WHERE user_id = '{$_SESSION['user_id']}' and acad_year = '{$_SESSION['acad_year']}' ";
 
         $result = mysqli_query($connection, $query);
 
@@ -60,8 +68,7 @@ if (password_check($password, $existing_hash))
         }
         echo "http://localhost/beproj/view/student/student_overview.php";
     }
-}
-else
+} else
 {
     //echoing e for error 
     echo "e";

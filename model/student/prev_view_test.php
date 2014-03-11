@@ -6,7 +6,7 @@ require_once("../database.php");
 
 $x = array();
 
-$query ="SELECT * FROM test as t WHERE t.standard='{$_SESSION['standard']}' and t.division='{$_SESSION['division']}' AND t.test_id NOT IN (select s.test_id from student_gives_test as s)";
+$query ="SELECT * FROM test as t WHERE t.standard='{$_SESSION['standard']}' and t.division='{$_SESSION['division']}' AND t.test_id IN (select s.test_id from student_gives_test as s)";
         
 $result = mysqli_query($connection, $query);
 //session_start();

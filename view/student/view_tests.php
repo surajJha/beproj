@@ -28,13 +28,20 @@
                 <div class="col-sm-10 col-sm-offset-2 main" >             
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-8">   <div class="page-header">
-                                    <h3><strong>Upcoming Tests</strong></h3>
-                                    <div id="test_table">
+                            <div class="col-lg-8">   
+                                <h3><strong>Upcoming Tests</strong></h3>
+                                <div id="test_table">
 
-                                    </div>      
+                                </div>      
+                            </div>
+                        </div>
 
-                                </div>
+                        <div class="row">
+                            <div class="col-lg-8">   
+                                <h3><strong>Previous Tests</strong></h3>
+                                <div id="prev_test_table">
+
+                                </div>      
                             </div>
                         </div>
 
