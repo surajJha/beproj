@@ -13,7 +13,6 @@
         <!-- Bootstrap core CSS -->
         <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
         <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     </head>
     <body>
         <?php include('../header.php'); ?>
@@ -22,25 +21,47 @@
 
         <div class="container-fluid">
             <div class="row">
-                <?php include('student_sidebar.php'); ?>
                 <!-- ***********END OF SIDEBAR PANEL************-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-offset-1 col-lg-10">
+                            <p hidden><?php echo $_GET['test_id']; ?></p>
 
-                <div class="col-lg-offset-2 col-lg-10">
-                    
-                    <?php $test_id=$_GET['test_id']; ?>
+                            <div class="row" id="test_summary">
 
-                    
-                    
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-9" id="chart1"> </div>
+                                <div class="col-lg-3" id="chart2"> </div>
+                            </div>
+
+                            <div class="row" id="question_details">
+
+                            </div>
+
+                            <div class="alert-warning" id="error_message" style="padding: 5%; font-size: 20px">
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
                 </div>
-
             </div>
+
         </div>
 
 
-        <script src="chart.js"></script>
+        <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+        <script src="../../lib/theme/js/bootstrap.js"></script>
+        <script src="../../lib/theme/js/modern-business.js"></script>
+        <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+
         <script src="../../lib/theme/js/highcharts.js"></script>
         <script src="../../lib/theme/js/exporting.js"></script>
-        <script src="../../controller/student/student_charts.js"></script>
+        <script src="../../controller/student/view_test_result.js"></script>
 
     </body>
 </html>
