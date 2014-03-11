@@ -17,9 +17,7 @@
                     <ul class="nav nav-sidebar">
                         <li><a href="manage_subject.php">Manage subject</a></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="#">Manage users</a></li>
-                    </ul>
+                    
                     <ul class="nav nav-sidebar">
                         <li><a href="add_user.php">Add new user</a></li>
                     </ul>
