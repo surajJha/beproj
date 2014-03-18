@@ -15,7 +15,7 @@ $(document).ready(function() {
                 {
                     if (data == "error" || data == '')
                     {
-                        $("#test_table").html("There are no tests scheduled currently!");
+                        $("#test_table").html("<div class=\"col-lg-8\"><h3><strong>Upcoming Tests</strong></h3><hr/>There are no tests scheduled currently!</div><br><br>");
                     }
                     else
                     {
@@ -55,7 +55,7 @@ $(document).ready(function() {
                 {
                     if (data == "error" || data == '')
                     {
-                        $("#prev_test_table").html("You have not given any tests yet!");
+                        $("#prev_test_table").html("<div class=\"col-lg-8\"><h3><strong>Previous Tests</strong></h3><hr/>You have not given any tests yet!</div>");
                     }
                     else
                     {
