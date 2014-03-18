@@ -16,7 +16,7 @@ $(document).ready(function()
                 {
                     if(response == "e")
                     { 
-                        $("#forgot").html("Incorrect username or password!<br/><a href=\"forgot_password.php\">Forgot ?</a><br/>");
+                        $("#forgot").html("Incorrect username or password!<br/><a href=\"view/forgot_password.php\">Forgot ?</a><br/>");
                     }
                     else
                     {

@@ -49,18 +49,18 @@ $(document).ready(function() {
             t += "<thead><tr> <th>Question No.</th> <th>Type</th><th>Description</th><th>Your Response</th><th>Correct Answer</th></tr></thead>";
 
             for (var i = 0; i < data.length; i++) {
-                t += "<tr> <td>" + (i+1) + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/>";
+                t += "<tr> <td>" + (i + 1) + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/>";
                 if (data[i].type == "Mcq")
                 {
                     t += "<p><b> A: </b> " + data[i].mcq['optionA'] + "&nbsp;&nbsp;&nbsp; <b>B:</b> " + data[i].mcq['optionB'] + " &nbsp; &nbsp; &nbsp; <b> C: </b> " + data[i].mcq['optionC'] + "&nbsp;&nbsp;&nbsp; <b>D:</b> " + data[i].mcq['optionD'] + " </p>";
                 }
-                t += "</details></td><td>"+data[i].response +"</td><td>"+data[i].answer + "</td></tr>";
+                t += "</details></td><td>" + data[i].response + "</td><td>" + data[i].answer + "</td></tr>";
             }
             t += "</table></div>";
             $("#question_details").html(t);
-            
-            
-  //*********************Charts*******************          
+
+
+            //*********************Charts*******************          
             barChart_topicWisePerformance(data);
             pieChart_topicWisePerformance(data);
 
@@ -71,9 +71,9 @@ $(document).ready(function() {
             $("#error_message").html("There was an error in retrieving the data. Please try again!");
         }
     });
-    
-    
-    
+
+
+
     //******* CHART to show question attempted and correctly answered topic wise*********
 
     //*************** BAR CHART ********************
@@ -118,7 +118,7 @@ $(document).ready(function() {
 
 
 
-        var topics = {topic:"", t: 0, i: 0, c: 0}; //t-> total, i->incorrect, c->correct
+        var topics = {topic: "", t: 0, i: 0, c: 0}; //t-> total, i->incorrect, c->correct
         var ar_topics = $.makeArray(topics);
         options.xAxis.categories.push(data[0].topic_name);
         var counter = 0;
@@ -129,7 +129,7 @@ $(document).ready(function() {
             {
                 ar_topics[0].topic = this.topic_name;
             }
-            
+
             exist = lookupfunction(this.topic_name, ar_topics);
             if (!exist) {
                 counter++;
