@@ -315,14 +315,9 @@ $(document).ready(function() {
         });
 
         //console.log(options.series[0].data);
-
-
         var chart = new Highcharts.Chart(options);
-
     }
-
-
-
+    
     return false;
 });
        

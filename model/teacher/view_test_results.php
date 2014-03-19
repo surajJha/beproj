@@ -14,7 +14,7 @@ function test_summary()
 {
     require_once '../database.php';
 
-    $query = "select s.marks_obtained,s.total_marks,t.date,t.subject_name,t.standard,t.division,t.duration from test as t, student_gives_test as s where s.user_id='{$_SESSION['user_id']}' and s.test_id=t.test_id and s.test_id='{$_GET['test_id']}'";
+    $query = "select * from test as t where t.test_id='{$_GET['test_id']}'";
     $result = mysqli_query($connection, $query);
 
     if ($result)
@@ -28,12 +28,9 @@ function question_details()
 {
     require_once '../database.php';
 
-    $query = "SELECT q.question_id,q.question_desc,r.response,q.answer,q.topic_name,q.type
-FROM response AS r, student_gives_test AS s, question AS q
-WHERE r.response_id = s.response_id
-AND s.user_id =  '{$_SESSION['user_id']}'
-AND r.test_id =  '{$_GET['test_id']}'
-and r.question_id=q.question_id";
+    $query = "SELECT q.question_id,q.question_desc,q.answer,q.topic_name,q.type
+FROM question AS q, test_has_question as t
+WHERE t.question_id=q.question_id and t.test_id='{$_GET['test_id']}'";
 
     $result = mysqli_query($connection, $query);
 

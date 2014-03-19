@@ -24,39 +24,43 @@
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
 
-                <div class="col-sm-10 col-sm-offset-2 main" >             
+                <div class="col-lg-9 col-lg-offset-3" >             
 
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-8">   <div class="page-header">
-                                    <h3><strong>Upcoming Tests</strong></h3>
-                                    <div id="test_table">
+                            <div id="test_table">
 
-                                    </div>      
+                            </div>      
 
-                                </div>
-                            </div>
                         </div>
 
+                        <div class="row">
+                            <div id="prev_table">
+
+                            </div>      
+                        </div>
                     </div>
                 </div>
+
             </div>
-
         </div>
-
     </div>
 
-    <!-- ********************************************************************-->
+</div>
 
-    <!-- include footer -->
+</div>
 
-    <!-- JavaScript -->
+<!-- ********************************************************************-->
 
-    <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
-    <script src="../../lib/theme/js/bootstrap.js"></script>
-    <script src="../../lib/theme/js/modern-business.js"></script>
-    <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+<!-- include footer -->
 
-    <script src="../../controller/teacher/view_tests.js"></script>
+<!-- JavaScript -->
+
+<script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+<script src="../../lib/theme/js/bootstrap.js"></script>
+<script src="../../lib/theme/js/modern-business.js"></script>
+<script src="../../lib/theme/docs-assets/js/holder.js"></script>
+
+<script src="../../controller/teacher/view_tests.js"></script>
 </body>
 </html>

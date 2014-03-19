@@ -27,7 +27,7 @@
             <div class="row">
                 <?php include('teacher_sidebar.php'); ?>
                 <!-- ***********END OF SIDEBAR PANEL************8-->
-                <div class="col-sm-9 col-sm-offset-3 main">  
+                <div class="col-lg-9 col-lg-offset-3">  
 
                     <div class="page-header">
                         <h3><b>Set Question Paper</b></h3>
