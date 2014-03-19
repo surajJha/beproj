@@ -28,8 +28,8 @@
 
                     <h1 class="form-signin-heading text-muted"><b>HexaGraph</b></h1>
 
-                    <input type="text" class="form-control" placeholder="User ID" name="username" id="username" required="" autofocus="">
-                    <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="" autofocus="">
+                    <input type="text" class="form-control" placeholder="Username" name="username" id="username" required="" autofocus="">
+                    <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="">
 
                     <br/>
 
