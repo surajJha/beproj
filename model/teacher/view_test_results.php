@@ -5,10 +5,26 @@ session_start();
 
 $field = $_GET['f'];
 
-if ($field == "test_summary")
+if ($field == "t")
+{
     test_summary();
-else if ($field = "question_details")
+}
+if ($field == "q")
+{
     question_details();
+}
+if ($field == "s")
+{
+    student_ranks();
+}
+if ($field == "c1")
+{
+    chart1();
+}
+if ($field == "c2")
+{
+    chart2();
+}
 
 function test_summary()
 {
@@ -28,9 +44,7 @@ function question_details()
 {
     require_once '../database.php';
 
-    $query = "SELECT q.question_id,q.question_desc,q.answer,q.topic_name,q.type
-FROM question AS q, test_has_question as t
-WHERE t.question_id=q.question_id and t.test_id='{$_GET['test_id']}'";
+    $query = "SELECT q.question_id,q.question_desc,q.answer,q.topic_name,q.type FROM question AS q, test_has_question as t WHERE t.question_id=q.question_id and t.test_id='{$_GET['test_id']}'";
 
     $result = mysqli_query($connection, $query);
 
@@ -60,4 +74,121 @@ WHERE t.question_id=q.question_id and t.test_id='{$_GET['test_id']}'";
 
         echo json_encode($x);
     }
+}
+
+function student_ranks()
+{
+    require_once '../database.php';
+
+    $x = array();
+    /* @var $query type */
+    $query = "select s.user_id,u.fname,u.lname, round(s.marks_obtained/s.total_marks*100) as p from student_gives_test as s, user as u where s.test_id='{$_GET['test_id']}' and s.user_id=u.user_id order by p desc";
+    $result = mysqli_query($connection, $query);
+
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+
+
+        echo json_encode($x);
+    }
+}
+
+function chart1()
+{
+    require_once '../database.php';
+
+    $x = array();
+
+    $query = "select count(*) as na from student_belongs_to as c, test as t where t.test_id='{$_GET['test_id']}' and c.standard=t.standard and c.division=t.division and c.user_id not in (select s.user_id from student_gives_test as s where t.test_id=s.test_id )";
+    $result = mysqli_query($connection, $query);
+
+    if ($result)
+    {
+        $row = mysqli_fetch_assoc($result);
+        array_push($x, $row);
+    }
+
+    $query = "select count(*) as pass from student_belongs_to as c, test as t where t.test_id='{$_GET['test_id']}' and c.standard=t.standard and c.division=t.division and c.user_id in (select s.user_id from student_gives_test as s where t.test_id=s.test_id and round(s.marks_obtained/s.total_marks*100)>=40 )";
+    $result = mysqli_query($connection, $query);
+
+    if ($result)
+    {
+        $row = mysqli_fetch_assoc($result);
+        array_push($x, $row);
+    }
+
+    $query = "select count(*) as fail from student_belongs_to as c, test as t where t.test_id='{$_GET['test_id']}' and c.standard=t.standard and c.division=t.division and c.user_id not in (select s.user_id from student_gives_test as s where t.test_id=s.test_id and round(s.marks_obtained/s.total_marks*100)>=40 )";
+    $result = mysqli_query($connection, $query);
+
+    if ($result)
+    {
+        $row = mysqli_fetch_assoc($result);
+        array_push($x, $row);
+    }
+
+    echo json_encode($x);
+}
+
+function chart2()
+{
+
+    require_once '../database.php';
+
+    $x = array();
+
+    $query = "select r.question_id, count(*) as c from response as r where r.test_id='{$_GET['test_id']}' and r.answer=r.response group by r.question_id";
+    $result = mysqli_query($connection, $query);
+
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+    }
+
+
+    $temp = 0;
+    $query = "select r.question_id, count(*) as i from response as r where r.test_id='{$_GET['test_id']}' and r.answer!=r.response and r.response != '-' group by r.question_id";
+    $result = mysqli_query($connection, $query);
+
+
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $x[$temp]['i'] = $row['i'];
+            $temp++;
+        }
+    }
+
+    $temp = 0;
+    $query = "select r.question_id, count(*) as n from response as r where r.test_id='{$_GET['test_id']}' and r.response = '-' group by r.question_id";
+    $result = mysqli_query($connection, $query);
+    var_dump($result);
+
+    if ($result)
+    {
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            var_dump($row);
+
+            if ($row['n'] == null)
+            {
+                $x[$temp]['n'] = 0;
+            } else
+            {
+                $x[$temp]['n'] = $row['n'];
+            }
+
+            $temp++;
+        }
+    }
+
+    echo json_encode($x);
 }

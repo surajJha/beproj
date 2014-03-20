@@ -23,22 +23,28 @@
             <div class="row">
 
                 <div class="container">
-                    <?php include('teacher_sidebar.php'); ?>
                     <div class="row">
-                        <div class="col-lg-offset-2 col-lg-9" style="padding: 2%">
+                        <div style="padding: 2%">
                             <p hidden><?php echo $_GET['test_id']; ?></p>
 
                             <div class="row" style="padding: 2%; border: 1px solid gainsboro ">
 
-                                <div class="row" id="test_summary">
+                                <div class="row" >
+                                    <div class="col-lg-offset-2 col-lg-8" id="test_summary"></div>
+                                </div>
+                                
+
+                                <div class="row">
+                                    <div class="col-lg-3" id="chart1"></div>
+                                    <div class="col-lg-9" id="chart2"></div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-9" id="chart1"></div>
-                                    <div class="col-lg-3" id="chart2"></div>
+                                    <div class="col-lg-offset-2 col-lg-8" id="student_ranks"></div>
                                 </div>
-
-                                <div class="row" id="question_details"></div>
+                                <div class="row" >
+                                    <div class="col-lg-offset-2 col-lg-8" id="question_details"></div>
+                                </div>
 
 
                                 <div class="alert-warning" id="error_message" style="padding: 5%; font-size: 15px"></div>

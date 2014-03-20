@@ -32,8 +32,8 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-9" id="chart1"> </div>
-                                <div class="col-lg-3" id="chart2"> </div>
+                                <div class="col-lg-3" id="chart1"> </div>
+                                <div class="col-lg-9" id="chart2"> </div>
                             </div>
 
                             <div class="row" id="question_details">
