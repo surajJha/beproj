@@ -45,7 +45,7 @@ $(document).ready(function() {
         success: function(data)
         {
 
-            var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
+            var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Questions</h3></caption>"
             t += "<thead><tr> <th>Question No.</th> <th>Type</th><th>Description</th><th>Your Response</th><th>Correct Answer</th></tr></thead>";
 
             for (var i = 0; i < data.length; i++) {
@@ -315,14 +315,9 @@ $(document).ready(function() {
         });
 
         //console.log(options.series[0].data);
-
-
         var chart = new Highcharts.Chart(options);
-
     }
-
-
-
+    
     return false;
 });
        

@@ -21,30 +21,35 @@
 
         <div class="container-fluid">
             <div class="row">
-                <!-- ***********END OF SIDEBAR PANEL************-->
+
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-offset-1 col-lg-10">
+                        <div style="padding: 2%">
                             <p hidden><?php echo $_GET['test_id']; ?></p>
 
-                            <div class="row" id="test_summary">
+                            <div class="row" style="padding: 2%; border: 1px solid gainsboro ">
+
+                                <div class="row" >
+                                    <div class="col-lg-offset-2 col-lg-8" id="test_summary"></div>
+                                </div>
+                                
+
+                                <div class="row">
+                                    <div class="col-lg-3" id="chart1"></div>
+                                    <div class="col-lg-9" id="chart2"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-offset-2 col-lg-8" id="student_ranks"></div>
+                                </div>
+                                <div class="row" >
+                                    <div class="col-lg-offset-2 col-lg-8" id="question_details"></div>
+                                </div>
+
+
+                                <div class="alert-warning" id="error_message" style="padding: 5%; font-size: 15px"></div>
 
                             </div>
-
-                            <div class="row">
-                                <div class="col-lg-3" id="chart1"> </div>
-                                <div class="col-lg-9" id="chart2"> </div>
-                            </div>
-
-                            <div class="row" id="question_details">
-
-                            </div>
-
-                            <div class="alert-warning" id="error_message" style="padding: 5%; font-size: 20px">
-
-                            </div>
-
-
                         </div>
 
                     </div>
@@ -61,7 +66,7 @@
 
         <script src="../../lib/theme/js/highcharts.js"></script>
         <script src="../../lib/theme/js/exporting.js"></script>
-        <script src="../../controller/student/view_test_result.js"></script>
+        <script src="../../controller/teacher/view_test_results.js"></script>
 
     </body>
 </html>

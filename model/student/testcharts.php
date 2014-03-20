@@ -3,28 +3,28 @@
 header('Content-Type: application/json');
 session_start();
 
-$field = $_GET['f'];
+f1();
 
-if ($field == "test_summary")
-    test_summary();
-else if ($field = "question_details")
-    question_details();
-
-function test_summary()
+function f1()
 {
     require_once '../database.php';
 
-    $query = "select s.marks_obtained,s.total_marks,t.date,t.subject_name,t.standard,t.division,t.duration from test as t, student_gives_test as s where s.user_id='{$_SESSION['user_id']}' and s.test_id=t.test_id and s.test_id='{$_GET['test_id']}'";
+    $query = "select round((s.marks_obtained/s.total_marks)*100) as percent,t.test_name,t.subject_name from student_gives_test as s, test as t, academic_year as a
+    where s.test_id=t.test_id and s.user_id=\"4029\" and t.date >=a.acad_start and t.date <a.acad_end and a.flag_current=1";
     $result = mysqli_query($connection, $query);
 
     if ($result)
     {
-        $row = mysqli_fetch_assoc($result);
-        echo json_encode($row);
+        $x=array();
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+        echo json_encode($x);
     }
 }
 
-function question_details()
+function f2()
 {
     require_once '../database.php';
 

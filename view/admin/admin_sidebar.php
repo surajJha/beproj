@@ -23,8 +23,6 @@
                     </ul>
 
                     <!-- Any other additional functionality   -->
-                    <ul class="nav nav-sidebar">
-                        <li><a href="#">Other</a></li>
-                    </ul>
+                    
                 </div>
                 <!-- ***********END OF SIDEBAR PANEL************8-->
