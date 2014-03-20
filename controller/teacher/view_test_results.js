@@ -202,6 +202,15 @@ $(document).ready(function()
         var chart = new Highcharts.Chart(options);
     }
 
+
+
+/****************************************************************************/
+/*
+ * x -axis pe question ids
+ * y - axis pe no of students
+ * series mein - 4 series hai .. 
+ * total , correct , incorrect and not answered ( this data should be question wise )
+ */
     function barChart(data) {
 
         var options = {
@@ -216,7 +225,7 @@ $(document).ready(function()
             },
             xAxis: {
                 categories: [
-                    //qids
+                    //question ids
                 ]
             },
             yAxis: {

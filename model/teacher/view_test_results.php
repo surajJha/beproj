@@ -1,5 +1,7 @@
 <?php
 
+// function chart2 likhna hai 
+
 header('Content-Type: application/json');
 session_start();
 
@@ -135,60 +137,12 @@ function chart1()
 
 function chart2()
 {
-
-    require_once '../database.php';
-
-    $x = array();
-
-    $query = "select r.question_id, count(*) as c from response as r where r.test_id='{$_GET['test_id']}' and r.answer=r.response group by r.question_id";
-    $result = mysqli_query($connection, $query);
-
-    if ($result)
-    {
-        while ($row = mysqli_fetch_assoc($result))
-        {
-            array_push($x, $row);
-        }
-    }
-
-
-    $temp = 0;
-    $query = "select r.question_id, count(*) as i from response as r where r.test_id='{$_GET['test_id']}' and r.answer!=r.response and r.response != '-' group by r.question_id";
-    $result = mysqli_query($connection, $query);
-
-
-    if ($result)
-    {
-        while ($row = mysqli_fetch_assoc($result))
-        {
-            $x[$temp]['i'] = $row['i'];
-            $temp++;
-        }
-    }
-
-    $temp = 0;
-    $query = "select r.question_id, count(*) as n from response as r where r.test_id='{$_GET['test_id']}' and r.response = '-' group by r.question_id";
-    $result = mysqli_query($connection, $query);
-    var_dump($result);
-
-    if ($result)
-    {
-
-        while ($row = mysqli_fetch_assoc($result))
-        {
-            var_dump($row);
-
-            if ($row['n'] == null)
-            {
-                $x[$temp]['n'] = 0;
-            } else
-            {
-                $x[$temp]['n'] = $row['n'];
-            }
-
-            $temp++;
-        }
-    }
-
-    echo json_encode($x);
+/* we need code here to extract every question in the test 
+ * 
+ * then i want the question wise data for - no of students who answered correctly, incorrectly or did not answer
+ * 
+ * but this has to be question wise !
+ * 
+ * 
+ */
 }
