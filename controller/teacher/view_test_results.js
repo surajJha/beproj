@@ -32,6 +32,46 @@ $(document).ready(function()
 
 
 
+
+
+    
+    var f = "c1";
+    $.ajax({
+        type: 'GET',
+        data: {f: f,
+            test_id: test_id},
+        url: '../../model/teacher/view_test_results.php',
+        success: function(data)
+        {
+            if (data[1].pass > 0 || data[0].na > 0 || data[2].fail > 0)
+            {
+                pieChart(data);
+            }
+        },
+        error: function()
+        {
+            $("#error_message").show();
+            $("#error_message").html("There was an error in retrieving the data. Please try again!");
+        }
+    });
+
+    var f = "c2";
+    $.ajax({
+        type: 'GET',
+        data: {f: f,
+            test_id: test_id},
+        url: '../../model/teacher/view_test_results.php',
+        success: function(data)
+        {
+            
+            barChart(data);
+        },
+        error: function()
+        {
+            $("#error_message").show();
+            $("#error_message").html("There was an error in retrieving the data. Please try again!");
+        }
+    });
     var f = 's';
     $.ajax({
         type: 'GET',
@@ -69,7 +109,6 @@ $(document).ready(function()
         }
     });
 
-
     var f = 'q';
     $.ajax({
         type: 'GET',
@@ -82,7 +121,7 @@ $(document).ready(function()
             var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Questions</h3></caption>"
             t += "<thead><tr> <th>QNo.</th> <th>Topic</th> <th>Type</th><th>Description</th><th>Answer</th></tr></thead>";
             for (var i = 0; i < data.length; i++) {
-                t += "<tr> <td>" + (i + 1) + "</td><td>" + data[i].topic_name + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/>";
+                t += "<tr> <td>" + (i + 1) + "</td><td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/>";
                 if (data[i].type == "Mcq")
                 {
                     t += "<p><b> A: </b> " + data[i].mcq['optionA'] + "&nbsp;&nbsp;&nbsp; <b>B:</b> " + data[i].mcq['optionB'] + " &nbsp; &nbsp; &nbsp; <b> C: </b> " + data[i].mcq['optionC'] + "&nbsp;&nbsp;&nbsp; <b>D:</b> " + data[i].mcq['optionD'] + " </p>";
@@ -105,42 +144,6 @@ $(document).ready(function()
         }
     });
 
-    var f = "c1";
-    $.ajax({
-        type: 'GET',
-        data: {f: f,
-            test_id: test_id},
-        url: '../../model/teacher/view_test_results.php',
-        success: function(data)
-        {
-            if (data[1].pass > 0 || data[0].na > 0 || data[2].fail > 0)
-            {
-                pieChart(data);
-            }
-        },
-        error: function()
-        {
-            $("#error_message").show();
-            $("#error_message").html("There was an error in retrieving the data. Please try again!");
-        }
-    });
-
-    var f = "c2";
-    $.ajax({
-        type: 'GET',
-        data: {f: f,
-            test_id: test_id},
-        url: '../../model/teacher/view_test_results.php',
-        success: function(data)
-        {
-            barChart(data);
-        },
-        error: function()
-        {
-            $("#error_message").show();
-            $("#error_message").html("There was an error in retrieving the data. Please try again!");
-        }
-    });
 
     function pieChart(data)
     {
@@ -204,17 +207,18 @@ $(document).ready(function()
 
 
 
-/****************************************************************************/
-/*
- * x -axis pe question ids
- * y - axis pe no of students
- * series mein - 4 series hai .. 
- * total , correct , incorrect and not answered ( this data should be question wise )
- */
+    /****************************************************************************/
+    /*
+     * x -axis pe question ids
+     * y - axis pe no of students
+     * series mein - 4 series hai .. 
+     * total , correct , incorrect and not answered ( this data should be question wise )
+     */
     function barChart(data) {
 
         var options = {
             chart: {
+                renderTo: 'chart2',
                 type: 'column'
             },
             title: {
@@ -250,21 +254,89 @@ $(document).ready(function()
             },
             series: [{
                     name: 'Total',
-                    data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+                    data: []
 
                 }, {
                     name: 'Not Attempted',
-                    data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+                    data: []
 
                 }, {
                     name: 'Correct',
-                    data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+                    data: []
 
                 }, {
                     name: 'Incorrect',
-                    data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+                    data: []
 
                 }]
+        };
+        
+        
+        
+        var question = {question_id: "", t: 0, n: 0, i: 0, c: 0}; //t-> total, i->incorrect, c->correct
+        var ar_question = $.makeArray(question);
+        var counter = 0;
+        var exist;
+        
+        ar_question[0].question_id= data[0].question_id;
+        $.each(data, function()
+        {
+            exist = lookupfunction(ar_question,this.question_id);
+            if (!exist) {
+                counter++;
+                ar_question.push({question_id: this.question_id, t: 0, n: 0, i: 0, c: 0});
+                exist = ar_question[counter];
+                options.xAxis.categories.push(this.question_id);
+
+            }
+
+
+            //for total
+            exist.t = exist.t + 1;
+            
+            //for answered
+            if (this.response != null)
+            {
+                if (this.answer != this.response)
+                {
+                    exist.i = exist.i + 1;
+                }
+
+                if (this.answer == this.response)
+                {
+                    exist.c = exist.c + 1;
+                }
+            }
+            else
+            {
+                exist.n = exist.n + 1;
+            }
+        });
+
+
+        $.each(ar_question, function()
+        {
+            options.xAxis.categories.push(this.question_id);
+            options.series[0].data.push(this.t);
+            options.series[1].data.push(this.n);
+            options.series[2].data.push(this.c);
+            options.series[3].data.push(this.i);
+
+        });
+        function lookupfunction(ar_question,value)
+        {
+            for (var i = 0; i< (ar_question.length); i++) {
+
+                if (ar_question[i].question_id == value)
+                {
+                    alert(i);
+                    return ar_question[i]; // Return as soon as the object is found
+
+                }
+            }
+
+            return null; // The object was not found
+
         }
 
 

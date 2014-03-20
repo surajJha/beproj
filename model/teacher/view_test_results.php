@@ -137,12 +137,31 @@ function chart1()
 
 function chart2()
 {
-/* we need code here to extract every question in the test 
- * 
- * then i want the question wise data for - no of students who answered correctly, incorrectly or did not answer
- * 
- * but this has to be question wise !
- * 
- * 
- */
+    /* we need code here to extract every question in the test 
+     * 
+     * then i want the question wise data for - how many no of students who answered correctly, incorrectly or did not answer
+     * 
+     * but this has to be question wise ! ;)done
+     * 
+     * 
+     */
+
+    require_once '../database.php';
+
+    $query = "SELECT question_id, response_id, response, answer FROM response WHERE test_id ={$_GET['test_id']}";
+    $result = mysqli_query($connection, $query);
+
+    $x = array();
+
+    if ($result)
+    {
+        while (mysqli_fetch_assoc($result))
+        {
+            $row = mysqli_fetch_assoc($result);
+            array_push($x, $row);
+        }
+        
+        echo json_encode($x);
+     }
+
 }
