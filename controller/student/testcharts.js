@@ -1,24 +1,25 @@
 $(document).ready(function() {
 
 
-    
-    /*$.ajax({
-        type: 'GET',
-        data: {f:c1}, 
-        url: '../../model/student/testcharts.php',
-        success: function(data)
-        {
-            polar_spider(data);
-        },
-        error: function()
-        {
-            alert("Error");
-        }
-    });
-    */
+    var f = 'c1';
+        $.ajax({
+     type: 'GET',
+     data: {f:f}, 
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     polar_spider(data);
+     },
+     error: function()
+     {
+     alert("Error c1");
+     }
+     });
+     
+    f = 'c2';
     $.ajax({
         type: 'GET',
-        data: {f:c2},
+        data: {f: f},
         url: '../../model/student/testcharts.php',
         success: function(data)
         {
@@ -26,7 +27,7 @@ $(document).ready(function() {
         },
         error: function()
         {
-            alert("Error");
+            alert("Error c2");
         }
     });
 
@@ -134,7 +135,7 @@ $(document).ready(function() {
 
         var options = {
             chart: {
-                renderTo: 'c2',
+                renderTo: 'c2'
             },
             title: {
                 text: 'Annual Performance',
@@ -148,6 +149,8 @@ $(document).ready(function() {
                 categories: []
             },
             yAxis: {
+                max: 100,
+                min: 0,        
                 title: {
                     text: 'Percentage(%)'
                 },
@@ -169,43 +172,69 @@ $(document).ready(function() {
             series: []
         };
 
-
+        options.xAxis.categories.push(data[0].test_name);
         var sub_array = [];
+       
+        sub_array.push(data[0].subject_name);
+
+
 
         $.each(data, function()
         {
-            if (!$.inArray(data.test_name, options.xAxis.categories))
+            if (lookupfunction(options.xAxis.categories, this.test_name)==0)
             {
-                options.xAxis.categories.push(data.test_name);
+                options.xAxis.categories.push(this.test_name);
             }
-            if (!$.inArray(data.subject_name, sub_array))
+            if (lookupfunction(sub_array, this.subject_name)==0)
             {
-                sub_array.push(data.subject_name);
+                
+                sub_array.push(this.subject_name);
             }
         });
-        var test_counter;
-        $.each(sub_array, function(i,value)
+
+        console.log(options.xAxis.categories);
+        console.log(sub_array);
+
+
+        $.each(sub_array, function(i, value)
         {
 
             var entry = {name: "", data: []};
-            test_counter=0;
+            test_counter = 0;
             $.each(data, function(j)
             {
-                if(value== data.subject_name)
+                if (value == this.subject_name)
+                {   
+                    console.log("in");
+                    if (options.xAxis.categories[test_counter] == this.test_name)
                     {
-                        if(options.xAxis.categories[counter]== data.test_name)
-                           {
-                               entry.data.push(parseFloat(data.marks_obtained/ data.total_marks *100));
-                           }
+                        test_counter++;
+                        entry.data.push(parseFloat(this.marks_obtained / this.total_marks * 100));
                     }
+                }
             });
-            entry.name= value;
+            entry.name = value;
             options.series.push(entry);
-
+            
         });
+        console.log(options.series);
         var chart = new Highcharts.Chart(options);
 
 //check whether subject present in the array or not
-       
+
+        function lookupfunction(ar, value)
+        {
+            var x=0;
+            $.each(ar, function(i,v) {
+                if (v == value)
+                {
+                    x=1;
+                }
+                
+            });
+
+            return x; // The object was not found
+
+        }
     }
 });

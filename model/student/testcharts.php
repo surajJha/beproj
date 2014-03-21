@@ -3,12 +3,12 @@
 header('Content-Type: application/json');
 session_start();
 $field = $_GET['f'];
-if ($field == c1)
+if ($field == 'c1')
 {
     f1();
 }
 //Line chart for student annual performance
-if ($field == c2)
+if ($field == 'c2')
 {
     f3();
 }
@@ -78,7 +78,7 @@ function f3()
 {
     require_once '../database.php';
 
-    $query = "select t.test_name,g.marks_obtained, g.total_marks, t.subject_name,t.date,t.test_id from test as t, student_gives_test as g,student_belongs_to as b, academic_year as a where  g.user_id=\"4020\" and g.test_id= t.test_id  and acad_start<t.date and  t.date<a.acad_end and a.flag_current=1";
+    $query = "select t.test_name,g.marks_obtained, g.total_marks, t.subject_name,t.date,t.test_id from test as t, student_gives_test as g, academic_year as a where  g.user_id=\"4020\" and g.test_id= t.test_id  and acad_start<t.date and  t.date<a.acad_end and a.flag_current=1";
     $result = mysqli_query($connection, $query);
 
     if ($result)
