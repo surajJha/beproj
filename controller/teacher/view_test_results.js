@@ -227,7 +227,9 @@ $(document).ready(function()
             subtitle: {
                 text: ''
             },
-            xAxis: {
+            xAxis: {title: {
+                    text: 'Questions'
+                },
                 categories: [
                     //question ids
                 ]
@@ -278,6 +280,7 @@ $(document).ready(function()
         var counter = 0;
         var exist;
         
+        
         ar_question[0].question_id= data[0].question_id;
         $.each(data, function()
         {
@@ -286,11 +289,11 @@ $(document).ready(function()
                 counter++;
                 ar_question.push({question_id: this.question_id, t: 0, n: 0, i: 0, c: 0});
                 exist = ar_question[counter];
-                options.xAxis.categories.push(this.question_id);
+                //options.xAxis.categories.push(this.question_id);
 
             }
 
-
+            
             //for total
             exist.t = exist.t + 1;
             
@@ -313,10 +316,11 @@ $(document).ready(function()
             }
         });
 
-
+        count=0;
         $.each(ar_question, function()
         {
-            options.xAxis.categories.push(this.question_id);
+            count++;
+            options.xAxis.categories.push(count);
             options.series[0].data.push(this.t);
             options.series[1].data.push(this.n);
             options.series[2].data.push(this.c);
@@ -329,7 +333,7 @@ $(document).ready(function()
 
                 if (ar_question[i].question_id == value)
                 {
-                    alert(i);
+                    //alert(i);
                     return ar_question[i]; // Return as soon as the object is found
 
                 }
