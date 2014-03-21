@@ -148,16 +148,15 @@ function chart2()
 
     require_once '../database.php';
 
-    $query = "SELECT question_id, response_id, response, answer FROM response WHERE test_id ={$_GET['test_id']}";
+    $query = "SELECT question_id,  response, answer FROM response WHERE test_id ={$_GET['test_id']}";
     $result = mysqli_query($connection, $query);
 
     $x = array();
 
     if ($result)
     {
-        while (mysqli_fetch_assoc($result))
+        while ($row=mysqli_fetch_assoc($result))
         {
-            $row = mysqli_fetch_assoc($result);
             array_push($x, $row);
         }
         
