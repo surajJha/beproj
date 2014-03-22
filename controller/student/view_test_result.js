@@ -238,11 +238,9 @@ $(document).ready(function() {
                     allowPointSelect: true,
                     cursor: 'pointer',
                     dataLabels: {
-                        enabled: true,
-                        color: '#000000',
-                        connectorColor: '#000000',
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                    }
+                        enabled: false
+                    },
+                    showInLegend: true
                 }
             },
             series: [{
@@ -317,7 +315,7 @@ $(document).ready(function() {
         //console.log(options.series[0].data);
         var chart = new Highcharts.Chart(options);
     }
-    
+
     return false;
 });
        

@@ -34,7 +34,7 @@ $(document).ready(function()
 
 
 
-    
+
     var f = "c1";
     $.ajax({
         type: 'GET',
@@ -63,7 +63,7 @@ $(document).ready(function()
         url: '../../model/teacher/view_test_results.php',
         success: function(data)
         {
-            
+
             barChart(data);
         },
         error: function()
@@ -162,14 +162,18 @@ $(document).ready(function()
             },
             plotOptions: {
                 pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
                     dataLabels: {
                         enabled: true,
-                        color: '#000000',
-                        connectorColor: '#000000',
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                    }
+                        distance: -50,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white',
+                            textShadow: '0px 1px 2px black'
+                        }
+                    },
+                    startAngle: -90,
+                    endAngle: 90,
+                    center: ['50%', '75%']
                 }
             },
             series: [{
@@ -272,19 +276,19 @@ $(document).ready(function()
 
                 }]
         };
-        
-        
-        
+
+
+
         var question = {question_id: "", t: 0, n: 0, i: 0, c: 0}; //t-> total, i->incorrect, c->correct
         var ar_question = $.makeArray(question);
         var counter = 0;
         var exist;
-        
-        
-        ar_question[0].question_id= data[0].question_id;
+
+
+        ar_question[0].question_id = data[0].question_id;
         $.each(data, function()
         {
-            exist = lookupfunction(ar_question,this.question_id);
+            exist = lookupfunction(ar_question, this.question_id);
             if (!exist) {
                 counter++;
                 ar_question.push({question_id: this.question_id, t: 0, n: 0, i: 0, c: 0});
@@ -293,10 +297,10 @@ $(document).ready(function()
 
             }
 
-            
+
             //for total
             exist.t = exist.t + 1;
-            
+
             //for answered
             if (this.response != null)
             {
@@ -316,7 +320,7 @@ $(document).ready(function()
             }
         });
 
-        count=0;
+        count = 0;
         $.each(ar_question, function()
         {
             count++;
@@ -327,9 +331,9 @@ $(document).ready(function()
             options.series[3].data.push(this.i);
 
         });
-        function lookupfunction(ar_question,value)
+        function lookupfunction(ar_question, value)
         {
-            for (var i = 0; i< (ar_question.length); i++) {
+            for (var i = 0; i < (ar_question.length); i++) {
 
                 if (ar_question[i].question_id == value)
                 {
