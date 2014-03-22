@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 
     
-    /*$.ajax({
+    $.ajax({
         type: 'GET',
         data: {f:c1}, 
         url: '../../model/student/testcharts.php',
@@ -15,7 +15,7 @@ $(document).ready(function() {
             alert("Error");
         }
     });
-    */
+    
     $.ajax({
         type: 'GET',
         data: {f:c2},
