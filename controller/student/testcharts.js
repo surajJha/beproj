@@ -515,17 +515,17 @@ $(document).ready(function() {
         //options.xAxis.categories.push(data[0].test_name);
         var sub_array = [];
 
-        sub_array.push(data[0].subject_name);
+        //sub_array.push(data[0].subject_name);
 
 
 
         $.each(data, function()
         {
-            if ($.inArray(options.xAxis.categories, this.test_name) == -1)
+            if ($.inArray(this.test_name,options.xAxis.categories )== -1)
             {
                 options.xAxis.categories.push(this.test_name);
             }
-            if ($.inArray(sub_array, this.subject_name) == -1)
+            if ($.inArray(this.subject_name,sub_array) == -1)
             {
 
                 sub_array.push(this.subject_name);
