@@ -27,7 +27,7 @@ function f1()
     require_once '../database.php';
 
     $query = "select round((s.marks_obtained/s.total_marks)*100) as percent,t.test_name,t.subject_name from student_gives_test as s, test as t, academic_year as a
-    where s.test_id=t.test_id and s.user_id=\"4029\" and t.date >=a.acad_start and t.date <a.acad_end and a.flag_current=1";
+    where s.test_id=t.test_id and s.user_id=\"4029\" and t.date >=a.acad_start and t.date <a.acad_end and a.flag_current=1 ";
     $result = mysqli_query($connection, $query);
 
     if ($result)
@@ -106,10 +106,10 @@ function f3_f4()
 {
     require_once '../database.php';
 
-    $query = "select u.fname,u.lname,t.test_name, g.marks_obtained,g.total_marks  
+    $query = "select u.user_id,u.fname,u.lname,t.test_name, g.marks_obtained,g.total_marks, round((g.marks_obtained/ g. total_marks)*100,2) as percent  
         from student_belongs_to as b, user as u, student_gives_test as g, test as t 
         where b.user_id= u.user_id and b.user_id= g.user_id and  g.test_id = t.test_id 
-        and b.standard= 10 and b.division= 'A' and t.subject_name= 'Math'";
+        and b.standard= 10 and b.division= 'A' and t.subject_name= 'Math' order by percent desc";
     $result = mysqli_query($connection, $query);
     if ($result)
     {
