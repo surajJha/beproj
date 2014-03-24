@@ -51,7 +51,7 @@ $(document).ready(function() {
         url: '../../model/student/testcharts.php',
         success: function(data)
         {
-//alert(data);
+            //alert(data);
             columnDrilldown_StudentWiseSubjectTestPerformance(data);
         },
         error: function()
@@ -66,7 +66,7 @@ $(document).ready(function() {
         url: '../../model/student/testcharts.php',
         success: function(data)
         {
-//alert(data);
+            //alert(data);
             barBasic_StudentWiseSubjectAnnualPerformance(data);
         },
         error: function()
@@ -89,6 +89,24 @@ $(document).ready(function() {
             alert("Error c6");
         }
     })
+
+
+    var f = 'c7';
+    $.ajax({
+        type: 'GET',
+        data: {f: f},
+        url: '../../model/student/testcharts.php',
+        success: function(data)
+        {
+            columnBasic_OverallPerformance(data);
+        },
+        error: function()
+        {
+            alert("Error c7");
+        }
+    });
+
+
 //*****************************************************************************
 
     function barBasic_StudentWiseSubjectAnnualPerformance(data)
@@ -153,6 +171,7 @@ $(document).ready(function() {
         }
         var counter = 0;
         var subject_array = [];
+        var test_array = [];
         $.each(data, function()
         {
             var name = this.fname + " " + this.lname;
@@ -172,6 +191,7 @@ $(document).ready(function() {
             }
             options.series[index].data.push((parseFloat(this.marks_obtained) / parseFloat(this.total_marks)) * 100);
         });
+
         //console.log(options.xAxis.categories);
         //console.log(options.series);
 
@@ -184,127 +204,6 @@ $(document).ready(function() {
 
 
 
-
-
-//******************************************************************************
-
-
-    function columnDrilldown_StudentWiseSubjectTestPerformance(data)
-    {
-
-        var student = [];
-        var test_array = [];
-        var counter = 0;
-        var user_id = [];
-        var student_array = [];
-        var overall_marks = [];
-        $.each(data, function()
-        {
-            var name = this.fname + " " + this.lname;
-            var index = $.inArray(name, student_array);
-            if (index == -1)
-            {
-                user_id.push(this.user_id);
-                student_array.push(name);
-                test_array.push({
-                    name: name,
-                    id: name,
-                    data: []
-                });
-                index = counter++;
-                overall_marks.push({
-                    marks_obtained: 0.0,
-                    total_marks: 0.0});
-            }
-
-            test_array[index].data.push([
-                this.test_name,
-                parseFloat(this.marks_obtained / this.total_marks * 100)
-            ]);
-            overall_marks[index].marks_obtained += parseFloat(this.marks_obtained);
-            overall_marks[index].total_marks += parseFloat(this.total_marks);
-        });
-        $.each(student_array, function(index, v)
-        {
-            student.push({
-                name: "",
-                user_id: user_id[index],
-                y: parseFloat(overall_marks[index].marks_obtained / overall_marks[index].total_marks * 100),
-                drilldown: v,
-                name2: v
-
-            });
-        });
-        MySort(student, student.length);
-        $.each(student_array, function(index, v)
-        {
-            student[index].name += index + 1;
-
-        });
-
-        options = {
-            chart: {
-                type: 'column',
-                renderTo: 'c4'
-            },
-            title: {
-                text: 'Overall Percentage'
-            },
-            subtitle: {
-                text: "Click the columns to view Student's Test Wise Percentage"
-            },
-            xAxis: {
-                type: 'category'
-            },
-            yAxis: {
-                title: {
-                    text: 'Total Percentage'
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                series: {
-                    borderWidth: 0,
-                    dataLabels: {
-                        enabled: false,
-                        format: '{point.y:.1f}%'
-                    }
-                }
-            },
-            tooltip: {
-                //headerFormat: '<span style="font-size:11px"></span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.user_id}</span>:<b> {point.name2}</b> <b> {point.y:.2f}%</b><br/>'
-            },
-            series: [{
-                    name: 'Previous Page',
-                    colorByPoint: true,
-                    data: student
-                }],
-            drilldown: {
-                series: test_array
-            }
-        }
-        //console.log(student);
-        var chart = new Highcharts.Chart(options);
-
-        function MySort(array, n)
-        {
-            for (var c = 0; c < (n - 1); c++) {
-                for (var d = 0; d < n - c - 1; d++) {
-                    if (array[d].y < array[d + 1].y) /* For descending order use < */
-                    {
-                        //console.log("check" + c);
-                        var swap = array[d];
-                        array[d] = array[d + 1];
-                        array[d + 1] = swap;
-                    }
-                }
-            }
-            //console.log(array[2]);
-        }
-    }
 
 
 
@@ -613,11 +512,134 @@ $(document).ready(function() {
         };
         $.each(data, function(i)
         {
-            options.series[0].data.push([this.topic_name , parseFloat(this.c)]);    
+            options.series[0].data.push([this.topic_name, parseFloat(this.c)]);
         });
-        console.log(options.series[0].data);
-        
-        var chart= new Highcharts.Chart(options);
+        //console.log(options.series[0].data);
+
+        var chart = new Highcharts.Chart(options);
+    }
+
+
+//******************************************************************************
+
+
+    function columnDrilldown_StudentWiseSubjectTestPerformance(data)
+    {
+
+        var student = [];
+        var test_array = [];
+        var counter = 0;
+        var user_id = [];
+        var student_array = [];
+        var overall_marks = [];
+        $.each(data, function()
+        {
+            var name = this.fname + " " + this.lname;
+            var index = $.inArray(name, student_array);
+            if (index == -1)
+            {
+                user_id.push(this.user_id);
+                student_array.push(name);
+                test_array.push({
+                    name: name,
+                    id: name,
+                    data: []
+                });
+                index = counter++;
+                overall_marks.push({
+                    marks_obtained: 0.0,
+                    total_marks: 0.0});
+            }
+
+            test_array[index].data.push([
+                this.test_name,
+                parseFloat(this.marks_obtained / this.total_marks * 100)
+            ]);
+            overall_marks[index].marks_obtained += parseFloat(this.marks_obtained);
+            overall_marks[index].total_marks += parseFloat(this.total_marks);
+        });
+        $.each(student_array, function(index, v)
+        {
+            student.push({
+                name: "",
+                user_id: user_id[index],
+                y: parseFloat(overall_marks[index].marks_obtained / overall_marks[index].total_marks * 100),
+                drilldown: v,
+                name2: v
+
+            });
+        });
+        MySort(student, student.length);
+        $.each(student_array, function(index, v)
+        {
+            student[index].name += index + 1;
+
+        });
+
+        options = {
+            chart: {
+                type: 'column',
+                renderTo: 'c4'
+            },
+            title: {
+                text: 'Overall Percentage'
+            },
+            subtitle: {
+                text: "Click the columns to view Student's Test Wise Percentage"
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total Percentage'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: false,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+            tooltip: {
+                //headerFormat: '<span style="font-size:11px"></span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.user_id}</span>:<b> {point.name2}</b> <b> {point.y:.2f}%</b><br/>'
+            },
+            series: [{
+                    name: 'Previous Page',
+                    colorByPoint: true,
+                    data: student
+                }],
+            drilldown: {
+                series: test_array
+            }
+        }
+        //console.log(student);
+        var chart = new Highcharts.Chart(options);
+        //console.log(array[2]);
+
+    }
+
+    function MySort(array, n)
+    {
+        for (var c = 0; c < (n - 1); c++) {
+            for (var d = 0; d < n - c - 1; d++) {
+                if (array[d].y < array[d + 1].y) /* For descending order use < */
+                {
+                    //console.log("check" + c);
+                    var swap = array[d];
+                    array[d] = array[d + 1];
+                    array[d + 1] = swap;
+                }
+            }
+        }
+
     }
 
 
@@ -625,13 +647,101 @@ $(document).ready(function() {
 
 
 
+//*********************************************************************************
+
+    function columnBasic_OverallPerformance(data)
+    {
+        var student = [];
+
+        $.each(data[0], function(i)
+        {
+
+            //options.xAxis.categories.push((i + 1));
+            //options.series[0].data.push(parseFloat(this.percent));
+            student.push({
+                drilldown: this.user_id,
+                name: "",
+                name2: (this.fname + " " + this.lname),
+                y: parseFloat(this.percent),
+                user_id: this.user_id
+            });
+        });
+
+        MySort(student, student.length);
+        $.each(student, function(index, v)
+        {
+            this.name += index + 1;
+
+        });
+        var counter = 0;
+        var u_array = [];
+        var test_array = [];
+        $.each(data[1], function() {
+            var index = $.inArray(this.user_id, u_array);
+            if (index == -1)
+            {
+                u_array.push(this.user_id);
+                test_array.push({
+                    name: this.user_id,
+                    id: this.user_id,
+                    data: []
+                });
+                index = counter++;
+            }
+            test_array[index].data.push([this.test_name, parseFloat(this.percent)]);
+        });
+        //console.log(student);
+        //console.log(test_array);
 
 
+        options = {
+            chart: {
+                type: 'column',
+                renderTo: 'c7'
+            },
+            title: {
+                text: 'Overall Percentage'
+            },
+            subtitle: {
+                text: "Click the columns to view Student's Test Wise Percentage"
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total Percentage'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: false,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+            tooltip: {
+                //headerFormat: '<span style="font-size:11px"></span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.user_id}</span>:<b> {point.name2}</b> <b> {point.y:.2f}%</b><br/>'
+            },
+            series: [{
+                    name: 'Previous Page',
+                    colorByPoint: true,
+                    data: student
+                }],
+            drilldown: {
+                series: test_array
+            }
+        };
+        var chart = new Highcharts.Chart(options);
 
 
-    function precise_round(num, decimals) {
-        return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);
     }
-
 
 });
+1
