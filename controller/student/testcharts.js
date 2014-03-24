@@ -1,35 +1,376 @@
 $(document).ready(function() {
 
 
-    
+    var f = 'c1';
+     $.ajax({
+     type: 'GET',
+     data: {f:f}, 
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     polar_spider(data);
+     },
+     error: function()
+     {
+     alert("Error c1");
+     }
+     });
+     
+     f = 'c2';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     lineChart_TestWiseAnnualPerformance(data);
+     },
+     error: function()
+     {
+     alert("Error c2");
+     }
+     });
+     
+     
+     f = 'c3';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     barBasic_StudentWiseAnnualPerformance(data);
+     },
+     error: function()
+     {
+     alert("Error c3");
+     }
+     })
+     
+     f = 'c4';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     //alert(data);
+     columnDrilldown_StudentWiseSubjectTestPerformance(data);
+     },
+     error: function()
+     {
+     alert("Error c4");
+     }
+     });
+     
+
+    f = 'c5';
     $.ajax({
         type: 'GET',
-        data: {f:c1}, 
+        data: {f: f},
         url: '../../model/student/testcharts.php',
         success: function(data)
         {
-            polar_spider(data);
+            //alert(data);
+            barBasic_StudentWiseSubjectAnnualPerformance(data);
         },
         error: function()
         {
-            alert("Error");
-        }
-    });
-    
-    $.ajax({
-        type: 'GET',
-        data: {f:c2},
-        url: '../../model/student/testcharts.php',
-        success: function(data)
-        {
-            LineChart_studentAnnualPerformance(data);
-        },
-        error: function()
-        {
-            alert("Error");
+            alert("Error c5");
         }
     });
 
+//*****************************************************************************
+
+    function barBasic_StudentWiseSubjectAnnualPerformance(data)
+    {
+        var options = {
+            chart: {
+                renderTo: 'c5',
+                type: 'bar',
+                marginRight: 200
+
+            },
+            title: {
+                text: 'Subject performance'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [],
+                title: {
+                    text: 'Student Names'
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Percentage',
+                },
+                max: 100,
+                min: 0,
+                        labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                            pointPadding : .2,
+                            groupPadding : .1
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: []
+        }
+        var counter = 0;
+        var subject_array = [];
+        $.each(data, function()
+        {
+            var name = this.fname + " " + this.lname;
+            if ($.inArray(name, options.xAxis.categories) == -1)
+            {
+                options.xAxis.categories.push(name);
+            }
+            var index = $.inArray(this.subject_name, subject_array);
+
+            if (index == -1)
+            {
+                subject_array.push(this.subject_name);
+
+                options.series.push({
+                    name: this.subject_name,
+                    data: []
+                });
+                index = counter++;
+            }
+            options.series[index].data.push((parseFloat(this.marks_obtained) / parseFloat(this.total_marks)) * 100);
+        });
+
+        console.log(options.xAxis.categories);
+       console.log(options.series);
+
+
+        var chart = new Highcharts.Chart(options);
+        chart.setSize(1200, 2500);
+
+    }
+
+
+
+
+
+
+
+//******************************************************************************
+
+
+    function columnDrilldown_StudentWiseSubjectTestPerformance(data)
+    {
+
+        var student = [];
+
+        var test_array = [];
+        var counter = 0;
+        var student_array = [];
+
+        var overall_marks = [];
+        $.each(data, function()
+        {
+            var name = this.fname + " " + this.lname;
+            var index = $.inArray(name, student_array);
+
+            if (index == -1)
+            {
+                student_array.push(name);
+                test_array.push({
+                    name: name,
+                    id: name,
+                    data: []
+                });
+                index = counter++;
+                overall_marks.push({
+                    marks_obtained: 0.0,
+                    total_marks: 0.0});
+            }
+
+            test_array[index].data.push([
+                this.test_name,
+                parseFloat(this.marks_obtained / this.total_marks * 100)
+            ]);
+
+            overall_marks[index].marks_obtained += parseFloat(this.marks_obtained);
+            overall_marks[index].total_marks += parseFloat(this.total_marks);
+        });
+        $.each(student_array, function(index, v)
+        {
+            student.push({
+                name: v,
+                y: parseFloat(overall_marks[index].marks_obtained / overall_marks[index].total_marks * 100),
+                drilldown: v
+            });
+        });
+        options = {
+            chart: {
+                type: 'column',
+                renderTo: 'c4'
+            },
+            title: {
+                text: 'Overall Percentage'
+            },
+            subtitle: {
+                text: "Click the columns to view Student's Test Wise Percentage"
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total Percentage'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+            series: [{
+                    name: 'Previous Page',
+                    colorByPoint: true,
+                    data: student
+                }],
+            drilldown: {
+                series: test_array
+            }
+        }
+        var chart = new Highcharts.Chart(options);
+
+    }
+
+
+
+
+//******************************************************************************    
+
+    function barBasic_StudentWiseAnnualPerformance(data)
+    {
+        var options = {
+            chart: {
+                renderTo: 'c3',
+                type: 'bar',
+                marginRight: 160
+
+            },
+            title: {
+                text: 'Student wise annual performance'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [],
+                overflow: 'justify',
+                title: {
+                    text: 'Student Names'
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Percentage',
+                },
+                max: 100,
+                min: 0,
+                        labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: []
+        }
+        var counter = 0;
+        var test_array = [];
+        $.each(data, function()
+        {
+            var name = this.fname + " " + this.lname;
+            if ($.inArray(name, options.xAxis.categories) == -1)
+            {
+                options.xAxis.categories.push(name);
+            }
+            var index = $.inArray(this.test_name, test_array);
+
+            if (index == -1)
+            {
+                test_array.push(this.test_name);
+                var entry = {name: this.test_name, data: []};
+                options.series.push(entry);
+                index = counter++;
+            }
+            options.series[index].data.push(parseFloat((this.marks_obtained / this.total_marks) * 100));
+        });
+
+        //console.log(options.series);
+
+
+        var chart = new Highcharts.Chart(options);
+        chart.setSize(1200, 2000);
+
+    }
+
+//*******************************************************************************    
     //subject wise performance of student
     function polar_spider(data)
     {
@@ -128,13 +469,13 @@ $(document).ready(function() {
 
 
 //**********************************************************************************
-
-    function LineChart_studentAnnualPerformance(data)
+    //student Annual performance
+    function lineChart_TestWiseAnnualPerformance(data)
     {
 
         var options = {
             chart: {
-                renderTo: 'c2',
+                renderTo: 'c2'
             },
             title: {
                 text: 'Annual Performance',
@@ -148,6 +489,8 @@ $(document).ready(function() {
                 categories: []
             },
             yAxis: {
+                max: 100,
+                min: 0,
                 title: {
                     text: 'Percentage(%)'
                 },
@@ -169,43 +512,52 @@ $(document).ready(function() {
             series: []
         };
 
-
+        //options.xAxis.categories.push(data[0].test_name);
         var sub_array = [];
+
+        //sub_array.push(data[0].subject_name);
+
+
 
         $.each(data, function()
         {
-            if (!$.inArray(data.test_name, options.xAxis.categories))
+            if ($.inArray(this.test_name,options.xAxis.categories )== -1)
             {
-                options.xAxis.categories.push(data.test_name);
+                options.xAxis.categories.push(this.test_name);
             }
-            if (!$.inArray(data.subject_name, sub_array))
+            if ($.inArray(this.subject_name,sub_array) == -1)
             {
-                sub_array.push(data.subject_name);
+
+                sub_array.push(this.subject_name);
             }
         });
-        var test_counter;
-        $.each(sub_array, function(i,value)
+
+        console.log(options.xAxis.categories);
+        console.log(sub_array);
+
+
+        $.each(sub_array, function(i, value)
         {
 
             var entry = {name: "", data: []};
-            test_counter=0;
+            test_counter = 0;
             $.each(data, function(j)
             {
-                if(value== data.subject_name)
+                if (value == this.subject_name)
+                {
+                    console.log("in");
+                    if (options.xAxis.categories[test_counter] == this.test_name)
                     {
-                        if(options.xAxis.categories[counter]== data.test_name)
-                           {
-                               entry.data.push(parseFloat(data.marks_obtained/ data.total_marks *100));
-                           }
+                        test_counter++;
+                        entry.data.push(parseFloat(this.marks_obtained / this.total_marks * 100));
                     }
+                }
             });
-            entry.name= value;
+            entry.name = value;
             options.series.push(entry);
 
         });
+        console.log(options.series);
         var chart = new Highcharts.Chart(options);
-
-//check whether subject present in the array or not
-       
     }
 });

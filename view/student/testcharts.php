@@ -35,9 +35,10 @@
         <script src="../../lib/theme/js/highcharts.js"></script>
         <script src="../../lib/theme/js/highcharts-more.js"></script>
         <script src="../../lib/theme/js/exporting.js"></script>
+        <script src="../../lib/theme/js/data.js"></script>
+        <script src="../../lib/theme/js/drilldown.js"></script>
 
-          
-        
+
         <script src="../../controller/student/testcharts.js"></script>
     </body>
 </html>

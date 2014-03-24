@@ -3,15 +3,24 @@
 header('Content-Type: application/json');
 session_start();
 $field = $_GET['f'];
-if ($field == c1)
+if ($field == 'c1')
 {
     f1();
 }
 //Line chart for student annual performance
-if ($field == c2)
+if ($field == 'c2')
 {
-    f3();
+    f2();
 }
+if ($field == 'c3'|| $field== 'c4')
+{
+    f3_f4();
+}
+if($field == 'c5')
+{
+    f5();
+}
+
 
 function f1()
 {
@@ -32,7 +41,7 @@ function f1()
     }
 }
 
-function f2()
+function f()
 {
     require_once '../database.php';
 
@@ -74,11 +83,11 @@ and r.question_id=q.question_id";
 }
 
 //Line chart for student annual performance
-function f3()
+function f2()
 {
     require_once '../database.php';
 
-    $query = "select t.test_name,g.marks_obtained, g.total_marks, t.subject_name,t.date,t.test_id from test as t, student_gives_test as g,student_belongs_to as b, academic_year as a where  g.user_id=\"4020\" and g.test_id= t.test_id  and acad_start<t.date and  t.date<a.acad_end and a.flag_current=1";
+    $query = "select t.test_name,g.marks_obtained, g.total_marks, t.subject_name,t.date,t.test_id from test as t, student_gives_test as g, academic_year as a where  g.user_id=\"4020\" and g.test_id= t.test_id  and acad_start<t.date and  t.date<a.acad_end and a.flag_current=1";
     $result = mysqli_query($connection, $query);
 
     if ($result)
@@ -89,6 +98,53 @@ function f3()
         {
             array_push($x, $row);
         }
+        echo json_encode($x);
+    }
+}
+
+function f3_f4()
+{
+    require_once '../database.php';
+
+    $query = "select u.fname,u.lname,t.test_name, g.marks_obtained,g.total_marks  
+        from student_belongs_to as b, user as u, student_gives_test as g, test as t 
+        where b.user_id= u.user_id and b.user_id= g.user_id and  g.test_id = t.test_id 
+        and b.standard= 10 and b.division= 'A' and t.subject_name= 'Math'";
+    $result = mysqli_query($connection, $query);
+    if ($result)
+    {
+        $x = array();
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+        /* echo "<prev";
+          var_dump($x);
+          echo "</prev>"; */
+        echo json_encode($x);
+    }
+}
+
+
+function f5()
+{
+    require_once '../database.php';
+
+    $query = "select u.fname,u.lname,t.subject_name, g.marks_obtained,g.total_marks  
+        from student_belongs_to as b, user as u, student_gives_test as g, test as t 
+        where b.user_id= u.user_id and b.user_id= g.user_id and  g.test_id = t.test_id 
+        and b.standard= 10 and b.division= 'A' and t.test_name='Unit test 1'";
+    $result = mysqli_query($connection, $query);
+    if ($result)
+    {
+        $x = array();
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+        /* echo "<prev";
+          var_dump($x);
+          echo "</prev>"; */
         echo json_encode($x);
     }
 }
