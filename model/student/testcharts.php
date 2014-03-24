@@ -12,16 +12,18 @@ if ($field == 'c2')
 {
     f2();
 }
-if ($field == 'c3'|| $field== 'c4')
+if ($field == 'c3' || $field == 'c4')
 {
     f3_f4();
 }
-if($field == 'c5')
+if ($field == 'c5')
 {
     f5();
 }
-
-
+if($field == 'c6')
+{
+    f6();
+}
 function f1()
 {
     require_once '../database.php';
@@ -125,7 +127,6 @@ function f3_f4()
     }
 }
 
-
 function f5()
 {
     require_once '../database.php';
@@ -134,6 +135,28 @@ function f5()
         from student_belongs_to as b, user as u, student_gives_test as g, test as t 
         where b.user_id= u.user_id and b.user_id= g.user_id and  g.test_id = t.test_id 
         and b.standard= 10 and b.division= 'A' and t.test_name='Unit test 1'";
+    $result = mysqli_query($connection, $query);
+    if ($result)
+    {
+        $x = array();
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+        /* echo "<prev";
+          var_dump($x);
+          echo "</prev>"; */
+        echo json_encode($x);
+    }
+}
+
+function f6()
+{
+    require_once '../database.php';
+
+    $query = "select r.topic_name,count(*) as c from response as r  
+            where r.response!=r.answer and r.subject_name='Math'
+            group by r.topic_name";
     $result = mysqli_query($connection, $query);
     if ($result)
     {

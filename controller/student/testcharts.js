@@ -74,6 +74,21 @@ $(document).ready(function() {
             alert("Error c5");
         }
     });
+
+    f = 'c6';
+    $.ajax({
+        type: 'GET',
+        data: {f: f},
+        url: '../../model/student/testcharts.php',
+        success: function(data)
+        {
+            pieChart_StudentNegativePerformance(data);
+        },
+        error: function()
+        {
+            alert("Error c6");
+        }
+    })
 //*****************************************************************************
 
     function barBasic_StudentWiseSubjectAnnualPerformance(data)
@@ -180,7 +195,7 @@ $(document).ready(function() {
         var student = [];
         var test_array = [];
         var counter = 0;
-        var user_id=[];
+        var user_id = [];
         var student_array = [];
         var overall_marks = [];
         $.each(data, function()
@@ -212,7 +227,7 @@ $(document).ready(function() {
         $.each(student_array, function(index, v)
         {
             student.push({
-                name : "",
+                name: "",
                 user_id: user_id[index],
                 y: parseFloat(overall_marks[index].marks_obtained / overall_marks[index].total_marks * 100),
                 drilldown: v,
@@ -223,10 +238,10 @@ $(document).ready(function() {
         MySort(student, student.length);
         $.each(student_array, function(index, v)
         {
-            student[index].name+=index+1;
-            
+            student[index].name += index + 1;
+
         });
-        
+
         options = {
             chart: {
                 type: 'column',
@@ -271,23 +286,23 @@ $(document).ready(function() {
                 series: test_array
             }
         }
-        console.log(student);
+        //console.log(student);
         var chart = new Highcharts.Chart(options);
-        
+
         function MySort(array, n)
         {
             for (var c = 0; c < (n - 1); c++) {
                 for (var d = 0; d < n - c - 1; d++) {
                     if (array[d].y < array[d + 1].y) /* For descending order use < */
                     {
-                        console.log("check" + c);
+                        //console.log("check" + c);
                         var swap = array[d];
                         array[d] = array[d + 1];
                         array[d + 1] = swap;
                     }
                 }
             }
-            console.log(array[2]);
+            //console.log(array[2]);
         }
     }
 
@@ -334,7 +349,7 @@ $(document).ready(function() {
             },
             plotOptions: {
                 bar: {
-                     pointPadding: .2,
+                    pointPadding: .2,
                     groupPadding: .1,
                     dataLabels: {
                         enabled: false
@@ -562,7 +577,61 @@ $(document).ready(function() {
         //console.log(options.series);
         var chart = new Highcharts.Chart(options);
     }
+
+    //*****************************************************************************
+
+    function pieChart_StudentNegativePerformance(data)
+    {
+        var options = {
+            chart: {
+                renderTo: 'c6',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: []
+                }]
+        };
+        $.each(data, function(i)
+        {
+            options.series[0].data.push([this.topic_name , parseFloat(this.c)]);    
+        });
+        console.log(options.series[0].data);
+        
+        var chart= new Highcharts.Chart(options);
+    }
+
+
+
+
+
+
+
+
+
+
     function precise_round(num, decimals) {
         return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);
     }
+
+
 });
