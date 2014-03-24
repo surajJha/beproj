@@ -23,22 +23,22 @@ if ($f == "subject")
     populateSubject();
 }
 
-if($f=="cc")
+if ($f == "cc")
 {
     classChart();
 }
 
-if($f=="tc")
+if ($f == "tc")
 {
     testChart();
 }
 
-if($f=="sc")
+if ($f == "sc")
 {
     studentChart();
 }
 
-if($f=="subc")
+if ($f == "subc")
 {
     subjectChart();
 }
@@ -133,7 +133,6 @@ where t.user_id='{$_SESSION['user_id']}' and t.standard='{$_GET['std']}' and t.d
     }
 }
 
-
 function classChart()
 {
     
@@ -146,7 +145,22 @@ function testChart()
 
 function studentChart()
 {
-    
+    require_once '../database.php';
+
+    $query = "select t.test_name,g.marks_obtained, g.total_marks, t.subject_name,t.date,t.test_id from test as t, student_gives_test as g, academic_year as a"
+            . " where  g.user_id='{$_GET['user_id']}' and g.test_id= t.test_id  and acad_start<t.date and  t.date<a.acad_end and a.flag_current=1";
+    $result = mysqli_query($connection, $query);
+
+    if ($result)
+    {
+        $x = array();
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+        echo json_encode($x);
+    }
 }
 
 function subjectChart()

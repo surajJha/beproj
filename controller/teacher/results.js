@@ -154,7 +154,7 @@ $(document).ready(function()
                                                 },
                                                 success: function(data)
                                                 {
-
+                                                    lineChart_TestWiseAnnualPerformance(data);
                                                 }
                                             });
                                 });
@@ -255,4 +255,94 @@ $(document).ready(function()
         }
     });
 
+
+
+//**********************************************************
+ function lineChart_TestWiseAnnualPerformance(data)
+    {
+
+        var options = {
+            chart: {
+                renderTo: 'myContent'
+            },
+            title: {
+                text: 'Annual Performance',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: []
+            },
+            yAxis: {
+                max: 100,
+                min: 0,
+                title: {
+                    text: 'Percentage(%)'
+                },
+                plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+            },
+            tooltip: {
+                valueSuffix: '%'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: []
+        };
+
+        //options.xAxis.categories.push(data[0].test_name);
+        var sub_array = [];
+
+        //sub_array.push(data[0].subject_name);
+
+
+
+        $.each(data, function()
+        {
+            if ($.inArray(this.test_name,options.xAxis.categories )== -1)
+            {
+                options.xAxis.categories.push(this.test_name);
+            }
+            if ($.inArray(this.subject_name,sub_array) == -1)
+            {
+
+                sub_array.push(this.subject_name);
+            }
+        });
+
+        console.log(options.xAxis.categories);
+        console.log(sub_array);
+
+
+        $.each(sub_array, function(i, value)
+        {
+
+            var entry = {name: "", data: []};
+            test_counter = 0;
+            $.each(data, function(j)
+            {
+                if (value == this.subject_name)
+                {
+                    console.log("in");
+                    if (options.xAxis.categories[test_counter] == this.test_name)
+                    {
+                        test_counter++;
+                        entry.data.push(parseFloat(this.marks_obtained / this.total_marks * 100));
+                    }
+                }
+            });
+            entry.name = value;
+            options.series.push(entry);
+
+        });
+        console.log(options.series);
+        var chart = new Highcharts.Chart(options);
+    }
+ //*****************************************************************************************8
 });

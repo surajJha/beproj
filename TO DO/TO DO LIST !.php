@@ -1,11 +1,13 @@
 TODO LIST!
 
-- question_display mein -- > update or delete ka button daalna hai .. fir modal khulna chahiye ! magic se :P
+- question_display mein -- >delete questions ka 
 
-- VALIDATIONS !!!
+- VALIDATIONS
 
 - set question paper ka redirection
+- view test 
 
+- check forgot password mail functionality
 
 - save full page as pdf 
 

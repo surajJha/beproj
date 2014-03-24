@@ -17,7 +17,7 @@
 
     <body>
 
-        <?php include('../header.php'); ?>
+        <?php include('header.php'); ?>
 
         <div class="container-fluid">
             <div class="row">
@@ -61,9 +61,7 @@
 
 
                     <!--to load the contents through ajax -->
-                    <div class="col-lg-10" id ="myContent">
-
-                    </div>
+                    <div class="col-lg-11" id ="myContent"></div>
 
 
                 </div>
@@ -79,8 +77,11 @@
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-        <!-- DO NOT MOVE THIS SCRIPT BELOW TEACHERUPDATE.JS LINK. IT WILL NOT WORK -->
 
+        
+        <script src="../../lib/theme/js/highcharts-all.js"></script>
+        <script src="../../lib/theme/js/highcharts-more.js"></script>
+        <script src="../../lib/theme/js/highcharts.js"></script>
         <script src="../../controller/teacher/results.js"></script>
 
     </body>

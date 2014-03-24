@@ -15,7 +15,7 @@
         <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
     </head>
     <body>
-        <?php include('../header.php'); ?>
+        <?php include('header.php'); ?>
 
 
 
