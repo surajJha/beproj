@@ -21,7 +21,7 @@
 
         <div class="container-fluid">
             <div class="row">
-                <!-- ***********END OF SIDEBAR PANEL************-->
+
                 <div class="container">
                     <div class="row">
                         <div style="padding: 2%">
@@ -32,13 +32,16 @@
                                 <div class="row" >
                                     <div class="col-lg-offset-2 col-lg-8" id="test_summary"></div>
                                 </div>
-
+                                
 
                                 <div class="row">
-                                    <div class="col-lg-6" id="chart1"></div>
-                                    <div class="col-lg-6" id="chart2"></div>
+                                    <div class="col-lg-3" id="chart1"></div>
+                                    <div class="col-lg-9" id="chart2"></div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-lg-offset-2 col-lg-8" id="student_ranks"></div>
+                                </div>
                                 <div class="row" >
                                     <div class="col-lg-offset-2 col-lg-8" id="question_details"></div>
                                 </div>
@@ -63,7 +66,7 @@
 
         <script src="../../lib/theme/js/highcharts.js"></script>
         <script src="../../lib/theme/js/exporting.js"></script>
-        <script src="../../controller/student/view_test_result.js"></script>
+        <script src="../../controller/teacher/view_test_results.js"></script>
 
     </body>
 </html>

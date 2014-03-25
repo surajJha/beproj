@@ -26,6 +26,7 @@
             <div class="row" id="c4"></div>
             <div class="row" id="c5"></div>
             <div class="row" id="c6"></div>
+            <div class="row" id="c7"></div>
         </div>
         <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../../lib/theme/js/bootstrap.js"></script>
@@ -35,9 +36,10 @@
         <script src="../../lib/theme/js/highcharts.js"></script>
         <script src="../../lib/theme/js/highcharts-more.js"></script>
         <script src="../../lib/theme/js/exporting.js"></script>
+        <script src="../../lib/theme/js/data.js"></script>
+        <script src="../../lib/theme/js/drilldown.js"></script>
 
-          
-        
+
         <script src="../../controller/student/testcharts.js"></script>
     </body>
 </html>

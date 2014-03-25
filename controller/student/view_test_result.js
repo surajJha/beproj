@@ -45,7 +45,7 @@ $(document).ready(function() {
         success: function(data)
         {
 
-            var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
+            var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Questions</h3></caption>"
             t += "<thead><tr> <th>Question No.</th> <th>Type</th><th>Description</th><th>Your Response</th><th>Correct Answer</th></tr></thead>";
 
             for (var i = 0; i < data.length; i++) {
@@ -238,11 +238,9 @@ $(document).ready(function() {
                     allowPointSelect: true,
                     cursor: 'pointer',
                     dataLabels: {
-                        enabled: true,
-                        color: '#000000',
-                        connectorColor: '#000000',
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                    }
+                        enabled: false
+                    },
+                    showInLegend: true
                 }
             },
             series: [{
@@ -315,13 +313,8 @@ $(document).ready(function() {
         });
 
         //console.log(options.series[0].data);
-
-
         var chart = new Highcharts.Chart(options);
-
     }
-
-
 
     return false;
 });

@@ -44,19 +44,19 @@ and r.question_id=q.question_id";
         {
             if ($row['type'] == "Mcq")
             {
-                
+
                 $query = "SELECT `optionA`, `optionB`, `optionC`, `optionD` FROM `mcq` WHERE `question_id`='{$row['question_id']}'";
                 $result_temp = mysqli_query($connection, $query);
-                
-                if($result_temp)
+
+                if ($result_temp)
                 {
-                    $row_temp=  mysqli_fetch_assoc($result_temp);
-                    $row['mcq']['optionA']=$row_temp['optionA'];
-                    $row['mcq']['optionB']=$row_temp['optionB'];
-                    $row['mcq']['optionC']=$row_temp['optionC'];
-                    $row['mcq']['optionD']=$row_temp['optionD'];
+                    $row_temp = mysqli_fetch_assoc($result_temp);
+                    $row['mcq']['optionA'] = $row_temp['optionA'];
+                    $row['mcq']['optionB'] = $row_temp['optionB'];
+                    $row['mcq']['optionC'] = $row_temp['optionC'];
+                    $row['mcq']['optionD'] = $row_temp['optionD'];
                 }
-                
+
                 array_push($x, $row);
             }
         }
