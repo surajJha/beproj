@@ -82,6 +82,11 @@
         <script src="../../lib/theme/js/highcharts-all.js"></script>
         <script src="../../lib/theme/js/highcharts-more.js"></script>
         <script src="../../lib/theme/js/highcharts.js"></script>
+        
+        
+        <script src="../../lib/theme/js/data.js"></script>
+        <script src="../../lib/theme/js/drilldown.js"></script>
+        
         <script src="../../controller/teacher/results.js"></script>
 
     </body>

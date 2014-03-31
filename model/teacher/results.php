@@ -135,7 +135,26 @@ where t.user_id='{$_SESSION['user_id']}' and t.standard='{$_GET['std']}' and t.d
 
 function classChart()
 {
-    
+
+    require_once '../database.php';
+
+    $query = "select u.fname,u.lname,t.subject_name, g.marks_obtained,g.total_marks  
+        from student_belongs_to as b, user as u, student_gives_test as g, test as t 
+        where b.user_id= u.user_id and b.user_id= g.user_id and  g.test_id = t.test_id 
+        and b.standard='{$_GET['std']}' and b.division= '{$_GET['div']}' and t.test_name='Unit test 1'";
+    $result = mysqli_query($connection, $query);
+    if ($result)
+    {
+        $x = array();
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+        /* echo "<prev";
+          var_dump($x);
+          echo "</prev>"; */
+        echo json_encode($x);
+    }
 }
 
 function testChart()
@@ -165,5 +184,20 @@ function studentChart()
 
 function subjectChart()
 {
-    
+    require_once '../database.php';
+
+    $query = "select u.user_id,u.fname,u.lname,t.test_name, g.marks_obtained,g.total_marks, round((g.marks_obtained/ g. total_marks)*100,2) as percent  
+        from student_belongs_to as b, user as u, student_gives_test as g, test as t
+        where b.user_id= u.user_id and b.user_id= g.user_id and  g.test_id = t.test_id and t.standard=b.standard and t.division=b.division  
+        and b.standard='{$_GET['std']}' and b.division='{$_GET['div']}' and t.subject_name='{$_GET['subject']}' order by percent desc";
+    $result = mysqli_query($connection, $query);
+    if ($result)
+    {
+        $x = array();
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+        echo json_encode($x);
+    }
 }

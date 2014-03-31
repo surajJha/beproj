@@ -1,4 +1,17 @@
-<?php session_start(); ?>
+<?php session_start();
+
+if (!isset($_SESSION['user_id']))
+{
+    header("Location:http://localhost/beproj/index.php");
+} else
+{
+    if (!($_SESSION['type'] == 0))
+    {
+        header("Location:http://localhost/beproj/view/unauthorized_access.php");
+    }
+}
+
+?>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class =" container">
         <a href="#" class =" navbar-brand">HexaGraph</a>

@@ -211,11 +211,11 @@ $(document).ready(function()
                                                     f: 'subc',
                                                     std: c.substring(0, p),
                                                     div: c.substring(p + 1),
-                                                    subj: $("#subject").val()
+                                                    subject: $("#subject").val()
                                                 },
                                                 success: function(data)
                                                 {
-
+                                                    columnDrilldown_StudentWiseSubjectTestPerformance(data);
                                                 }
                                             });
                                 });
@@ -247,7 +247,7 @@ $(document).ready(function()
                             },
                             success: function(data)
                             {
-
+                                barBasic_StudentWiseSubjectAnnualPerformance(data);
                             }
                         });
             });
@@ -258,7 +258,7 @@ $(document).ready(function()
 
 
 //**********************************************************
- function lineChart_TestWiseAnnualPerformance(data)
+    function lineChart_TestWiseAnnualPerformance(data)
     {
 
         var options = {
@@ -305,11 +305,11 @@ $(document).ready(function()
 
         $.each(data, function()
         {
-            if ($.inArray(this.test_name,options.xAxis.categories )== -1)
+            if ($.inArray(this.test_name, options.xAxis.categories) == -1)
             {
                 options.xAxis.categories.push(this.test_name);
             }
-            if ($.inArray(this.subject_name,sub_array) == -1)
+            if ($.inArray(this.subject_name, sub_array) == -1)
             {
 
                 sub_array.push(this.subject_name);
@@ -344,5 +344,219 @@ $(document).ready(function()
         console.log(options.series);
         var chart = new Highcharts.Chart(options);
     }
- //*****************************************************************************************8
+    //*****************************************************************************************
+
+
+    function columnDrilldown_StudentWiseSubjectTestPerformance(data)
+    {
+
+        var student = [];
+        var test_array = [];
+        var counter = 0;
+        var user_id = [];
+        var student_array = [];
+        var overall_marks = [];
+        $.each(data, function()
+        {
+            var name = this.fname + " " + this.lname;
+            var index = $.inArray(name, student_array);
+            if (index == -1)
+            {
+                user_id.push(this.user_id);
+                student_array.push(name);
+                test_array.push({
+                    name: name,
+                    id: name,
+                    data: []
+                });
+                index = counter++;
+                overall_marks.push({
+                    marks_obtained: 0.0,
+                    total_marks: 0.0});
+            }
+
+            test_array[index].data.push([
+                this.test_name,
+                parseFloat(this.marks_obtained / this.total_marks * 100)
+            ]);
+            overall_marks[index].marks_obtained += parseFloat(this.marks_obtained);
+            overall_marks[index].total_marks += parseFloat(this.total_marks);
+        });
+        $.each(student_array, function(index, v)
+        {
+            student.push({
+                name: "",
+                user_id: user_id[index],
+                y: parseFloat(overall_marks[index].marks_obtained / overall_marks[index].total_marks * 100),
+                drilldown: v,
+                name2: v
+
+            });
+        });
+        MySort(student, student.length);
+        $.each(student_array, function(index, v)
+        {
+            student[index].name += index + 1;
+
+        });
+
+        options = {
+            chart: {
+                type: 'column',
+                renderTo: 'myContent'
+            },
+            title: {
+                text: 'Overall Percentage'
+            },
+            subtitle: {
+                text: "Click the columns to view Student's Test Wise Percentage"
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total Percentage'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: false,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+            tooltip: {
+                //headerFormat: '<span style="font-size:11px"></span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.user_id}</span>:<b> {point.name2}</b> <b> {point.y:.2f}%</b><br/>'
+            },
+            series: [{
+                    name: 'Previous Page',
+                    colorByPoint: true,
+                    data: student
+                }],
+            drilldown: {
+                series: test_array
+            }
+        }
+        console.log(student);
+        var chart = new Highcharts.Chart(options);
+
+        function MySort(array, n)
+        {
+            for (var c = 0; c < (n - 1); c++) {
+                for (var d = 0; d < n - c - 1; d++) {
+                    if (array[d].y < array[d + 1].y) /* For descending order use < */
+                    {
+                        console.log("check" + c);
+                        var swap = array[d];
+                        array[d] = array[d + 1];
+                        array[d + 1] = swap;
+                    }
+                }
+            }
+            console.log(array[2]);
+        }
+    }
+
+//****************************************************************************************************
+
+    function barBasic_StudentWiseSubjectAnnualPerformance(data)
+    {
+        var options = {
+            chart: {
+                renderTo: 'c5',
+                type: 'bar',
+                marginRight: 200
+
+            },
+            title: {
+                text: 'Subject performance'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [],
+                title: {
+                    text: 'Student Names'
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Percentage',
+                },
+                max: 100,
+                min: 0,
+                        labels: {
+                            overflow: 'justify'
+                        }
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: false
+                    },
+                    pointPadding: .2,
+                    groupPadding: .1
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: []
+        }
+        var counter = 0;
+        var subject_array = [];
+        $.each(data, function()
+        {
+            var name = this.fname + " " + this.lname;
+            if ($.inArray(name, options.xAxis.categories) == -1)
+            {
+                options.xAxis.categories.push(name);
+            }
+            var index = $.inArray(this.subject_name, subject_array);
+            if (index == -1)
+            {
+                subject_array.push(this.subject_name);
+                options.series.push({
+                    name: this.subject_name,
+                    data: []
+                });
+                index = counter++;
+            }
+            options.series[index].data.push((parseFloat(this.marks_obtained) / parseFloat(this.total_marks)) * 100);
+        });
+        //console.log(options.xAxis.categories);
+        //console.log(options.series);
+
+
+        var chart = new Highcharts.Chart(options);
+        chart.setSize(1200, 1500);
+    }
+
+//***********************************************************************************
+
+
+
 });
