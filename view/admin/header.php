@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id']))
     header("Location:http://localhost/beproj/index.php");
 } else
 {
-    if (!($_SESSION['type'] == 0))
+    if (!($_SESSION['type'] == 9))
     {
         header("Location:http://localhost/beproj/view/unauthorized_access.php");
     }
@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id']))
 ?>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class =" container">
-        <a href="#" class =" navbar-brand">HexaGraph</a>
+        <a href="admin_overview.php" class =" navbar-brand">HexaGraph</a>
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">

@@ -24,7 +24,7 @@
         <div class="container">
             <div class="navbar navbar-inverse navbar-fixed-top">
                 <div class =" container">
-                    <a href="#" class =" navbar-brand">HexaGraph</a>
+                    <a href="../index.php" class =" navbar-brand">HexaGraph</a>
                 </div>
             </div>
 
@@ -73,14 +73,6 @@
         </div>
 
         <!-- **************************************************** -->
-
-
-
-
-
-
-
-
 
         <!-- JavaScript -->
         <script src="../lib/theme/js/jquery-1.10.2.js"></script>
