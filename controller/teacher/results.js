@@ -547,15 +547,14 @@ $(document).ready(function()
                 }
             },
             yAxis: {
-                min: 0,
                 title: {
                     text: 'Percentage',
                 },
                 max: 100,
                 min: 0,
-                        labels: {
-                            overflow: 'justify'
-                        }
+                labels: {
+                    overflow: 'justify'
+                }
             },
             tooltip: {
                 valueSuffix: ''
@@ -573,8 +572,7 @@ $(document).ready(function()
                 layout: 'vertical',
                 align: 'right',
                 verticalAlign: 'top',
-                x: -40,
-                y: 100,
+               
                 floating: true,
                 borderWidth: 1,
                 backgroundColor: '#FFFFFF',
@@ -605,15 +603,15 @@ $(document).ready(function()
                 });
                 index = counter++;
             }
-            
+
             //round off not working
             options.series[index].data.push(Math.round((parseFloat(this.marks_obtained) / parseFloat(this.total_marks)) * 100, 2));
         });
 
         var chart = new Highcharts.Chart(options);
-        
+
         //how to display the full chart ?
-        chart.setSize(1000, 1000);
+        chart.setSize(1250,2500,0);
     }
 
 //******************************************************************************************************

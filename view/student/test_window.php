@@ -15,7 +15,9 @@
         <!-- Add custom CSS here -->
         <link href="../../lib/theme/css/modern-business.css" rel="stylesheet">
         <link href="../../lib/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
+        <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css"> 
+        <script type="text/javascript" src="js/jquery.plugin.js"></script> 
+        <script type="text/javascript" src="js/jquery.countdown.js"></script>
     </head>
 
     <body>
@@ -62,9 +64,11 @@
                                 <script>
                                     var myCD2 = new Countdown({
                                         // Using "number of seconds"
-                                        time: <?php $t = $_SESSION['test']['duration'];
+                                        time: <?php
+                                $t = $_SESSION['test']['duration'];
                                 $t*=60;
-                                echo $t ?>, // Total number of seconds to count down.
+                                echo $t
+                                ?>, // Total number of seconds to count down.
 
                                         width: 200, // Defaults to 200 x 30 pixels, you can specify a custom size here
                                         height: 50, //
