@@ -1,95 +1,110 @@
 $(document).ready(function() {
 
+    /*
+     var f = 'c1';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     polar_spider(data);
+     },
+     error: function()
+     {
+     alert("Error c1");
+     }
+     });
+     */
 
-    var f = 'c1';
-    $.ajax({
-        type: 'GET',
-        data: {f: f},
-        url: '../../model/student/testcharts.php',
-        success: function(data)
-        {
-            polar_spider(data);
-        },
-        error: function()
-        {
-            alert("Error c1");
-        }
-    });
-    f = 'c2';
-    $.ajax({
-        type: 'GET',
-        data: {f: f},
-        url: '../../model/student/testcharts.php',
-        success: function(data)
-        {
-            lineChart_TestWiseAnnualPerformance(data);
-        },
-        error: function()
-        {
-            alert("Error c2");
-        }
-    });
-    f = 'c3';
-    $.ajax({
-        type: 'GET',
-        data: {f: f},
-        url: '../../model/student/testcharts.php',
-        success: function(data)
-        {
-            barBasic_StudentWiseAnnualPerformance(data);
-        },
-        error: function()
-        {
-            alert("Error c3");
-        }
-    })
+    /*
+     f = 'c2';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     lineChart_TestWiseAnnualPerformance(data);
+     },
+     error: function()
+     {
+     alert("Error c2");
+     }
+     });
+     
+     */
 
-    f = 'c4';
-    $.ajax({
-        type: 'GET',
-        data: {f: f},
-        url: '../../model/student/testcharts.php',
-        success: function(data)
-        {
-            //alert(data);
-            columnDrilldown_StudentWiseSubjectTestPerformance(data);
-        },
-        error: function()
-        {
-            alert("Error c4");
-        }
-    });
-    f = 'c5';
-    $.ajax({
-        type: 'GET',
-        data: {f: f},
-        url: '../../model/student/testcharts.php',
-        success: function(data)
-        {
-            //alert(data);
-            barBasic_StudentWiseSubjectAnnualPerformance(data);
-        },
-        error: function()
-        {
-            alert("Error c5");
-        }
-    });
+    /*
+     for one subject only
+     f = 'c3';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     barBasic_StudentWiseAnnualPerformance(data);
+     },
+     error: function()
+     {
+     alert("Error c3");
+     }
+     })*/
 
-    f = 'c6';
-    $.ajax({
-        type: 'GET',
-        data: {f: f},
-        url: '../../model/student/testcharts.php',
-        success: function(data)
-        {
-            pieChart_StudentNegativePerformance(data);
-        },
-        error: function()
-        {
-            alert("Error c6");
-        }
-    })
+    /*
+     f = 'c4';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     //alert(data);
+     columnDrilldown_StudentWiseSubjectTestPerformance(data);
+     },
+     error: function()
+     {
+     alert("Error c4");
+     }
+     });
+     
+     */
 
+    /*
+     f = 'c5';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     //alert(data);
+     barBasic_StudentWiseSubjectAnnualPerformance(data);
+     },
+     error: function()
+     {
+     alert("Error c5");
+     }
+     });
+     */
+
+    /*
+     f = 'c6';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     pieChart_StudentNegativePerformance(data);
+     },
+     error: function()
+     {
+     alert("Error c6");
+     }
+     })
+     */
 
     var f = 'c7';
     $.ajax({
@@ -105,6 +120,9 @@ $(document).ready(function() {
             alert("Error c7");
         }
     });
+
+
+
 
 
 //*****************************************************************************
@@ -138,8 +156,8 @@ $(document).ready(function() {
                 max: 100,
                 min: 0,
                         labels: {
-                    overflow: 'justify'
-                }
+                            overflow: 'justify'
+                        }
             },
             tooltip: {
                 valueSuffix: ''
@@ -240,8 +258,8 @@ $(document).ready(function() {
                 max: 100,
                 min: 0,
                         labels: {
-                    overflow: 'justify'
-                }
+                            overflow: 'justify'
+                        }
             },
             tooltip: {
                 valueSuffix: ''

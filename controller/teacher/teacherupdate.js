@@ -1,6 +1,8 @@
 // the following function is for loading the form from the teacherupdate view file
 $(document).ready(function()
 {
+    $("#vq_go_button").hide();
+
     var q_type = '';
     //**********FUNCTION FOR SUBMITTING MCQ MODAL*************
     $("button#submit_mcqModal").click(function(e) {
@@ -161,6 +163,7 @@ $(document).ready(function()
     //will populate subject field when standard changes
     $("#vq_standard").change(function() {
 
+        $("#vq_go_button").hide();
         f = 'subject';
         $.ajax(
                 {
@@ -188,7 +191,7 @@ $(document).ready(function()
 
     //will populate topic field when subject changes
     $("#vq_subject").change(function() {
-
+        $("#vq_go_button").hide();
         f = 'topic';
         $.ajax(
                 {
@@ -216,7 +219,7 @@ $(document).ready(function()
 
     //will populate type field when topic changes
     $("#vq_topic").change(function() {
-
+        $("#vq_go_button").hide();
         f = 'type';
         $.ajax(
                 {
@@ -245,7 +248,7 @@ $(document).ready(function()
 
     //will populate level field when type changes
     $("#vq_type").change(function() {
-
+        $("#vq_go_button").hide();
         f = 'level';
         $.ajax(
                 {
@@ -272,6 +275,7 @@ $(document).ready(function()
     $("#vq_level").change(function()
     {
         $('#vq_level option:contains("Select")').attr('disabled', 'disabled');
+        $("#vq_go_button").show();
     });
     //*********************************************************************************
 
@@ -288,11 +292,11 @@ $(document).ready(function()
             success: function(data) {
 
                 $("#myContent").empty();
-                
+
                 var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
                 t += "<thead><tr> <th>Question Id</th> <th>Type</th><th>Description</th> <th>Update/Delete</th> </tr></thead>";
-                
-                for (var i = 0;i<data.length; i++) {
+
+                for (var i = 0; i < data.length; i++) {
                     t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/><p><b>Level:</b> " + data[i].level + "</p> ";
                     if (data[i].type == "Mcq")
                     {

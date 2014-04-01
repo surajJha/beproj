@@ -19,7 +19,7 @@
 
                     <!-- Functionality to view results  -->
                     <ul class="nav nav-sidebar">
-                        <li><a href="#">Results</a></li>
+                        <li><a href="results.php">Results</a></li>
                         <!-- Add different types of results -->
                     </ul>
 
