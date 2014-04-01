@@ -12,15 +12,22 @@ if ($field == 'c2')
 {
     f2();
 }
-if ($field == 'c3'|| $field== 'c4')
+if ($field == 'c3' || $field == 'c4')
 {
     f3_f4();
 }
-if($field == 'c5')
+if ($field == 'c5')
 {
     f5();
 }
-
+if ($field == 'c6')
+{
+    f6();
+}
+if ($field == 'c7')
+{
+    f7();
+}
 
 function f1()
 {
@@ -125,7 +132,6 @@ function f3_f4()
     }
 }
 
-
 function f5()
 {
     require_once '../database.php';
@@ -148,3 +154,98 @@ function f5()
         echo json_encode($x);
     }
 }
+
+function f6()
+{
+    require_once '../database.php';
+
+    $query = "select r.topic_name,count(*) as c from response as r  
+            where r.response!=r.answer and r.subject_name='Math'
+            group by r.topic_name";
+    $result = mysqli_query($connection, $query);
+    if ($result)
+    {
+        $x = array();
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+        /* echo "<prev";
+          var_dump($x);
+          echo "</prev>"; */
+        echo json_encode($x);
+    }
+}
+
+function f7()
+{
+    
+        include '../database.php';
+        $x = array();
+        $x1=array();
+        $query = "select b.user_id, u.fname, u.lname, (sum(marks_obtained)/sum(total_marks)*100) as percent from user as u, student_gives_test as g,test as t,academic_year as a,student_belongs_to as b where a.acad_start< t.date and t.date<a.acad_end and a.flag_current=1 and t.test_id= g.test_id and g.user_id= b.user_id and b.standard= '10' and b.division = 'A' and u.user_id=b.user_id group by b.user_id, u.fname, u.lname";
+        $result = mysqli_query($connection, $query);
+        if ($result)
+        {
+
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                array_push($x1, $row);
+            }
+        }
+        
+        $x2=array();
+        $query = "select b.user_id,test_name, (sum(marks_obtained)/sum(total_marks)*100) as percent from user as u, student_gives_test as g,test as t,academic_year as a,student_belongs_to as b where a.acad_start< t.date and t.date<a.acad_end and a.flag_current=1 and t.test_id= g.test_id and g.user_id= b.user_id and b.standard= '10' and b.division = 'A' and u.user_id=b.user_id group by b.user_id, t.test_name";
+        $result = mysqli_query($connection, $query);
+        if ($result)
+        {
+
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                array_push($x2, $row);
+            }
+        }
+        
+        $x[]=$x1;
+        $x[]=$x2; 
+       echo json_encode($x);
+    
+/*
+    f71();
+    f72();
+}
+    function f71()
+    {
+        include '../database.php';
+        $x = array();
+        $query = "select b.user_id, u.fname, u.lname, (sum(marks_obtained)/sum(total_marks)*100) as percent from user as u, student_gives_test as g,test as t,academic_year as a,student_belongs_to as b where a.acad_start< t.date and t.date<a.acad_end and a.flag_current=1 and t.test_id= g.test_id and g.user_id= b.user_id and b.standard= '10' and b.division = 'A' and u.user_id=b.user_id group by b.user_id, u.fname, u.lname";
+        $result = mysqli_query($connection, $query);
+        if ($result)
+        {
+
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                array_push($x, $row);
+            }
+            echo json_encode($x);
+        }
+    }
+
+    function f72()
+    {
+        include  '../database.php';
+        $query2 = "select b.user_id,test_name, (sum(marks_obtained)/sum(total_marks)*100) as percent from user as u, student_gives_test as g,test as t,academic_year as a,student_belongs_to as b where a.acad_start< t.date and t.date<a.acad_end and a.flag_current=1 and t.test_id= g.test_id and g.user_id= b.user_id and b.standard= '10' and b.division = 'A' and u.user_id=b.user_id group by b.user_id, t.test_name";
+
+        $y = array();
+        $result2 = mysqli_query($connection, $query2);
+        if ($result2)
+        {
+
+            while ($row2 = mysqli_fetch_assoc($result2))
+            {
+                array_push($y, $row2);
+            }
+            echo json_encode($y);
+        }
+*/    }
+
