@@ -23,6 +23,15 @@ function up()
     {
         while ($row = mysqli_fetch_assoc($result))
         {
+            $d=(String)date("Y-m-d");
+            if($row['date']==$d)
+            {
+                $row['access']= "";
+            }
+            else
+            {
+                $row['access']="disabled";
+            }
             array_push($x, $row);
         }
         echo json_encode($x);

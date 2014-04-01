@@ -27,12 +27,13 @@
                 <!-- ********8**********PAGE SPECIFIC CODE HERE*******************************-->
                 <div class="col-sm-10 col-sm-offset-2 main" >             
                     <div class="container">
+                        
                         <div class="row" id="test_table">
-                            
+
                         </div>
 
                         <div class="row" id="prev_test_table">
-                            
+
                         </div>
 
                     </div>
@@ -40,18 +41,19 @@
                 </div>
 
             </div>
+        </div>
+        
+        <!-- ********************************************************************-->
 
-            <!-- ********************************************************************-->
+        <!-- include footer -->
 
-            <!-- include footer -->
+        <!-- JavaScript -->
 
-            <!-- JavaScript -->
+        <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+        <script src="../../lib/theme/js/bootstrap.js"></script>
+        <script src="../../lib/theme/js/modern-business.js"></script>
+        <script src="../../lib/theme/docs-assets/js/holder.js"></script>
 
-            <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
-            <script src="../../lib/theme/js/bootstrap.js"></script>
-            <script src="../../lib/theme/js/modern-business.js"></script>
-            <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-
-            <script src="../../controller/student/view_tests.js"></script>
+        <script src="../../controller/student/view_tests.js"></script>
     </body>
 </html>

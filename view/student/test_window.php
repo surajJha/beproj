@@ -57,10 +57,14 @@
 
                         <div class="row">
                             <div class="col-lg-offset-5">
+                                <div id="clock"></div>
+
                                 <script>
                                     var myCD2 = new Countdown({
                                         // Using "number of seconds"
-                                        time: <?php $t=$_SESSION['test']['duration']; $t*=60; echo $t?>, // Total number of seconds to count down.
+                                        time: <?php $t = $_SESSION['test']['duration'];
+                                $t*=60;
+                                echo $t ?>, // Total number of seconds to count down.
 
                                         width: 200, // Defaults to 200 x 30 pixels, you can specify a custom size here
                                         height: 50, //
@@ -68,7 +72,6 @@
                                         rangeHi: "hour", // The highest unit of time to display
                                         rangeLo: "second", // The lowest unit of time to display
                                         numbers: {
-                                            
                                             font: "Arial",
                                             color: "#FFFFFF",
                                             bkgd: "#365D8B",
@@ -80,8 +83,9 @@
                                                 c: "#000000", // color
                                                 a: 0.4	 // alpha	// <- no comma on last item!
                                             }
-                                        } // <- no comma on last item!
+                                        }, // <- no comma on last item!
 
+                                        onclose: submit(),
                                     });
 
 
@@ -100,7 +104,8 @@
                                 <?php
                                 $test = $_SESSION['test'];
 
-                                for ($i = 0; $i < sizeof($test['questions']); $i++) {
+                                for ($i = 0; $i < sizeof($test['questions']); $i++)
+                                {
                                     echo "<pre>";
                                     //echo "<hr>";
                                     displayQuestion($test['questions'][$i]['type'], $i);
@@ -126,7 +131,8 @@
 
         <?php
 
-        function displayQuestion($type, $i) {
+        function displayQuestion($type, $i)
+        {
 
             echo "<div class=\"row\" style=\"padding:2%\">";
             echo "<b>Question " . ($i + 1) . " : </b>" . $_SESSION['test']['questions'][$i]['question_desc'] . "<br>";
@@ -134,18 +140,26 @@
             echo "<b>Answer : </b><br>";
 
             //change to Mcq
-            if ($type == "Mcq") {
+            if ($type == "Mcq")
+            {
                 displayMcq($i);
-            } elseif ($type == "Subjective") {
+            }
+            elseif ($type == "Subjective")
+            {
                 displaySubjective($i);
-            } elseif ($type == "Numeric") {
+            }
+            elseif ($type == "Numeric")
+            {
                 displayNumeric($i);
-            } elseif ($type == "TrueFalse") {
+            }
+            elseif ($type == "TrueFalse")
+            {
                 displayTrueFalse($i);
             }
         }
 
-        function displayMcq($i) {
+        function displayMcq($i)
+        {
 
             echo "<div class=\" col-lg-4 col-lg-offset-1 \">";
 
@@ -163,18 +177,21 @@
             echo "</div>";
         }
 
-        function displaySubjective($i) {
+        function displaySubjective($i)
+        {
             echo "<textarea class=\"form-control\" rows=\"6\" cols=\"200\" id=\"{$i}\" name=\"{$i}\"></textarea>";
             echo "</div>";
         }
 
-        function displayNumeric($i) {
+        function displayNumeric($i)
+        {
 
             echo "<input type=\"text\" id=\"{$i}\" name=\"{$i}\" class=\"form-control\">";
             echo "</div>";
         }
 
-        function TrueFalse($i) {
+        function TrueFalse($i)
+        {
             echo "<div class=\" col-lg-4 col-lg-offset-1 \">";
 
             echo "<input type = \"radio\" name = \"{$i}\" value = \"True\">True";

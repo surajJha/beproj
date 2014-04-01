@@ -1,7 +1,10 @@
 
 /// THIS IS A JAVASCRIPT FILE BASICALLY 
 $(document).ready(function() {
-
+    
+    $("#disable").click(function(){
+        alert("not working");
+    });
     var f = 'up';
     $.ajax(
             {
@@ -24,7 +27,7 @@ $(document).ready(function() {
                         for (var i = 0; i < data.length; i++)
                         {
 
-                            t += "<tr> <td>" + data[i].test_id + " </td> <td>" + data[i].test_name + " </td> <td>" + data[i].subject_name + "</td><td>" + data[i].date + "</td><td>" + data[i].duration + " mins</td> <td><button class=\"test_button btn btn-primary\" value=\"" + data[i].test_id + "\">Give Test</button></td>";
+                            t += "<tr> <td>" + data[i].test_id + " </td> <td>" + data[i].test_name + " </td> <td>" + data[i].subject_name + "</td><td>" + data[i].date + "</td><td>" + data[i].duration + " mins</td> <td><button class=\"test_button btn btn-primary\" " +data[i].access + " value=\"" + data[i].test_id + "\">Give Test</button></td>";
                         }
 
                         t += "</table></div></div>";
