@@ -39,6 +39,8 @@ $(document).ready(function()
     });
 
     $("#s2").change(function() {
+        $("#s3").hide();
+        $("#s4").hide();
         $('#s2 option:contains("Select")').attr('disabled', 'disabled');
 
 
@@ -215,9 +217,26 @@ $(document).ready(function()
                                                 },
                                                 success: function(data)
                                                 {
+                                                    $("#myContent").html("<div class=\"row\" id=\"c1\"><br><br></div><div class=\"row\" id=\"c2\"></div>");
                                                     columnDrilldown_StudentWiseSubjectTestPerformance(data);
+
                                                 }
                                             });
+
+
+                                    $.ajax(
+                                            {
+                                                type: 'GET',
+                                                data: {f: 'subn',
+                                                    std: c.substring(0, p),
+                                                    div: c.substring(p + 1),
+                                                    subject: $("#subject").val()},
+                                                url: '../../model/teacher/results.php',
+                                                success: function(data)
+                                                {
+                                                    pieChart_StudentNegativePerformance(data);
+                                                }
+                                            })
                                 });
 
                             });
@@ -247,7 +266,7 @@ $(document).ready(function()
                             },
                             success: function(data)
                             {
-                                barBasic_StudentWiseSubjectAnnualPerformance(data);
+                                bar_class(data);
                             }
                         });
             });
@@ -403,13 +422,13 @@ $(document).ready(function()
         options = {
             chart: {
                 type: 'column',
-                renderTo: 'myContent'
+                renderTo: 'c1'
             },
             title: {
-                text: 'Overall Percentage'
+                text: 'Subject Report'
             },
             subtitle: {
-                text: "Click the columns to view Student's Test Wise Percentage"
+                text: "Click the columns to view a student's performance in an individual test."
             },
             xAxis: {
                 type: 'category'
@@ -444,7 +463,6 @@ $(document).ready(function()
                 series: test_array
             }
         }
-        console.log(student);
         var chart = new Highcharts.Chart(options);
 
         function MySort(array, n)
@@ -453,30 +471,71 @@ $(document).ready(function()
                 for (var d = 0; d < n - c - 1; d++) {
                     if (array[d].y < array[d + 1].y) /* For descending order use < */
                     {
-                        console.log("check" + c);
                         var swap = array[d];
                         array[d] = array[d + 1];
                         array[d + 1] = swap;
                     }
                 }
             }
-            console.log(array[2]);
         }
     }
 
 //****************************************************************************************************
 
-    function barBasic_StudentWiseSubjectAnnualPerformance(data)
+
+//***********************************************************************************
+
+    function pieChart_StudentNegativePerformance(data)
     {
         var options = {
             chart: {
-                renderTo: 'c5',
+                renderTo: 'c2',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Topic wise error distribution'
+            },
+            tooltip: {
+                pointFormat: ' <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                    type: 'pie',
+                    name: '',
+                    data: []
+                }]
+        };
+        $.each(data, function(i)
+        {
+            options.series[0].data.push([this.topic_name, parseFloat(this.c)]);
+        });
+
+        var chart = new Highcharts.Chart(options);
+    }
+
+//*******************************************************************************************************
+    function bar_class(data)
+    {
+        var options = {
+            chart: {
+                renderTo: 'myContent',
                 type: 'bar',
                 marginRight: 200
 
             },
             title: {
-                text: 'Subject performance'
+                text: 'Class Performance Summary'
             },
             subtitle: {
                 text: ''
@@ -484,7 +543,7 @@ $(document).ready(function()
             xAxis: {
                 categories: [],
                 title: {
-                    text: 'Student Names'
+                    text: 'Student'
                 }
             },
             yAxis: {
@@ -528,6 +587,7 @@ $(document).ready(function()
         }
         var counter = 0;
         var subject_array = [];
+        var test_array = [];
         $.each(data, function()
         {
             var name = this.fname + " " + this.lname;
@@ -545,18 +605,16 @@ $(document).ready(function()
                 });
                 index = counter++;
             }
-            options.series[index].data.push((parseFloat(this.marks_obtained) / parseFloat(this.total_marks)) * 100);
+            
+            //round off not working
+            options.series[index].data.push(Math.round((parseFloat(this.marks_obtained) / parseFloat(this.total_marks)) * 100, 2));
         });
-        //console.log(options.xAxis.categories);
-        //console.log(options.series);
-
 
         var chart = new Highcharts.Chart(options);
-        chart.setSize(1200, 1500);
+        
+        //how to display the full chart ?
+        chart.setSize(1000, 1000);
     }
 
-//***********************************************************************************
-
-
-
+//******************************************************************************************************
 });
