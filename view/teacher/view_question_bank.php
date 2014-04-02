@@ -17,7 +17,7 @@
 
     <body>
 
-        <?php include('../header.php'); ?>
+        <?php include('header.php'); ?>
 
         <div class="container-fluid">
             <div class="row">
@@ -86,7 +86,7 @@
                                     <dd id="one-ddcontent" onmouseover="cancelHide('one')" onmouseout="ddMenu('one', -1)">
                                         <ul>
                                             <li><a href="#mcqModal" class="separator" data-toggle="modal">Multiple Choice Question</a></li>
-                                            <li><a href="#subjectiveModal" class="separator" data-toggle="modal">Subjective Question</a></li>
+                                            <!-- <li><a href="#subjectiveModal" class="separator" data-toggle="modal">Subjective Question</a></li> -->
                                             <li><a href="#numericModal" class="separator" data-toggle="modal">Numeric Question</a></li>
                                             <li><a href="#tfModal" class="separator" data-toggle="modal">True False Question</a></li>
                                         </ul>
