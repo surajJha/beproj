@@ -31,7 +31,14 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading"><h2><?php echo $_SESSION['fname'] . ' ' . $_SESSION['lname']; ?></h2>
                                 </div>
-                                <div class="panel-body">Content here..</div>
+                                <div class="panel-body">
+                                    <div class="row" id ="r1">
+                                        
+                                    </div>
+                                    <div class="row" id="r2">
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -62,5 +69,6 @@
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
+        <script src="../../controller/teacher/overview.js"></script>
     </body>
 </html>
