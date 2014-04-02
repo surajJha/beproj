@@ -613,7 +613,7 @@ $(document).ready(function()
         var chart = new Highcharts.Chart(options);
         
         //how to display the full chart ?
-        chart.setSize(1000, 1000);
+        chart.setSize(1250, 2500,0);
     }
 
 //******************************************************************************************************
