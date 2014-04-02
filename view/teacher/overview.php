@@ -13,7 +13,7 @@
         <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
     </head>
 
-    <body>
+    <body style="display: none">
 
         <?php include('header.php'); ?>
 

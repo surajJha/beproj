@@ -2,7 +2,7 @@
 <div class="col-lg-2 sidebar">
     <!-- Overview  -->
     <ul class="nav nav-sidebar">
-        <li class="active" ><a id="overview" href="student_overview.php">Overview</a></li>
+        <li class="active" ><a id="overview" href="overview.php">Overview</a></li>
     </ul>
 
     <ul class="nav nav-sidebar">
