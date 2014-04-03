@@ -13,8 +13,11 @@
         <li><a href="view_results.php">View Results</a></li>
         <!-- Add different types of results -->
     </ul>
-
-    <!-- Any other additional functionality   -->
     
+    <ul class="nav nav-sidebar">
+        <li><a href="feedback.php"><marquee style="height:30;width:200" scrollamount="200" scrolldelay="500">&nbsp;&nbsp;&nbsp;Feedback</marquee></a></li>
+    </ul>
+    <!-- Any other additional functionality   -->
+
 </div>
 <!-- ***********END OF SIDEBAR PANEL************8-->
