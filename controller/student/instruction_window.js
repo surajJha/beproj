@@ -13,6 +13,7 @@ $(document).ready(function() {
                     {
                         if (data == "url")
                         {   
+                            $.cookie.set("test", 2, { expires : 10 });
                             window.location = "http://localhost/beproj/view/student/test_window.php";
                         }
                         else
