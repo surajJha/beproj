@@ -16,15 +16,15 @@ $test = mysqli_fetch_assoc($result);
 //if test code is correct
 if ($test != NULL)
 {
-    
+
     //check if new test request or to continue test request
     $query = "select * from active_test_time where test_id='{$id}' and user_id='{$_SESSION['user_id']}'";
     $r = mysqli_query($connection, $query);
     $active = mysqli_fetch_assoc($r);
     if ($active != NULL)
     {
-          
-        $test['duration']= $active['time_left'];
+
+        $test['duration'] = $active['time_left'];
         $query = "SELECT q.question_id, q.question_desc, q.type, q.topic_name,p.response "
                 . "FROM question AS q, test_progress as p "
                 . "WHERE q.question_id= p.question_id and p.test_id='{$test['test_id']}' and p.user_id= '{$_SESSION['user_id']}' "
@@ -32,7 +32,7 @@ if ($test != NULL)
         $questions = [];
         if ($res = mysqli_query($connection, $query))
         {
-                
+
             $i = 0;
             while ($row = mysqli_fetch_assoc($res))
             {
@@ -62,7 +62,7 @@ if ($test != NULL)
 
             $_SESSION['test'] = $test;
             $_SESSION['test']['i'] = 0;
-            echo json_encode($test);
+            echo "url";
         }
         else
         {
@@ -70,7 +70,8 @@ if ($test != NULL)
         }
     }
     else
-    {    if ($test['random'] === '1')
+    {
+        if ($test['random'] === '1')
         {
             // random test logic ->should actually be made 1 later 
             $query = "SELECT q.question_id, q.question_desc, q.type, q.topic_name "
@@ -98,7 +99,7 @@ if ($test != NULL)
             $i = 0;
             while ($row = mysqli_fetch_assoc($res))
             {
-                 array_push($questions, $row);
+                array_push($questions, $row);
 
                 //Entery in test_progress table
                 $query2 = "insert into test_progress (user_id,test_id,question_id) values('{$_SESSION['user_id']}', '{$test['test_id']}','{$row['question_id']}')";
@@ -127,7 +128,7 @@ if ($test != NULL)
 
             $_SESSION['test'] = $test;
             $_SESSION['test']['i'] = 0;
-                echo json_encode($test);
+            echo "url";
         }
     }
 }

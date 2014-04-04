@@ -11,12 +11,14 @@ $(document).ready(function() {
                     data: values,
                     success: function(data)
                     {
-                         window.location="http://localhost/beproj/view/student/test_window.php";
-                         
-                    },
-                    error: function()
-                    {
-                        alert("Incorrect test code!");
+                        if (data == "url")
+                        {   
+                            window.location = "http://localhost/beproj/view/student/test_window.php";
+                        }
+                        else
+                        {
+                            $("#error_message").html(data);
+                        }
                     }
                 });
         return false;

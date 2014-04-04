@@ -139,7 +139,7 @@ if (!isset($_SESSION['test']['time_left']))
 }
 ?>
 
-                                    $("#clock").countdown({until: (<?php echo ($_SESSION['test']['time_left']-1)+"s"; ?> ),
+                                    $("#clock").countdown({until: (<?php echo ($_SESSION['test']['time_left'] - 1) + "s"; ?>),
                                         onExpiry: function() {
 
                                             var values = $("#test_questions").serialize();
@@ -179,8 +179,10 @@ if (!isset($_SESSION['test']['time_left']))
                                     }, 60000);
 
                                     setInterval(function() {
-<?php $_SESSION['test']['time_left'] = $_SESSION['test']['time_left'] - 2; ?>
-                                    }, 2000);
+<?php
+$_SESSION['test']['time_left'] = $_SESSION['test']['time_left'] - 1;
+?>
+                                    }, 1000);
 
                                 </script>
                             </div>
