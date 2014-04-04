@@ -293,8 +293,8 @@ $(document).ready(function()
 
                 $("#myContent").empty();
 
-                var t = "<hr/><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
-                t += "<thead><tr> <th>Question Id</th> <th>Type</th><th>Description</th> <th>Update/Delete</th> </tr></thead>";
+                var t = "<hr/><div><form id=\"select_cq\" method=\"post\"><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Question Bank</h3></caption>"
+                t += "<thead><tr> <th>Question Id</th> <th>Type</th><th>Description</th><th><button id=\"del_ques\" class=\"btn btn-lg btn-danger\" type=\"submit\">Delete</button ></th></tr></thead>";
 
                 for (var i = 0; i < data.length; i++) {
                     t += "<tr> <td>" + data[i].question_id + "</td><td>" + data[i].type + "</td><td><details><summary>" + data[i].question_desc + "</summary><br/><p><b>Level:</b> " + data[i].level + "</p> ";
@@ -302,10 +302,30 @@ $(document).ready(function()
                     {
                         t += "<p><b> A: </b> " + data[i].mcq['optionA'] + "&nbsp;&nbsp;&nbsp; <b>B:</b> " + data[i].mcq['optionB'] + " &nbsp; &nbsp; &nbsp; <b> C: </b> " + data[i].mcq['optionC'] + "&nbsp;&nbsp;&nbsp; <b>D:</b> " + data[i].mcq['optionD'] + " </p>";
                     }
-                    t += "<p><b>Answer:</b> " + data[i].answer + "</p></details></td><td><a href=# class=\"ud btn btn-primary\" id=\"" + data[i].question_id + "\">Update/delete</a></td></tr>";
+                    t += "<p><b>Answer:</b> " + data[i].answer + "</p></details></td><td> <center><input type=\"checkbox\" name=\"question_id[ ]\" value=\"" + data[i].question_id + "\"> <center></td></tr>";
                 }
-                t += "</table></div>";
+                t += "</table></div></form></div>";
                 $("#myContent").html(t);
+
+                $("#del_ques").click(function(e)
+                {
+                    e.preventDefault();
+                    var values = $("#select_cq").serialize();
+
+                    $.ajax(
+                            {
+                                type: 'POST',
+                                url: '../../model/teacher/delete_questions.php',
+                                data: values,
+                                success: function()
+                                {
+                                    location.reload();
+                                    $("#myContent").html('<div class="alert-success" style="padding:5%"><center>The questions have been deleted successfully!</center></div>');
+                                }
+                            });
+
+                });
+
             },
             error: function() {
                 var e = "<p style=\"color:blue\">Sorry! There are no questions matching your request!</p>";
@@ -470,11 +490,8 @@ $(document).ready(function()
                         }
                         $("#num_subject").html(options);
                         $('#num_standard option:contains("Select")').attr('disabled', 'disabled');
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
+
                 });
     });
     //********************************************************

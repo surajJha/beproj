@@ -1,5 +1,7 @@
 
 $(document).ready(function() {
+    $("body").hide();
+    
 //GET CLASS DETAILS
     $.ajax(
             {
@@ -57,6 +59,6 @@ $(document).ready(function() {
      
 
 
-    $("body").fadeIn(3000);
+    $("body").delay(500).fadeIn(1000);
 
 });

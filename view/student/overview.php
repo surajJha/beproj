@@ -28,7 +28,7 @@
                 <div class="col-sm-9 col-sm-offset-2 main" id="bigdiv">             
                     <div class="row">
                         <div class="col-lg-8">
-                            <div class="panel panel-default">
+                            <div class="panel panel-info">
                                 <div class="panel-heading"><h2><?php echo $_SESSION['fname'] . ' ' . $_SESSION['lname']; ?></h2>
                                 </div>
                                 <div class="panel-body">

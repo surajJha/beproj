@@ -30,7 +30,7 @@
 
 
                 <div class="col-lg-9 col-lg-offset-2 main">             
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             <center><h3>Feedback form</h3></center>
                         </div>

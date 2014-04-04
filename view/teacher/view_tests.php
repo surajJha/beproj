@@ -24,7 +24,7 @@
                 <!-- ***********END OF SIDEBAR PANEL************8-->
 
 
-                <div class="col-lg-9 col-lg-offset-3" >             
+                <div class="col-lg-offset-3" >             
 
                     <div class="container">
                         <div class="row">
@@ -44,23 +44,19 @@
 
             </div>
         </div>
-    </div>
 
-</div>
 
-</div>
+        <!-- ********************************************************************-->
 
-<!-- ********************************************************************-->
+        <!-- include footer -->
 
-<!-- include footer -->
+        <!-- JavaScript -->
 
-<!-- JavaScript -->
+        <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+        <script src="../../lib/theme/js/bootstrap.js"></script>
+        <script src="../../lib/theme/js/modern-business.js"></script>
+        <script src="../../lib/theme/docs-assets/js/holder.js"></script>
 
-<script src="../../lib/theme/js/jquery-1.10.2.js"></script>
-<script src="../../lib/theme/js/bootstrap.js"></script>
-<script src="../../lib/theme/js/modern-business.js"></script>
-<script src="../../lib/theme/docs-assets/js/holder.js"></script>
-
-<script src="../../controller/teacher/view_tests.js"></script>
-</body>
+        <script src="../../controller/teacher/view_tests.js"></script>
+    </body>
 </html>

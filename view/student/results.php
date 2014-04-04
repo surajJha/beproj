@@ -6,25 +6,26 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-
         <title> HexaGraph   </title>
+
         <!-- Bootstrap core CSS -->
         <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
         <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
-        <link rel="stylesheet" href="../../lib/theme/css/design.css" type="text/css" />
-        <script type="text/javascript" src="../../lib/theme/js/drop.js"></script>
     </head>
 
     <body>
 
         <?php include('header.php'); ?>
 
+
+
         <div class="container-fluid">
             <div class="row">
-                <?php include('teacher_sidebar.php'); ?>
-                <!-- ***********END OF SIDEBAR PANEL************8-->
+                <?php include('student_sidebar.php'); ?>
+                <!-- ***********END OF SIDEBAR PANEL************-->
 
-                <div class="col-sm-10 col-sm-offset-2 main">             
+
+                <div class="col-lg-10 col-lg-offset-2 main" >             
 
                     <div class="container">
                         <div class="panel panel-info" style="width: 90%">
@@ -43,15 +44,10 @@
                                                 <option>Test Performance Summary</option>
                                                 <option>Student Performance Summary</option>
                                                 <option>Subject Performance Summary</option>
-                                                <option>Class Performance Summary</option>
                                             </select>
                                         </div>
 
-                                        <div class="col-lg-3">
-                                            <select  required id="s2" name="s2" class="form-control">
-                                                <!-- dynamically display options through AJAX -->
-                                            </select>
-                                        </div>
+                                        <div class="col-lg-3"></div>
 
                                         <div class="col-lg-3" id="s3"></div>
 
@@ -70,7 +66,10 @@
 
                 </div>
             </div>
+
         </div>
+
+
         <!-- ********************************************************************-->
 
         <!-- include footer -->
@@ -81,18 +80,7 @@
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-
-
-        <script src="../../lib/theme/js/highcharts-all.js"></script>
-        <script src="../../lib/theme/js/highcharts-more.js"></script>
-        <script src="../../lib/theme/js/highcharts.js"></script>
-
-
-        <script src="../../lib/theme/js/data.js"></script>
-        <script src="../../lib/theme/js/drilldown.js"></script>
-
-        <script src="../../controller/teacher/results.js"></script>
-
+        
+        <script src="../../controller/student/results.js"></script>
     </body>
 </html>
-

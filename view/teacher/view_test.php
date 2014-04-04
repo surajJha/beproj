@@ -22,18 +22,37 @@
         <div class="container-fluid">
             <div class="row">
 
+                <?php include('teacher_sidebar.php'); ?>
+
                 <div class="container">
                     <div class="row">
-                        <div style="padding: 2%">
-                            <p hidden><?php echo $_GET['test_id']; ?></p>
+                        <div class="col-lg-offset-2">
+                            <div style="padding: 2%">
+                                <p hidden><?php echo $_GET['test_id']; ?></p>
 
-                            <div class="row"></div>
+                                <div class="row">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading" id="test_summary">
 
-                            <div class="alert-warning" id="error_message" style="padding: 5%; font-size: 15px"></div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row" hidden id="b" style="padding: 2%">
+                                                <center>
+                                                    <button class="btn btn-danger">Delete Test</button>
+                                                </center>
 
+                                            </div>
+                                            <div hidden class="alert-warning" id="error_message" style="padding: 5%; font-size: 15px"></div>
+                                            <div class="row" id="question_details"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

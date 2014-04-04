@@ -1,6 +1,8 @@
 
 /// THIS IS A JAVASCRIPT FILE BASICALLY 
 $(document).ready(function() {
+    $("body").hide();
+    
     var f = "up";
     $.ajax(
             {
@@ -12,7 +14,7 @@ $(document).ready(function() {
                 {
                     if (data == "error" || data == '')
                     {
-                        $("#test_table").html("<div class=\"col-lg-8\"><h3><strong>Upcoming Tests</strong></h3><hr/>There are no tests scheduled currently!</div><br><br>");
+                        $("#test_table").html("<br><div class=\"col-lg-9\"><div class=\"panel panel-info\" ><div class=\"panel-heading\"><h3><strong>Upcoming Tests</strong></h3></div><div class=\"panel-body\">There are no tests scheduled currently!</div></div></div>");
                     }
                     else
                     {
@@ -26,18 +28,19 @@ $(document).ready(function() {
 
                         t += "</table></div></div></div></div>";
                         $("#test_table").html(t);
-                        
-                        
+
+
                         $(".up_test_button").click(function() {
                             var id = $(this).val();
-                            url = "http://localhost/beproj/view/teacher/view_test.php?test_id=" + id;
-                            window.open(url, '_blank');
+                            var url = "http://localhost/beproj/view/teacher/view_test.php?test_id=" + id;
+                            window.location=url;
                         });
                     }
                 },
                 error: function()
                 {
-                    $("#test_table").html("<div class=\"col-lg-8\"><h3><strong>Upcoming Tests</strong></h3><hr/>There are no tests scheduled currently!</div><br><br>");
+                    $("#test_table").html("<br><div class=\"col-lg-9\"><div class=\"panel panel-info\" ><div class=\"panel-heading\"><h3><strong>Upcoming Tests</strong></h3></div><div class=\"panel-body\">There are no tests scheduled currently!</div></div></div>");
+                    
                 }
             });
 
@@ -53,7 +56,7 @@ $(document).ready(function() {
                 {
                     if (data == "error" || data == '')
                     {
-                        $("#prev_table").html("<div class=\"col-lg-8\"><h3><strong>Previous Tests</strong></h3><hr/>There are no completed tests available currently!</div><br><br>");
+                       $("#prev_table").html("<br><div class=\"col-lg-9\"><div class=\"panel panel-success\" ><div class=\"panel-heading\"><h3><strong>Previous Tests</strong></h3></div><div class=\"panel-body\">There are no completed tests!</div></div></div>");
                     }
                     else
                     {
@@ -74,13 +77,10 @@ $(document).ready(function() {
                             window.open(url, '_blank');
                         });
                     }
-                },
-                error: function()
-                {
-                    $("#prev_table").html("<div class=\"col-lg-8\"><h3><strong>Previous Tests</strong></h3><hr/>There are no completed tests available currently!</div><br><br>");
                 }
             });
-    return false;
+
+$("body").delay(1200).fadeIn(3000);
 });
 
 

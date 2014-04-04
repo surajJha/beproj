@@ -25,7 +25,7 @@
                 <!-- ***********END OF SIDEBAR PANEL************-->
 
                 <!-- *******************PAGE SPECIFIC CODE HERE*******************************-->
-                <div class="col-sm-10 col-sm-offset-2 main" >             
+                <div class="col-lg-9 col-lg-offset-3 main" >             
                     <div class="container">
                         
                         <div class="row" id="test_table">
