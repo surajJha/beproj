@@ -163,24 +163,22 @@ $(document).ready(function() {
                 type: 'column'
             },
             title: {
-                text: 'Monthly Average Rainfall'
+                text: 'Student Performance'
             },
-            subtitle: {
-                text: 'Source: WorldClimate.com'
-            },
+           
             xAxis: {
                 categories: []
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Rainfall (mm)'
+                    text: 'Percentage(%)'
                 }
             },
             tooltip: {
                 headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                pointFormat: '<tr><td style="font-size:20px; color:{series.color};">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
                 useHTML: true
