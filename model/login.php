@@ -38,10 +38,10 @@ if (password_check($password, $existing_hash))
     // set type - 9 for admin , 1 for teacher, 0 for student
     if ($type === "9")
     {
-        echo "http://localhost/beproj/view/admin/admin_overview.php";
+        echo "http://localhost/beproj/view/admin/overview.php";
     } else if ($type === "1")
     {
-        echo "http://localhost/beproj/view/teacher/teacher_overview.php";
+        echo "http://localhost/beproj/view/teacher/overview.php";
     } else if ($type === "0")
     {
         $acad_year = date("Y-m-d");
@@ -66,7 +66,7 @@ if (password_check($password, $existing_hash))
             $_SESSION['standard'] = $row['standard'];
             $_SESSION['division'] = $row['division'];
         }
-        echo "http://localhost/beproj/view/student/student_overview.php";
+        echo "http://localhost/beproj/view/student/overview.php";
     }
 } else
 {

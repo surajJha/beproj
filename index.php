@@ -1,4 +1,4 @@
-<?php include('check.php'); ?>
+<?php include('view/check.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
