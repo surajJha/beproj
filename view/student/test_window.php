@@ -48,10 +48,10 @@
 
             <div class="row">
                 </br></br>
-                <div class=" col-lg-7">
-                    <form method="get" id="test_questions">
-                        <div class="row">
-                            <div class="panel panel-primary">
+                <div class=" col-lg-7" id="test_questions">
+                    <form method="get" >
+                        <div class="row"  >
+                            <div class="panel panel-primary" >
 
                                 <?php
                                 session_start();
@@ -117,13 +117,17 @@
 
                         <div class="panel-body">
 
-                            <div class="row">
 
-                                <br>
-                                <div class="cc">
-                                    <div id="clock"></div>
+
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <div id="clock"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                
+
 
                                 <!--call to countdown-->
                                 <script type="text/javascript">
@@ -151,18 +155,34 @@
                                     });
 
                                     //store time of countdown timer
+                                    setInterval(function() {
+                                        alert("asd");
+                                        var time = $("clock").countdown('getTimes');
+                                        alert(time);
+                                        $.ajax(
+                                                {
+                                                    type: 'POST',
+                                                    url: '../../model/student/save_time.php',
+                                                    cache: false,
+                                                    data: {time:time},
+                                                    success: function(data)
+                                                    {
+                                                        console.log("time stored to database");
+                                                    }
+                                                });
+
+                                    }, 60000);
+                                    //
                                     //loop to store time after every min and copy this code to onchange
-                                    //var periods = $("clock").countdown('getTimes');
-<?php //copy the time to session variable            ?>
+                                    //;
+<?php //copy the time to session variable               ?>
                                 </script>
                             </div>
 
                             <div class="row" style="padding: 5%">
                                 <center>
                                     </br>
-
                                     <button style="margin-bottom: 05px" class="btn btn-lg btn-warning" id="submit_test"  type="submit" >Submit Test</button>
-
                                 </center>
                             </div>
 

@@ -17,7 +17,8 @@
             }
             setTimeout("preventBack()", 0);
             window.onunload = function() {
-                window.reload();
+                
+              //  window.reload();
             };
         </script>
 
@@ -37,33 +38,34 @@
             <div class="row">
                 <?php include('student_sidebar.php'); ?>
             </div>
-            <div class="col-sm-10 col-sm-offset-2 main" >  
-                <div class="row">
-                    <center>
-                        <h2>Instructions</h2>
-                    </center>
-                </div>
-
-                <hr/>
-                <div class="row ">
-                    <div class="span12" style="border: 2px solid red; padding-left: 10px; color: blue">
-                    
-                        </br>
-                        1. Your exam will begin once the invigilator enters the code.</br>
-                        2. Duration of the exam will be 30 minutes.</br>
-                        3. Exam consists of 25 questions. The exam will end once all questions are attempted or when time ends.</br>
-                        4. You are not allowed to go back to the previous questions once submitted.</br>
-                        5. Do not close the test window during the exam.</br>
-                        6. You are not allowed to leave the place while giving exam.</br>
-                        7. Incase of any query/ problem, please contact the invigilator.</br>
-
-                        <center>ALL THE BEST !</center>
-                        </br>
-                        
+            <div class="col-lg-10 col-lg-offset-2 main" >  
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <center>
+                            <h2>Instructions</h2>
+                        </center>    
                     </div>
-                    </br></br></br>
 
+                    <div>
+                        <div class="row" style="padding:5%; font-size: 15px">
+                            </br>
+                            1. Your exam will begin once the invigilator enters the code.</br>
+                            2. Duration of the exam will be 30 minutes.</br>
+                            3. Exam consists of 25 questions. The exam will end once all questions are attempted or when time ends.</br>
+                            4. You are not allowed to go back to the previous questions once submitted.</br>
+                            5. Do not close the test window during the exam.</br>
+                            6. You are not allowed to leave the place while giving exam.</br>
+                            7. Incase of any query/ problem, please contact the invigilator.</br>
+                            </br>
+                            
+                            <div style="font-size: 20px">
+                                <center>ALL THE BEST !</center>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
 
                 <div class="row">
                     <center>

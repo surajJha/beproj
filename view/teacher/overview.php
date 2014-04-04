@@ -45,7 +45,7 @@
                             <div class="panel panel-default">
                                
                                 <div class="panel-body">
-                                    <img src="img1.gif" style="width: 100%">
+                                    <image src="" id ="pic"/>
                                 </div>
                             </div>
                         </div>

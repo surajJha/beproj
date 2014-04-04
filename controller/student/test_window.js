@@ -41,6 +41,7 @@ $(document).ready(function() {
                     success: function(data)
                     {
                         window.location = "http://localhost/beproj/view/student/test_window.php";
+                        //$("test_questions.php").load("");
                     }
                 });
        

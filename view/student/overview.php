@@ -33,20 +33,20 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="row" style="padding: 5%">
-                                        <p><b>Class : </b><?php echo $_SESSION['standard']."-".$_SESSION['division'];?></p>
+                                        <p><b>Class : </b><?php echo $_SESSION['standard'] . "-" . $_SESSION['division']; ?></p>
                                         <p id="r1"></p>
                                     </div>
                                     <div class="row" id="r2" style="padding: 5%">
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="panel panel-default">
-                               
-                                <div class="panel-body">
-                                    <img src="img1.gif" style="width: 100%">
+
+                                <div class="panel-body" style="width: 100%">
+                                    <image src="" id ="pic"/>
                                 </div>
                             </div>
                         </div>

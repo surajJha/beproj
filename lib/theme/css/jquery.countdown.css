@@ -1,8 +1,5 @@
 /* jQuery Countdown styles 2.0.0. */
-.cc is-countdown {
-	border: 1px solid #ccc;
-	background-color: #eee;
-}
+
 .cc countdown-rtl {
 	direction: rtl;
 }

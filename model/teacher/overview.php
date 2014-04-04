@@ -49,6 +49,18 @@ where a.acad_year=t.acad_year and a.flag_current=1 and t.user_id='{$_SESSION['us
 }
 
 // function to retrieve the profile pic of the user
-function getPhoto() {
+function getPhoto()
+{
     
+    $lin = mysql_connect("localhost", "root", "root");
+    mysql_select_db("beproj");
+    $sq = "SELECT image FROM user WHERE user_id='{$_SESSION['user_id']}'";
+    $result = mysql_query($sq, $lin) or die(mysql_error());
+    while ($row = mysql_fetch_assoc($result))
+    {
+        $image = $row['image'];
+    }
+    header("Content-type: image/jpeg");
+    echo base64_encode($image);
+    mysql_close($lin);
 }

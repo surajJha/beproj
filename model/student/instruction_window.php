@@ -24,7 +24,7 @@ if ($test != NULL)
     if ($active != NULL)
     {
           
-
+        $test['duration']= $active['time_left'];
         $query = "SELECT q.question_id, q.question_desc, q.type, q.topic_name,p.response "
                 . "FROM question AS q, test_progress as p "
                 . "WHERE q.question_id= p.question_id and p.test_id='{$test['test_id']}' and p.user_id= '{$_SESSION['user_id']}' "
@@ -106,8 +106,6 @@ if ($test != NULL)
                 //Entery in test_progress table
                 $query2 = "insert into test_progress (user_id,test_id,question_id) values('{$_SESSION['user_id']}', '{$test['test_id']}','{$row['question_id']}')";
                 mysqli_query($connection, $query2);
-
-
 
                 //For MCQ
                 if ($row['type'] === "Mcq")
