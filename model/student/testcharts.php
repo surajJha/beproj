@@ -28,6 +28,49 @@ if ($field == 'c7')
 {
     f7();
 }
+if($field == 'c8')
+{
+    f8();
+}
+if($field == 'c9')
+{
+    f9();
+}
+
+function f9()
+{
+    require_once '../database.php';
+
+    $query = "select t.test_name, round((g.marks_obtained/ g.total_marks *100),2) as percent, t.subject_name from student_gives_test as g , test as t where g.test_id= t.test_id and g.user_id='4029'";
+    $result = mysqli_query($connection, $query);
+
+    if ($result)
+    {
+        $x = array();
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+        echo json_encode($x);
+    }
+}
+function f8()
+{
+    require_once '../database.php';
+
+    $query = "SELECT u.fname,u.lname,g.total_marks, g.marks_obtained FROM `student_gives_test` as g, user as u WHERE test_id='1' and g.user_id=u.user_id order by g.marks_obtained desc ";
+    $result = mysqli_query($connection, $query);
+
+    if ($result)
+    {
+        $x = array();
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($x, $row);
+        }
+        echo json_encode($x);
+    }
+}
 
 function f1()
 {

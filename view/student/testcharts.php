@@ -27,7 +27,9 @@
             <div class="row" id="c5"></div>
             <div class="row" id="c6"></div>
             <div class="row" id="c7"></div>
-        </div>
+            <div class="row" id="c8"></div>
+            <div class="row" id="c9"></div>
+         </div>
         <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>

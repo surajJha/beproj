@@ -352,7 +352,7 @@ $(document).ready(function()
                     if (options.xAxis.categories[test_counter] == this.test_name)
                     {
                         test_counter++;
-                        entry.data.push(parseFloat(this.marks_obtained / this.total_marks * 100));
+                        entry.data.push(Math.round(parseFloat(this.marks_obtained / this.total_marks * 100),2));
                     }
                 }
             });

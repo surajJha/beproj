@@ -5,19 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <script src="../../lib/theme/js/countdown/countdown.js"></script>
         <title> HexaGraph   </title>
-
 
         <!-- Bootstrap core CSS -->
         <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
 
         <!-- Add custom CSS here -->
         <link href="../../lib/theme/css/modern-business.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../lib/theme/css/jquery.countdown.css">
         <link href="../../lib/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css"> 
-        <script type="text/javascript" src="js/jquery.plugin.js"></script> 
-        <script type="text/javascript" src="js/jquery.countdown.js"></script>
+
+        <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+        <script src="../../controller/student/test_window.js"></script>
+        <!-- Countdown Timer-->
+        
+        <script type="text/javascript" src="../../lib/theme/js/jquery.plugin.js"></script> 
+        <script src="../../lib/theme/js/jquery.countdown.js"></script>
+
+
     </head>
 
     <body>
@@ -58,43 +63,47 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-offset-5">
+                            <div class="col-lg-4 col-lg-offset-4">
                                 <div id="clock"></div>
 
-                                <script>
-                                    var myCD2 = new Countdown({
-                                        // Using "number of seconds"
-                                        time: <?php
+                            </div>
+                            <script>
+                                //$.countdown.setDefaults({description: 'Until liftoff'});
+                                $("#clock").countdown({until: <?php
                                 $t = $_SESSION['test']['duration'];
                                 $t*=60;
                                 echo $t
-                                ?>, // Total number of seconds to count down.
-
-                                        width: 200, // Defaults to 200 x 30 pixels, you can specify a custom size here
-                                        height: 50, //
-                                        inline: true,
-                                        rangeHi: "hour", // The highest unit of time to display
-                                        rangeLo: "second", // The lowest unit of time to display
-                                        numbers: {
-                                            font: "Arial",
-                                            color: "#FFFFFF",
-                                            bkgd: "#365D8B",
-                                            rounded: 0.15, // percentage of size 
-                                            shadow: {
-                                                x: 0, // x offset (in pixels)
-                                                y: 3, // y offset (in pixels)
-                                                s: 4, // spread
-                                                c: "#000000", // color
-                                                a: 0.4	 // alpha	// <- no comma on last item!
-                                            }
-                                        }, // <- no comma on last item!
-
-                                        onclose: submit(),
-                                    });
-
-
-                                </script>
-                            </div>
+                                ?>});
+                            </script>
+                                 <!--<script>
+                                                                var myCD2 = new Countdown({
+                                                                    // Using "number of seconds"
+                                                                    time: , // Total number of seconds to count down.
+                            
+                                                                    width: 200, // Defaults to 200 x 30 pixels, you can specify a custom size here
+                                                                    height: 50, //
+                                                                    inline: true,
+                                                                    rangeHi: "hour", // The highest unit of time to display
+                                                                    rangeLo: "second", // The lowest unit of time to display
+                                                                    numbers: {
+                                                                        font: "Arial",
+                                                                        color: "#FFFFFF",
+                                                                        bkgd: "#365D8B",
+                                                                        rounded: 0.15, // percentage of size 
+                                                                        shadow: {
+                                                                            x: 0, // x offset (in pixels)
+                                                                            y: 3, // y offset (in pixels)
+                                                                            s: 4, // spread
+                                                                            c: "#000000", // color
+                                                                            a: 0.4	 // alpha	// <- no comma on last item!
+                                                                        }
+                                                                    }, // <- no comma on last item!
+                            
+                                                                    onclose: submit(),
+                                                                });
+                            
+                            
+                                                            </script>-->
                         </div>
 
                         <div class="row">
@@ -213,11 +222,10 @@
 
 
         <!-- JavaScript -->
-        <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
+
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
-
-        <script src="../../controller/student/test_window.js"></script>
+        
 
     </body>
 </html>

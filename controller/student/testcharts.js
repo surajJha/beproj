@@ -106,27 +106,212 @@ $(document).ready(function() {
      })
      */
 
-    var f = 'c7';
+    /*var f = 'c7';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     columnBasic_OverallPerformance(data);
+     },
+     error: function()
+     {
+     alert("Error c7");
+     }
+     });
+     */
+    /*
+     var f = 'c8';
+     $.ajax({
+     type: 'GET',
+     data: {f: f},
+     url: '../../model/student/testcharts.php',
+     success: function(data)
+     {
+     barBasic_testPerformance(data);
+     },
+     error: function()
+     {
+     alert("Error c7");
+     }
+     });*/
+
+    var f = 'c9';
     $.ajax({
         type: 'GET',
         data: {f: f},
         url: '../../model/student/testcharts.php',
         success: function(data)
         {
-            columnBasic_OverallPerformance(data);
+            columnBasic_studentPerformance(data);
         },
         error: function()
         {
-            alert("Error c7");
+            alert("Error c9");
         }
     });
-
-
-
-
-
 //*****************************************************************************
 
+    function columnBasic_studentPerformance(data)
+    {
+
+
+        options = {
+            chart: {
+                renderTo: 'c9',
+                type: 'column'
+            },
+            title: {
+                text: 'Monthly Average Rainfall'
+            },
+            subtitle: {
+                text: 'Source: WorldClimate.com'
+            },
+            xAxis: {
+                categories: []
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Rainfall (mm)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: []
+        };
+
+        var subject = [];
+        var test = [];
+        var count_test = 0;
+        $.each(data, function()
+        {
+            if ($.inArray(this.test_name, test) == -1)
+            {
+                test.push(this.test_name);
+            }
+            if ($.inArray(this.subject_name, options.xAxis.categories) == -1)
+            {
+                options.xAxis.categories.push(this.subject_name);
+            }
+        });
+
+        $.each(test, function(i, v)
+        {
+            var entry = {
+                name: v,
+                data: []
+            };
+            $.each(data, function()
+            {
+                if (this.test_name == v)
+                {
+                    entry.data.push(parseFloat(this.percent));
+                }
+
+            });
+            console.log(entry.data);
+            options.series.push(entry);
+        });
+        var chart = new Highcharts.Chart(options);
+    }
+
+
+
+//******************************************************************************
+    function barBasic_testPerformance(data)
+    {
+        var options = {
+            chart: {
+                renderTo: 'c8',
+                type: 'bar',
+                marginRight: 200
+
+            },
+            title: {
+                text: 'Test performance'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [],
+                title: {
+                    text: 'Student Names'
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total Marks'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: false
+                    },
+                    pointPadding: .2,
+                    groupPadding: .1
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [
+                {
+                    name: "Marks Obtained",
+                    data: []
+                }
+            ]
+        };
+
+        options.yAxis.max = data[0].total_marks;
+
+
+        $.each(data, function()
+        {
+            options.xAxis.categories.push(this.lname + " " + this.fname);
+            options.series[0].data.push(parseFloat(this.marks_obtained));
+        });
+
+        var chart = new Highcharts.Chart(options);
+    }
+
+
+
+
+//******************************************************************************
     function barBasic_StudentWiseSubjectAnnualPerformance(data)
     {
         var options = {
@@ -156,8 +341,8 @@ $(document).ready(function() {
                 max: 100,
                 min: 0,
                         labels: {
-                            overflow: 'justify'
-                        }
+                    overflow: 'justify'
+                }
             },
             tooltip: {
                 valueSuffix: ''
@@ -209,7 +394,6 @@ $(document).ready(function() {
             }
             options.series[index].data.push((parseFloat(this.marks_obtained) / parseFloat(this.total_marks)) * 100);
         });
-
         //console.log(options.xAxis.categories);
         //console.log(options.series);
 
@@ -258,8 +442,8 @@ $(document).ready(function() {
                 max: 100,
                 min: 0,
                         labels: {
-                            overflow: 'justify'
-                        }
+                    overflow: 'justify'
+                }
             },
             tooltip: {
                 valueSuffix: ''
@@ -591,9 +775,7 @@ $(document).ready(function() {
         $.each(student_array, function(index, v)
         {
             student[index].name += index + 1;
-
         });
-
         options = {
             chart: {
                 type: 'column',
@@ -670,7 +852,6 @@ $(document).ready(function() {
     function columnBasic_OverallPerformance(data)
     {
         var student = [];
-
         $.each(data[0], function(i)
         {
 
@@ -684,12 +865,10 @@ $(document).ready(function() {
                 user_id: this.user_id
             });
         });
-
         MySort(student, student.length);
         $.each(student, function(index, v)
         {
             this.name += index + 1;
-
         });
         var counter = 0;
         var u_array = [];
@@ -757,9 +936,6 @@ $(document).ready(function() {
             }
         };
         var chart = new Highcharts.Chart(options);
-
-
     }
 
 });
-1
