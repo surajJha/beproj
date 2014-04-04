@@ -1,19 +1,53 @@
 $(document).ready(function() {
 
-    //alert("in the test js");
-    
-  /* $('#clock').countdown('2020/10/10').on('update.countdown', function(event) {
-     var $this = $(this).html(event.strftime(''
-         + '<span>%H</span> hr '
-         + '<span>%M</span> min '
-         + '<span>%S</span> sec'));
- });*/
-    $("#submit_test").click(function()
-    {
-        submit();
+    $(".option").change(function() {
+
+        var values = $("#test_questions").serialize();
+        $.ajax(
+                {
+                    type: 'POST',
+                    url: '../../model/student/save_response.php',
+                    cache: false,
+                    data: values,
+                    success: function(data)
+                    {
+                        console.log("value saved to database");
+                    }
+                });
+        return false;
     });
 
-    function submit()
+    $("#next").click(function()
+    {
+        
+         var f = "next";
+        next_previous(f);
+       });
+    
+    $("#prev").click(function()
+    {
+         var f = "previous";
+        next_previous(f);
+    
+    });
+    function next_previous(f)
+    {
+        $.ajax(
+                {
+                    type: 'POST',
+                    url: '../../model/student/next_previous.php',
+                    async: "false",
+                    data: {field: f},
+                    success: function(data)
+                    {
+                        window.location = "http://localhost/beproj/view/student/test_window.php";
+                    }
+                });
+       
+
+    }
+       
+    $("#submit_test").click(function()
     {
         var values = $("#test_questions").serialize();
         $.ajax(
@@ -28,8 +62,6 @@ $(document).ready(function() {
                     }
                 });
         return false;
-    }
-
+    });
     return false;
-
 });

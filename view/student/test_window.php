@@ -15,15 +15,28 @@
         <link rel="stylesheet" type="text/css" href="../../lib/theme/css/jquery.countdown.css">
         <link href="../../lib/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
+        <!--*********************************SCRIPTS******************************************-->
         <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
-        <script src="../../controller/student/test_window.js"></script>
+
         <!-- Countdown Timer-->
-        
+
         <script type="text/javascript" src="../../lib/theme/js/jquery.plugin.js"></script> 
         <script src="../../lib/theme/js/jquery.countdown.js"></script>
-
+        <script type = "text/javascript" >
+            function preventBack() {
+                window.history.forward();
+            }
+            setTimeout("preventBack()", 0);
+            window.onunload = function() {
+                
+            };
+        </script>
 
     </head>
+
+
+
+
 
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -35,111 +48,123 @@
         <div class="container">  
 
             <div class="row">
-                <br>
-            </div>
-            <div class="row">
-                <div class="col-lg-offset-1 col-lg-10">
-
-                    <form method="post" id="test_questions">
-                        <div class="row">
+                </br></br>
+                <div class=" col-lg-7">
+                    <form method="get" id="test_questions">
+                        <div class="row"  style="padding:5px; border:5px solid #CC0000;border-collapse: initial">
 
                             <?php
                             session_start();
                             ?>
+                            <?php
+                            $test = $_SESSION['test'];
+                            $i = $_SESSION['test']['i'];
+                            if ($i < sizeof($test['questions']))
+                            {
 
-                            <div class="col-md-10">
-                                <?php
-                                echo "<b>Test id : </b>" . $_SESSION['test']['test_id'] . "<br/>";
-                                echo "<b>Number of questions : </b>" . sizeof($_SESSION['test']['questions']) . "<br/>";
-                                ?>
-                            </div>
+                                displayQuestion($test['questions'][$i]['type'], $i);
+                            }
 
-                            <div class="col-md-2">
-                                <?php
-                                echo "<b>Subject : </b>" . $_SESSION['test']['subject_name'] . "<br/>";
-                                echo "<b>Date : </b>" . $_SESSION['test']['date'];
-                                ?>
-                            </div>
+                            if ($i == sizeof($test['questions']) - 1)
+                            {
+                                $next_disabled = "disabled";
+                            }
+                            else
+                            {
+                                $next_disabled = "";
+                            }
+                            if ($i == 0)
+                            {
+                                $previous_disabled = "disabled";
+                            }
+                            else
+                            {
+                                $previous_disabled = "";
+                            }
+                            ?>
+
+
                         </div>
-
-                        <div class="row">
-                            <div class="col-lg-4 col-lg-offset-4">
-                                <div id="clock"></div>
-
-                            </div>
-                            <script>
-                                //$.countdown.setDefaults({description: 'Until liftoff'});
-                                $("#clock").countdown({until: <?php
-                                $t = $_SESSION['test']['duration'];
-                                $t*=60;
-                                echo $t
-                                ?>});
-                            </script>
-                                 <!--<script>
-                                                                var myCD2 = new Countdown({
-                                                                    // Using "number of seconds"
-                                                                    time: , // Total number of seconds to count down.
-                            
-                                                                    width: 200, // Defaults to 200 x 30 pixels, you can specify a custom size here
-                                                                    height: 50, //
-                                                                    inline: true,
-                                                                    rangeHi: "hour", // The highest unit of time to display
-                                                                    rangeLo: "second", // The lowest unit of time to display
-                                                                    numbers: {
-                                                                        font: "Arial",
-                                                                        color: "#FFFFFF",
-                                                                        bkgd: "#365D8B",
-                                                                        rounded: 0.15, // percentage of size 
-                                                                        shadow: {
-                                                                            x: 0, // x offset (in pixels)
-                                                                            y: 3, // y offset (in pixels)
-                                                                            s: 4, // spread
-                                                                            c: "#000000", // color
-                                                                            a: 0.4	 // alpha	// <- no comma on last item!
-                                                                        }
-                                                                    }, // <- no comma on last item!
-                            
-                                                                    onclose: submit(),
-                                                                });
-                            
-                            
-                                                            </script>-->
-                        </div>
-
-                        <div class="row">
-                            <hr>
-                        </div>
-
-
-                        <div class="row">
-                            <div style="width:1000px;height:350px;overflow:auto;padding:5px;">
-
-                                <?php
-                                $test = $_SESSION['test'];
-
-                                for ($i = 0; $i < sizeof($test['questions']); $i++)
-                                {
-                                    echo "<pre>";
-                                    //echo "<hr>";
-                                    displayQuestion($test['questions'][$i]['type'], $i);
-                                    //echo "<hr>";
-                                    echo "</pre>";
-                                }
-                                ?>
-
-                            </div>
-                        </div>
-
-                        <div class="row" style="padding: 5%">
-                            <div class="col-lg-offset-5">
-                                <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="submit_test"  type="submit" >Submit Test</button>
-                            </div>
-                        </div>
-
                     </form>
-                </div>
-            </div>
+                    <div class="row" style="padding: 5%">
+                        <div class="col-lg-offset-1 col-lg-3">
 
+                            <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="prev"  type="submit" <?php echo $previous_disabled ?>  >Previous Question</button>
+                        </div>
+                            <div class="col-lg-offset-3 col-lg-3">
+
+                            <button style="margin-bottom: 05px" class="btn btn-lg btn-success" id="next"  type="submit" <?php echo $next_disabled ?> >Next Question</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class ="col-lg-offset-1 col-lg-4">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <?php
+                            echo "<b>Test id : </b>" . $_SESSION['test']['test_id'] . "<br/>";
+                            echo "<b>Number of questions : </b>" . sizeof($_SESSION['test']['questions']) . "<br/>";
+                            ?>
+                        </div>
+
+                        <div class=" col-md-5">
+                            <?php
+                            echo "<b>Subject : </b>" . $_SESSION['test']['subject_name'] . "<br/>";
+                            echo "<b>Date : </b>" . $_SESSION['test']['date'];
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                            <div class="row"></br>
+                                <div id="clock"></div>
+                                <!--call to countdown-->
+                                <script type="text/javascript">
+                                    //countdown timer
+                                    $("#clock").countdown({until: <?php
+                            $t = $_SESSION['test']['duration'];
+                            $t*=60;
+                            echo $t
+                            ?>,
+                                        onExpiry: function() {
+
+                                            var values = $("#test_questions").serialize();
+                                            $.ajax(
+                                                    {
+                                                        type: 'POST',
+                                                        url: '../../model/student/submit_test.php',
+                                                        cache: false,
+                                                        data: values,
+                                                        success: function(data)
+                                                        {
+                                                            window.location = "http://localhost/beproj/view/student/test_result.php";
+                                                        }
+                                                    });
+                                        }
+                                    });
+                                    
+                                    //store time of countdown timer
+                                    //loop to store time after every min and copy this code to onchange
+                                    var periods = $("clock").countdown('getTimes');
+                                    <?php //copy the time to session variable?>
+                                </script>
+                            </div>
+
+                            <div class="row" style="padding: 5%">
+                                </br>
+
+                                <button style="margin-bottom: 05px" class="btn btn-lg btn-warning" id="submit_test"  type="submit" >Submit Test</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
         <?php
@@ -147,7 +172,7 @@
         function displayQuestion($type, $i)
         {
 
-            echo "<div class=\"row\" style=\"padding:2%\">";
+            echo "<div class=\"row\" style=\"padding:5%\">";
             echo "<b>Question " . ($i + 1) . " : </b>" . $_SESSION['test']['questions'][$i]['question_desc'] . "<br>";
 
             echo "<b>Answer : </b><br>";
@@ -173,19 +198,43 @@
 
         function displayMcq($i)
         {
+            $AOption="";
+            $BOption="";
+            $COption="";
+            $DOption="";
+            
+            if ($_SESSION['test']['questions'][$i]['response'] == 'A')
+            {
+                $AOption = "checked=\"checked\"";
+            }
+            else if ($_SESSION['test']['questions'][$i]['response'] == 'B')
+            {
+                $BOption = "checked=\"checked\"";
+            }
+            else if ($_SESSION['test']['questions'][$i]['response'] == 'C')
+            {
+                $COption = "checked=\"checked\"";
+            }
+            else if ($_SESSION['test']['questions'][$i]['response'] == 'D')
+            {
+                $DOption = "checked=\"checked\"";
+            }
 
-            echo "<div class=\" col-lg-4 col-lg-offset-1 \">";
 
-            echo "<input  type = \"radio\" name = \"{$i}\" value = \"A\"> {$_SESSION['test']['questions'][$i]['optionA']} <br>";
-            echo "<input type = \"radio\" name = \"{$i}\" value = \"B\"> {$_SESSION['test']['questions'][$i]['optionB']}";
-
+            echo "<div class=\" row \" style=\"padding:3%\">";
+            echo "<input  type = \"radio\" name = \"{$i}\" class =\"option\" value = \"A\" {$AOption} > (A). {$_SESSION['test']['questions'][$i]['optionA']} </br>";
             echo "</div>";
 
-            echo "<div class=\" col-lg-4 col-lg-offset-1 \">";
+            echo "<div class=\" row \" style=\"padding:3%\">";
+            echo "<input type = \"radio\" name = \"{$i}\" class =\"option\" value = \"B\" {$BOption}> (B). {$_SESSION['test']['questions'][$i]['optionB']}</br>";
+            echo "</div>";
 
-            echo "<input  type = \"radio\" name = \"{$i}\" value = \"C\"> {$_SESSION['test']['questions'][$i]['optionC']} <br>";
-            echo "<input  type = \"radio\" name = \"{$i}\" value = \"D\"> {$_SESSION['test']['questions'][$i]['optionD']}";
+            echo "<div class=\" row \" style=\"padding:3%\">";
+            echo "<input type = \"radio\" name = \"{$i}\" class =\"option\" value = \"C\" {$COption}> (C).  {$_SESSION['test']['questions'][$i]['optionC']}</br>";
+            echo "</div>";
 
+            echo "<div class=\" row \" style=\"padding:3%\">";
+            echo "<input  type = \"radio\" name = \"{$i}\" class =\"option\" value = \"D\" {$COption}> (D). {$_SESSION['test']['questions'][$i]['optionD']}";
             echo "</div>";
             echo "</div>";
         }
@@ -225,7 +274,7 @@
 
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
-        
+        <script type="text/javascript" src="../../controller/student/test_window.js"></script>
 
     </body>
 </html>

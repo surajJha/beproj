@@ -16,6 +16,12 @@ $test_id = $_SESSION['test_id'];
 $t = sizeof($_SESSION['test']['questions']);
 $m = 0;
 
+//delete entry from active_test_time and test_progress
+$query1= "delete from active_test_time where test_id='$test_id' and user_id= '$user_id'";
+mysqli_query($connection, $query1);
+$query2="delete from test_progress where test_id= '$test_id' and user_id='$user_id' ";
+mysqli_query($connection, $query2);
+
 
 for ($i = 0; $i < sizeof($_SESSION['test']['questions']); $i++)
 {

@@ -8,77 +8,84 @@
 
         <title> HexaGraph   </title>
 
-
         <!-- Bootstrap core CSS -->
         <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
+        <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
+        <script type = "text/javascript" >
+            function preventBack() {
+                window.history.forward();
+            }
+            setTimeout("preventBack()", 0);
+            window.onunload = function() {
+                window.reload();
+            };
+        </script>
 
-        <!-- Add custom CSS here -->
-        <link href="../../lib/theme/css/modern-business.css" rel="stylesheet">
-        <link href="../../lib/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     </head>
 
     <body>
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class =" container">
-                <a href="#" class =" navbar-brand">HexaGraph</a>
-            </div>
-        </div>
+        <?php include('header.php'); ?>
         <!-- setting test id in session variables -->
         <?php
-        session_start();
         $_SESSION['test_id'] = $_GET['test_id'];
         ?>
         <!-- PAGE TITLE GOES HERE ************************************ -->
+
+
         <div class="container">
-
             <div class="row">
-                <div class="col-lg-offset-1 col-lg-10"> 
-                    <div class="row">
-                        <center>
-                            <h2>Instructions</h2>
-                        </center>
+                <?php include('student_sidebar.php'); ?>
+            </div>
+            <div class="col-sm-10 col-sm-offset-2 main" >  
+                <div class="row">
+                    <center>
+                        <h2>Instructions</h2>
+                    </center>
+                </div>
+
+                <hr/>
+                <div class="row ">
+                    <div class="span12" style="border: 2px solid red; padding-left: 10px; color: blue">
+                    
+                        </br>
+                        1. Your exam will begin once the invigilator enters the code.</br>
+                        2. Duration of the exam will be 30 minutes.</br>
+                        3. Exam consists of 25 questions. The exam will end once all questions are attempted or when time ends.</br>
+                        4. You are not allowed to go back to the previous questions once submitted.</br>
+                        5. Do not close the test window during the exam.</br>
+                        6. You are not allowed to leave the place while giving exam.</br>
+                        7. Incase of any query/ problem, please contact the invigilator.</br>
+
+                        <center>ALL THE BEST !</center>
+                        </br>
+                        
                     </div>
+                    </br></br></br>
 
-                    <hr/>
-                    <div class="row">
-                        <pre>
-     1. Your exam will begin once the invigilator enters the code.
-     2. Duration of the exam will be 30 minutes.
-     3. Exam consists of 25 questions. The exam will end once all questions are attempted or when time ends.
-     4. You are not allowed to go back to the previous questions once submitted.
-     5. Do not close the test window during the exam.
-     6. You are not allowed to leave the place while giving exam.
-     7. Incase of any query/ problem, please contact the invigilator.
+                </div>
 
-                <center>ALL THE BEST !</center>
-           
-                        </pre>
-                    </div>
+                <div class="row">
+                    <center>
+                        <form  method="post" id="test_code_form">
+                            <input type="hidden" value="<?php echo $_GET['test_id']; ?>">
 
-                    <div class="row">
-                        <center>
-                            <form  method="post" id="test_code_form">
-                                <input type="hidden" value="<?php echo $_GET['test_id']; ?>">
+                            <div  class="col-lg-offset-3 col-lg-3">
+                                <input class="form-control"  type="text" name="test_code" id="test_code" required="required" placeholder="Enter Test Code" />
+                            </div>
 
-                                <div  class="col-lg-offset-3 col-lg-3">
-                                    <input class="form-control"  type="text" name="test_code" id="test_code" required="required" placeholder="Enter Test Code" />
-                                </div>
-
-                                <div  class="col-lg-offset-1 col-lg-2">
-                                    <button class="btn btn-lg btn-primary" id="submit_test_code"  type="submit" >Start Test</button>
-                                </div>
+                            <div  class="col-lg-2">
+                                <button class="btn btn-group-vertical btn-primary" id="submit_test_code"  type="submit" >Start Test</button>
+                            </div>
 
 
-                            </form>
-                        </center>
-                    </div>
+                        </form>
+                    </center>
+                </div>
 
-                    <div class="row">
-                        <div class="alert-warning" id="error_message">
+                <div class="row">
+                    <div class="alert-warning" id="error_message">
 
-                        </div>
                     </div>
                 </div>
             </div>
@@ -91,7 +98,7 @@
         <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
-
+        <script src="../../lib/theme/docs-assets/js/holder.js"></script>
         <script src="../../controller/student/instruction_window.js"></script>
 
     </body>
