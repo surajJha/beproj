@@ -95,7 +95,7 @@ if ($test != NULL)
         if ($res = mysqli_query($connection, $query))
         {
             //entry in active_test_time table
-            $query1 = "insert into active_test_time values('{$_SESSION['user_id']}', '{$test['test_id']}','{$test['duration']}',1)";
+            $query1 = "insert into active_test_time values('{$_SESSION['user_id']}', '{$test['test_id']}','{$test['duration']})";
             mysqli_query($connection, $query1);
 
             $i = 0;
@@ -104,7 +104,7 @@ if ($test != NULL)
                  array_push($questions, $row);
 
                 //Entery in test_progress table
-                $query2 = "insert into test_progress (user_id,test_id,question_id,s_no) values('{$_SESSION['user_id']}', '{$test['test_id']}','{$row['question_id']}',$i)";
+                $query2 = "insert into test_progress (user_id,test_id,question_id) values('{$_SESSION['user_id']}', '{$test['test_id']}','{$row['question_id']}')";
                 mysqli_query($connection, $query2);
 
 
