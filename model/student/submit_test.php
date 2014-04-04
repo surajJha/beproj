@@ -59,9 +59,17 @@ if (mysqli_query($connection, $query))
 
     for ($i = 0; $i < sizeof($_SESSION['test']['questions']); $i++)
     {
-        $query = "INSERT INTO `response`(`response_id`, `test_id`, `question_id`, `response`, `answer`, `subject_name`, `topic_name`, `standard`, `division`) 
+       $query= "select * from response where question_id= '{$_SESSION['test']['questions'][$i]['question_id']}' and response_id ='$id'";
+         $exist= mysqli_fetch_assoc(mysqli_query($connection, $query));
+         if(exist)
+         {
+             $query= "update response set response ='{$_SESSION['test']['questions'][$i]['response']}' where question_id= '{$_SESSION['test']['questions'][$i]['question_id']}' and response_id ='$id'";
+         }
+        else
+        {
+            $query = "INSERT INTO `response`(`response_id`, `test_id`, `question_id`, `response`, `answer`, `subject_name`, `topic_name`, `standard`, `division`) 
                 VALUES ('{$id}','{$test_id}','{$_SESSION['test']['questions'][$i]['question_id']}','{$_SESSION['test']['questions'][$i]['response']}','{$_SESSION['test']['questions'][$i]['answer']}','{$_SESSION['test']['subject_name']}','{$_SESSION['test']['questions'][$i]['topic_name']}','{$_SESSION['standard']}','{$_SESSION['division']}')";
-
+        }
         mysqli_query($connection, $query);
     }
 

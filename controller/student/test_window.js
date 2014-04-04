@@ -40,8 +40,7 @@ $(document).ready(function() {
                     data: {field: f},
                     success: function(data)
                     {
-                        window.location = "http://localhost/beproj/view/student/test_window.php";
-                        //$("test_questions.php").load("");
+                        $("#display_questions").load("display_question.php");                              
                     }
                 });
 

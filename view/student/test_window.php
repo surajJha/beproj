@@ -24,12 +24,12 @@
         <script type="text/javascript" src="../../lib/theme/js/jquery.plugin.js"></script> 
         <script src="../../lib/theme/js/jquery.countdown.js"></script>
         <script type = "text/javascript" >
+            
             function preventBack() {
                 window.history.forward();
             }
             setTimeout("preventBack()", 0);
             window.onunload = function() {
-
             };
         </script>
     </head>
@@ -39,6 +39,7 @@
 
 
     <body>
+        <?php session_start();?>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class =" container">
                 <a href="#" class =" navbar-brand">HexaGraph</a>
@@ -60,9 +61,9 @@
                             <div class="row">
                                 <div style="font-size:16px; padding: 5%">
                                     <?php
-                                    echo "<b>Test id : </b>" . $_SESSION['test']['test_id'] . "<br/>";
-                                    echo "<b>Number of questions : </b>" . sizeof($_SESSION['test']['questions']) . "<br/>";
-                                    echo "<b>Subject : </b>" . $_SESSION['test']['subject_name'] . "<br/>";
+                                    echo "<b>Test id : </b>" . $_SESSION['test']['test_id'] . "<br>";
+                                    echo "<b>Number of questions : </b>" . sizeof($_SESSION['test']['questions']) . "<br>";
+                                    echo "<b>Subject : </b>" . $_SESSION['test']['subject_name'] . "<br>";
                                     echo "<b>Date : </b>" . $_SESSION['test']['date'];
                                     ?>
                                 </div>
@@ -81,14 +82,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
                                 <!--call to countdown-->
                                 <script type="text/javascript">
-                                    //countdown timer
-
-//                                    alert($.cookie("test"));
-                                        <?php
+    $("#display_questions").load("display_question.php");                                
+    
+    //countdown timer
+                                    
+<?php
 if (!isset($_SESSION['test']['time_left']))
 {
     $_SESSION['test']['time_left'] = $_SESSION['test']['duration'] * 60;

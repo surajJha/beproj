@@ -12,17 +12,10 @@
 
         <!-- Add custom CSS here -->
         <link href="../../lib/theme/css/modern-business.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../../lib/theme/css/jquery.countdown.css">
         <link href="../../lib/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
         <!--*********************************SCRIPTS******************************************-->
         <script src="../../lib/theme/js/jquery-1.10.2.js"></script>
-        <script src="../../lib/theme/js/jquery.cookies.2.2.0.min.js"></script>
-        <script  src="../../lib/theme/js/jquery.cookie.js"></script>
-        <!-- Countdown Timer-->
-
-        <script type="text/javascript" src="../../lib/theme/js/jquery.plugin.js"></script> 
-        <script src="../../lib/theme/js/jquery.countdown.js"></script>
 </head>
 
 
