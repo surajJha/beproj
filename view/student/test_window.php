@@ -48,8 +48,8 @@
 
             <div class="row">
                 </br></br>
-                <div class=" col-lg-7" id="test_questions">
-                    <form method="get" >
+                <div class=" col-lg-7" >
+                    <form method="get" id="test_questions">
                         <div class="row"  >
                             <div class="panel panel-primary" >
 
@@ -132,11 +132,14 @@
                                 <!--call to countdown-->
                                 <script type="text/javascript">
                                     //countdown timer
-                                    $("#clock").countdown({until: <?php
-                                    $t = $_SESSION['test']['duration'];
-                                    $t*=60;
-                                    echo $t
-                                    ?>,
+<?php
+if (!isset($_SESSION['test']['time_left']))
+{
+    $_SESSION['test']['time_left'] = $_SESSION['test']['duration'] * 60;
+}
+?>
+
+                                    $("#clock").countdown({until: (<?php echo ($_SESSION['test']['time_left']-1)+"s"; ?> ),
                                         onExpiry: function() {
 
                                             var values = $("#test_questions").serialize();
@@ -153,18 +156,20 @@
                                                     });
                                         }
                                     });
-
                                     //store time of countdown timer
                                     setInterval(function() {
-                                        alert("asd");
-                                        var time = $("clock").countdown('getTimes');
-                                        alert(time);
+
+                                        var time = (parseInt(<?php echo $_SESSION['test']['duration']; ?>) * 60) - 60;
+
+                                        //alert(time);
+                                        time = time / 60;
+                                        //alert(time);
                                         $.ajax(
                                                 {
                                                     type: 'POST',
                                                     url: '../../model/student/save_time.php',
                                                     cache: false,
-                                                    data: {time:time},
+                                                    data: {time: time},
                                                     success: function(data)
                                                     {
                                                         console.log("time stored to database");
@@ -172,10 +177,11 @@
                                                 });
 
                                     }, 60000);
-                                    //
-                                    //loop to store time after every min and copy this code to onchange
-                                    //;
-<?php //copy the time to session variable               ?>
+
+                                    setInterval(function() {
+<?php $_SESSION['test']['time_left'] = $_SESSION['test']['time_left'] - 1; ?>
+                                    }, 1000);
+
                                 </script>
                             </div>
 

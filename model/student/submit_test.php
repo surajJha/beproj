@@ -8,6 +8,10 @@ for ($i = 0; $i < sizeof($_POST); $i++)
 {
     $_SESSION['test']['questions'][$i]['response'] = $_POST[$i];
 }
+if (isset($_SESSION['test']['time_left']))
+{
+    unset($_SESSION['test']['time_left']);
+}
 
 $user_id = $_SESSION['user_id'];
 $test_id = $_SESSION['test_id'];
@@ -17,9 +21,9 @@ $t = sizeof($_SESSION['test']['questions']);
 $m = 0;
 
 //delete entry from active_test_time and test_progress
-$query1= "delete from active_test_time where test_id='$test_id' and user_id= '$user_id'";
+$query1 = "delete from active_test_time where test_id='$test_id' and user_id= '$user_id'";
 mysqli_query($connection, $query1);
-$query2="delete from test_progress where test_id= '$test_id' and user_id='$user_id' ";
+$query2 = "delete from test_progress where test_id= '$test_id' and user_id='$user_id' ";
 mysqli_query($connection, $query2);
 
 
@@ -32,7 +36,7 @@ for ($i = 0; $i < sizeof($_SESSION['test']['questions']); $i++)
     $answer = $row['answer'];
 
     $_SESSION['test']['questions'][$i]['answer'] = $answer;
-
+    
     if ($_SESSION['test']['questions'][$i]['response'] == NULL)
     {
         $_SESSION['test']['questions'][$i]['response'] = "-";
@@ -43,7 +47,7 @@ for ($i = 0; $i < sizeof($_SESSION['test']['questions']); $i++)
     }
 }
 
-$_SESSION['test']['m']=$m;
+$_SESSION['test']['m'] = $m;
 
 //save start time and end time also in session
 $query = "INSERT INTO `student_gives_test`(`user_id`, `test_id`, `start_time`, `end_time`, `response_id`, `marks_obtained`, `total_marks`) "
@@ -62,9 +66,10 @@ if (mysqli_query($connection, $query))
     }
 
     echo "success";
-    
+
     print_r($_SESSION);
-} else
+}
+else
 {
     echo mysqli_error($connection);
 }

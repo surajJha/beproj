@@ -11,14 +11,8 @@ $(document).ready(function() {
                     data: values,
                     success: function(data)
                     {
-                        if(data=="url")
-                        {
-                            window.location="http://localhost/beproj/view/student/test_window.php";
-                        }
-                        else
-                        {
-                            $("#error_message").html(data);
-                        }
+                         window.location="http://localhost/beproj/view/student/test_window.php";
+                         
                     },
                     error: function()
                     {

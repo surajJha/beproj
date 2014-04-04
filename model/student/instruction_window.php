@@ -62,13 +62,10 @@ if ($test != NULL)
 
             $_SESSION['test'] = $test;
             $_SESSION['test']['i'] = 0;
-
-            echo "url";
+            echo json_encode($test);
         }
         else
         {
-                
-
             echo 'active but nothing found';
         }
     }
@@ -95,7 +92,7 @@ if ($test != NULL)
         if ($res = mysqli_query($connection, $query))
         {
             //entry in active_test_time table
-            $query1 = "insert into active_test_time values('{$_SESSION['user_id']}', '{$test['test_id']}','{$test['duration']})";
+            $query1 = "insert into active_test_time values('{$_SESSION['user_id']}', '{$test['test_id']}','{$test['duration']}')";
             mysqli_query($connection, $query1);
 
             $i = 0;
@@ -130,8 +127,7 @@ if ($test != NULL)
 
             $_SESSION['test'] = $test;
             $_SESSION['test']['i'] = 0;
-
-            echo "url";
+                echo json_encode($test);
         }
     }
 }

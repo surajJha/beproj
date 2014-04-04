@@ -3,7 +3,7 @@
 require '../database.php';
 
 session_start();
-$_SESSION['test']['duration'] = (int)($_POST['time'])/60;
+$_SESSION['test']['duration'] = $_POST['time'];
 
 $user_id = $_SESSION['user_id'];
 $test_id = $_SESSION['test_id'];

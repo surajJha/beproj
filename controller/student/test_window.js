@@ -19,16 +19,16 @@ $(document).ready(function() {
 
     $("#next").click(function()
     {
-        
-         var f = "next";
+
+        var f = "next";
         next_previous(f);
-       });
-    
+    });
+
     $("#prev").click(function()
     {
-         var f = "previous";
+        var f = "previous";
         next_previous(f);
-    
+
     });
     function next_previous(f)
     {
@@ -44,10 +44,10 @@ $(document).ready(function() {
                         //$("test_questions.php").load("");
                     }
                 });
-       
+
 
     }
-       
+
     $("#submit_test").click(function()
     {
         var values = $("#test_questions").serialize();
