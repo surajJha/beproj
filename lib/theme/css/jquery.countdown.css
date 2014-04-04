@@ -1,6 +1,7 @@
 /* jQuery Countdown styles 2.0.0. */
-
-.cc countdown-rtl {
+.is-countdown {
+}
+.countdown-rtl {
 	direction: rtl;
 }
 .cc countdown-holding span {
