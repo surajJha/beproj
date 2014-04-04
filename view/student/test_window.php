@@ -179,8 +179,8 @@ if (!isset($_SESSION['test']['time_left']))
                                     }, 60000);
 
                                     setInterval(function() {
-<?php $_SESSION['test']['time_left'] = $_SESSION['test']['time_left'] - 1; ?>
-                                    }, 1000);
+<?php $_SESSION['test']['time_left'] = $_SESSION['test']['time_left'] - 2; ?>
+                                    }, 2000);
 
                                 </script>
                             </div>
