@@ -16,7 +16,7 @@ $(document).ready(function() {
                         t += "<tr> <td>" + data[i].subject_name + "</td><td>" + data[i].standard + "</td><td>" + data[i].division + "</td></tr>";
                     }
                     t += "</table></div>";
-                    
+
                     $("#r1").html(t);
                 }
             });
@@ -31,7 +31,7 @@ $(document).ready(function() {
                 },
                 success: function(data)
                 {
-                    var t="";
+                    var t = "";
                     if (data)
                     {
                         t = "<br><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Classes Allocated</h3></caption>"
@@ -44,10 +44,10 @@ $(document).ready(function() {
                     }
                     else
                     {
-                       t = "<br><br><br><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Classes Allocated</h3></caption></table></div>";
-                       t+="<p>No classes have been alloted to you.</p>";
+                        t = "<br><br><br><div class=\"table-responsive\"><table class=\"table table-striped\"><caption><h3>Classes Allocated</h3></caption></table></div>";
+                        t += "<p>No classes have been alloted to you.</p>";
                     }
-                    
+
                     $("#r2").html(t);
                 }
             });
@@ -61,10 +61,10 @@ $(document).ready(function() {
                 },
                 success: function(data)
                 {
-
+                    $("#pic").attr("src", "data:image/jpeg;base64," + data);
                 }
             });
-            
-    $("body").fadeIn(3000);        
-            
+
+    $("body").fadeIn(3000);
+
 });

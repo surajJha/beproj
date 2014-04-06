@@ -37,21 +37,24 @@ $(document).ready(function() {
             });
 
 
-    /*
-     // get PHOTO
+    
+     //get PHOTO
      $.ajax(
      {
      type: 'GET',
-     url: '../../model/teacher/overview.php',
+     url: '../../model/student/overview.php',
+     cache:false,
+     async:false,
+     
      data: {
      f: 3
      },
      success: function(data)
      {
-     
+        $("#pic").attr("src","data:image/jpeg;base64,"+data);
      }
      });
-     */
+     
 
 
     $("body").fadeIn(3000);
