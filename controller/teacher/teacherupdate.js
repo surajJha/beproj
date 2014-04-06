@@ -470,11 +470,8 @@ $(document).ready(function()
                         }
                         $("#num_subject").html(options);
                         $('#num_standard option:contains("Select")').attr('disabled', 'disabled');
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
+                    
                 });
     });
     //********************************************************
