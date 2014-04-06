@@ -10,7 +10,7 @@
     </ul>
     <!-- Functionality to view results  -->
     <ul class="nav nav-sidebar">
-        <li><a href="view_results.php">View Results</a></li>
+        <li><a href="results.php">View Results</a></li>
         <!-- Add different types of results -->
     </ul>
     

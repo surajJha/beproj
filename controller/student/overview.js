@@ -57,6 +57,6 @@ $(document).ready(function() {
      
 
 
-    $("body").fadeIn(3000);
+    $("body").delay(500).fadeIn(1000);
 
 });

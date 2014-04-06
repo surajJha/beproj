@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $("body").hide();
 
     $("#feedback").hide();
     $("#exists").hide();
@@ -96,4 +97,6 @@ $(document).ready(function() {
                 });
 
     });
+    
+    $("body").delay(500).fadeIn(1000);
 });

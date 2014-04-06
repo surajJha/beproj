@@ -2,6 +2,8 @@
 /// THIS IS A JAVASCRIPT FILE BASICALLY 
 $(document).ready(function() {
     
+    $("body").hide();
+    
     $("#disable").click(function(){
         alert("not working");
     });
@@ -18,11 +20,11 @@ $(document).ready(function() {
                 {
                     if (data == "error" || data == '')
                     {
-                        $("#test_table").html("<div  ><h3><strong>Upcoming Tests</strong></h3><hr/>There are no tests scheduled currently!</div><br><br>");
+                        $("#test_table").html("<div class='panel panel-info' style='width:75%'><div class='panel-heading'><h3><strong>Upcoming Tests</strong></h3></div><div class='panel-body'><div style='padding:2%'><center>There are no tests scheduled currently!</center></div></div></div><br><br>");
                     }
                     else
                     {
-                        var t = "<div  ><h3><strong>Upcoming Tests</strong></h3><hr/><div class=\"table-responsive\"><table class=\"table table-striped\">";
+                        var t = "<div class='panel panel-info' style='width:75%'><div class='panel-heading'><h3><strong>Upcoming Tests</strong></h3></div><div class='panel-body'><div class=\"table-responsive\"><table class=\"table table-striped\">";
                         t += "<thead><tr> <th>Test-id</th> <th> Test </th> <th>Subject</th> <th>Date</th> <th>Duration</th> </tr></thead>";
                         for (var i = 0; i < data.length; i++)
                         {
@@ -30,7 +32,7 @@ $(document).ready(function() {
                             t += "<tr> <td>" + data[i].test_id + " </td> <td>" + data[i].test_name + " </td> <td>" + data[i].subject_name + "</td><td>" + data[i].date + "</td><td>" + data[i].duration + " mins</td> <td><button class=\"test_button btn btn-primary\" " +data[i].access + " value=\"" + data[i].test_id + "\">Give Test</button></td>";
                         }
 
-                        t += "</table></div></div>";
+                        t += "</table></div></div></div>";
                         $("#test_table").html(t);
 
                         $(".test_button").click(function() {
@@ -60,11 +62,11 @@ $(document).ready(function() {
                 {
                     if (data == "error" || data == '')
                     {
-                        $("#prev_test_table").html("<div  ><h3><strong>Previous Tests</strong></h3><hr/>You have not given any tests yet!</div>");
+                        $("#prev_test_table").html("<div class='panel panel-success' style='width:75%'><div class='panel-heading'><h3><strong>Previous Tests</strong></h3></div><div class='panel-body'><div style='padding:2%'><center>There are no completed tests currently!</center></div></div></div><br><br>");
                     }
                     else
                     {
-                        var t = "<div ><h3><strong>Previous Tests</strong></h3><hr/><div class=\"table-responsive\"><table class=\"table table-striped\">"
+                        var t = "<div class='panel panel-success' style='width:75%'><div class='panel-heading'><h3><strong>Previous Tests</strong></h3></div><div class='panel-body'><div class=\"table-responsive\"><table class=\"table table-striped\">"
                         t += "<thead><tr> <th>Test-id</th> <th> Test </th> <th>Subject</th> <th>Date</th> <th>Duration</th> </tr></thead>";
                         for (var i = 0; i < data.length; i++)
                         {
@@ -72,7 +74,7 @@ $(document).ready(function() {
                             t += "<tr> <td>" + data[i].test_id + " </td> <td>" + data[i].test_name + " </td> <td>" + data[i].subject_name + "</td><td>" + data[i].date + "</td><td>" + data[i].duration + " mins</td> <td><button class=\"prev_test_button btn btn-success\" value=\"" + data[i].test_id + "\">Result</button></td></tr>";
                         }
 
-                        t += "</table></div></div>";
+                        t += "</table></div></div></div>";
                         $("#prev_test_table").html(t);
 
                         $(".prev_test_button").click(function() {
@@ -85,8 +87,8 @@ $(document).ready(function() {
                 }
 
             });
-
-    return false;
+            
+            $("body").delay(1000).fadeIn(1000);
 });
 
 
