@@ -13,11 +13,13 @@
         <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
         <script type = "text/javascript" >
             function preventBack() {
+                alert("akjwgkj");
                 window.history.forward();
             }
             setTimeout("preventBack()", 0);
             window.onunload = function() {
-                window.reload();
+                
+              //  window.reload();
             };
         </script>
 
