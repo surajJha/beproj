@@ -19,13 +19,41 @@ $(document).ready(function()
                         options += '<option value="' + j[i] + '">' + j[i] + '</option>';
                     }
                     $("#sqp_standard").html(options);
-                },
-                error: function()
-                {
-                    alert("Failure");
                 }
             });
     //********************************************************
+    var f = 'name';
+    $.ajax(
+            {
+                type: 'GET',
+                url: '../../model/teacher/set_question_paper_options.php',
+                data: {
+                    field: f
+                },
+                success: function(j)
+                {
+                    var options = '<option>Select test name</option>';
+                    for (var i = 0; i < j.length; i++) {
+                        options += '<option value="' + j[i] + '">' + j[i] + '</option>';
+                    }
+                    options += '<option value="o">Other</option>';
+                    $("#sqp_name").html(options);
+
+                }
+            });
+
+    $("#sqp_name").change(function() {
+        var x = $("#sqp_name").val();
+        if (x == "o")
+        {
+            $("#otn").show();
+        }
+        else
+        {
+            $("#otn").hide();
+        }
+    });
+
 
     //will populate division field when standard changes
     $("#sqp_standard").change(function() {
@@ -47,10 +75,6 @@ $(document).ready(function()
                         }
                         $("#sqp_division").html(options);
                         $('#sqp_standard option:contains("Select")').attr('disabled', 'disabled');
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -79,10 +103,6 @@ $(document).ready(function()
                         $("#sqp_subject").html(options);
                         $('#sqp_division option:contains("Select")').attr('disabled', 'disabled');
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
@@ -112,17 +132,13 @@ $(document).ready(function()
                         $('#sqp_subject option:contains("Select")').attr('disabled', 'disabled');
 
 
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
                     }
                 });
     });
     //********************************************************
     $("#sqp_random").change(function() {
-        var r=$("#sqp_random").val();
-        if(r=="1")
+        var r = $("#sqp_random").val();
+        if (r == "1")
         {
             $("#nq").show();
         }
@@ -157,10 +173,6 @@ $(document).ready(function()
                         {
                             window.location = data;
                         }
-                    },
-                    error: function()
-                    {
-                        $("#error_message").html("Unsuccessful !");
                     }
                 });
         return false;

@@ -97,8 +97,27 @@
                                             <input type="text" id="sqp_duration" name="sqp_duration" class="form-control input-md" placeholder="Enter duration of test in minutes" required>
                                         </div>  
                                     </div>
+                                    
+                                    <!--5th ROW-->
+                                    <div class="row">
+                                        <div class="col-lg-1"></div>
+                                        
+                                        <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                            <label for="sqp_name" class="control-label"> Test Name:</label>
+                                            <select id="sqp_name" name="sqp_name" class="form-control">
+                                            </select>
+                                        </div> 
 
-                                    <!-- 4th ROW-->
+                                        <div class="col-lg-1"></div>
+
+                                        <div id="otn" hidden class="form-group col-lg-4" style="padding-left: 80px" >
+                                            <label for="tname" class="control-label"> &nbsp;</label>
+                                            <input type="text" id="tname" class="form-control input-md"  name="tname" placeholder="Test Name">
+                                        </div>  
+                                    </div>
+
+
+                                    <!--5th ROW-->
                                     <div class="row">
                                         <div class="col-lg-1"></div>
                                         <div class="form-group col-lg-4" style="padding-left: 80px" >
