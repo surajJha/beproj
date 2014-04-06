@@ -118,10 +118,17 @@
 
                         <div class="panel-body">
 
-                            <div class="row">
 
-                                </br>
-                                <div id="clock"></div>
+
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <div id="clock"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                                 <!--call to countdown-->
                                 <script type="text/javascript">
@@ -151,16 +158,14 @@
                                     //store time of countdown timer
                                     //loop to store time after every min and copy this code to onchange
                                     //var periods = $("clock").countdown('getTimes');
-<?php //copy the time to session variable         ?>
+<?php //copy the time to session variable             ?>
                                 </script>
                             </div>
 
                             <div class="row" style="padding: 5%">
                                 <center>
                                     </br>
-
                                     <button style="margin-bottom: 05px" class="btn btn-lg btn-warning" id="submit_test"  type="submit" >Submit Test</button>
-
                                 </center>
                             </div>
 
@@ -239,8 +244,8 @@
             echo "<div class=\" row \" style=\"padding:3%\">";
             echo "<input  type = \"radio\" name = \"{$i}\" class =\"option\" value = \"D\" {$COption}> {$_SESSION['test']['questions'][$i]['optionD']}";
             echo "</div>";
-            
-            
+
+
             echo "</div>";
         }
 
