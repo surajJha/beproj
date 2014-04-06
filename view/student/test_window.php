@@ -28,7 +28,7 @@
             }
             setTimeout("preventBack()", 0);
             window.onunload = function() {
-                
+
             };
         </script>
 
@@ -51,38 +51,37 @@
                 </br></br>
                 <div class=" col-lg-7">
                     <form method="get" id="test_questions">
-                        <div class="row"  style="padding:5px; border:5px solid #CC0000;border-collapse: initial">
+                        <div class="row">
+                            <div class="panel panel-primary">
 
-                            <?php
-                            session_start();
-                            ?>
-                            <?php
-                            $test = $_SESSION['test'];
-                            $i = $_SESSION['test']['i'];
-                            if ($i < sizeof($test['questions']))
-                            {
+                                <?php
+                                session_start();
+                                ?>
+                                <?php
+                                $test = $_SESSION['test'];
+                                $i = $_SESSION['test']['i'];
+                                if ($i < sizeof($test['questions']))
+                                {
 
-                                displayQuestion($test['questions'][$i]['type'], $i);
-                            }
+                                    displayQuestion($test['questions'][$i]['type'], $i);
+                                }
 
-                            if ($i == sizeof($test['questions']) - 1)
-                            {
-                                $next_disabled = "disabled";
-                            }
-                            else
-                            {
-                                $next_disabled = "";
-                            }
-                            if ($i == 0)
-                            {
-                                $previous_disabled = "disabled";
-                            }
-                            else
-                            {
-                                $previous_disabled = "";
-                            }
-                            ?>
-
+                                if ($i == sizeof($test['questions']) - 1)
+                                {
+                                    $next_disabled = "disabled";
+                                } else
+                                {
+                                    $next_disabled = "";
+                                }
+                                if ($i == 0)
+                                {
+                                    $previous_disabled = "disabled";
+                                } else
+                                {
+                                    $previous_disabled = "";
+                                }
+                                ?>
+                            </div>
 
                         </div>
                     </form>
@@ -91,7 +90,7 @@
 
                             <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="prev"  type="submit" <?php echo $previous_disabled ?>  >Previous Question</button>
                         </div>
-                            <div class="col-lg-offset-3 col-lg-3">
+                        <div class="col-lg-offset-3 col-lg-3">
 
                             <button style="margin-bottom: 05px" class="btn btn-lg btn-success" id="next"  type="submit" <?php echo $next_disabled ?> >Next Question</button>
                         </div>
@@ -102,35 +101,36 @@
 
 
                 <div class ="col-lg-offset-1 col-lg-4">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <?php
-                            echo "<b>Test id : </b>" . $_SESSION['test']['test_id'] . "<br/>";
-                            echo "<b>Number of questions : </b>" . sizeof($_SESSION['test']['questions']) . "<br/>";
-                            ?>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div style="font-size:16px; padding: 5%">
+                                    <?php
+                                    echo "<b>Test id : </b>" . $_SESSION['test']['test_id'] . "<br/>";
+                                    echo "<b>Number of questions : </b>" . sizeof($_SESSION['test']['questions']) . "<br/>";
+                                    echo "<b>Subject : </b>" . $_SESSION['test']['subject_name'] . "<br/>";
+                                    echo "<b>Date : </b>" . $_SESSION['test']['date'];
+                                    ?>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class=" col-md-5">
-                            <?php
-                            echo "<b>Subject : </b>" . $_SESSION['test']['subject_name'] . "<br/>";
-                            echo "<b>Date : </b>" . $_SESSION['test']['date'];
-                            ?>
-                        </div>
-                    </div>
+                        <div class="panel-body">
 
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                            <div class="row"></br>
+                            <div class="row">
+
+                                </br>
                                 <div id="clock"></div>
-                                
+
                                 <!--call to countdown-->
                                 <script type="text/javascript">
                                     //countdown timer
                                     $("#clock").countdown({until: <?php
-                            $t = $_SESSION['test']['duration'];
-                            $t*=60;
-                            echo $t
-                            ?>,
+                                    $t = $_SESSION['test']['duration'];
+                                    $t*=60;
+                                    echo $t
+                                    ?>,
                                         onExpiry: function() {
 
                                             var values = $("#test_questions").serialize();
@@ -147,22 +147,27 @@
                                                     });
                                         }
                                     });
-                                    
+
                                     //store time of countdown timer
                                     //loop to store time after every min and copy this code to onchange
                                     //var periods = $("clock").countdown('getTimes');
-                                    <?php //copy the time to session variable?>
+<?php //copy the time to session variable         ?>
                                 </script>
                             </div>
 
                             <div class="row" style="padding: 5%">
-                                </br>
+                                <center>
+                                    </br>
 
-                                <button style="margin-bottom: 05px" class="btn btn-lg btn-warning" id="submit_test"  type="submit" >Submit Test</button>
+                                    <button style="margin-bottom: 05px" class="btn btn-lg btn-warning" id="submit_test"  type="submit" >Submit Test</button>
 
+                                </center>
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
 
             </div>
@@ -173,25 +178,26 @@
         function displayQuestion($type, $i)
         {
 
-            echo "<div class=\"row\" style=\"padding:5%\">";
+            echo "<div class=\"panel-heading\" >";
+            echo "<div class=\"row\" style=\"padding:5%; font-size:17px\">";
             echo "<b>Question " . ($i + 1) . " : </b>" . $_SESSION['test']['questions'][$i]['question_desc'] . "<br>";
+            echo "</div>";
+            echo "</div>";
 
-            echo "<b>Answer : </b><br>";
+            echo "<div class=\"panel-body\" style=\"padding-left: 7%\">";
+            echo "<b style=\" font-size:17px\">Answer : </b><br>";
 
             //change to Mcq
             if ($type == "Mcq")
             {
                 displayMcq($i);
-            }
-            elseif ($type == "Subjective")
+            } elseif ($type == "Subjective")
             {
                 displaySubjective($i);
-            }
-            elseif ($type == "Numeric")
+            } elseif ($type == "Numeric")
             {
                 displayNumeric($i);
-            }
-            elseif ($type == "TrueFalse")
+            } elseif ($type == "TrueFalse")
             {
                 displayTrueFalse($i);
             }
@@ -199,44 +205,42 @@
 
         function displayMcq($i)
         {
-            $AOption="";
-            $BOption="";
-            $COption="";
-            $DOption="";
-            
+            $AOption = "";
+            $BOption = "";
+            $COption = "";
+            $DOption = "";
+
             if ($_SESSION['test']['questions'][$i]['response'] == 'A')
             {
                 $AOption = "checked=\"checked\"";
-            }
-            else if ($_SESSION['test']['questions'][$i]['response'] == 'B')
+            } else if ($_SESSION['test']['questions'][$i]['response'] == 'B')
             {
                 $BOption = "checked=\"checked\"";
-            }
-            else if ($_SESSION['test']['questions'][$i]['response'] == 'C')
+            } else if ($_SESSION['test']['questions'][$i]['response'] == 'C')
             {
                 $COption = "checked=\"checked\"";
-            }
-            else if ($_SESSION['test']['questions'][$i]['response'] == 'D')
+            } else if ($_SESSION['test']['questions'][$i]['response'] == 'D')
             {
                 $DOption = "checked=\"checked\"";
             }
 
-
             echo "<div class=\" row \" style=\"padding:3%\">";
-            echo "<input  type = \"radio\" name = \"{$i}\" class =\"option\" value = \"A\" {$AOption} > (A). {$_SESSION['test']['questions'][$i]['optionA']} </br>";
+            echo "<input  type = \"radio\" name = \"{$i}\" class =\"option\" value = \"A\" {$AOption} > {$_SESSION['test']['questions'][$i]['optionA']} </br>";
             echo "</div>";
 
             echo "<div class=\" row \" style=\"padding:3%\">";
-            echo "<input type = \"radio\" name = \"{$i}\" class =\"option\" value = \"B\" {$BOption}> (B). {$_SESSION['test']['questions'][$i]['optionB']}</br>";
+            echo "<input type = \"radio\" name = \"{$i}\" class =\"option\" value = \"B\" {$BOption}> {$_SESSION['test']['questions'][$i]['optionB']}</br>";
             echo "</div>";
 
             echo "<div class=\" row \" style=\"padding:3%\">";
-            echo "<input type = \"radio\" name = \"{$i}\" class =\"option\" value = \"C\" {$COption}> (C).  {$_SESSION['test']['questions'][$i]['optionC']}</br>";
+            echo "<input type = \"radio\" name = \"{$i}\" class =\"option\" value = \"C\" {$COption}> {$_SESSION['test']['questions'][$i]['optionC']}</br>";
             echo "</div>";
 
             echo "<div class=\" row \" style=\"padding:3%\">";
-            echo "<input  type = \"radio\" name = \"{$i}\" class =\"option\" value = \"D\" {$COption}> (D). {$_SESSION['test']['questions'][$i]['optionD']}";
+            echo "<input  type = \"radio\" name = \"{$i}\" class =\"option\" value = \"D\" {$COption}> {$_SESSION['test']['questions'][$i]['optionD']}";
             echo "</div>";
+            
+            
             echo "</div>";
         }
 
