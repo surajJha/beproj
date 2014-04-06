@@ -122,6 +122,7 @@
                         <div class="col-lg-4 col-lg-offset-4">
                             <div class="row"></br>
                                 <div id="clock"></div>
+                                
                                 <!--call to countdown-->
                                 <script type="text/javascript">
                                     //countdown timer
@@ -149,7 +150,7 @@
                                     
                                     //store time of countdown timer
                                     //loop to store time after every min and copy this code to onchange
-                                    var periods = $("clock").countdown('getTimes');
+                                    //var periods = $("clock").countdown('getTimes');
                                     <?php //copy the time to session variable?>
                                 </script>
                             </div>
