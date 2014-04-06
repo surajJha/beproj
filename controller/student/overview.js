@@ -1,5 +1,7 @@
 
 $(document).ready(function() {
+    $("body").hide();
+    
 //GET CLASS DETAILS
     $.ajax(
             {
