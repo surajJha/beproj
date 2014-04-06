@@ -93,7 +93,7 @@ $(document).ready(function()
                                         url: '../../model/teacher/results.php',
                                         success: function(data)
                                         {
-                                            var str = "<div class=\"page-header\"><center><h3>Test Result</h3></center></div>";
+                                            var str = "";
                                             str += "<div class=\"row\"><div class=\"col-lg-offset-2 col-lg-5\">";
                                             str += "<b>Test id : </b> " + test_id + "<br/>";
                                             str += "<b>Subject : </b> " + data.subject_name + "<br/>";

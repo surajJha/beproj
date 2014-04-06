@@ -18,11 +18,11 @@ $(document).ready(function() {
                 {
                     if (data == "error" || data == '')
                     {
-                        $("#test_table").html("<div class=\"col-lg-8\"><h3><strong>Upcoming Tests</strong></h3><hr/>There are no tests scheduled currently!</div><br><br>");
+                        $("#test_table").html("<div  ><h3><strong>Upcoming Tests</strong></h3><hr/>There are no tests scheduled currently!</div><br><br>");
                     }
                     else
                     {
-                        var t = "<div class=\"col-lg-8\"><h3><strong>Upcoming Tests</strong></h3><hr/><div class=\"table-responsive\"><table class=\"table table-striped\">";
+                        var t = "<div  ><h3><strong>Upcoming Tests</strong></h3><hr/><div class=\"table-responsive\"><table class=\"table table-striped\">";
                         t += "<thead><tr> <th>Test-id</th> <th> Test </th> <th>Subject</th> <th>Date</th> <th>Duration</th> </tr></thead>";
                         for (var i = 0; i < data.length; i++)
                         {
@@ -60,11 +60,11 @@ $(document).ready(function() {
                 {
                     if (data == "error" || data == '')
                     {
-                        $("#prev_test_table").html("<div class=\"col-lg-8\"><h3><strong>Previous Tests</strong></h3><hr/>You have not given any tests yet!</div>");
+                        $("#prev_test_table").html("<div  ><h3><strong>Previous Tests</strong></h3><hr/>You have not given any tests yet!</div>");
                     }
                     else
                     {
-                        var t = "<div class=\"col-lg-8\"><h3><strong>Previous Tests</strong></h3><hr/><div class=\"table-responsive\"><table class=\"table table-striped\">"
+                        var t = "<div ><h3><strong>Previous Tests</strong></h3><hr/><div class=\"table-responsive\"><table class=\"table table-striped\">"
                         t += "<thead><tr> <th>Test-id</th> <th> Test </th> <th>Subject</th> <th>Date</th> <th>Duration</th> </tr></thead>";
                         for (var i = 0; i < data.length; i++)
                         {

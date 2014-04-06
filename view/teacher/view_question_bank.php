@@ -27,54 +27,62 @@
                 <div class="col-sm-10 col-sm-offset-2 main">             
 
                     <div class="container" id="view_add_question">
-                        <h4>Select the parameters to view Question Bank!</h4>
-                        <form  id="view_questions" method="post" class="form-horizontal" >
+                        <div class="panel panel-info" style="width: 95%">
+                            <div class="panel-heading">
+                                <h4>Select the parameters to view Question Bank!</h4>
+                            </div>
 
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <label class="control-label" for="vq_standard">Standard</label>
-                                    <select required id="vq_standard" name="vq_standard" class="form-control">
-                                        <!-- dynamically display options through AJAX -->
-                                    </select>
-                                </div>
+                            <div class="panel-body">
 
-                                <div class="col-lg-2">
-                                    <label class="control-label" for="vq_subject">Subject</label>
-                                    <select  required id="vq_subject" name="vq_subject" class="form-control">
-                                        <!-- dynamically display options through AJAX -->
-                                    </select>
-                                </div>
+                                <form  id="view_questions" method="post" class="form-horizontal" >
 
-                                <div class="col-lg-2">
-                                    <label class="control-label" for="vq_topic">Topic</label>
-                                    <select required  id="vq_topic" name="vq_topic" class="form-control">
-                                        <!-- dynamically display options through AJAX -->
-                                    </select>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label class="control-label" for="vq_standard">Standard</label>
+                                            <select required id="vq_standard" name="vq_standard" class="form-control">
+                                                <!-- dynamically display options through AJAX -->
+                                            </select>
+                                        </div>
 
-                                <div class="col-lg-2">
-                                    <label class="control-label" for="vq_type">Type</label>
-                                    <select required id="vq_type" name="vq_type" class="form-control">
-                                        <!-- dynamically display options through AJAX -->
-                                    </select>
-                                </div>
+                                        <div class="col-lg-2">
+                                            <label class="control-label" for="vq_subject">Subject</label>
+                                            <select  required id="vq_subject" name="vq_subject" class="form-control">
+                                                <!-- dynamically display options through AJAX -->
+                                            </select>
+                                        </div>
 
-                                <div class="col-lg-2">
-                                    <label class="control-label" for="vq_level">Level</label>
-                                    <select required id="vq_level" name="vq_level" class="form-control">
-                                        <!-- dynamically display options through AJAX -->
-                                    </select>
-                                </div>
+                                        <div class="col-lg-2">
+                                            <label class="control-label" for="vq_topic">Topic</label>
+                                            <select required  id="vq_topic" name="vq_topic" class="form-control">
+                                                <!-- dynamically display options through AJAX -->
+                                            </select>
+                                        </div>
 
-                                <div class="col-lg-2" style="padding-top: 27px">
-                                    <button id="vq_go_button" type="submit" class="btn btn-primary">Go!</button>
-                                </div>
-                            </div> 
-                        </form>
+                                        <div class="col-lg-2">
+                                            <label class="control-label" for="vq_type">Type</label>
+                                            <select required id="vq_type" name="vq_type" class="form-control">
+                                                <!-- dynamically display options through AJAX -->
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-2">
+                                            <label class="control-label" for="vq_level">Level</label>
+                                            <select required id="vq_level" name="vq_level" class="form-control">
+                                                <!-- dynamically display options through AJAX -->
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-2" style="padding-top: 27px">
+                                            <button id="vq_go_button" type="submit" class="btn btn-primary">Go!</button>
+                                        </div>
+                                    </div> 
+                                </form>
+
+                            </div>
+                        </div>
 
                         <!--****************************************************************************************************-->
 
-                        <hr/>
 
                         <!-- ******* GRID ROW FOR ADD QUESTION BUTTON GROUP**********-->
 

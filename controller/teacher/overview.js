@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    $("body").hide();
+    
     // GET SUBJECT DETAILS
     $.ajax(
             {
@@ -65,6 +67,6 @@ $(document).ready(function() {
                 }
             });
 
-    $("body").fadeIn(3000);
+    $("body").delay(1000).fadeIn(3000);
 
 });

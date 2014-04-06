@@ -14,13 +14,13 @@ $(document).ready(function()
                     {
                         t += "<p><b> A: </b> " + data[i].mcq['optionA'] + "&nbsp;&nbsp;&nbsp; <b>B:</b> " + data[i].mcq['optionB'] + " &nbsp; &nbsp; &nbsp; <b> C: </b> " + data[i].mcq['optionC'] + "&nbsp;&nbsp;&nbsp; <b>D:</b> " + data[i].mcq['optionD'] + " </p>";
                     }
-                    t += "<p><b>Answer:</b> " + data[i].answer + "</p></details></td><td><a href=# class=\"ud btn btn-primary\" id=\"" + data[i].question_id + "\">Update/delete</a></td></tr>";
+                    t += "<p><b>Answer:</b> " + data[i].answer + "</p></details></td></tr>";
             }
             
             t += "</table></div>";
             
             t += "</table></div>";
-            t += " <div class=\"row\" ><div class=\"form-group\"> <button id=\"scq_submit\" class=\"btn btn-lg btn-primary\" type=\"submit\">Submit</button></div></div></form></div>";
+            t += " <div class=\"row\" ><center><div class=\"form-group\"> <button id=\"scq_submit\" class=\"btn btn-lg btn-primary\" type=\"submit\">Submit</button></div></div></form></center></div>";
 
             $("#display_questions").html(t);
 
@@ -35,16 +35,10 @@ $(document).ready(function()
                     data: values,
                     success: function(data)
                     {
-                        window.location="http://localhost/beproj/view/teacher/set_question_paper.php";
-                    },
-                    error: function()
-                    {
-                        alert("Failure");
+                        window.location="http://localhost/beproj/view/teacher/view_tests.php";
                     }
                 });
-                return false;
             });
-            return false;
         },
         error: function()
         {

@@ -27,38 +27,42 @@
                 <div class="col-sm-10 col-sm-offset-2 main">             
 
                     <div class="container">
+                        <div class="panel panel-info" style="width: 90%">
+                            <div class="panel-heading">
+                                <h4>Select the parameters to view Results!</h4><br>
+                            </div>
 
-                        <h4>Select the parameters to view Results!</h4><br>
+                            <div class="panel-body">
 
-                        <form  id="view_results" method="post" class="form-horizontal" >
+                                <form  id="view_results" method="post" class="form-horizontal" >
 
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <select required id="s1" name="s1" class="form-control">
-                                        <option>Select Criteria</option>
-                                        <option>Test Performance Summary</option>
-                                        <option>Student Performance Summary</option>
-                                        <option>Subject Performance Summary</option>
-                                        <option>Class Performance Summary</option>
-                                    </select>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <select required id="s1" name="s1" class="form-control">
+                                                <option>Select Criteria</option>
+                                                <option>Test Performance Summary</option>
+                                                <option>Student Performance Summary</option>
+                                                <option>Subject Performance Summary</option>
+                                                <option>Class Performance Summary</option>
+                                            </select>
+                                        </div>
 
-                                <div class="col-lg-2">
-                                    <select  required id="s2" name="s2" class="form-control">
-                                        <!-- dynamically display options through AJAX -->
-                                    </select>
-                                </div>
+                                        <div class="col-lg-3">
+                                            <select  required id="s2" name="s2" class="form-control">
+                                                <!-- dynamically display options through AJAX -->
+                                            </select>
+                                        </div>
 
-                                <div class="col-lg-2" id="s3"></div>
+                                        <div class="col-lg-3" id="s3"></div>
 
-                                <div class="col-lg-2" id="s4"></div>
+                                        <div class="col-lg-2" id="s4"></div>
 
-                            </div> 
-                        </form>
-                        <hr/>
+                                    </div> 
+                                </form>
+
+                            </div>
+                        </div>
                     </div>
-
-
 
                     <!--to load the contents through ajax -->
                     <div class="col-lg-11" id ="myContent"></div>
@@ -78,15 +82,15 @@
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
 
-        
+
         <script src="../../lib/theme/js/highcharts-all.js"></script>
         <script src="../../lib/theme/js/highcharts-more.js"></script>
         <script src="../../lib/theme/js/highcharts.js"></script>
-        
-        
+
+
         <script src="../../lib/theme/js/data.js"></script>
         <script src="../../lib/theme/js/drilldown.js"></script>
-        
+
         <script src="../../controller/teacher/results.js"></script>
 
     </body>
