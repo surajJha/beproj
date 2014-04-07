@@ -4,49 +4,49 @@
 .countdown-rtl {
 	direction: rtl;
 }
-.countdown-holding span {
+.cc countdown-holding span {
 	color: #888;
 }
-.countdown-row {
+.cc countdown-row {
 	clear: both;
 	width: 100%;
 	padding: 0px 2px;
 	text-align: center;
 }
-.countdown-show1 .countdown-section {
+.cc countdown-show1 .cc countdown-section {
 	width: 98%;
 }
-.countdown-show2 .countdown-section {
+.cc countdown-show2 .cc countdown-section {
 	width: 48%;
 }
-.countdown-show3 .countdown-section {
+.cc countdown-show3 .cc countdown-section {
 	width: 32.5%;
 }
-.countdown-show4 .countdown-section {
+.cc countdown-show4 .cc countdown-section {
 	width: 24.5%;
 }
-.countdown-show5 .countdown-section {
+.cc countdown-show5 .cc countdown-section {
 	width: 19.5%;
 }
-.countdown-show6 .countdown-section {
+.cc countdown-show6 .cc countdown-section {
 	width: 16.25%;
 }
-.countdown-show7 .countdown-section {
+.cc countdown-show7 .cc countdown-section {
 	width: 14%;
 }
-.countdown-section {
+.cc countdown-section {
 	display: block;
 	float: left;
 	font-size: 75%;
 	text-align: center;
 }
-.countdown-amount {
+.cc countdown-amount {
     font-size: 200%;
 }
-.countdown-period {
+.cc countdown-period {
     display: block;
 }
-.countdown-descr {
+.cc countdown-descr {
 	display: block;
 	width: 100%;
 }

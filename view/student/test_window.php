@@ -31,7 +31,6 @@
 
             };
         </script>
-
     </head>
 
 
@@ -49,10 +48,10 @@
 
             <div class="row">
                 </br></br>
-                <div class=" col-lg-7">
-                    <form method="get" id="test_questions">
-                        <div class="row">
-                            <div class="panel panel-primary">
+                <div class=" col-lg-7" id="test_questions">
+                    <form method="get" >
+                        <div class="row"  >
+                            <div class="panel panel-primary" >
 
                                 <?php
                                 session_start();
@@ -69,14 +68,16 @@
                                 if ($i == sizeof($test['questions']) - 1)
                                 {
                                     $next_disabled = "disabled";
-                                } else
+                                }
+                                else
                                 {
                                     $next_disabled = "";
                                 }
                                 if ($i == 0)
                                 {
                                     $previous_disabled = "disabled";
-                                } else
+                                }
+                                else
                                 {
                                     $previous_disabled = "";
                                 }
@@ -88,20 +89,18 @@
                     <div class="row" style="padding: 5%">
                         <div class="col-lg-offset-1 col-lg-3">
 
-                            <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="prev"  type="submit" <?php echo $previous_disabled ?>  >Previous Question</button>
+                            <button style="margin-bottom: 05px" class="btn btn-lg btn-primary" id="prev"  type="submit" <?php echo $previous_disabled; ?>  >Previous Question</button>
                         </div>
                         <div class="col-lg-offset-3 col-lg-3">
 
-                            <button style="margin-bottom: 05px" class="btn btn-lg btn-success" id="next"  type="submit" <?php echo $next_disabled ?> >Next Question</button>
+                            <button style="margin-bottom: 05px" class="btn btn-lg btn-success" id="next"  type="submit" <?php echo $next_disabled; ?> >Next Question</button>
                         </div>
                     </div>
-
                 </div>
 
 
 
                 <div class ="col-lg-offset-1 col-lg-4">
-
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="row">
@@ -156,9 +155,27 @@
                                     });
 
                                     //store time of countdown timer
+                                    setInterval(function() {
+                                        alert("asd");
+                                        var time = $("clock").countdown('getTimes');
+                                        alert(time);
+                                        $.ajax(
+                                                {
+                                                    type: 'POST',
+                                                    url: '../../model/student/save_time.php',
+                                                    cache: false,
+                                                    data: {time:time},
+                                                    success: function(data)
+                                                    {
+                                                        console.log("time stored to database");
+                                                    }
+                                                });
+
+                                    }, 60000);
+                                    //
                                     //loop to store time after every min and copy this code to onchange
-                                    //var periods = $("clock").countdown('getTimes');
-<?php //copy the time to session variable             ?>
+                                    //;
+<?php //copy the time to session variable               ?>
                                 </script>
                             </div>
 
@@ -196,13 +213,16 @@
             if ($type == "Mcq")
             {
                 displayMcq($i);
-            } elseif ($type == "Subjective")
+            }
+            elseif ($type == "Subjective")
             {
                 displaySubjective($i);
-            } elseif ($type == "Numeric")
+            }
+            elseif ($type == "Numeric")
             {
                 displayNumeric($i);
-            } elseif ($type == "TrueFalse")
+            }
+            elseif ($type == "TrueFalse")
             {
                 displayTrueFalse($i);
             }
@@ -218,13 +238,16 @@
             if ($_SESSION['test']['questions'][$i]['response'] == 'A')
             {
                 $AOption = "checked=\"checked\"";
-            } else if ($_SESSION['test']['questions'][$i]['response'] == 'B')
+            }
+            else if ($_SESSION['test']['questions'][$i]['response'] == 'B')
             {
                 $BOption = "checked=\"checked\"";
-            } else if ($_SESSION['test']['questions'][$i]['response'] == 'C')
+            }
+            else if ($_SESSION['test']['questions'][$i]['response'] == 'C')
             {
                 $COption = "checked=\"checked\"";
-            } else if ($_SESSION['test']['questions'][$i]['response'] == 'D')
+            }
+            else if ($_SESSION['test']['questions'][$i]['response'] == 'D')
             {
                 $DOption = "checked=\"checked\"";
             }
