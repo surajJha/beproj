@@ -149,6 +149,7 @@ and r.question_id=q.question_id";
         $x = array();
         while ($row = mysqli_fetch_assoc($result))
         {
+            //var_dump($row['response']);
             if ($row['type'] == "Mcq")
             {
 

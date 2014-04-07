@@ -139,7 +139,7 @@ $(document).ready(function() {
                                                         url: '../../model/student/results.php',
                                                         success: function(data)
                                                         {
-                                                            var str = "";
+                                                            var str = "<div class=\"page-header\"><center><h3>Test Result</h3></center></div>";
                                                             str += "<div class=\"row\"><div class=\"col-lg-offset-2 col-lg-5\">";
                                                             str += "<b>Test id : </b> " + test_id + "<br/>";
                                                             str += "<b>Subject : </b> " + data.subject_name + "<br/>";
@@ -148,10 +148,17 @@ $(document).ready(function() {
                                                             str += "<b>Date : </b> " + data.date + "<br/>";
                                                             str += "<b>Duration : </b> " + data.duration + " mins<br/>";
                                                             str += "</div></div>";
-                                                            str += "<hr>";
+                                                            str += "<div class=\"row\" style=\"color: #006dcc\"><div class=\"col-lg-offset-2 col-lg-5\">";
+                                                            str += "<b>Marks obtained: </b> " + data.marks_obtained + "<br/>";
+                                                            str += "</div><div class=\"col-lg-5\">";
+                                                            str += "<b>Total marks : </b> " + data.total_marks + "<br/>";
+                                                            str += "</div></div><hr>";
+
                                                             $("#test_summary").html(str);
                                                         }
                                                     });
+
+
 
 
                                                     var f = 'q';
@@ -159,7 +166,7 @@ $(document).ready(function() {
                                                         type: 'GET',
                                                         data: {f: f,
                                                             test_id: test_id},
-                                                        url: '../../model/teacher/results.php',
+                                                        url: '../../model/student/results.php',
                                                         success: function(data)
                                                         {
 
@@ -378,7 +385,7 @@ $(document).ready(function() {
 
         var options = {
             chart: {
-                renderTo: 'chart1',
+                renderTo: 'chart2',
                 type: 'column'
             },
             title: {
@@ -517,7 +524,7 @@ $(document).ready(function() {
     {
         var options = {
             chart: {
-                renderTo: 'chart2',
+                renderTo: 'chart1',
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
                 plotShadow: false
