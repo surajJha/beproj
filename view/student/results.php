@@ -42,15 +42,15 @@
                                             <select required id="s1" name="s1" class="form-control">
                                                 <option>Select Criteria</option>
                                                 <option>Test Performance Summary</option>
-                                                <option>Student Performance Summary</option>
+                                                <option>My Performance Summary</option>
                                                 <option>Subject Performance Summary</option>
                                             </select>
                                         </div>
 
-                                        <div class="col-lg-3"></div>
+                                        <div class="col-lg-3" id="s2"></div>
 
                                         <div class="col-lg-3" id="s3"></div>
-
+                                        
                                         <div class="col-lg-2" id="s4"></div>
 
                                     </div> 
@@ -80,7 +80,16 @@
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-        
+
+
+
+        <script src="../../lib/theme/js/highcharts-all.js"></script>
+        <script src="../../lib/theme/js/highcharts-more.js"></script>
+        <script src="../../lib/theme/js/highcharts.js"></script>
+
+
+        <script src="../../lib/theme/js/data.js"></script>
+
         <script src="../../controller/student/results.js"></script>
     </body>
 </html>
