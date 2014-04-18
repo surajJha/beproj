@@ -11,6 +11,8 @@
         <!-- Bootstrap core CSS -->
         <link href="../../lib/theme/css/bootstrap.css" rel="stylesheet">
         <link href="../../lib/theme/css/sidebar.css" rel="stylesheet">         
+        <link rel="stylesheet" href="../../lib/theme/css/design.css" type="text/css" />
+        <script type="text/javascript" src="../../lib/theme/js/drop.js"></script>
     </head>
 
     <body>
@@ -32,13 +34,20 @@
 
                             <div class="page-header"><h3><strong>Manage Academic Year</strong></h3></div>
 
+                            <div id="acad_table">
+                            <!-- MODAL to edit date-->
+
+
+                                
+                                
+                            </div>      
+
                             <form class="form-horizontal"  method="post" id="acad_year_form" >
 
                                 <div class="row">
                                     <div class="form-group col-lg-4" style="padding-left: 80px" >
                                         <label for="acad_start" class="control-label"> Start Date:</label>
-                                        <input type="date" id="acad_start" name="acad_start" class="form-control">
-                                        </input>
+                                        <input type="date" id="acad_start" name="acad_start" class="form-control"></input>                                       </input>
                                     </div> 
                                 </div>
 
@@ -88,7 +97,7 @@
         <script src="../../lib/theme/js/bootstrap.js"></script>
         <script src="../../lib/theme/js/modern-business.js"></script>
         <script src="../../lib/theme/docs-assets/js/holder.js"></script>
-        
+
         <script src="../../controller/admin/manage_academic_year.js"></script>
     </body>
 </html>

@@ -11,6 +11,40 @@ if ($t === "1") {
 } elseif ($t === "4") {
     addClass();
 }
+else if($_POST['field']=='search_class_teacher')
+{
+    search_class_teacher();
+}
+
+function search_class_teacher()
+{
+    require_once '../database.php';
+
+    $query = "SELECT * FROM _year";
+    $result = mysqli_query($connection, $query);
+    $row = mysqli_fetch_assoc($result);
+    $acad_start = $row['acad_start'];
+    $acad_end = $row['acad_end'];
+
+    $user_id = preg_split("/[\s,]+/", $_POST['students']);
+
+    $flag = 0;
+    for ($i = 0; $i < sizeof($user_id); $i++) {
+        $query = "SELECT * FROM user WHERE user_id='{$user_id[$i]}' and type='0'";
+        if (mysqli_query($connection, $query)) {
+
+            $query = "INSERT into student_belongs_to (`user_id`, `standard`, `division`, `acad_start`, `acad_end`) values('{$user_id[$i]}','{$_POST['s_standard']}','{$_POST['s_division']}','{$acad_start}','{$acad_end}')";
+
+            if (mysqli_query($connection, $query)) {
+                continue;
+            } else {
+                $message = "THE ERROR IS" . mysqli_error($connection);
+                $flag = 1;
+                break;
+            }
+        }
+    }
+}
 
 function assignClassTeacher() {
 

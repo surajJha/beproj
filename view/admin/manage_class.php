@@ -46,7 +46,33 @@
                                     <div class="tab-pane active" id="tab1">
                                         <!-- ********CT TAB Content HERE****************-->
                                         <br/>
-                                        <form class="form-horizontal"  type="post" id="assign_class_teacher" >
+                                        <div class ="row">
+                                            <form class="form-horizontal"  method="post" id="find_class_teacher" >
+
+                                                <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                                    <label for="ct_standard" class="control-label"> Standard:</label>
+                                                    <select id="ct_standard" name="ct_standard" class="form-control">
+                                                    </select>
+                                                </div>   
+
+                                                <div class="form-group col-lg-4" style="padding-left: 80px" >
+                                                    <label for="ct_division" class="control-label"> Division:</label>
+                                                    <select id="ct_division" name="ct_division" class="form-control">
+                                                    </select>
+                                                </div>  
+
+                                                <div class="form-group col-lg-4" style="padding-left: 80px">
+                                                    <button id="search_class_teacher" class="btn  btn-primary " type="submit" style="margin-top: 20px">
+                                                        Search
+                                                    </button>
+                                                </div>    
+
+                                            </form>
+                                        </div>
+                                        <div class="row panel-body" id="class_teacher">
+
+                                        </div>
+                                        <form class="form-horizontal"  method="post" id="assign_class_teacher" >
 
                                             <div class="row">
 
@@ -220,14 +246,12 @@
 
                                                 <div class="form-group col-lg-4" style="padding-left: 80px" >
                                                     <label for="set_standard" class="control-label"> Standard:</label>
-                                                    <input type="text" id="set_standard" name="set_standard" class="form-control">
-                                                    </input>
+                                                    <input type="text" id="set_standard" name="set_standard" class="form-control"/>
                                                 </div>   
 
                                                 <div class="form-group col-lg-4" style="padding-left: 80px" >
                                                     <label for="set_division" class="control-label"> Division:</label>
-                                                    <input type="text" id="set_division" name="set_division" class="form-control">
-                                                    </input>
+                                                    <input type="text" id="set_division" name="set_division" class="form-control"/>
                                                 </div>  
                                             </div>
 
@@ -253,30 +277,8 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
-
                         </div>
                     </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 </div>
 
